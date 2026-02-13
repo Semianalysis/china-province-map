@@ -595,9 +595,10 @@
         const geojson = topojson.feature(topo, topo.objects[objKey]);
 
         const projection = d3.geoMercator()
-            .center([105, 35])
-            .scale(Math.min(width, height) * 0.85)
-            .translate([width / 2, height / 2]);
+            .fitSize([width * 0.9, height * 0.9], geojson);
+        // Nudge center slightly to account for padding
+        const [tx, ty] = projection.translate();
+        projection.translate([tx + width * 0.02, ty + height * 0.02]);
 
         const path = d3.geoPath().projection(projection);
 
