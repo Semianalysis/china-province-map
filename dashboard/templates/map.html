@@ -193,6 +193,11 @@
         color: #00D9FF;
         background: #16213e;
     }
+    .company-chip {
+        border: 1px solid #2a2a3e;
+        color: #00D9FF;
+        background: #16213e;
+    }
 
     /* --- Scatter plot --- */
     #scatter-tooltip {
@@ -235,6 +240,21 @@
             </div>
         </button>
     </div>
+    <div class="px-6 pt-1 pb-1" id="companies-strip" style="display:none;">
+        <button id="companies-open" class="w-full text-left bg-sa-card rounded-lg border border-sa-border px-4 py-3 hover:border-sa-cyan transition-colors">
+            <div class="flex items-center justify-between gap-3">
+                <div>
+                    <div class="text-[11px] uppercase tracking-wider text-sa-muted">Company Profiles</div>
+                    <div class="text-white font-semibold text-sm mt-0.5">
+                        <span id="companies-count">0</span> profiled companies
+                        <span class="text-sa-muted font-normal">· combined revenue</span>
+                        <span id="companies-revenue" class="text-sa-cyan">¥0B</span>
+                    </div>
+                </div>
+                <div class="text-xs text-sa-cyan border border-sa-cyan rounded px-2 py-1">View Profiles</div>
+            </div>
+        </button>
+    </div>
 
     <div id="stories-modal" class="fixed inset-0 z-[120] hidden">
         <div id="stories-backdrop" class="absolute inset-0 bg-black/60"></div>
@@ -267,6 +287,40 @@
                 </div>
             </div>
             <div class="p-5 space-y-3" id="stories-list"></div>
+        </div>
+    </div>
+
+    <div id="companies-modal" class="fixed inset-0 z-[121] hidden">
+        <div id="companies-backdrop" class="absolute inset-0 bg-black/60"></div>
+        <div class="relative h-full w-full p-2 sm:p-4">
+            <div class="mx-auto h-full w-full max-w-6xl overflow-y-auto rounded-lg border border-sa-border bg-sa-card shadow-2xl">
+                <div class="sticky top-0 z-10 bg-sa-card border-b border-sa-border px-5 py-4">
+                    <div class="flex items-center justify-between gap-3 mb-3">
+                        <div>
+                            <h3 class="text-white font-semibold text-base">Company Profiles</h3>
+                            <p class="text-sa-muted text-xs" id="companies-modal-meta"></p>
+                        </div>
+                        <button id="companies-close" class="text-sa-muted hover:text-white text-lg leading-none p-1">&times;</button>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-2">
+                        <input
+                            id="companies-search"
+                            type="text"
+                            placeholder="Search company, model, province..."
+                            class="flex-1 min-w-[220px] bg-sa-bg border border-sa-border rounded-md px-3 py-2 text-sm text-white placeholder-sa-muted outline-none focus:border-sa-cyan"
+                        />
+                        <select
+                            id="companies-type-filter"
+                            class="bg-sa-bg border border-sa-border rounded-md px-2.5 py-2 text-xs text-white outline-none focus:border-sa-cyan"
+                        >
+                            <option value="">All Types</option>
+                            <option value="semiconductor">Semiconductor</option>
+                            <option value="ai">AI</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="p-5 space-y-3" id="companies-list"></div>
+            </div>
         </div>
     </div>
 
@@ -455,6 +509,7 @@
     let sortedProvinces = []; // for keyboard nav
     let fabEntities = [];
     let topStories = [];
+    let companyProfiles = [];
     let storiesMode = 'feed';
     let focusIndex = -1;
     let activeView = 'split';
@@ -483,11 +538,23 @@
     const storiesCount = document.getElementById('stories-count');
     const storiesModalMeta = document.getElementById('stories-modal-meta');
     const storiesList = document.getElementById('stories-list');
+    const companiesStrip = document.getElementById('companies-strip');
+    const companiesOpenBtn = document.getElementById('companies-open');
+    const companiesCount = document.getElementById('companies-count');
+    const companiesRevenue = document.getElementById('companies-revenue');
+    const companiesModal = document.getElementById('companies-modal');
+    const companiesBackdrop = document.getElementById('companies-backdrop');
+    const companiesCloseBtn = document.getElementById('companies-close');
+    const companiesSearch = document.getElementById('companies-search');
+    const companiesTypeFilter = document.getElementById('companies-type-filter');
+    const companiesModalMeta = document.getElementById('companies-modal-meta');
+    const companiesList = document.getElementById('companies-list');
 
     function syncBodyScrollLock() {
         const hasStoriesOpen = !storiesModal.classList.contains('hidden');
         const hasProvinceOpen = !provinceModal.classList.contains('hidden');
-        document.body.style.overflow = (hasStoriesOpen || hasProvinceOpen) ? 'hidden' : '';
+        const hasCompaniesOpen = !companiesModal.classList.contains('hidden');
+        document.body.style.overflow = (hasStoriesOpen || hasProvinceOpen || hasCompaniesOpen) ? 'hidden' : '';
     }
 
     function setView(view) {
@@ -900,6 +967,146 @@
 
     function closeStoriesModal() {
         storiesModal.classList.add('hidden');
+        syncBodyScrollLock();
+    }
+
+    function normalizeProvinceName(value) {
+        return String(value || '')
+            .toLowerCase()
+            .replace(/\b(province|municipality|autonomous region|special administrative region)\b/g, '')
+            .replace(/\s+/g, ' ')
+            .trim();
+    }
+
+    function buildCompanyProfiles(payload) {
+        const semi = Array.isArray(payload?.semi_companies) ? payload.semi_companies : [];
+        const ai = Array.isArray(payload?.ai_companies) ? payload.ai_companies : [];
+
+        companyProfiles = [
+            ...semi.map((c, idx) => ({
+                id: 'semi_' + idx,
+                type: 'semiconductor',
+                ...c,
+            })),
+            ...ai.map((c, idx) => ({
+                id: 'ai_' + idx,
+                type: 'ai',
+                ...c,
+            })),
+        ];
+    }
+
+    function renderCompanyHeading() {
+        if (!companyProfiles.length) {
+            companiesStrip.style.display = 'none';
+            return;
+        }
+        const totalRevenue = companyProfiles.reduce((sum, c) => sum + (Number(c.revenue_b_cny) || 0), 0);
+        companiesStrip.style.display = 'block';
+        companiesCount.textContent = companyProfiles.length.toLocaleString();
+        companiesRevenue.textContent = '\u00a5' + Math.round(totalRevenue).toLocaleString() + 'B';
+
+        const semiCount = companyProfiles.filter(c => c.type === 'semiconductor').length;
+        const aiCount = companyProfiles.filter(c => c.type === 'ai').length;
+        companiesModalMeta.textContent = semiCount + ' semiconductor + ' + aiCount + ' AI profiles';
+    }
+
+    function findProvinceAdcodeByName(provinceName) {
+        const target = normalizeProvinceName(provinceName);
+        if (!target) return null;
+        const found = Object.entries(provinceData).find(([, p]) =>
+            normalizeProvinceName(p.name_en) === target || normalizeProvinceName(p.name_cn) === target
+        );
+        return found ? found[0] : null;
+    }
+
+    function renderCompanyList() {
+        const q = (companiesSearch.value || '').trim().toLowerCase();
+        const typeFilter = companiesTypeFilter.value || '';
+        const rows = companyProfiles
+            .filter(c => !typeFilter || c.type === typeFilter)
+            .filter(c => {
+                if (!q) return true;
+                const haystack = [
+                    c.name,
+                    c.name_cn,
+                    c.hq_city,
+                    c.hq_province,
+                    c.sub_type,
+                    c.key_products,
+                    c.flagship_model,
+                    c.profile,
+                    c.ticker,
+                ].join(' ').toLowerCase();
+                return haystack.includes(q);
+            })
+            .sort((a, b) => (Number(b.valuation_b_cny) || 0) - (Number(a.valuation_b_cny) || 0));
+
+        companiesList.innerHTML = rows.map((c, i) => {
+            const adcode = findProvinceAdcodeByName(c.hq_province);
+            const revenue = Number(c.revenue_b_cny) || 0;
+            const valuation = Number(c.valuation_b_cny) || 0;
+            const facts = Array.isArray(c.key_facts) ? c.key_facts.slice(0, 2) : [];
+            const typeLabel = c.type === 'semiconductor' ? 'Semiconductor' : 'AI';
+            const typeClass = c.type === 'semiconductor'
+                ? 'text-sa-gold border-sa-gold/40 bg-yellow-900/20'
+                : 'text-sa-cyan border-sa-cyan/40 bg-cyan-900/20';
+            return '<article class="bg-sa-navy/30 rounded-lg border border-sa-border p-3">' +
+                '<div class="flex items-start justify-between gap-3">' +
+                    '<div>' +
+                        '<div class="text-[11px] uppercase tracking-wider text-sa-muted mb-1">Profile ' + (i + 1) + '</div>' +
+                        '<h4 class="text-white font-semibold text-sm">' + escapeHtml(c.name || 'Unknown') +
+                            (c.name_cn ? ' <span class="text-sa-muted text-xs font-normal">' + escapeHtml(c.name_cn) + '</span>' : '') +
+                        '</h4>' +
+                        '<div class="mt-1 flex flex-wrap items-center gap-1.5">' +
+                            '<span class="company-chip text-[11px] px-2 py-0.5 rounded-full border ' + typeClass + '">' + typeLabel + '</span>' +
+                            (c.sub_type ? '<span class="company-chip text-[11px] px-2 py-0.5 rounded-full">' + escapeHtml(c.sub_type) + '</span>' : '') +
+                            (c.hq_province ? '<span class="company-chip text-[11px] px-2 py-0.5 rounded-full">' + escapeHtml(c.hq_province) + '</span>' : '') +
+                        '</div>' +
+                    '</div>' +
+                    (adcode
+                        ? '<button class="company-open-item text-xs px-2 py-1 rounded border border-sa-gold text-sa-gold hover:bg-sa-gold hover:text-sa-bg" data-adcode="' + adcode + '">Open Province</button>'
+                        : '') +
+                '</div>' +
+                '<div class="mt-2 grid grid-cols-2 md:grid-cols-5 gap-2 text-xs">' +
+                    '<div class="text-sa-muted">Founded<br><span class="text-white">' + escapeHtml(c.founded || 'N/A') + '</span></div>' +
+                    '<div class="text-sa-muted">Revenue<br><span class="text-sa-cyan">' + (revenue ? ('\u00a5' + Math.round(revenue).toLocaleString() + 'B') : 'N/A') + '</span></div>' +
+                    '<div class="text-sa-muted">Valuation<br><span class="text-sa-cyan">' + (valuation ? ('\u00a5' + Math.round(valuation).toLocaleString() + 'B') : 'N/A') + '</span></div>' +
+                    '<div class="text-sa-muted">Employees<br><span class="text-white">' + ((Number(c.employees) || 0) ? Number(c.employees).toLocaleString() : 'N/A') + '</span></div>' +
+                    '<div class="text-sa-muted">Ticker<br><span class="text-white">' + escapeHtml(c.ticker || (c.public ? 'Public' : 'Private')) + '</span></div>' +
+                '</div>' +
+                ((c.flagship_model || c.key_products)
+                    ? '<p class="text-sa-muted text-xs mt-2 leading-relaxed">' +
+                        (c.flagship_model ? ('<span class="text-sa-cyan">Flagship:</span> ' + escapeHtml(c.flagship_model) + '. ') : '') +
+                        (c.key_products ? escapeHtml(c.key_products) : '') +
+                      '</p>'
+                    : '') +
+                (facts.length
+                    ? '<ul class="mt-2 space-y-1">' +
+                        facts.map(f => '<li class="text-sa-muted text-xs leading-relaxed">- ' + escapeHtml(f) + '</li>').join('') +
+                      '</ul>'
+                    : '') +
+            '</article>';
+        }).join('');
+
+        if (!rows.length) {
+            companiesList.innerHTML = '<p class="text-sm text-sa-muted">No company profiles match your search.</p>';
+        }
+
+        companiesModalMeta.textContent = rows.length + ' of ' + companyProfiles.length + ' profiles';
+    }
+
+    function openCompaniesModal() {
+        if (!companyProfiles.length) return;
+        companiesModal.classList.remove('hidden');
+        companiesSearch.value = '';
+        companiesTypeFilter.value = '';
+        syncBodyScrollLock();
+        renderCompanyList();
+    }
+
+    function closeCompaniesModal() {
+        companiesModal.classList.add('hidden');
         syncBodyScrollLock();
     }
 
@@ -1370,6 +1577,10 @@
                 closeStoriesModal();
                 return;
             }
+            if (!companiesModal.classList.contains('hidden')) {
+                closeCompaniesModal();
+                return;
+            }
             if (!provinceModal.classList.contains('hidden')) {
                 window.closePanel();
             }
@@ -1465,8 +1676,9 @@
 
     Promise.all([
         d3.json('/static/china-provinces-source.topo.json'),
-        fetch('/api/provinces').then(r => r.json())
-    ]).then(([topology, data]) => {
+        fetch('/api/provinces').then(r => r.json()),
+        fetch('/api/company-profiles').then(r => r.json()).catch(() => ({ semi_companies: [], ai_companies: [] })),
+    ]).then(([topology, data, companyData]) => {
         provinceData = data;
         window.provinceData = data;
         buildMetricModels();
@@ -1599,7 +1811,9 @@
         populateFabStatusFilter();
         buildFabEntityTable();
         buildTopStories();
+        buildCompanyProfiles(companyData);
         renderStoriesHeading();
+        renderCompanyHeading();
         setLens('industrial');
         buildFundingScatter();
 
@@ -1611,6 +1825,11 @@
         storiesOpenBtn.addEventListener('click', openStoriesModal);
         storiesCloseBtn.addEventListener('click', closeStoriesModal);
         storiesBackdrop.addEventListener('click', closeStoriesModal);
+        companiesOpenBtn.addEventListener('click', openCompaniesModal);
+        companiesCloseBtn.addEventListener('click', closeCompaniesModal);
+        companiesBackdrop.addEventListener('click', closeCompaniesModal);
+        companiesSearch.addEventListener('input', renderCompanyList);
+        companiesTypeFilter.addEventListener('change', renderCompanyList);
         provinceBackdrop.addEventListener('click', window.closePanel);
         storiesSearch.addEventListener('input', renderStoriesList);
         storiesTagFilter.addEventListener('change', renderStoriesList);
@@ -1629,6 +1848,15 @@
             const adcode = button.dataset.adcode;
             if (!adcode) return;
             closeStoriesModal();
+            setView('split');
+            openPanel(adcode);
+        });
+        companiesList.addEventListener('click', (event) => {
+            const button = event.target.closest('.company-open-item');
+            if (!button) return;
+            const adcode = button.dataset.adcode;
+            if (!adcode) return;
+            closeCompaniesModal();
             setView('split');
             openPanel(adcode);
         });
