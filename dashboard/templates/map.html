@@ -508,6 +508,7 @@
     let selectedAdcode = null;
     let paths, labelGroup, clusterGroup;
     let colorScale;
+    let colorScaleMode = 'linear';
     let sortedProvinces = []; // for keyboard nav
     let fabEntities = [];
     let topStories = [];
@@ -795,7 +796,25 @@
     function makeColorScale(metric) {
         const values = Object.values(provinceData).map(p => metricValue(p, metric));
         const max = Math.max(...values) || 1;
-        return v => saColorInterpolator(v / max);
+        const nonZero = values.filter(v => v > 0);
+        const sortedNonZero = nonZero.slice().sort((a, b) => a - b);
+        const median = sortedNonZero.length ? d3.quantileSorted(sortedNonZero, 0.5) || 0 : 0;
+        const skewRatio = median > 0 ? max / median : Infinity;
+        const sparseOrSkewed = nonZero.length <= 10 || skewRatio >= 8;
+
+        if (!sparseOrSkewed) {
+            colorScaleMode = 'linear';
+            return v => saColorInterpolator(v / max);
+        }
+
+        const sorted = values.slice().sort((a, b) => a - b);
+        const n = Math.max(sorted.length - 1, 1);
+        colorScaleMode = 'rank';
+        return v => {
+            const idx = d3.bisectLeft(sorted, Number(v) || 0);
+            const t = idx / n;
+            return saColorInterpolator(0.08 + 0.92 * t);
+        };
     }
 
     function fmtValue(adcode, metric) {
@@ -1265,7 +1284,7 @@
             stops.push(saColorInterpolator(t) + ' ' + (t * 100) + '%');
         }
         bar.style.background = 'linear-gradient(to right, ' + stops.join(', ') + ')';
-        document.getElementById('legend-label').textContent = '0';
+        document.getElementById('legend-label').textContent = colorScaleMode === 'rank' ? 'low' : '0';
         document.getElementById('legend-max-label').textContent = metricMeta[activeMetric].format(max);
     }
 
