@@ -210,21 +210,38 @@
 {% block content %}
 <div class="relative" id="app-root">
     <div class="px-6 pt-4 pb-1" id="stories-strip" style="display:none;">
-        <div class="bg-sa-card rounded-lg border border-sa-border px-4 py-3 flex flex-wrap items-start gap-3">
-            <div class="min-w-0 flex-1">
-                <div class="text-[11px] uppercase tracking-wider text-sa-muted mb-1">
-                    Strategic Storyline <span id="story-position"></span>
+        <button id="stories-open" class="w-full text-left bg-sa-card rounded-lg border border-sa-border px-4 py-3 hover:border-sa-gold transition-colors">
+            <div class="flex items-center justify-between gap-3">
+                <div>
+                    <div class="text-[11px] uppercase tracking-wider text-sa-muted">Strategic Storyline</div>
+                    <div class="text-white font-semibold text-sm mt-0.5">
+                        <span id="stories-count">0</span> major industrial stories across provinces
+                    </div>
                 </div>
-                <div class="text-white font-semibold text-sm" id="story-headline"></div>
-                <div class="text-sa-cyan text-xs mt-1" id="story-province"></div>
-                <p class="text-sa-muted text-xs mt-1.5 leading-relaxed" id="story-body"></p>
-                <div class="mt-2 flex flex-wrap gap-1.5" id="story-tags"></div>
+                <div class="text-xs text-sa-gold border border-sa-gold rounded px-2 py-1">View All Stories</div>
             </div>
-            <div class="flex items-center gap-1.5">
-                <button id="story-prev" class="text-xs px-2.5 py-1 rounded border border-sa-border text-sa-muted hover:text-sa-gold hover:border-sa-gold">Prev</button>
-                <button id="story-next" class="text-xs px-2.5 py-1 rounded border border-sa-border text-sa-muted hover:text-sa-gold hover:border-sa-gold">Next</button>
-                <button id="story-open" class="text-xs px-2.5 py-1 rounded border border-sa-gold text-sa-gold hover:bg-sa-gold hover:text-sa-bg">Open Province</button>
+        </button>
+    </div>
+
+    <div id="stories-modal" class="fixed inset-0 z-[120] hidden">
+        <div id="stories-backdrop" class="absolute inset-0 bg-black/60"></div>
+        <div class="absolute right-0 top-0 h-full w-full max-w-3xl bg-sa-card border-l border-sa-border overflow-y-auto">
+            <div class="sticky top-0 z-10 bg-sa-card border-b border-sa-border px-5 py-4">
+                <div class="flex items-center justify-between gap-3 mb-3">
+                    <div>
+                        <h3 class="text-white font-semibold text-base">Strategic Storyline</h3>
+                        <p class="text-sa-muted text-xs" id="stories-modal-meta"></p>
+                    </div>
+                    <button id="stories-close" class="text-sa-muted hover:text-white text-lg leading-none p-1">&times;</button>
+                </div>
+                <input
+                    id="stories-search"
+                    type="text"
+                    placeholder="Search stories, province, tags..."
+                    class="w-full bg-sa-bg border border-sa-border rounded-md px-3 py-2 text-sm text-white placeholder-sa-muted outline-none focus:border-sa-cyan"
+                />
             </div>
+            <div class="p-5 space-y-3" id="stories-list"></div>
         </div>
     </div>
 
@@ -385,8 +402,6 @@
     let sortedProvinces = []; // for keyboard nav
     let fabEntities = [];
     let topStories = [];
-    let activeStoryIndex = 0;
-    let storyTimer = null;
     let focusIndex = -1;
     let activeView = 'split';
 
@@ -401,14 +416,14 @@
     const fabStatusFilter = document.getElementById('fab-status-filter');
     const fabSortSelect = document.getElementById('fab-sort');
     const storiesStrip = document.getElementById('stories-strip');
-    const storyPosition = document.getElementById('story-position');
-    const storyHeadline = document.getElementById('story-headline');
-    const storyProvince = document.getElementById('story-province');
-    const storyBody = document.getElementById('story-body');
-    const storyTags = document.getElementById('story-tags');
-    const storyPrevBtn = document.getElementById('story-prev');
-    const storyNextBtn = document.getElementById('story-next');
-    const storyOpenBtn = document.getElementById('story-open');
+    const storiesOpenBtn = document.getElementById('stories-open');
+    const storiesModal = document.getElementById('stories-modal');
+    const storiesBackdrop = document.getElementById('stories-backdrop');
+    const storiesCloseBtn = document.getElementById('stories-close');
+    const storiesSearch = document.getElementById('stories-search');
+    const storiesCount = document.getElementById('stories-count');
+    const storiesModalMeta = document.getElementById('stories-modal-meta');
+    const storiesList = document.getElementById('stories-list');
 
     function setView(view) {
         activeView = view;
@@ -644,32 +659,70 @@
         topStories.sort((a, b) => (b.score - a.score) || (a.story_order - b.story_order));
     }
 
-    function renderStory(index) {
+    function renderStoriesHeading() {
         if (!topStories.length) {
             storiesStrip.style.display = 'none';
             return;
         }
         storiesStrip.style.display = 'block';
-        activeStoryIndex = ((index % topStories.length) + topStories.length) % topStories.length;
-        const story = topStories[activeStoryIndex];
-
-        storyPosition.textContent = '(' + (activeStoryIndex + 1) + '/' + topStories.length + ')';
-        storyHeadline.textContent = story.headline;
-        storyProvince.textContent = story.province_en + (story.province_cn ? ' · ' + story.province_cn : '');
-        storyBody.textContent = story.body;
-        storyTags.innerHTML = story.tags.map(tag =>
-            '<span class="story-tag text-[11px] px-2 py-0.5 rounded-full">' + escapeHtml(tag) + '</span>'
-        ).join('');
+        storiesCount.textContent = topStories.length.toLocaleString();
+        storiesModalMeta.textContent = topStories.length + ' stories from ' + Object.keys(provinceData).length + ' provinces';
     }
 
-    function startStoryRotation() {
-        if (storyTimer) {
-            clearInterval(storyTimer);
-            storyTimer = null;
+    function renderStoriesList() {
+        const q = (storiesSearch.value || '').trim().toLowerCase();
+        const filtered = topStories.filter(story => {
+            if (!q) return true;
+            const haystack = [
+                story.headline,
+                story.body,
+                story.province_en,
+                story.province_cn,
+                ...(story.tags || []),
+            ].join(' ').toLowerCase();
+            return haystack.includes(q);
+        });
+
+        storiesList.innerHTML = filtered.map((story, i) =>
+            '<article class="bg-sa-navy/30 rounded-lg border border-sa-border p-3">' +
+                '<div class="flex items-start justify-between gap-3">' +
+                    '<div>' +
+                        '<div class="text-[11px] uppercase tracking-wider text-sa-muted mb-1">Story ' + (i + 1) + '</div>' +
+                        '<h4 class="text-white font-semibold text-sm">' + escapeHtml(story.headline) + '</h4>' +
+                        '<p class="text-sa-cyan text-xs mt-1">' + escapeHtml(story.province_en) +
+                            (story.province_cn ? ' · ' + escapeHtml(story.province_cn) : '') + '</p>' +
+                    '</div>' +
+                    '<button class="story-open-item text-xs px-2 py-1 rounded border border-sa-gold text-sa-gold hover:bg-sa-gold hover:text-sa-bg" data-adcode="' + story.adcode + '">' +
+                        'Open Province' +
+                    '</button>' +
+                '</div>' +
+                '<p class="text-sa-muted text-xs mt-2 leading-relaxed">' + escapeHtml(story.body) + '</p>' +
+                '<div class="mt-2 flex flex-wrap gap-1.5">' +
+                    (story.tags || []).map(tag =>
+                        '<span class="story-tag text-[11px] px-2 py-0.5 rounded-full">' + escapeHtml(tag) + '</span>'
+                    ).join('') +
+                '</div>' +
+            '</article>'
+        ).join('');
+
+        if (!filtered.length) {
+            storiesList.innerHTML = '<p class="text-sm text-sa-muted">No stories match your search.</p>';
         }
-        if (topStories.length > 1) {
-            storyTimer = setInterval(() => renderStory(activeStoryIndex + 1), 9000);
-        }
+
+        storiesModalMeta.textContent = filtered.length + ' of ' + topStories.length + ' stories';
+    }
+
+    function openStoriesModal() {
+        if (!topStories.length) return;
+        storiesModal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+        storiesSearch.value = '';
+        renderStoriesList();
+    }
+
+    function closeStoriesModal() {
+        storiesModal.classList.add('hidden');
+        document.body.style.overflow = '';
     }
 
     function populateFabStatusFilter() {
@@ -971,6 +1024,10 @@
     document.addEventListener('keydown', function(e) {
         // Escape closes panel
         if (e.key === 'Escape') {
+            if (!storiesModal.classList.contains('hidden')) {
+                closeStoriesModal();
+                return;
+            }
             window.closePanel();
             return;
         }
@@ -1173,20 +1230,6 @@
                 .attr('stroke-width', 0.5);
         }
 
-        // Nine-dash line dots
-        const dashPoints = [
-            [112, 5], [114, 8], [116, 11], [117, 14], [116, 17], [113, 19], [110, 17]
-        ];
-        dashPoints.forEach(([lng, lat]) => {
-            const [dx, dy] = d3.geoMercator()
-                .center([110, 12])
-                .scale(120)
-                .translate([seaBoxX + 50, seaBoxY + 52])([lng, lat]);
-            seaGroup.append('circle')
-                .attr('cx', dx).attr('cy', dy).attr('r', 1)
-                .attr('fill', '#3a3a5e');
-        });
-
         recolor(false);
         buildRankings();
         updateStatCards();
@@ -1194,26 +1237,25 @@
         populateFabStatusFilter();
         buildFabEntityTable();
         buildTopStories();
-        renderStory(0);
-        startStoryRotation();
+        renderStoriesHeading();
 
         // Fab entity controls
         fabSearchInput.addEventListener('input', buildFabEntityTable);
         fabStatusFilter.addEventListener('change', buildFabEntityTable);
         fabSortSelect.addEventListener('change', buildFabEntityTable);
 
-        storyPrevBtn.addEventListener('click', () => {
-            renderStory(activeStoryIndex - 1);
-            startStoryRotation();
-        });
-        storyNextBtn.addEventListener('click', () => {
-            renderStory(activeStoryIndex + 1);
-            startStoryRotation();
-        });
-        storyOpenBtn.addEventListener('click', () => {
-            if (!topStories.length) return;
+        storiesOpenBtn.addEventListener('click', openStoriesModal);
+        storiesCloseBtn.addEventListener('click', closeStoriesModal);
+        storiesBackdrop.addEventListener('click', closeStoriesModal);
+        storiesSearch.addEventListener('input', renderStoriesList);
+        storiesList.addEventListener('click', (event) => {
+            const button = event.target.closest('.story-open-item');
+            if (!button) return;
+            const adcode = button.dataset.adcode;
+            if (!adcode) return;
+            closeStoriesModal();
             setView('split');
-            openPanel(topStories[activeStoryIndex].adcode);
+            openPanel(adcode);
         });
 
         // Zoom (wheel is disabled to preserve normal page scroll behavior)
