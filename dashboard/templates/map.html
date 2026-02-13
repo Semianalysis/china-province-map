@@ -1193,43 +1193,6 @@
                 .text(c.label);
         });
 
-        // South China Sea inset box
-        const seaBoxX = width - 100;
-        const seaBoxY = height - 90;
-        const seaGroup = svg.append('g').attr('class', 'sea-inset');
-        seaGroup.append('rect')
-            .attr('x', seaBoxX)
-            .attr('y', seaBoxY)
-            .attr('width', 85)
-            .attr('height', 75)
-            .attr('fill', '#0f0f23')
-            .attr('stroke', '#2a2a3e')
-            .attr('stroke-width', 1)
-            .attr('rx', 4);
-        seaGroup.append('text')
-            .attr('x', seaBoxX + 42)
-            .attr('y', seaBoxY + 14)
-            .attr('text-anchor', 'middle')
-            .attr('fill', '#8888aa')
-            .attr('font-size', '7px')
-            .text('South China Sea');
-
-        // Tiny Hainan representation
-        const hainanFeature = provinceFeatures.find(f => String(f.properties.adcode) === '460000');
-        if (hainanFeature) {
-            const miniProj = d3.geoMercator()
-                .center([110, 19])
-                .scale(250)
-                .translate([seaBoxX + 30, seaBoxY + 48]);
-            const miniPath = d3.geoPath().projection(miniProj);
-            seaGroup.append('path')
-                .datum(hainanFeature)
-                .attr('d', miniPath)
-                .attr('fill', '#1a1a2e')
-                .attr('stroke', '#2a2a3e')
-                .attr('stroke-width', 0.5);
-        }
-
         recolor(false);
         buildRankings();
         updateStatCards();
