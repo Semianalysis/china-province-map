@@ -161,6 +161,24 @@
         font-weight: 600;
     }
 
+    /* --- Lens tabs --- */
+    .lens-tab {
+        border: 1px solid #2a2a3e;
+        color: #8888aa;
+        background: transparent;
+        transition: all 0.2s ease;
+    }
+    .lens-tab:hover {
+        border-color: #f0b429;
+        color: #f0b429;
+    }
+    .lens-tab.active {
+        border-color: #f0b429;
+        color: #0f0f23;
+        background: #f0b429;
+        font-weight: 600;
+    }
+
     /* --- Fab entities table --- */
     .fab-row {
         transition: background 0.12s ease;
@@ -174,6 +192,29 @@
         border: 1px solid #2a2a3e;
         color: #00D9FF;
         background: #16213e;
+    }
+
+    /* --- Scatter plot --- */
+    #scatter-tooltip {
+        position: fixed;
+        pointer-events: none;
+        z-index: 140;
+        background: #1a1a2e;
+        border: 1px solid #3a3a5e;
+        border-radius: 8px;
+        padding: 8px 10px;
+        font-size: 12px;
+        opacity: 0;
+        transition: opacity 0.15s ease;
+        min-width: 180px;
+    }
+    #scatter-tooltip.visible { opacity: 1; }
+    .scatter-dot {
+        cursor: pointer;
+        transition: r 0.12s ease, stroke-width 0.12s ease;
+    }
+    .scatter-dot:hover {
+        stroke-width: 2.5;
     }
 
 </style>
@@ -212,6 +253,18 @@
                     placeholder="Search stories, province, tags..."
                     class="w-full bg-sa-bg border border-sa-border rounded-md px-3 py-2 text-sm text-white placeholder-sa-muted outline-none focus:border-sa-cyan"
                 />
+                <div class="mt-3 flex flex-wrap items-center gap-2">
+                    <div class="inline-flex items-center gap-1 rounded-full border border-sa-border bg-sa-bg/60 px-1 py-1" id="stories-mode-tabs">
+                        <button class="view-tab active px-3 py-1 rounded-full text-xs" data-stories-mode="feed">Feed</button>
+                        <button class="view-tab px-3 py-1 rounded-full text-xs" data-stories-mode="timeline">Timeline</button>
+                    </div>
+                    <select
+                        id="stories-tag-filter"
+                        class="bg-sa-bg border border-sa-border rounded-md px-2.5 py-1.5 text-xs text-white outline-none focus:border-sa-cyan"
+                    >
+                        <option value="">All Tags</option>
+                    </select>
+                </div>
             </div>
             <div class="p-5 space-y-3" id="stories-list"></div>
         </div>
@@ -235,11 +288,11 @@
         </div>
         <div class="stat-card">
             <div class="stat-value text-sa-cyan" id="sc-fab-provinces">--</div>
-            <div class="stat-label text-sa-muted">Provinces with Active Fabs</div>
+            <div class="stat-label text-sa-muted" id="sc-fab-provinces-label">Provinces with Active Fabs</div>
         </div>
         <div class="stat-card">
             <div class="stat-value text-white" id="sc-top-province">--</div>
-            <div class="stat-label text-sa-muted">Top Province (Score)</div>
+            <div class="stat-label text-sa-muted" id="sc-top-province-label">Top Province (Score)</div>
         </div>
         <div class="stat-card">
             <div class="stat-value text-sa-coral" id="sc-secondary">--</div>
@@ -249,6 +302,10 @@
 
     <!-- Metric Tabs + Summary -->
     <div class="px-6 py-3 flex flex-wrap items-center gap-2" id="metric-tabs">
+        <div class="inline-flex items-center gap-1.5 bg-sa-card/60 rounded-full px-1.5 py-1 border border-sa-border" id="lens-tabs">
+            <button class="lens-tab active px-3 py-1 rounded-full text-xs" data-lens="industrial">Industrial Lens</button>
+            <button class="lens-tab px-3 py-1 rounded-full text-xs" data-lens="funding">Funding Lens</button>
+        </div>
         <div class="flex flex-wrap items-center gap-2" id="metric-tab-buttons"></div>
         <div class="ml-3 metric-summary text-sm" id="metric-summary">
             <span class="text-sa-muted">National avg:</span>
@@ -261,6 +318,7 @@
             <button class="view-tab active px-3 py-1 rounded-full text-xs" data-view="split">Split</button>
             <button class="view-tab px-3 py-1 rounded-full text-xs" data-view="map">Map</button>
             <button class="view-tab px-3 py-1 rounded-full text-xs" data-view="table">Table</button>
+            <button class="view-tab px-3 py-1 rounded-full text-xs" data-view="scatter">Scatter</button>
         </div>
     </div>
 
@@ -293,6 +351,19 @@
             </div>
         </div>
 
+    </div>
+
+    <!-- Rankings Table -->
+    <div class="px-6 py-6" id="scatter-section" style="display:none;">
+        <h3 class="text-sm font-semibold text-sa-muted uppercase tracking-wider mb-3">
+            Funding Vs Output — Province Efficiency Map
+        </h3>
+        <div class="bg-sa-card rounded-lg border border-sa-border overflow-hidden">
+            <div id="scatter-container" class="relative" style="height: 560px;">
+                <svg id="funding-scatter" style="display:block; width:100%; height:100%;"></svg>
+                <div id="scatter-tooltip"></div>
+            </div>
+        </div>
     </div>
 
     <!-- Rankings Table -->
@@ -373,12 +444,18 @@
     let activeMetric = 'composite_score';
     let metricKeys = [];
     let metricMeta = {};
+    let industrialMetricKeys = [];
+    let industrialMetricMeta = {};
+    let fundingMetricKeys = [];
+    let fundingMetricMeta = {};
+    let activeLens = 'industrial';
     let selectedAdcode = null;
     let paths, labelGroup, clusterGroup;
     let colorScale;
     let sortedProvinces = []; // for keyboard nav
     let fabEntities = [];
     let topStories = [];
+    let storiesMode = 'feed';
     let focusIndex = -1;
     let activeView = 'split';
 
@@ -388,6 +465,9 @@
     const provinceBackdrop = document.getElementById('province-backdrop');
     const provinceModalContent = document.getElementById('province-modal-content');
     const mapPanelWrap = document.getElementById('map-panel-wrap');
+    const scatterSection = document.getElementById('scatter-section');
+    const scatterSvg = d3.select('#funding-scatter');
+    const scatterTooltip = document.getElementById('scatter-tooltip');
     const rankingsSection = document.getElementById('rankings-section');
     const entitiesSection = document.getElementById('entities-section');
     const fabSearchInput = document.getElementById('fab-search');
@@ -399,6 +479,7 @@
     const storiesBackdrop = document.getElementById('stories-backdrop');
     const storiesCloseBtn = document.getElementById('stories-close');
     const storiesSearch = document.getElementById('stories-search');
+    const storiesTagFilter = document.getElementById('stories-tag-filter');
     const storiesCount = document.getElementById('stories-count');
     const storiesModalMeta = document.getElementById('stories-modal-meta');
     const storiesList = document.getElementById('stories-list');
@@ -411,25 +492,37 @@
 
     function setView(view) {
         activeView = view;
-        document.querySelectorAll('.view-tab').forEach(tab => {
+        document.querySelectorAll('#view-tabs .view-tab').forEach(tab => {
             tab.classList.toggle('active', tab.dataset.view === view);
         });
 
         if (view === 'map') {
             mapPanelWrap.style.display = 'block';
+            scatterSection.style.display = 'none';
             rankingsSection.style.display = 'none';
             entitiesSection.style.display = 'none';
             return;
         }
         if (view === 'table') {
             mapPanelWrap.style.display = 'none';
+            scatterSection.style.display = 'none';
             rankingsSection.style.display = 'block';
             entitiesSection.style.display = 'block';
             window.closePanel();
             return;
         }
+        if (view === 'scatter') {
+            mapPanelWrap.style.display = 'none';
+            scatterSection.style.display = 'block';
+            rankingsSection.style.display = 'none';
+            entitiesSection.style.display = 'none';
+            window.closePanel();
+            buildFundingScatter();
+            return;
+        }
 
         mapPanelWrap.style.display = 'block';
+        scatterSection.style.display = 'none';
         rankingsSection.style.display = 'block';
         entitiesSection.style.display = 'none';
     }
@@ -451,6 +544,30 @@
         gov_investment: 'Gov Inv',
         rd_intensity: 'R&D',
         power_price: 'Power',
+        funding_semi_b_cny: 'Semi',
+        funding_ai_b_cny: 'AI',
+        funding_total_b_cny: 'Total',
+    };
+
+    const fundingMetricConfig = {
+        funding_semi_b_cny: {
+            field: 'semiconductor_total_b_cny',
+            label: 'Semi Funding (B CNY)',
+            short: 'Semi Funding',
+            unit: 'B_CNY',
+        },
+        funding_ai_b_cny: {
+            field: 'ai_compute_total_b_cny',
+            label: 'AI Funding (B CNY)',
+            short: 'AI Funding',
+            unit: 'B_CNY',
+        },
+        funding_total_b_cny: {
+            field: 'grand_total_b_cny',
+            label: 'Total Funding (B CNY)',
+            short: 'Total Funding',
+            unit: 'B_CNY',
+        },
     };
 
     function defaultLabelFromKey(key) {
@@ -459,7 +576,7 @@
 
     function makeValueFormatter(unit) {
         if (unit === 'pct') return v => v + '%';
-        if (unit === 'B_CNY') return v => '\u00a5' + v + 'B';
+        if (unit === 'B_CNY') return v => '\u00a5' + (Math.round((Number(v) || 0) * 10) / 10).toLocaleString() + 'B';
         if (unit === 'kwpm') return v => v + 'K';
         if (unit === 'annual') return v => Math.round(v).toLocaleString();
         if (unit === 'MW') return v => v + ' MW';
@@ -467,41 +584,84 @@
         return v => (Number.isFinite(Number(v)) ? Number(v).toLocaleString() : String(v));
     }
 
-    function buildMetricModel() {
+    function buildMetricModels() {
         const provinces = Object.values(provinceData);
         const firstProvince = provinces.find(p => p && p.metrics && typeof p.metrics === 'object');
         if (!firstProvince) {
-            metricKeys = ['composite_score'];
-            metricMeta = {
+            industrialMetricKeys = ['composite_score'];
+            industrialMetricMeta = {
                 composite_score: { key: 'composite_score', label: 'Overall Score', short: 'Score', unit: 'index', format: v => v.toString() },
             };
-            activeMetric = 'composite_score';
-            return;
-        }
+        } else {
+            const available = Object.keys(firstProvince.metrics).filter(k =>
+                provinces.some(p => p?.metrics?.[k] && Number.isFinite(Number(p.metrics[k].value)))
+            );
 
-        const available = Object.keys(firstProvince.metrics).filter(k =>
-            provinces.some(p => p?.metrics?.[k] && Number.isFinite(Number(p.metrics[k].value)))
-        );
-
-        let ordered = knownMetricOrderSets.find(set => set.every(k => available.includes(k))) || [];
-        if (!ordered.length) {
-            ordered = available.slice();
-            if (ordered.includes('composite_score')) {
-                ordered = ['composite_score', ...ordered.filter(k => k !== 'composite_score')];
+            let ordered = knownMetricOrderSets.find(set => set.every(k => available.includes(k))) || [];
+            if (!ordered.length) {
+                ordered = available.slice();
+                if (ordered.includes('composite_score')) {
+                    ordered = ['composite_score', ...ordered.filter(k => k !== 'composite_score')];
+                }
             }
-        }
-        if (!ordered.length) ordered = Object.keys(firstProvince.metrics);
+            if (!ordered.length) ordered = Object.keys(firstProvince.metrics);
 
-        metricKeys = ordered.slice(0, 6);
-        metricMeta = {};
-        metricKeys.forEach(k => {
-            const sample = provinces.find(p => p?.metrics?.[k])?.metrics?.[k] || {};
-            const label = sample.label || defaultLabelFromKey(k);
-            const short = shortLabelMap[k] || label.split(' ')[0] || label;
-            const unit = sample.unit || '';
-            metricMeta[k] = { key: k, label, short, unit, format: makeValueFormatter(unit) };
+            industrialMetricKeys = ordered.slice(0, 6);
+            industrialMetricMeta = {};
+            industrialMetricKeys.forEach(k => {
+                const sample = provinces.find(p => p?.metrics?.[k])?.metrics?.[k] || {};
+                const label = sample.label || defaultLabelFromKey(k);
+                const short = shortLabelMap[k] || label.split(' ')[0] || label;
+                const unit = sample.unit || '';
+                industrialMetricMeta[k] = { key: k, label, short, unit, format: makeValueFormatter(unit), source: 'metrics' };
+            });
+        }
+
+        fundingMetricKeys = Object.keys(fundingMetricConfig).filter(metric =>
+            provinces.some(p => Number.isFinite(Number(p?.funding_summary?.[fundingMetricConfig[metric].field])))
+        );
+        fundingMetricMeta = {};
+        fundingMetricKeys.forEach(metric => {
+            const cfg = fundingMetricConfig[metric];
+            fundingMetricMeta[metric] = {
+                key: metric,
+                label: cfg.label,
+                short: cfg.short,
+                unit: cfg.unit,
+                format: makeValueFormatter(cfg.unit),
+                source: 'funding',
+            };
         });
-        activeMetric = metricKeys.includes('composite_score') ? 'composite_score' : metricKeys[0];
+    }
+
+    function setLens(lens, explicitMetric) {
+        activeLens = lens === 'funding' ? 'funding' : 'industrial';
+        if (activeLens === 'funding' && fundingMetricKeys.length) {
+            metricKeys = fundingMetricKeys.slice();
+            metricMeta = { ...fundingMetricMeta };
+        } else {
+            metricKeys = industrialMetricKeys.slice();
+            metricMeta = { ...industrialMetricMeta };
+            activeLens = 'industrial';
+        }
+
+        const defaultMetric = activeLens === 'funding'
+            ? (metricKeys.includes('funding_total_b_cny') ? 'funding_total_b_cny' : metricKeys[0])
+            : (metricKeys.includes('composite_score') ? 'composite_score' : metricKeys[0]);
+        activeMetric = (explicitMetric && metricKeys.includes(explicitMetric)) ? explicitMetric : defaultMetric;
+
+        document.querySelectorAll('.lens-tab').forEach(tab => {
+            tab.classList.toggle('active', tab.dataset.lens === activeLens);
+        });
+
+        renderMetricTabs();
+        renderRankingsHeader();
+        recolor(true);
+        buildRankings();
+        updateStatCards();
+        if (activeView === 'scatter') {
+            buildFundingScatter();
+        }
     }
 
     function renderMetricTabs() {
@@ -523,6 +683,7 @@
                 activeMetric = tab.dataset.metric;
                 recolor(true);
                 buildRankings();
+                updateStatCards();
             });
         });
     }
@@ -553,6 +714,10 @@
     })();
 
     function metricValue(province, metric) {
+        if (fundingMetricConfig[metric]) {
+            const field = fundingMetricConfig[metric].field;
+            return Number(province?.funding_summary?.[field]) || 0;
+        }
         return Number(province?.metrics?.[metric]?.value) || 0;
     }
 
@@ -627,6 +792,13 @@
     }
 
     function buildTopStories() {
+        function extractStoryYear(story) {
+            const text = [story?.headline || '', story?.body || ''].join(' ');
+            const matches = text.match(/(?:19|20)\d{2}/g) || [];
+            if (!matches.length) return null;
+            return Math.max(...matches.map(v => Number(v)));
+        }
+
         topStories = Object.entries(provinceData).flatMap(([adcode, province]) =>
             (province.top_stories || []).map((story, idx) => ({
                 id: adcode + '_' + idx,
@@ -638,9 +810,15 @@
                 province_cn: province.name_cn || '',
                 story_order: idx,
                 score: metricValue(province, 'composite_score'),
+                year: extractStoryYear(story),
             }))
         );
         topStories.sort((a, b) => (b.score - a.score) || (a.story_order - b.story_order));
+
+        const uniqueTags = Array.from(new Set(topStories.flatMap(s => s.tags || []))).sort();
+        storiesTagFilter.innerHTML =
+            '<option value="">All Tags</option>' +
+            uniqueTags.map(tag => '<option value="' + escapeHtml(tag) + '">' + escapeHtml(tag) + '</option>').join('');
     }
 
     function renderStoriesHeading() {
@@ -655,7 +833,9 @@
 
     function renderStoriesList() {
         const q = (storiesSearch.value || '').trim().toLowerCase();
+        const activeTag = storiesTagFilter.value || '';
         const filtered = topStories.filter(story => {
+            if (activeTag && !(story.tags || []).includes(activeTag)) return false;
             if (!q) return true;
             const haystack = [
                 story.headline,
@@ -667,11 +847,24 @@
             return haystack.includes(q);
         });
 
-        storiesList.innerHTML = filtered.map((story, i) =>
+        const ordered = filtered.slice().sort((a, b) => {
+            if (storiesMode === 'timeline') {
+                const ay = Number.isFinite(a.year) ? a.year : -Infinity;
+                const by = Number.isFinite(b.year) ? b.year : -Infinity;
+                return by - ay || (b.score - a.score) || (a.story_order - b.story_order);
+            }
+            return (b.score - a.score) || (a.story_order - b.story_order);
+        });
+
+        storiesList.innerHTML = ordered.map((story, i) =>
             '<article class="bg-sa-navy/30 rounded-lg border border-sa-border p-3">' +
                 '<div class="flex items-start justify-between gap-3">' +
                     '<div>' +
-                        '<div class="text-[11px] uppercase tracking-wider text-sa-muted mb-1">Story ' + (i + 1) + '</div>' +
+                        '<div class="text-[11px] uppercase tracking-wider text-sa-muted mb-1">' +
+                            (storiesMode === 'timeline'
+                                ? ('Year ' + (story.year || 'Undated'))
+                                : ('Story ' + (i + 1))) +
+                        '</div>' +
                         '<h4 class="text-white font-semibold text-sm">' + escapeHtml(story.headline) + '</h4>' +
                         '<p class="text-sa-cyan text-xs mt-1">' + escapeHtml(story.province_en) +
                             (story.province_cn ? ' · ' + escapeHtml(story.province_cn) : '') + '</p>' +
@@ -693,7 +886,7 @@
             storiesList.innerHTML = '<p class="text-sm text-sa-muted">No stories match your search.</p>';
         }
 
-        storiesModalMeta.textContent = filtered.length + ' of ' + topStories.length + ' stories';
+        storiesModalMeta.textContent = ordered.length + ' of ' + topStories.length + ' stories';
     }
 
     function openStoriesModal() {
@@ -701,6 +894,7 @@
         storiesModal.classList.remove('hidden');
         syncBodyScrollLock();
         storiesSearch.value = '';
+        storiesTagFilter.value = '';
         renderStoriesList();
     }
 
@@ -778,12 +972,42 @@
 
         const primaryEl = document.getElementById('sc-primary');
         const secondaryEl = document.getElementById('sc-secondary');
+        const middleLabelEl = document.getElementById('sc-fab-provinces-label');
         const primaryLabelEl = document.getElementById('sc-primary-label');
+        const topProvinceLabelEl = document.getElementById('sc-top-province-label');
         const secondaryLabelEl = document.getElementById('sc-secondary-label');
 
-        // Provinces with active fabs
+        if (activeLens === 'funding') {
+            const totalFunding = provinces.reduce((s, p) => s + metricValue(p, 'funding_total_b_cny'), 0);
+            const totalSemiFunding = provinces.reduce((s, p) => s + metricValue(p, 'funding_semi_b_cny'), 0);
+            const totalAiFunding = provinces.reduce((s, p) => s + metricValue(p, 'funding_ai_b_cny'), 0);
+            const totalDeals = provinces.reduce((s, p) => s + (Number(p?.funding_summary?.deal_count) || 0), 0);
+
+            primaryEl.textContent = '\u00a5' + Math.round(totalFunding).toLocaleString() + 'B';
+            primaryLabelEl.textContent = 'Total Funding (B CNY)';
+            document.getElementById('sc-fab-provinces').textContent = '\u00a5' + Math.round(totalSemiFunding).toLocaleString() + 'B';
+            middleLabelEl.textContent = 'Semi Funding (B CNY)';
+            secondaryEl.textContent = '\u00a5' + Math.round(totalAiFunding).toLocaleString() + 'B';
+            secondaryLabelEl.textContent = 'AI Funding (B CNY)';
+
+            const top = Object.entries(provinceData)
+                .sort((a, b) => metricValue(b[1], 'funding_total_b_cny') - metricValue(a[1], 'funding_total_b_cny'))[0];
+            if (top) {
+                document.getElementById('sc-top-province').textContent =
+                    top[1].name_en + ' (' + metricMeta.funding_total_b_cny.format(metricValue(top[1], 'funding_total_b_cny')) + ')';
+                topProvinceLabelEl.textContent = 'Top Province (Funding)';
+            }
+
+            // Reuse secondary card label for additional context when hovering in UI.
+            secondaryEl.setAttribute('title', totalDeals.toLocaleString() + ' total funding deals');
+            return;
+        }
+
+        // Industrial lens stat cards
         const fabProvinces = provinces.filter(p => p.fabs && p.fabs.some(f => f.status === 'Operating')).length;
         document.getElementById('sc-fab-provinces').textContent = fabProvinces + '/31';
+        middleLabelEl.textContent = 'Provinces with Active Fabs';
+        secondaryEl.removeAttribute('title');
 
         if (metricKeys.includes('fab_capacity')) {
             const totalFab = provinces.reduce((s, p) => s + metricValue(p, 'fab_capacity'), 0);
@@ -821,6 +1045,7 @@
         if (top) {
             document.getElementById('sc-top-province').textContent =
                 top[1].name_en + ' (' + metricMeta[topMetric].format(metricValue(top[1], topMetric)) + ')';
+            topProvinceLabelEl.textContent = 'Top Province (' + metricMeta[topMetric].short + ')';
         }
     }
 
@@ -932,18 +1157,150 @@
         }).join('');
     }
 
+    function buildFundingScatter() {
+        const container = document.getElementById('scatter-container');
+        if (!container) return;
+        const width = container.clientWidth || 1200;
+        const height = container.clientHeight || 560;
+        const margin = { top: 24, right: 30, bottom: 60, left: 76 };
+
+        const rows = Object.entries(provinceData).map(([adcode, p]) => ({
+            adcode,
+            province: p,
+            name_en: p.name_en,
+            name_cn: p.name_cn,
+            totalFunding: metricValue(p, 'funding_total_b_cny'),
+            semiFunding: metricValue(p, 'funding_semi_b_cny'),
+            aiFunding: metricValue(p, 'funding_ai_b_cny'),
+            score: metricValue(p, 'composite_score'),
+        }));
+        if (!rows.length) return;
+
+        const xMax = Math.max(...rows.map(r => r.totalFunding), 1);
+        const yMax = Math.max(...rows.map(r => r.score), 1);
+        const rMax = Math.max(...rows.map(r => r.semiFunding + r.aiFunding), 1);
+        const scoreColor = makeColorScale('composite_score');
+        const x = d3.scaleLinear().domain([0, xMax * 1.05]).range([margin.left, width - margin.right]);
+        const y = d3.scaleLinear().domain([0, yMax * 1.08]).range([height - margin.bottom, margin.top]);
+        const radius = d3.scaleSqrt().domain([0, rMax]).range([4, 16]);
+
+        scatterSvg.selectAll('*').remove();
+        scatterSvg.attr('viewBox', '0 0 ' + width + ' ' + height)
+            .attr('width', width)
+            .attr('height', height);
+
+        const xTicks = x.ticks(6);
+        const yTicks = y.ticks(6);
+        scatterSvg.append('g')
+            .selectAll('line')
+            .data(yTicks)
+            .join('line')
+            .attr('x1', margin.left)
+            .attr('x2', width - margin.right)
+            .attr('y1', d => y(d))
+            .attr('y2', d => y(d))
+            .attr('stroke', '#252547')
+            .attr('stroke-width', 1);
+
+        scatterSvg.append('g')
+            .selectAll('line')
+            .data(xTicks)
+            .join('line')
+            .attr('x1', d => x(d))
+            .attr('x2', d => x(d))
+            .attr('y1', margin.top)
+            .attr('y2', height - margin.bottom)
+            .attr('stroke', '#1e1e3d')
+            .attr('stroke-width', 0.6);
+
+        scatterSvg.append('g')
+            .attr('transform', 'translate(0,' + (height - margin.bottom) + ')')
+            .call(d3.axisBottom(x).ticks(6).tickFormat(v => '\u00a5' + Math.round(v) + 'B'))
+            .call(g => g.selectAll('text').attr('fill', '#8888aa').attr('font-size', '11px'))
+            .call(g => g.selectAll('path,line').attr('stroke', '#3a3a5e'));
+
+        scatterSvg.append('g')
+            .attr('transform', 'translate(' + margin.left + ',0)')
+            .call(d3.axisLeft(y).ticks(6))
+            .call(g => g.selectAll('text').attr('fill', '#8888aa').attr('font-size', '11px'))
+            .call(g => g.selectAll('path,line').attr('stroke', '#3a3a5e'));
+
+        scatterSvg.append('text')
+            .attr('x', width / 2)
+            .attr('y', height - 18)
+            .attr('text-anchor', 'middle')
+            .attr('fill', '#8888aa')
+            .attr('font-size', '12px')
+            .text('Total Funding (B CNY)');
+
+        scatterSvg.append('text')
+            .attr('transform', 'rotate(-90)')
+            .attr('x', -(height / 2))
+            .attr('y', 18)
+            .attr('text-anchor', 'middle')
+            .attr('fill', '#8888aa')
+            .attr('font-size', '12px')
+            .text('Overall Score');
+
+        const dotGroup = scatterSvg.append('g').attr('class', 'scatter-dots');
+        dotGroup.selectAll('circle')
+            .data(rows)
+            .join('circle')
+            .attr('class', 'scatter-dot')
+            .attr('data-adcode', d => d.adcode)
+            .attr('cx', d => x(d.totalFunding))
+            .attr('cy', d => y(d.score))
+            .attr('r', d => radius(d.semiFunding + d.aiFunding))
+            .attr('fill', d => scoreColor(d.score))
+            .attr('fill-opacity', 0.85)
+            .attr('stroke', '#0f0f23')
+            .attr('stroke-width', 1.2)
+            .on('mousemove', function(event, d) {
+                scatterTooltip.classList.add('visible');
+                scatterTooltip.style.left = (event.clientX + 12) + 'px';
+                scatterTooltip.style.top = (event.clientY - 16) + 'px';
+                scatterTooltip.innerHTML =
+                    '<div class="text-white font-semibold text-sm">' + escapeHtml(d.name_en) + ' <span class="text-sa-muted text-xs">' + escapeHtml(d.name_cn) + '</span></div>' +
+                    '<div class="text-sa-cyan text-xs mt-1">Total Funding: \u00a5' + Math.round(d.totalFunding).toLocaleString() + 'B</div>' +
+                    '<div class="text-sa-muted text-xs">Semi: \u00a5' + Math.round(d.semiFunding).toLocaleString() + 'B | AI: \u00a5' + Math.round(d.aiFunding).toLocaleString() + 'B</div>' +
+                    '<div class="text-sa-muted text-xs">Score: ' + d.score + '</div>';
+            })
+            .on('mouseleave', function() {
+                scatterTooltip.classList.remove('visible');
+            })
+            .on('click', function(event, d) {
+                openPanel(d.adcode);
+            });
+
+        scatterSvg.append('g')
+            .selectAll('text')
+            .data(rows.slice().sort((a, b) => (b.totalFunding + b.score) - (a.totalFunding + a.score)).slice(0, 10))
+            .join('text')
+            .attr('x', d => x(d.totalFunding) + radius(d.semiFunding + d.aiFunding) + 4)
+            .attr('y', d => y(d.score) - 2)
+            .attr('fill', '#c0c0d0')
+            .attr('font-size', '10px')
+            .text(d => d.name_en);
+    }
+
     // Bidirectional highlighting: table row -> map path
     window._highlightProvince = function(adcode) {
         d3.selectAll('.province-path').filter(d => String(d.properties.adcode) === adcode)
             .raise()
             .attr('stroke', '#00D9FF')
             .attr('stroke-width', 2);
+        d3.selectAll('.scatter-dot').filter(function() { return this.getAttribute('data-adcode') === adcode; })
+            .attr('stroke', '#00D9FF')
+            .attr('stroke-width', 2.5);
     };
 
     window._unhighlightProvince = function(adcode) {
         d3.selectAll('.province-path').filter(d => String(d.properties.adcode) === adcode)
             .attr('stroke', adcode === selectedAdcode ? '#f0b429' : '#5a5a7e')
             .attr('stroke-width', adcode === selectedAdcode ? 2.5 : 1.2);
+        d3.selectAll('.scatter-dot').filter(function() { return this.getAttribute('data-adcode') === adcode; })
+            .attr('stroke', '#0f0f23')
+            .attr('stroke-width', 1.2);
     };
 
     // Open full-screen province modal
@@ -1112,9 +1469,7 @@
     ]).then(([topology, data]) => {
         provinceData = data;
         window.provinceData = data;
-        buildMetricModel();
-        renderMetricTabs();
-        renderRankingsHeader();
+        buildMetricModels();
 
         const container = document.getElementById('map-container');
         const width = container.clientWidth || 1200;
@@ -1240,14 +1595,13 @@
                 .text(c.label);
         });
 
-        recolor(false);
-        buildRankings();
-        updateStatCards();
         buildFabEntities();
         populateFabStatusFilter();
         buildFabEntityTable();
         buildTopStories();
         renderStoriesHeading();
+        setLens('industrial');
+        buildFundingScatter();
 
         // Fab entity controls
         fabSearchInput.addEventListener('input', buildFabEntityTable);
@@ -1259,6 +1613,16 @@
         storiesBackdrop.addEventListener('click', closeStoriesModal);
         provinceBackdrop.addEventListener('click', window.closePanel);
         storiesSearch.addEventListener('input', renderStoriesList);
+        storiesTagFilter.addEventListener('change', renderStoriesList);
+        document.querySelectorAll('#stories-mode-tabs [data-stories-mode]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                storiesMode = btn.dataset.storiesMode || 'feed';
+                document.querySelectorAll('#stories-mode-tabs [data-stories-mode]').forEach(b => {
+                    b.classList.toggle('active', b === btn);
+                });
+                renderStoriesList();
+            });
+        });
         storiesList.addEventListener('click', (event) => {
             const button = event.target.closest('.story-open-item');
             if (!button) return;
@@ -1282,8 +1646,13 @@
             svg.transition().duration(500).call(zoom.transform, d3.zoomIdentity);
         });
 
+        // Lens switching
+        document.querySelectorAll('#lens-tabs .lens-tab').forEach(tab => {
+            tab.addEventListener('click', () => setLens(tab.dataset.lens));
+        });
+
         // Layout view switching
-        document.querySelectorAll('.view-tab').forEach(tab => {
+        document.querySelectorAll('#view-tabs .view-tab').forEach(tab => {
             tab.addEventListener('click', () => setView(tab.dataset.view));
         });
         setView('split');
