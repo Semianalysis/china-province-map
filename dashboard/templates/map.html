@@ -188,7 +188,7 @@
     }
 
     /* --- Story strip --- */
-    #stories-strip .story-tag {
+    .story-tag {
         border: 1px solid #2a2a3e;
         color: #00D9FF;
         background: #16213e;
@@ -197,6 +197,22 @@
         border: 1px solid #2a2a3e;
         color: #00D9FF;
         background: #16213e;
+    }
+    .insight-tab {
+        border: 1px solid #2a2a3e;
+        background: #1a1a2e;
+        color: #b7b7cc;
+        transition: all 0.2s ease;
+    }
+    .insight-tab:hover {
+        border-color: #f0b429;
+        color: #ffffff;
+    }
+    .insight-tab .insight-sub {
+        color: #8888aa;
+    }
+    .insight-tab:hover .insight-sub {
+        color: #c7c7de;
     }
 
     /* --- Scatter plot --- */
@@ -227,32 +243,18 @@
 
 {% block content %}
 <div class="relative" id="app-root">
-    <div class="px-6 pt-4 pb-1" id="stories-strip" style="display:none;">
-        <button id="stories-open" class="w-full text-left bg-sa-card rounded-lg border border-sa-border px-4 py-3 hover:border-sa-gold transition-colors">
-            <div class="flex items-center justify-between gap-3">
-                <div>
-                    <div class="text-[11px] uppercase tracking-wider text-sa-muted">Strategic Storyline</div>
-                    <div class="text-white font-semibold text-sm mt-0.5">
-                        <span id="stories-count">0</span> major industrial stories across provinces
-                    </div>
-                </div>
-                <div class="text-xs text-sa-gold border border-sa-gold rounded px-2 py-1">View All Stories</div>
-            </div>
+    <div class="px-6 pt-4 pb-2 items-center gap-2 flex-wrap" id="insights-topbar" style="display:none;">
+        <button id="stories-open" class="insight-tab rounded-lg px-3 py-2 text-left inline-flex items-center gap-3" title="Open strategic stories">
+            <span class="text-sm font-semibold text-sa-gold">Stories</span>
+            <span class="insight-sub text-xs">
+                <span id="stories-count">0</span> items
+            </span>
         </button>
-    </div>
-    <div class="px-6 pt-1 pb-1" id="companies-strip" style="display:none;">
-        <button id="companies-open" class="w-full text-left bg-sa-card rounded-lg border border-sa-border px-4 py-3 hover:border-sa-cyan transition-colors">
-            <div class="flex items-center justify-between gap-3">
-                <div>
-                    <div class="text-[11px] uppercase tracking-wider text-sa-muted">Company Profiles</div>
-                    <div class="text-white font-semibold text-sm mt-0.5">
-                        <span id="companies-count">0</span> profiled companies
-                        <span class="text-sa-muted font-normal">· combined revenue</span>
-                        <span id="companies-revenue" class="text-sa-cyan">¥0B</span>
-                    </div>
-                </div>
-                <div class="text-xs text-sa-cyan border border-sa-cyan rounded px-2 py-1">View Profiles</div>
-            </div>
+        <button id="companies-open" class="insight-tab rounded-lg px-3 py-2 text-left inline-flex items-center gap-3" title="Open company profiles">
+            <span class="text-sm font-semibold text-sa-cyan">Company Profiles</span>
+            <span class="insight-sub text-xs">
+                <span id="companies-count">0</span> profiles · <span id="companies-revenue">¥0B</span>
+            </span>
         </button>
     </div>
 
@@ -528,7 +530,7 @@
     const fabSearchInput = document.getElementById('fab-search');
     const fabStatusFilter = document.getElementById('fab-status-filter');
     const fabSortSelect = document.getElementById('fab-sort');
-    const storiesStrip = document.getElementById('stories-strip');
+    const insightsTopbar = document.getElementById('insights-topbar');
     const storiesOpenBtn = document.getElementById('stories-open');
     const storiesModal = document.getElementById('stories-modal');
     const storiesBackdrop = document.getElementById('stories-backdrop');
@@ -538,7 +540,6 @@
     const storiesCount = document.getElementById('stories-count');
     const storiesModalMeta = document.getElementById('stories-modal-meta');
     const storiesList = document.getElementById('stories-list');
-    const companiesStrip = document.getElementById('companies-strip');
     const companiesOpenBtn = document.getElementById('companies-open');
     const companiesCount = document.getElementById('companies-count');
     const companiesRevenue = document.getElementById('companies-revenue');
@@ -555,6 +556,15 @@
         const hasProvinceOpen = !provinceModal.classList.contains('hidden');
         const hasCompaniesOpen = !companiesModal.classList.contains('hidden');
         document.body.style.overflow = (hasStoriesOpen || hasProvinceOpen || hasCompaniesOpen) ? 'hidden' : '';
+    }
+
+    function syncInsightsTopbar() {
+        const hasStories = topStories.length > 0;
+        const hasCompanies = companyProfiles.length > 0;
+
+        if (storiesOpenBtn) storiesOpenBtn.style.display = hasStories ? 'inline-flex' : 'none';
+        if (companiesOpenBtn) companiesOpenBtn.style.display = hasCompanies ? 'inline-flex' : 'none';
+        if (insightsTopbar) insightsTopbar.style.display = (hasStories || hasCompanies) ? 'flex' : 'none';
     }
 
     function setView(view) {
@@ -889,13 +899,9 @@
     }
 
     function renderStoriesHeading() {
-        if (!topStories.length) {
-            storiesStrip.style.display = 'none';
-            return;
-        }
-        storiesStrip.style.display = 'block';
         storiesCount.textContent = topStories.length.toLocaleString();
         storiesModalMeta.textContent = topStories.length + ' stories from ' + Object.keys(provinceData).length + ' provinces';
+        syncInsightsTopbar();
     }
 
     function renderStoriesList() {
@@ -997,18 +1003,14 @@
     }
 
     function renderCompanyHeading() {
-        if (!companyProfiles.length) {
-            companiesStrip.style.display = 'none';
-            return;
-        }
         const totalRevenue = companyProfiles.reduce((sum, c) => sum + (Number(c.revenue_b_cny) || 0), 0);
-        companiesStrip.style.display = 'block';
         companiesCount.textContent = companyProfiles.length.toLocaleString();
         companiesRevenue.textContent = '\u00a5' + Math.round(totalRevenue).toLocaleString() + 'B';
 
         const semiCount = companyProfiles.filter(c => c.type === 'semiconductor').length;
         const aiCount = companyProfiles.filter(c => c.type === 'ai').length;
         companiesModalMeta.textContent = semiCount + ' semiconductor + ' + aiCount + ' AI profiles';
+        syncInsightsTopbar();
     }
 
     function findProvinceAdcodeByName(provinceName) {
