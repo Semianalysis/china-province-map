@@ -1,32 +1,34 @@
 <div class="p-5 space-y-5">
-    <!-- Header with Tier Badge -->
+    <!-- Header -->
     <div class="flex items-start justify-between">
         <div>
-            <div class="flex items-center gap-2 mb-1">
-                <h2 class="text-xl font-bold text-white">{{ province.name_en }}</h2>
-                {% set score = province.metrics.composite_score.value %}
-                {% if score > 60 %}
-                <span class="text-xs px-2 py-0.5 rounded-full bg-yellow-900/40 text-yellow-400 border border-yellow-500/30 font-semibold">TIER 1</span>
-                {% elif score > 25 %}
-                <span class="text-xs px-2 py-0.5 rounded-full bg-blue-900/40 text-blue-400 border border-blue-500/30 font-semibold">TIER 2</span>
-                {% else %}
-                <span class="text-xs px-2 py-0.5 rounded-full bg-gray-800/60 text-gray-400 border border-gray-600/30 font-semibold">TIER 3</span>
-                {% endif %}
-            </div>
+            <h2 class="text-xl font-bold text-white mb-1">{{ province.name_en }}</h2>
             <p class="text-sa-muted text-sm">{{ province.name_cn }} &middot; {{ province.region }}</p>
         </div>
         <button onclick="closePanel()" class="text-sa-muted hover:text-white text-lg leading-none p-1">&times;</button>
     </div>
 
-    <!-- Composite Score -->
+    <!-- Output Metric -->
+    {% set primary_key = 'ic_revenue' if province.metrics.ic_revenue is defined else (province.metrics | list | first) %}
+    {% set primary_metric = province.metrics[primary_key] %}
     <div class="bg-sa-navy/50 rounded-lg p-4 border border-sa-border">
         <div class="flex items-center justify-between mb-2">
-            <span class="text-sa-muted text-xs uppercase tracking-wider">Overall Score</span>
-            <span class="text-2xl font-bold text-sa-gold">{{ province.metrics.composite_score.value }}</span>
+            <span class="text-sa-muted text-xs uppercase tracking-wider">{{ primary_metric.label }}</span>
+            <span class="text-2xl font-bold text-sa-gold">
+                {% if primary_metric.unit == 'B_CNY' %}
+                    &yen;{{ primary_metric.value }}B
+                {% elif primary_metric.unit == 'pct' %}
+                    {{ primary_metric.value }}%
+                {% elif primary_metric.unit == 'CNY/kWh' %}
+                    &yen;{{ primary_metric.value }}/kWh
+                {% elif primary_metric.unit == 'PFLOPS' %}
+                    {{ primary_metric.value }} PFLOPS
+                {% else %}
+                    {{ primary_metric.value }}
+                {% endif %}
+            </span>
         </div>
-        <div class="w-full bg-sa-bg rounded-full h-2">
-            <div class="bg-sa-gold rounded-full h-2" style="width: {{ province.metrics.composite_score.value }}%"></div>
-        </div>
+        <p class="text-[11px] text-sa-muted">Standalone metric view (no composite scoring).</p>
     </div>
 
     <!-- Capital Story -->
@@ -90,22 +92,15 @@
     (function() {
         const metricsObject = {{ province.metrics | tojson }};
         const shortLabelMap = {
-            composite_score: 'Score',
-            fab_capacity: 'Fabs',
-            ai_compute_power: 'AI',
-            gov_subsidies: 'Gov',
-            stem_graduates: 'STEM',
-            tech_gdp_share: 'GDP%',
             ic_revenue: 'IC Rev',
-            computing_power: 'Compute',
+            ai_compute_pflops: 'AI PF',
             gov_investment: 'Gov Inv',
             rd_intensity: 'R&D',
             power_price: 'Power',
         };
 
         const keys = Object.keys(metricsObject || {});
-        const radarKeys = keys.filter(k => k !== 'composite_score').slice(0, 5);
-        if (keys.includes('composite_score')) radarKeys.push('composite_score');
+        const radarKeys = keys.slice(0, 5);
 
         // Radar chart data — values normalized to national leader
         const metrics = radarKeys.map(key => {
@@ -194,7 +189,6 @@
     <!-- Metrics Grid -->
     <div class="grid grid-cols-2 gap-3">
         {% for key, m in province.metrics.items() %}
-        {% if key != 'composite_score' %}
         <div class="bg-sa-card rounded-lg p-3 border border-sa-border">
             <div class="text-sa-muted text-xs mb-1">{{ m.label }}</div>
             <div class="text-white font-semibold">
@@ -210,6 +204,8 @@
                     {{ "{:,}".format(m.value | int) }}
                 {% elif m.unit == 'MW' %}
                     {{ m.value }} MW
+                {% elif m.unit == 'PFLOPS' %}
+                    {{ m.value }} PFLOPS
                 {% elif m.unit == 'index' %}
                     {{ m.value }}
                 {% else %}
@@ -217,7 +213,6 @@
                 {% endif %}
             </div>
         </div>
-        {% endif %}
         {% endfor %}
     </div>
 

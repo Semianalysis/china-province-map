@@ -4,25 +4,15 @@
     "name_cn": "上海",
     "region": "East China",
     "metrics": {
-      "composite_score": {
-        "value": 82.3,
-        "unit": "index",
-        "label": "Overall Score"
-      },
       "ic_revenue": {
         "value": 300,
         "unit": "B_CNY",
         "label": "IC Revenue (B CNY)"
       },
-      "computing_power": {
-        "value": 95,
-        "unit": "index",
-        "label": "Computing Power Index"
-      },
       "gov_investment": {
         "value": 121.5,
         "unit": "B_CNY",
-        "label": "Gov IC/AI Investment (B CNY)"
+        "label": "Total Tracked Investment (B CNY)"
       },
       "rd_intensity": {
         "value": 4.34,
@@ -33,6 +23,11 @@
         "value": 0.74,
         "unit": "CNY/kWh",
         "label": "Industrial Power Price"
+      },
+      "ai_compute_pflops": {
+        "value": 0,
+        "unit": "PFLOPS",
+        "label": "AI Compute (PFLOPS)"
       }
     },
     "economic": {
@@ -290,32 +285,31 @@
           "government"
         ]
       }
-    ]
+    ],
+    "funding_summary": {
+      "semiconductor_total_b_cny": 282.1,
+      "ai_compute_total_b_cny": 22.5,
+      "grand_total_b_cny": 304.6,
+      "deal_count": 11,
+      "active_projects": 11,
+      "failed_projects": 0,
+      "planned_projects": 0
+    }
   },
   "320000": {
     "name_en": "Jiangsu",
     "name_cn": "江苏",
     "region": "East China",
     "metrics": {
-      "composite_score": {
-        "value": 83.4,
-        "unit": "index",
-        "label": "Overall Score"
-      },
       "ic_revenue": {
         "value": 324,
         "unit": "B_CNY",
         "label": "IC Revenue (B CNY)"
       },
-      "computing_power": {
-        "value": 90,
-        "unit": "index",
-        "label": "Computing Power Index"
-      },
       "gov_investment": {
         "value": 30,
         "unit": "B_CNY",
-        "label": "Gov IC/AI Investment (B CNY)"
+        "label": "Total Tracked Investment (B CNY)"
       },
       "rd_intensity": {
         "value": 3.29,
@@ -326,6 +320,11 @@
         "value": 0.66,
         "unit": "CNY/kWh",
         "label": "Industrial Power Price"
+      },
+      "ai_compute_pflops": {
+        "value": 0,
+        "unit": "PFLOPS",
+        "label": "AI Compute (PFLOPS)"
       }
     },
     "economic": {
@@ -571,32 +570,31 @@
           "government"
         ]
       }
-    ]
+    ],
+    "funding_summary": {
+      "semiconductor_total_b_cny": 368.4,
+      "ai_compute_total_b_cny": 0,
+      "grand_total_b_cny": 368.4,
+      "deal_count": 12,
+      "active_projects": 11,
+      "failed_projects": 0,
+      "planned_projects": 1
+    }
   },
   "440000": {
     "name_en": "Guangdong",
     "name_cn": "广东",
     "region": "South China",
     "metrics": {
-      "composite_score": {
-        "value": 82.8,
-        "unit": "index",
-        "label": "Overall Score"
-      },
       "ic_revenue": {
         "value": 214,
         "unit": "B_CNY",
         "label": "IC Revenue (B CNY)"
       },
-      "computing_power": {
-        "value": 93,
-        "unit": "index",
-        "label": "Computing Power Index"
-      },
       "gov_investment": {
         "value": 100,
         "unit": "B_CNY",
-        "label": "Gov IC/AI Investment (B CNY)"
+        "label": "Total Tracked Investment (B CNY)"
       },
       "rd_intensity": {
         "value": 3.54,
@@ -607,6 +605,11 @@
         "value": 0.63,
         "unit": "CNY/kWh",
         "label": "Industrial Power Price"
+      },
+      "ai_compute_pflops": {
+        "value": 0,
+        "unit": "PFLOPS",
+        "label": "AI Compute (PFLOPS)"
       }
     },
     "economic": {
@@ -801,32 +804,31 @@
           "government"
         ]
       }
-    ]
+    ],
+    "funding_summary": {
+      "semiconductor_total_b_cny": 49.0,
+      "ai_compute_total_b_cny": 103.1,
+      "grand_total_b_cny": 152.1,
+      "deal_count": 8,
+      "active_projects": 7,
+      "failed_projects": 0,
+      "planned_projects": 1
+    }
   },
   "110000": {
     "name_en": "Beijing",
     "name_cn": "北京",
     "region": "North China",
     "metrics": {
-      "composite_score": {
-        "value": 79.4,
-        "unit": "index",
-        "label": "Overall Score"
-      },
       "ic_revenue": {
         "value": 200,
         "unit": "B_CNY",
         "label": "IC Revenue (B CNY)"
       },
-      "computing_power": {
-        "value": 92,
-        "unit": "index",
-        "label": "Computing Power Index"
-      },
       "gov_investment": {
         "value": 60,
         "unit": "B_CNY",
-        "label": "Gov IC/AI Investment (B CNY)"
+        "label": "Total Tracked Investment (B CNY)"
       },
       "rd_intensity": {
         "value": 6.73,
@@ -837,6 +839,11 @@
         "value": 0.82,
         "unit": "CNY/kWh",
         "label": "Industrial Power Price"
+      },
+      "ai_compute_pflops": {
+        "value": 0,
+        "unit": "PFLOPS",
+        "label": "AI Compute (PFLOPS)"
       }
     },
     "economic": {
@@ -1043,32 +1050,31 @@
           "compute"
         ]
       }
-    ]
+    ],
+    "funding_summary": {
+      "semiconductor_total_b_cny": 632.3,
+      "ai_compute_total_b_cny": 145.1,
+      "grand_total_b_cny": 777.4,
+      "deal_count": 10,
+      "active_projects": 9,
+      "failed_projects": 0,
+      "planned_projects": 1
+    }
   },
   "330000": {
     "name_en": "Zhejiang",
     "name_cn": "浙江",
     "region": "East China",
     "metrics": {
-      "composite_score": {
-        "value": 67.2,
-        "unit": "index",
-        "label": "Overall Score"
-      },
       "ic_revenue": {
         "value": 204,
         "unit": "B_CNY",
         "label": "IC Revenue (B CNY)"
       },
-      "computing_power": {
-        "value": 85,
-        "unit": "index",
-        "label": "Computing Power Index"
-      },
       "gov_investment": {
         "value": 20,
         "unit": "B_CNY",
-        "label": "Gov IC/AI Investment (B CNY)"
+        "label": "Total Tracked Investment (B CNY)"
       },
       "rd_intensity": {
         "value": 3.2,
@@ -1079,6 +1085,11 @@
         "value": 0.68,
         "unit": "CNY/kWh",
         "label": "Industrial Power Price"
+      },
+      "ai_compute_pflops": {
+        "value": 0,
+        "unit": "PFLOPS",
+        "label": "AI Compute (PFLOPS)"
       }
     },
     "economic": {
@@ -1215,32 +1226,31 @@
           "compound_semi"
         ]
       }
-    ]
+    ],
+    "funding_summary": {
+      "semiconductor_total_b_cny": 17.6,
+      "ai_compute_total_b_cny": 480.0,
+      "grand_total_b_cny": 497.6,
+      "deal_count": 4,
+      "active_projects": 3,
+      "failed_projects": 0,
+      "planned_projects": 1
+    }
   },
   "340000": {
     "name_en": "Anhui",
     "name_cn": "安徽",
     "region": "East China",
     "metrics": {
-      "composite_score": {
-        "value": 54.0,
-        "unit": "index",
-        "label": "Overall Score"
-      },
       "ic_revenue": {
         "value": 150,
         "unit": "B_CNY",
         "label": "IC Revenue (B CNY)"
       },
-      "computing_power": {
-        "value": 55,
-        "unit": "index",
-        "label": "Computing Power Index"
-      },
       "gov_investment": {
         "value": 40,
         "unit": "B_CNY",
-        "label": "Gov IC/AI Investment (B CNY)"
+        "label": "Total Tracked Investment (B CNY)"
       },
       "rd_intensity": {
         "value": 2.69,
@@ -1251,6 +1261,11 @@
         "value": 0.62,
         "unit": "CNY/kWh",
         "label": "Industrial Power Price"
+      },
+      "ai_compute_pflops": {
+        "value": 0,
+        "unit": "PFLOPS",
+        "label": "AI Compute (PFLOPS)"
       }
     },
     "economic": {
@@ -1448,32 +1463,31 @@
           "foundry"
         ]
       }
-    ]
+    ],
+    "funding_summary": {
+      "semiconductor_total_b_cny": 161.0,
+      "ai_compute_total_b_cny": 0,
+      "grand_total_b_cny": 161.0,
+      "deal_count": 8,
+      "active_projects": 7,
+      "failed_projects": 0,
+      "planned_projects": 1
+    }
   },
   "420000": {
     "name_en": "Hubei",
     "name_cn": "湖北",
     "region": "Central China",
     "metrics": {
-      "composite_score": {
-        "value": 48.2,
-        "unit": "index",
-        "label": "Overall Score"
-      },
       "ic_revenue": {
         "value": 100,
         "unit": "B_CNY",
         "label": "IC Revenue (B CNY)"
       },
-      "computing_power": {
-        "value": 50,
-        "unit": "index",
-        "label": "Computing Power Index"
-      },
       "gov_investment": {
         "value": 49,
         "unit": "B_CNY",
-        "label": "Gov IC/AI Investment (B CNY)"
+        "label": "Total Tracked Investment (B CNY)"
       },
       "rd_intensity": {
         "value": 2.5,
@@ -1484,6 +1498,11 @@
         "value": 0.62,
         "unit": "CNY/kWh",
         "label": "Industrial Power Price"
+      },
+      "ai_compute_pflops": {
+        "value": 0,
+        "unit": "PFLOPS",
+        "label": "AI Compute (PFLOPS)"
       }
     },
     "economic": {
@@ -1684,32 +1703,31 @@
           "ai"
         ]
       }
-    ]
+    ],
+    "funding_summary": {
+      "semiconductor_total_b_cny": 264.2,
+      "ai_compute_total_b_cny": 51.0,
+      "grand_total_b_cny": 315.2,
+      "deal_count": 10,
+      "active_projects": 7,
+      "failed_projects": 1,
+      "planned_projects": 2
+    }
   },
   "370000": {
     "name_en": "Shandong",
     "name_cn": "山东",
     "region": "East China",
     "metrics": {
-      "composite_score": {
-        "value": 36.0,
-        "unit": "index",
-        "label": "Overall Score"
-      },
       "ic_revenue": {
         "value": 30,
         "unit": "B_CNY",
         "label": "IC Revenue (B CNY)"
       },
-      "computing_power": {
-        "value": 60,
-        "unit": "index",
-        "label": "Computing Power Index"
-      },
       "gov_investment": {
         "value": 8,
         "unit": "B_CNY",
-        "label": "Gov IC/AI Investment (B CNY)"
+        "label": "Total Tracked Investment (B CNY)"
       },
       "rd_intensity": {
         "value": 2.41,
@@ -1720,6 +1738,11 @@
         "value": 0.65,
         "unit": "CNY/kWh",
         "label": "Industrial Power Price"
+      },
+      "ai_compute_pflops": {
+        "value": 0,
+        "unit": "PFLOPS",
+        "label": "AI Compute (PFLOPS)"
       }
     },
     "economic": {
@@ -1852,32 +1875,31 @@
           "semiconductor"
         ]
       }
-    ]
+    ],
+    "funding_summary": {
+      "semiconductor_total_b_cny": 65.8,
+      "ai_compute_total_b_cny": 0,
+      "grand_total_b_cny": 65.8,
+      "deal_count": 4,
+      "active_projects": 2,
+      "failed_projects": 1,
+      "planned_projects": 1
+    }
   },
   "510000": {
     "name_en": "Sichuan",
     "name_cn": "四川",
     "region": "Southwest China",
     "metrics": {
-      "composite_score": {
-        "value": 37.2,
-        "unit": "index",
-        "label": "Overall Score"
-      },
       "ic_revenue": {
         "value": 40,
         "unit": "B_CNY",
         "label": "IC Revenue (B CNY)"
       },
-      "computing_power": {
-        "value": 45,
-        "unit": "index",
-        "label": "Computing Power Index"
-      },
       "gov_investment": {
         "value": 50,
         "unit": "B_CNY",
-        "label": "Gov IC/AI Investment (B CNY)"
+        "label": "Total Tracked Investment (B CNY)"
       },
       "rd_intensity": {
         "value": 2.26,
@@ -1888,6 +1910,11 @@
         "value": 0.62,
         "unit": "CNY/kWh",
         "label": "Industrial Power Price"
+      },
+      "ai_compute_pflops": {
+        "value": 0,
+        "unit": "PFLOPS",
+        "label": "AI Compute (PFLOPS)"
       }
     },
     "economic": {
@@ -2038,32 +2065,31 @@
           "government"
         ]
       }
-    ]
+    ],
+    "funding_summary": {
+      "semiconductor_total_b_cny": 6.1,
+      "ai_compute_total_b_cny": 25.9,
+      "grand_total_b_cny": 32.0,
+      "deal_count": 7,
+      "active_projects": 4,
+      "failed_projects": 0,
+      "planned_projects": 3
+    }
   },
   "610000": {
     "name_en": "Shaanxi",
     "name_cn": "陕西",
     "region": "Northwest China",
     "metrics": {
-      "composite_score": {
-        "value": 36.2,
-        "unit": "index",
-        "label": "Overall Score"
-      },
       "ic_revenue": {
         "value": 60,
         "unit": "B_CNY",
         "label": "IC Revenue (B CNY)"
       },
-      "computing_power": {
-        "value": 42,
-        "unit": "index",
-        "label": "Computing Power Index"
-      },
       "gov_investment": {
         "value": 10,
         "unit": "B_CNY",
-        "label": "Gov IC/AI Investment (B CNY)"
+        "label": "Total Tracked Investment (B CNY)"
       },
       "rd_intensity": {
         "value": 2.28,
@@ -2074,6 +2100,11 @@
         "value": 0.57,
         "unit": "CNY/kWh",
         "label": "Industrial Power Price"
+      },
+      "ai_compute_pflops": {
+        "value": 0,
+        "unit": "PFLOPS",
+        "label": "AI Compute (PFLOPS)"
       }
     },
     "economic": {
@@ -2220,32 +2251,31 @@
           "semiconductor"
         ]
       }
-    ]
+    ],
+    "funding_summary": {
+      "semiconductor_total_b_cny": 372.3,
+      "ai_compute_total_b_cny": 1.9,
+      "grand_total_b_cny": 374.2,
+      "deal_count": 6,
+      "active_projects": 4,
+      "failed_projects": 0,
+      "planned_projects": 2
+    }
   },
   "350000": {
     "name_en": "Fujian",
     "name_cn": "福建",
     "region": "East China",
     "metrics": {
-      "composite_score": {
-        "value": 29.4,
-        "unit": "index",
-        "label": "Overall Score"
-      },
       "ic_revenue": {
         "value": 50,
         "unit": "B_CNY",
         "label": "IC Revenue (B CNY)"
       },
-      "computing_power": {
-        "value": 35,
-        "unit": "index",
-        "label": "Computing Power Index"
-      },
       "gov_investment": {
         "value": 12,
         "unit": "B_CNY",
-        "label": "Gov IC/AI Investment (B CNY)"
+        "label": "Total Tracked Investment (B CNY)"
       },
       "rd_intensity": {
         "value": 2.15,
@@ -2256,6 +2286,11 @@
         "value": 0.6,
         "unit": "CNY/kWh",
         "label": "Industrial Power Price"
+      },
+      "ai_compute_pflops": {
+        "value": 0,
+        "unit": "PFLOPS",
+        "label": "AI Compute (PFLOPS)"
       }
     },
     "economic": {
@@ -2434,32 +2469,31 @@
           "compound_semi"
         ]
       }
-    ]
+    ],
+    "funding_summary": {
+      "semiconductor_total_b_cny": 75.7,
+      "ai_compute_total_b_cny": 0,
+      "grand_total_b_cny": 75.7,
+      "deal_count": 7,
+      "active_projects": 5,
+      "failed_projects": 1,
+      "planned_projects": 1
+    }
   },
   "210000": {
     "name_en": "Liaoning",
     "name_cn": "辽宁",
     "region": "Northeast China",
     "metrics": {
-      "composite_score": {
-        "value": 24.5,
-        "unit": "index",
-        "label": "Overall Score"
-      },
       "ic_revenue": {
         "value": 20,
         "unit": "B_CNY",
         "label": "IC Revenue (B CNY)"
       },
-      "computing_power": {
-        "value": 30,
-        "unit": "index",
-        "label": "Computing Power Index"
-      },
       "gov_investment": {
         "value": 5,
         "unit": "B_CNY",
-        "label": "Gov IC/AI Investment (B CNY)"
+        "label": "Total Tracked Investment (B CNY)"
       },
       "rd_intensity": {
         "value": 2.14,
@@ -2470,6 +2504,11 @@
         "value": 0.61,
         "unit": "CNY/kWh",
         "label": "Industrial Power Price"
+      },
+      "ai_compute_pflops": {
+        "value": 0,
+        "unit": "PFLOPS",
+        "label": "AI Compute (PFLOPS)"
       }
     },
     "economic": {
@@ -2581,32 +2620,31 @@
           "foreign"
         ]
       }
-    ]
+    ],
+    "funding_summary": {
+      "semiconductor_total_b_cny": 123.0,
+      "ai_compute_total_b_cny": 1.1,
+      "grand_total_b_cny": 124.1,
+      "deal_count": 5,
+      "active_projects": 5,
+      "failed_projects": 0,
+      "planned_projects": 0
+    }
   },
   "430000": {
     "name_en": "Hunan",
     "name_cn": "湖南",
     "region": "Central China",
     "metrics": {
-      "composite_score": {
-        "value": 25.6,
-        "unit": "index",
-        "label": "Overall Score"
-      },
       "ic_revenue": {
         "value": 25,
         "unit": "B_CNY",
         "label": "IC Revenue (B CNY)"
       },
-      "computing_power": {
-        "value": 30,
-        "unit": "index",
-        "label": "Computing Power Index"
-      },
       "gov_investment": {
         "value": 8,
         "unit": "B_CNY",
-        "label": "Gov IC/AI Investment (B CNY)"
+        "label": "Total Tracked Investment (B CNY)"
       },
       "rd_intensity": {
         "value": 2.42,
@@ -2617,6 +2655,11 @@
         "value": 0.62,
         "unit": "CNY/kWh",
         "label": "Industrial Power Price"
+      },
+      "ai_compute_pflops": {
+        "value": 0,
+        "unit": "PFLOPS",
+        "label": "AI Compute (PFLOPS)"
       }
     },
     "economic": {
@@ -2729,32 +2772,31 @@
           "compound_semi"
         ]
       }
-    ]
+    ],
+    "funding_summary": {
+      "semiconductor_total_b_cny": 43.1,
+      "ai_compute_total_b_cny": 0.8,
+      "grand_total_b_cny": 43.9,
+      "deal_count": 4,
+      "active_projects": 4,
+      "failed_projects": 0,
+      "planned_projects": 0
+    }
   },
   "410000": {
     "name_en": "Henan",
     "name_cn": "河南",
     "region": "Central China",
     "metrics": {
-      "composite_score": {
-        "value": 20.1,
-        "unit": "index",
-        "label": "Overall Score"
-      },
       "ic_revenue": {
         "value": 5,
         "unit": "B_CNY",
         "label": "IC Revenue (B CNY)"
       },
-      "computing_power": {
-        "value": 28,
-        "unit": "index",
-        "label": "Computing Power Index"
-      },
       "gov_investment": {
         "value": 10,
         "unit": "B_CNY",
-        "label": "Gov IC/AI Investment (B CNY)"
+        "label": "Total Tracked Investment (B CNY)"
       },
       "rd_intensity": {
         "value": 2.05,
@@ -2765,6 +2807,11 @@
         "value": 0.63,
         "unit": "CNY/kWh",
         "label": "Industrial Power Price"
+      },
+      "ai_compute_pflops": {
+        "value": 0,
+        "unit": "PFLOPS",
+        "label": "AI Compute (PFLOPS)"
       }
     },
     "economic": {
@@ -2829,32 +2876,31 @@
           "ai"
         ]
       }
-    ]
+    ],
+    "funding_summary": {
+      "semiconductor_total_b_cny": 0,
+      "ai_compute_total_b_cny": 17.4,
+      "grand_total_b_cny": 17.4,
+      "deal_count": 2,
+      "active_projects": 1,
+      "failed_projects": 0,
+      "planned_projects": 1
+    }
   },
   "500000": {
     "name_en": "Chongqing",
     "name_cn": "重庆",
     "region": "Southwest China",
     "metrics": {
-      "composite_score": {
-        "value": 30.9,
-        "unit": "index",
-        "label": "Overall Score"
-      },
       "ic_revenue": {
         "value": 25,
         "unit": "B_CNY",
         "label": "IC Revenue (B CNY)"
       },
-      "computing_power": {
-        "value": 40,
-        "unit": "index",
-        "label": "Computing Power Index"
-      },
       "gov_investment": {
         "value": 12,
         "unit": "B_CNY",
-        "label": "Gov IC/AI Investment (B CNY)"
+        "label": "Total Tracked Investment (B CNY)"
       },
       "rd_intensity": {
         "value": 2.25,
@@ -2865,6 +2911,11 @@
         "value": 0.62,
         "unit": "CNY/kWh",
         "label": "Industrial Power Price"
+      },
+      "ai_compute_pflops": {
+        "value": 0,
+        "unit": "PFLOPS",
+        "label": "AI Compute (PFLOPS)"
       }
     },
     "economic": {
@@ -3003,32 +3054,31 @@
           "compute"
         ]
       }
-    ]
+    ],
+    "funding_summary": {
+      "semiconductor_total_b_cny": 11.8,
+      "ai_compute_total_b_cny": 20.0,
+      "grand_total_b_cny": 31.8,
+      "deal_count": 4,
+      "active_projects": 3,
+      "failed_projects": 0,
+      "planned_projects": 1
+    }
   },
   "120000": {
     "name_en": "Tianjin",
     "name_cn": "天津",
     "region": "North China",
     "metrics": {
-      "composite_score": {
-        "value": 28.3,
-        "unit": "index",
-        "label": "Overall Score"
-      },
       "ic_revenue": {
         "value": 15,
         "unit": "B_CNY",
         "label": "IC Revenue (B CNY)"
       },
-      "computing_power": {
-        "value": 35,
-        "unit": "index",
-        "label": "Computing Power Index"
-      },
       "gov_investment": {
         "value": 10,
         "unit": "B_CNY",
-        "label": "Gov IC/AI Investment (B CNY)"
+        "label": "Total Tracked Investment (B CNY)"
       },
       "rd_intensity": {
         "value": 3.58,
@@ -3039,6 +3089,11 @@
         "value": 0.68,
         "unit": "CNY/kWh",
         "label": "Industrial Power Price"
+      },
+      "ai_compute_pflops": {
+        "value": 0,
+        "unit": "PFLOPS",
+        "label": "AI Compute (PFLOPS)"
       }
     },
     "economic": {
@@ -3113,32 +3168,31 @@
           "foundry"
         ]
       }
-    ]
+    ],
+    "funding_summary": {
+      "semiconductor_total_b_cny": 54.0,
+      "ai_compute_total_b_cny": 0,
+      "grand_total_b_cny": 54.0,
+      "deal_count": 1,
+      "active_projects": 1,
+      "failed_projects": 0,
+      "planned_projects": 0
+    }
   },
   "130000": {
     "name_en": "Hebei",
     "name_cn": "河北",
     "region": "North China",
     "metrics": {
-      "composite_score": {
-        "value": 38.4,
-        "unit": "index",
-        "label": "Overall Score"
-      },
       "ic_revenue": {
         "value": 3,
         "unit": "B_CNY",
         "label": "IC Revenue (B CNY)"
       },
-      "computing_power": {
-        "value": 98,
-        "unit": "index",
-        "label": "Computing Power Index"
-      },
       "gov_investment": {
         "value": 5,
         "unit": "B_CNY",
-        "label": "Gov IC/AI Investment (B CNY)"
+        "label": "Total Tracked Investment (B CNY)"
       },
       "rd_intensity": {
         "value": 2.08,
@@ -3149,6 +3203,11 @@
         "value": 0.62,
         "unit": "CNY/kWh",
         "label": "Industrial Power Price"
+      },
+      "ai_compute_pflops": {
+        "value": 0,
+        "unit": "PFLOPS",
+        "label": "AI Compute (PFLOPS)"
       }
     },
     "economic": {
@@ -3217,32 +3276,31 @@
           "government"
         ]
       }
-    ]
+    ],
+    "funding_summary": {
+      "semiconductor_total_b_cny": 0,
+      "ai_compute_total_b_cny": 233.4,
+      "grand_total_b_cny": 233.4,
+      "deal_count": 2,
+      "active_projects": 2,
+      "failed_projects": 0,
+      "planned_projects": 0
+    }
   },
   "150000": {
     "name_en": "Inner Mongolia",
     "name_cn": "内蒙古",
     "region": "North China",
     "metrics": {
-      "composite_score": {
-        "value": 26.0,
-        "unit": "index",
-        "label": "Overall Score"
-      },
       "ic_revenue": {
         "value": 0,
         "unit": "B_CNY",
         "label": "IC Revenue (B CNY)"
       },
-      "computing_power": {
-        "value": 65,
-        "unit": "index",
-        "label": "Computing Power Index"
-      },
       "gov_investment": {
         "value": 3,
         "unit": "B_CNY",
-        "label": "Gov IC/AI Investment (B CNY)"
+        "label": "Total Tracked Investment (B CNY)"
       },
       "rd_intensity": {
         "value": 1.05,
@@ -3253,6 +3311,11 @@
         "value": 0.4,
         "unit": "CNY/kWh",
         "label": "Industrial Power Price"
+      },
+      "ai_compute_pflops": {
+        "value": 91500,
+        "unit": "PFLOPS",
+        "label": "AI Compute (PFLOPS)"
       }
     },
     "economic": {
@@ -3263,9 +3326,11 @@
     },
     "ai_compute": {
       "ai_companies": 10,
-      "smart_computing_centers": 8,
-      "dc_capacity_mw": 500,
-      "computing_hub": "Hohhot"
+      "smart_computing_centers": 36,
+      "dc_capacity_mw": 1500,
+      "computing_hub": "Hohhot",
+      "pflops_operational": 91500,
+      "compute_notes": "Ulanqab 61,500P + Horinger 30,000P. CM Hohhot 6.7 EFLOPS. Alibaba 30B CNY. Kuaishou 100B+ CNY. ByteDance presence."
     },
     "companies": [
       {
@@ -3342,32 +3407,31 @@
           "power"
         ]
       }
-    ]
+    ],
+    "funding_summary": {
+      "semiconductor_total_b_cny": 0,
+      "ai_compute_total_b_cny": 137.0,
+      "grand_total_b_cny": 137.0,
+      "deal_count": 4,
+      "active_projects": 3,
+      "failed_projects": 0,
+      "planned_projects": 1
+    }
   },
   "520000": {
     "name_en": "Guizhou",
     "name_cn": "贵州",
     "region": "Southwest China",
     "metrics": {
-      "composite_score": {
-        "value": 24.1,
-        "unit": "index",
-        "label": "Overall Score"
-      },
       "ic_revenue": {
         "value": 0,
         "unit": "B_CNY",
         "label": "IC Revenue (B CNY)"
       },
-      "computing_power": {
-        "value": 60,
-        "unit": "index",
-        "label": "Computing Power Index"
-      },
       "gov_investment": {
         "value": 5,
         "unit": "B_CNY",
-        "label": "Gov IC/AI Investment (B CNY)"
+        "label": "Total Tracked Investment (B CNY)"
       },
       "rd_intensity": {
         "value": 1.02,
@@ -3378,6 +3442,11 @@
         "value": 0.54,
         "unit": "CNY/kWh",
         "label": "Industrial Power Price"
+      },
+      "ai_compute_pflops": {
+        "value": 56900,
+        "unit": "PFLOPS",
+        "label": "AI Compute (PFLOPS)"
       }
     },
     "economic": {
@@ -3388,9 +3457,11 @@
     },
     "ai_compute": {
       "ai_companies": 20,
-      "smart_computing_centers": 10,
-      "dc_capacity_mw": 300,
-      "computing_hub": "Gui'an"
+      "smart_computing_centers": 48,
+      "dc_capacity_mw": 600,
+      "computing_hub": "Gui'an",
+      "pflops_operational": 56900,
+      "compute_notes": "56.9 EFLOPS operational. Huawei 110K+ Ascend chips. 200K chip target. Apple, Tencent, 3 telcos."
     },
     "companies": [
       {
@@ -3517,32 +3588,31 @@
           "semiconductor"
         ]
       }
-    ]
+    ],
+    "funding_summary": {
+      "semiconductor_total_b_cny": 4.1,
+      "ai_compute_total_b_cny": 165.8,
+      "grand_total_b_cny": 169.9,
+      "deal_count": 7,
+      "active_projects": 5,
+      "failed_projects": 1,
+      "planned_projects": 1
+    }
   },
   "640000": {
     "name_en": "Ningxia",
     "name_cn": "宁夏",
     "region": "Northwest China",
     "metrics": {
-      "composite_score": {
-        "value": 21.7,
-        "unit": "index",
-        "label": "Overall Score"
-      },
       "ic_revenue": {
         "value": 0,
         "unit": "B_CNY",
         "label": "IC Revenue (B CNY)"
       },
-      "computing_power": {
-        "value": 55,
-        "unit": "index",
-        "label": "Computing Power Index"
-      },
       "gov_investment": {
         "value": 2,
         "unit": "B_CNY",
-        "label": "Gov IC/AI Investment (B CNY)"
+        "label": "Total Tracked Investment (B CNY)"
       },
       "rd_intensity": {
         "value": 1.35,
@@ -3553,6 +3623,11 @@
         "value": 0.4,
         "unit": "CNY/kWh",
         "label": "Industrial Power Price"
+      },
+      "ai_compute_pflops": {
+        "value": 31000,
+        "unit": "PFLOPS",
+        "label": "AI Compute (PFLOPS)"
       }
     },
     "economic": {
@@ -3563,9 +3638,11 @@
     },
     "ai_compute": {
       "ai_companies": 5,
-      "smart_computing_centers": 4,
-      "dc_capacity_mw": 200,
-      "computing_hub": "Zhongwei"
+      "smart_computing_centers": 9,
+      "dc_capacity_mw": 400,
+      "computing_hub": "Zhongwei",
+      "pflops_operational": 31000,
+      "compute_notes": "31,000 PFLOPS FP16. 96.2K GPU cards. 130K racks. AWS/NWCD. #4 nationally among 302 cities."
     },
     "companies": [
       {
@@ -3655,32 +3732,31 @@
           "power"
         ]
       }
-    ]
+    ],
+    "funding_summary": {
+      "semiconductor_total_b_cny": 0,
+      "ai_compute_total_b_cny": 356.2,
+      "grand_total_b_cny": 356.2,
+      "deal_count": 4,
+      "active_projects": 2,
+      "failed_projects": 0,
+      "planned_projects": 2
+    }
   },
   "140000": {
     "name_en": "Shanxi",
     "name_cn": "山西",
     "region": "North China",
     "metrics": {
-      "composite_score": {
-        "value": 17.2,
-        "unit": "index",
-        "label": "Overall Score"
-      },
       "ic_revenue": {
         "value": 0,
         "unit": "B_CNY",
         "label": "IC Revenue (B CNY)"
       },
-      "computing_power": {
-        "value": 50,
-        "unit": "index",
-        "label": "Computing Power Index"
-      },
       "gov_investment": {
         "value": 2,
         "unit": "B_CNY",
-        "label": "Gov IC/AI Investment (B CNY)"
+        "label": "Total Tracked Investment (B CNY)"
       },
       "rd_intensity": {
         "value": 1.16,
@@ -3691,6 +3767,11 @@
         "value": 0.57,
         "unit": "CNY/kWh",
         "label": "Industrial Power Price"
+      },
+      "ai_compute_pflops": {
+        "value": 0,
+        "unit": "PFLOPS",
+        "label": "AI Compute (PFLOPS)"
       }
     },
     "economic": {
@@ -3770,32 +3851,31 @@
           "compute"
         ]
       }
-    ]
+    ],
+    "funding_summary": {
+      "semiconductor_total_b_cny": 0,
+      "ai_compute_total_b_cny": 84.0,
+      "grand_total_b_cny": 84.0,
+      "deal_count": 4,
+      "active_projects": 3,
+      "failed_projects": 0,
+      "planned_projects": 1
+    }
   },
   "650000": {
     "name_en": "Xinjiang",
     "name_cn": "新疆",
     "region": "Northwest China",
     "metrics": {
-      "composite_score": {
-        "value": 11.5,
-        "unit": "index",
-        "label": "Overall Score"
-      },
       "ic_revenue": {
         "value": 0,
         "unit": "B_CNY",
         "label": "IC Revenue (B CNY)"
       },
-      "computing_power": {
-        "value": 25,
-        "unit": "index",
-        "label": "Computing Power Index"
-      },
       "gov_investment": {
         "value": 1,
         "unit": "B_CNY",
-        "label": "Gov IC/AI Investment (B CNY)"
+        "label": "Total Tracked Investment (B CNY)"
       },
       "rd_intensity": {
         "value": 0.56,
@@ -3806,6 +3886,11 @@
         "value": 0.37,
         "unit": "CNY/kWh",
         "label": "Industrial Power Price"
+      },
+      "ai_compute_pflops": {
+        "value": 62000,
+        "unit": "PFLOPS",
+        "label": "AI Compute (PFLOPS)"
       }
     },
     "economic": {
@@ -3816,9 +3901,11 @@
     },
     "ai_compute": {
       "ai_companies": 5,
-      "smart_computing_centers": 2,
-      "dc_capacity_mw": 100,
-      "computing_hub": null
+      "smart_computing_centers": 8,
+      "dc_capacity_mw": 800,
+      "computing_hub": null,
+      "pflops_operational": 62000,
+      "compute_notes": "Hami/Yiwu 62,000P capacity. Bloomberg: 115K NVIDIA H100/H200 planned, 80.5K in single Yiwu compound. Karamay 17K-100KP target."
     },
     "companies": [
       {
@@ -3878,32 +3965,31 @@
           "datacenter"
         ]
       }
-    ]
+    ],
+    "funding_summary": {
+      "semiconductor_total_b_cny": 0,
+      "ai_compute_total_b_cny": 21.0,
+      "grand_total_b_cny": 21.0,
+      "deal_count": 2,
+      "active_projects": 2,
+      "failed_projects": 0,
+      "planned_projects": 0
+    }
   },
   "360000": {
     "name_en": "Jiangxi",
     "name_cn": "江西",
     "region": "East China",
     "metrics": {
-      "composite_score": {
-        "value": 13.5,
-        "unit": "index",
-        "label": "Overall Score"
-      },
       "ic_revenue": {
         "value": 5,
         "unit": "B_CNY",
         "label": "IC Revenue (B CNY)"
       },
-      "computing_power": {
-        "value": 18,
-        "unit": "index",
-        "label": "Computing Power Index"
-      },
       "gov_investment": {
         "value": 3,
         "unit": "B_CNY",
-        "label": "Gov IC/AI Investment (B CNY)"
+        "label": "Total Tracked Investment (B CNY)"
       },
       "rd_intensity": {
         "value": 1.76,
@@ -3914,6 +4000,11 @@
         "value": 0.6,
         "unit": "CNY/kWh",
         "label": "Industrial Power Price"
+      },
+      "ai_compute_pflops": {
+        "value": 0,
+        "unit": "PFLOPS",
+        "label": "AI Compute (PFLOPS)"
       }
     },
     "economic": {
@@ -3995,32 +4086,31 @@
         "body": "No significant semiconductor or AI investment identified. Nanchang has a small LED cluster but nothing moving the needle at national scale.",
         "tags": []
       }
-    ]
+    ],
+    "funding_summary": {
+      "semiconductor_total_b_cny": 0.1,
+      "ai_compute_total_b_cny": 0.1,
+      "grand_total_b_cny": 0.2,
+      "deal_count": 2,
+      "active_projects": 2,
+      "failed_projects": 0,
+      "planned_projects": 0
+    }
   },
   "450000": {
     "name_en": "Guangxi",
     "name_cn": "广西",
     "region": "South China",
     "metrics": {
-      "composite_score": {
-        "value": 9.8,
-        "unit": "index",
-        "label": "Overall Score"
-      },
       "ic_revenue": {
         "value": 1,
         "unit": "B_CNY",
         "label": "IC Revenue (B CNY)"
       },
-      "computing_power": {
-        "value": 15,
-        "unit": "index",
-        "label": "Computing Power Index"
-      },
       "gov_investment": {
         "value": 11,
         "unit": "B_CNY",
-        "label": "Gov IC/AI Investment (B CNY)"
+        "label": "Total Tracked Investment (B CNY)"
       },
       "rd_intensity": {
         "value": 0.9,
@@ -4031,6 +4121,11 @@
         "value": 0.57,
         "unit": "CNY/kWh",
         "label": "Industrial Power Price"
+      },
+      "ai_compute_pflops": {
+        "value": 0,
+        "unit": "PFLOPS",
+        "label": "AI Compute (PFLOPS)"
       }
     },
     "economic": {
@@ -4101,32 +4196,31 @@
           "compute"
         ]
       }
-    ]
+    ],
+    "funding_summary": {
+      "semiconductor_total_b_cny": 0,
+      "ai_compute_total_b_cny": 11.0,
+      "grand_total_b_cny": 11.0,
+      "deal_count": 2,
+      "active_projects": 2,
+      "failed_projects": 0,
+      "planned_projects": 0
+    }
   },
   "230000": {
     "name_en": "Heilongjiang",
     "name_cn": "黑龙江",
     "region": "Northeast China",
     "metrics": {
-      "composite_score": {
-        "value": 11.5,
-        "unit": "index",
-        "label": "Overall Score"
-      },
       "ic_revenue": {
         "value": 0,
         "unit": "B_CNY",
         "label": "IC Revenue (B CNY)"
       },
-      "computing_power": {
-        "value": 20,
-        "unit": "index",
-        "label": "Computing Power Index"
-      },
       "gov_investment": {
         "value": 2,
         "unit": "B_CNY",
-        "label": "Gov IC/AI Investment (B CNY)"
+        "label": "Total Tracked Investment (B CNY)"
       },
       "rd_intensity": {
         "value": 1.48,
@@ -4137,6 +4231,11 @@
         "value": 0.57,
         "unit": "CNY/kWh",
         "label": "Industrial Power Price"
+      },
+      "ai_compute_pflops": {
+        "value": 6900,
+        "unit": "PFLOPS",
+        "label": "AI Compute (PFLOPS)"
       }
     },
     "economic": {
@@ -4147,9 +4246,11 @@
     },
     "ai_compute": {
       "ai_companies": 15,
-      "smart_computing_centers": 2,
-      "dc_capacity_mw": 100,
-      "computing_hub": null
+      "smart_computing_centers": 3,
+      "dc_capacity_mw": 300,
+      "computing_hub": null,
+      "pflops_operational": 6900,
+      "compute_notes": "CM Harbin: 6.9 EFLOPS, 18K+ AI cards, 100% domestic chips (Cambricon). World's largest single-carrier smart computing cluster."
     },
     "companies": [
       {
@@ -4220,32 +4321,31 @@
           "compute"
         ]
       }
-    ]
+    ],
+    "funding_summary": {
+      "semiconductor_total_b_cny": 0,
+      "ai_compute_total_b_cny": 9.0,
+      "grand_total_b_cny": 9.0,
+      "deal_count": 4,
+      "active_projects": 4,
+      "failed_projects": 0,
+      "planned_projects": 0
+    }
   },
   "530000": {
     "name_en": "Yunnan",
     "name_cn": "云南",
     "region": "Southwest China",
     "metrics": {
-      "composite_score": {
-        "value": 10.4,
-        "unit": "index",
-        "label": "Overall Score"
-      },
       "ic_revenue": {
         "value": 0,
         "unit": "B_CNY",
         "label": "IC Revenue (B CNY)"
       },
-      "computing_power": {
-        "value": 15,
-        "unit": "index",
-        "label": "Computing Power Index"
-      },
       "gov_investment": {
         "value": 1,
         "unit": "B_CNY",
-        "label": "Gov IC/AI Investment (B CNY)"
+        "label": "Total Tracked Investment (B CNY)"
       },
       "rd_intensity": {
         "value": 1.0,
@@ -4256,6 +4356,11 @@
         "value": 0.41,
         "unit": "CNY/kWh",
         "label": "Industrial Power Price"
+      },
+      "ai_compute_pflops": {
+        "value": 0,
+        "unit": "PFLOPS",
+        "label": "AI Compute (PFLOPS)"
       }
     },
     "economic": {
@@ -4328,32 +4433,31 @@
           "power"
         ]
       }
-    ]
+    ],
+    "funding_summary": {
+      "semiconductor_total_b_cny": 0,
+      "ai_compute_total_b_cny": 0,
+      "grand_total_b_cny": 0,
+      "deal_count": 2,
+      "active_projects": 0,
+      "failed_projects": 0,
+      "planned_projects": 2
+    }
   },
   "620000": {
     "name_en": "Gansu",
     "name_cn": "甘肃",
     "region": "Northwest China",
     "metrics": {
-      "composite_score": {
-        "value": 12.4,
-        "unit": "index",
-        "label": "Overall Score"
-      },
       "ic_revenue": {
         "value": 5,
         "unit": "B_CNY",
         "label": "IC Revenue (B CNY)"
       },
-      "computing_power": {
-        "value": 30,
-        "unit": "index",
-        "label": "Computing Power Index"
-      },
       "gov_investment": {
         "value": 2,
         "unit": "B_CNY",
-        "label": "Gov IC/AI Investment (B CNY)"
+        "label": "Total Tracked Investment (B CNY)"
       },
       "rd_intensity": {
         "value": 1.44,
@@ -4364,6 +4468,11 @@
         "value": 0.47,
         "unit": "CNY/kWh",
         "label": "Industrial Power Price"
+      },
+      "ai_compute_pflops": {
+        "value": 51000,
+        "unit": "PFLOPS",
+        "label": "AI Compute (PFLOPS)"
       }
     },
     "economic": {
@@ -4374,9 +4483,11 @@
     },
     "ai_compute": {
       "ai_companies": 5,
-      "smart_computing_centers": 3,
-      "dc_capacity_mw": 80,
-      "computing_hub": "Qingyang"
+      "smart_computing_centers": 7,
+      "dc_capacity_mw": 300,
+      "computing_hub": "Qingyang",
+      "pflops_operational": 51000,
+      "compute_notes": "Qingyang 51,000P. Fastest growth among 8 national hub nodes. 7x 10K-card clusters planned for 2025."
     },
     "companies": [
       {
@@ -4467,32 +4578,31 @@
           "compute"
         ]
       }
-    ]
+    ],
+    "funding_summary": {
+      "semiconductor_total_b_cny": 0,
+      "ai_compute_total_b_cny": 144.1,
+      "grand_total_b_cny": 144.1,
+      "deal_count": 5,
+      "active_projects": 3,
+      "failed_projects": 0,
+      "planned_projects": 2
+    }
   },
   "220000": {
     "name_en": "Jilin",
     "name_cn": "吉林",
     "region": "Northeast China",
     "metrics": {
-      "composite_score": {
-        "value": 8.3,
-        "unit": "index",
-        "label": "Overall Score"
-      },
       "ic_revenue": {
         "value": 2,
         "unit": "B_CNY",
         "label": "IC Revenue (B CNY)"
       },
-      "computing_power": {
-        "value": 12,
-        "unit": "index",
-        "label": "Computing Power Index"
-      },
       "gov_investment": {
         "value": 2,
         "unit": "B_CNY",
-        "label": "Gov IC/AI Investment (B CNY)"
+        "label": "Total Tracked Investment (B CNY)"
       },
       "rd_intensity": {
         "value": 1.48,
@@ -4503,6 +4613,11 @@
         "value": 0.57,
         "unit": "CNY/kWh",
         "label": "Industrial Power Price"
+      },
+      "ai_compute_pflops": {
+        "value": 0,
+        "unit": "PFLOPS",
+        "label": "AI Compute (PFLOPS)"
       }
     },
     "economic": {
@@ -4574,32 +4689,31 @@
           "compute"
         ]
       }
-    ]
+    ],
+    "funding_summary": {
+      "semiconductor_total_b_cny": 0,
+      "ai_compute_total_b_cny": 0.8,
+      "grand_total_b_cny": 0.8,
+      "deal_count": 2,
+      "active_projects": 0,
+      "failed_projects": 0,
+      "planned_projects": 2
+    }
   },
   "460000": {
     "name_en": "Hainan",
     "name_cn": "海南",
     "region": "South China",
     "metrics": {
-      "composite_score": {
-        "value": 5.8,
-        "unit": "index",
-        "label": "Overall Score"
-      },
       "ic_revenue": {
         "value": 0,
         "unit": "B_CNY",
         "label": "IC Revenue (B CNY)"
       },
-      "computing_power": {
-        "value": 8,
-        "unit": "index",
-        "label": "Computing Power Index"
-      },
       "gov_investment": {
         "value": 1,
         "unit": "B_CNY",
-        "label": "Gov IC/AI Investment (B CNY)"
+        "label": "Total Tracked Investment (B CNY)"
       },
       "rd_intensity": {
         "value": 0.65,
@@ -4610,6 +4724,11 @@
         "value": 0.62,
         "unit": "CNY/kWh",
         "label": "Industrial Power Price"
+      },
+      "ai_compute_pflops": {
+        "value": 0,
+        "unit": "PFLOPS",
+        "label": "AI Compute (PFLOPS)"
       }
     },
     "economic": {
@@ -4658,32 +4777,31 @@
           "government"
         ]
       }
-    ]
+    ],
+    "funding_summary": {
+      "semiconductor_total_b_cny": 0,
+      "ai_compute_total_b_cny": 0,
+      "grand_total_b_cny": 0,
+      "deal_count": 1,
+      "active_projects": 1,
+      "failed_projects": 0,
+      "planned_projects": 0
+    }
   },
   "630000": {
     "name_en": "Qinghai",
     "name_cn": "青海",
     "region": "Northwest China",
     "metrics": {
-      "composite_score": {
-        "value": 5.4,
-        "unit": "index",
-        "label": "Overall Score"
-      },
       "ic_revenue": {
         "value": 0,
         "unit": "B_CNY",
         "label": "IC Revenue (B CNY)"
       },
-      "computing_power": {
-        "value": 10,
-        "unit": "index",
-        "label": "Computing Power Index"
-      },
       "gov_investment": {
         "value": 0.5,
         "unit": "B_CNY",
-        "label": "Gov IC/AI Investment (B CNY)"
+        "label": "Total Tracked Investment (B CNY)"
       },
       "rd_intensity": {
         "value": 0.91,
@@ -4694,6 +4812,11 @@
         "value": 0.37,
         "unit": "CNY/kWh",
         "label": "Industrial Power Price"
+      },
+      "ai_compute_pflops": {
+        "value": 15000,
+        "unit": "PFLOPS",
+        "label": "AI Compute (PFLOPS)"
       }
     },
     "economic": {
@@ -4704,9 +4827,11 @@
     },
     "ai_compute": {
       "ai_companies": 2,
-      "smart_computing_centers": 1,
-      "dc_capacity_mw": 40,
-      "computing_hub": null
+      "smart_computing_centers": 5,
+      "dc_capacity_mw": 200,
+      "computing_hub": null,
+      "pflops_operational": 15000,
+      "compute_notes": "15,000P+ operational. 190K racks. 3x 10K-card Moore Threads clusters signed. Green computing growth ~40x annually."
     },
     "companies": [
       {
@@ -4748,32 +4873,31 @@
           "datacenter"
         ]
       }
-    ]
+    ],
+    "funding_summary": {
+      "semiconductor_total_b_cny": 0,
+      "ai_compute_total_b_cny": 2.0,
+      "grand_total_b_cny": 2.0,
+      "deal_count": 1,
+      "active_projects": 1,
+      "failed_projects": 0,
+      "planned_projects": 0
+    }
   },
   "540000": {
     "name_en": "Tibet",
     "name_cn": "西藏",
     "region": "Southwest China",
     "metrics": {
-      "composite_score": {
-        "value": 1.5,
-        "unit": "index",
-        "label": "Overall Score"
-      },
       "ic_revenue": {
         "value": 0,
         "unit": "B_CNY",
         "label": "IC Revenue (B CNY)"
       },
-      "computing_power": {
-        "value": 2,
-        "unit": "index",
-        "label": "Computing Power Index"
-      },
       "gov_investment": {
         "value": 0.1,
         "unit": "B_CNY",
-        "label": "Gov IC/AI Investment (B CNY)"
+        "label": "Total Tracked Investment (B CNY)"
       },
       "rd_intensity": {
         "value": 0.3,
@@ -4784,6 +4908,11 @@
         "value": 0.52,
         "unit": "CNY/kWh",
         "label": "Industrial Power Price"
+      },
+      "ai_compute_pflops": {
+        "value": 0,
+        "unit": "PFLOPS",
+        "label": "AI Compute (PFLOPS)"
       }
     },
     "economic": {
@@ -4831,6 +4960,15 @@
           "datacenter"
         ]
       }
-    ]
+    ],
+    "funding_summary": {
+      "semiconductor_total_b_cny": 0,
+      "ai_compute_total_b_cny": 0,
+      "grand_total_b_cny": 0,
+      "deal_count": 1,
+      "active_projects": 1,
+      "failed_projects": 0,
+      "planned_projects": 0
+    }
   }
 }

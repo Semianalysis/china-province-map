@@ -425,7 +425,7 @@
     <!-- Rankings Table -->
     <div class="px-6 py-6" id="rankings-section">
         <h3 class="text-sm font-semibold text-sa-muted uppercase tracking-wider mb-3">
-            Province Rankings — <span id="ranking-metric-label">Overall Score</span>
+            Province Rankings — <span id="ranking-metric-label">IC Revenue</span>
         </h3>
         <div class="bg-sa-card rounded-lg border border-sa-border overflow-hidden">
             <div class="overflow-x-auto">
@@ -497,7 +497,7 @@
 <script>
 (function() {
     let provinceData = {};
-    let activeMetric = 'composite_score';
+    let activeMetric = 'ic_revenue';
     let metricKeys = [];
     let metricMeta = {};
     let industrialMetricKeys = [];
@@ -605,19 +605,12 @@
     }
 
     const knownMetricOrderSets = [
-        ['composite_score', 'fab_capacity', 'ai_compute_power', 'gov_subsidies', 'stem_graduates', 'tech_gdp_share'],
-        ['composite_score', 'ic_revenue', 'computing_power', 'gov_investment', 'rd_intensity', 'power_price'],
+        ['ic_revenue', 'ai_compute_pflops', 'gov_investment', 'rd_intensity', 'power_price'],
     ];
 
     const shortLabelMap = {
-        composite_score: 'Score',
-        fab_capacity: 'Fabs',
-        ai_compute_power: 'AI',
-        gov_subsidies: 'Gov',
-        stem_graduates: 'STEM',
-        tech_gdp_share: 'GDP%',
         ic_revenue: 'IC Rev',
-        computing_power: 'Compute',
+        ai_compute_pflops: 'AI PF',
         gov_investment: 'Gov Inv',
         rd_intensity: 'R&D',
         power_price: 'Power',
@@ -654,6 +647,7 @@
     function makeValueFormatter(unit) {
         if (unit === 'pct') return v => v + '%';
         if (unit === 'B_CNY') return v => '\u00a5' + (Math.round((Number(v) || 0) * 10) / 10).toLocaleString() + 'B';
+        if (unit === 'PFLOPS') return v => (Math.round((Number(v) || 0) * 10) / 10).toLocaleString() + ' PFLOPS';
         if (unit === 'kwpm') return v => v + 'K';
         if (unit === 'annual') return v => Math.round(v).toLocaleString();
         if (unit === 'MW') return v => v + ' MW';
@@ -665,9 +659,9 @@
         const provinces = Object.values(provinceData);
         const firstProvince = provinces.find(p => p && p.metrics && typeof p.metrics === 'object');
         if (!firstProvince) {
-            industrialMetricKeys = ['composite_score'];
+            industrialMetricKeys = ['ic_revenue'];
             industrialMetricMeta = {
-                composite_score: { key: 'composite_score', label: 'Overall Score', short: 'Score', unit: 'index', format: v => v.toString() },
+                ic_revenue: { key: 'ic_revenue', label: 'IC Revenue (B CNY)', short: 'IC Rev', unit: 'B_CNY', format: makeValueFormatter('B_CNY'), source: 'metrics' },
             };
         } else {
             const available = Object.keys(firstProvince.metrics).filter(k =>
@@ -677,8 +671,8 @@
             let ordered = knownMetricOrderSets.find(set => set.every(k => available.includes(k))) || [];
             if (!ordered.length) {
                 ordered = available.slice();
-                if (ordered.includes('composite_score')) {
-                    ordered = ['composite_score', ...ordered.filter(k => k !== 'composite_score')];
+                if (ordered.includes('ic_revenue')) {
+                    ordered = ['ic_revenue', ...ordered.filter(k => k !== 'ic_revenue')];
                 }
             }
             if (!ordered.length) ordered = Object.keys(firstProvince.metrics);
@@ -724,7 +718,7 @@
 
         const defaultMetric = activeLens === 'funding'
             ? (metricKeys.includes('funding_total_b_cny') ? 'funding_total_b_cny' : metricKeys[0])
-            : (metricKeys.includes('composite_score') ? 'composite_score' : metricKeys[0]);
+            : (metricKeys.includes('ic_revenue') ? 'ic_revenue' : metricKeys[0]);
         activeMetric = (explicitMetric && metricKeys.includes(explicitMetric)) ? explicitMetric : defaultMetric;
 
         document.querySelectorAll('.lens-tab').forEach(tab => {
@@ -886,7 +880,7 @@
                 province_en: province.name_en || adcode,
                 province_cn: province.name_cn || '',
                 story_order: idx,
-                score: metricValue(province, 'composite_score'),
+                score: metricValue(province, 'ic_revenue'),
                 year: extractStoryYear(story),
             }))
         );
@@ -1218,16 +1212,7 @@
         middleLabelEl.textContent = 'Provinces with Active Fabs';
         secondaryEl.removeAttribute('title');
 
-        if (metricKeys.includes('fab_capacity')) {
-            const totalFab = provinces.reduce((s, p) => s + metricValue(p, 'fab_capacity'), 0);
-            primaryEl.textContent = totalFab.toLocaleString();
-            primaryLabelEl.textContent = 'Total Fab Capacity (KWPM)';
-
-            const ucFabs = provinces.reduce((s, p) =>
-                s + (p.fabs ? p.fabs.filter(f => f.status === 'Under Construction').length : 0), 0);
-            secondaryEl.textContent = ucFabs;
-            secondaryLabelEl.textContent = 'Fabs Under Construction';
-        } else if (metricKeys.includes('ic_revenue')) {
+        if (metricKeys.includes('ic_revenue')) {
             const totalIC = provinces.reduce((s, p) => s + metricValue(p, 'ic_revenue'), 0);
             primaryEl.textContent = '\u00a5' + Math.round(totalIC).toLocaleString() + 'B';
             primaryLabelEl.textContent = 'Total IC Revenue (B CNY)';
@@ -1248,7 +1233,7 @@
         }
 
         // Top province
-        const topMetric = metricKeys.includes('composite_score') ? 'composite_score' : metricKeys[0];
+        const topMetric = metricKeys.includes('ic_revenue') ? 'ic_revenue' : metricKeys[0];
         const top = Object.entries(provinceData)
             .sort((a, b) => metricValue(b[1], topMetric) - metricValue(a[1], topMetric))[0];
         if (top) {
@@ -1381,14 +1366,14 @@
             totalFunding: metricValue(p, 'funding_total_b_cny'),
             semiFunding: metricValue(p, 'funding_semi_b_cny'),
             aiFunding: metricValue(p, 'funding_ai_b_cny'),
-            score: metricValue(p, 'composite_score'),
+            output: metricValue(p, 'ic_revenue'),
         }));
         if (!rows.length) return;
 
         const xMax = Math.max(...rows.map(r => r.totalFunding), 1);
-        const yMax = Math.max(...rows.map(r => r.score), 1);
+        const yMax = Math.max(...rows.map(r => r.output), 1);
         const rMax = Math.max(...rows.map(r => r.semiFunding + r.aiFunding), 1);
-        const scoreColor = makeColorScale('composite_score');
+        const scoreColor = makeColorScale('ic_revenue');
         const x = d3.scaleLinear().domain([0, xMax * 1.05]).range([margin.left, width - margin.right]);
         const y = d3.scaleLinear().domain([0, yMax * 1.08]).range([height - margin.bottom, margin.top]);
         const radius = d3.scaleSqrt().domain([0, rMax]).range([4, 16]);
@@ -1449,7 +1434,7 @@
             .attr('text-anchor', 'middle')
             .attr('fill', '#8888aa')
             .attr('font-size', '12px')
-            .text('Overall Score');
+            .text('IC Revenue (B CNY)');
 
         const dotGroup = scatterSvg.append('g').attr('class', 'scatter-dots');
         dotGroup.selectAll('circle')
@@ -1458,9 +1443,9 @@
             .attr('class', 'scatter-dot')
             .attr('data-adcode', d => d.adcode)
             .attr('cx', d => x(d.totalFunding))
-            .attr('cy', d => y(d.score))
+            .attr('cy', d => y(d.output))
             .attr('r', d => radius(d.semiFunding + d.aiFunding))
-            .attr('fill', d => scoreColor(d.score))
+            .attr('fill', d => scoreColor(d.output))
             .attr('fill-opacity', 0.85)
             .attr('stroke', '#0f0f23')
             .attr('stroke-width', 1.2)
@@ -1472,7 +1457,7 @@
                     '<div class="text-white font-semibold text-sm">' + escapeHtml(d.name_en) + ' <span class="text-sa-muted text-xs">' + escapeHtml(d.name_cn) + '</span></div>' +
                     '<div class="text-sa-cyan text-xs mt-1">Total Funding: \u00a5' + Math.round(d.totalFunding).toLocaleString() + 'B</div>' +
                     '<div class="text-sa-muted text-xs">Semi: \u00a5' + Math.round(d.semiFunding).toLocaleString() + 'B | AI: \u00a5' + Math.round(d.aiFunding).toLocaleString() + 'B</div>' +
-                    '<div class="text-sa-muted text-xs">Score: ' + d.score + '</div>';
+                    '<div class="text-sa-muted text-xs">IC Revenue: \u00a5' + Math.round(d.output).toLocaleString() + 'B</div>';
             })
             .on('mouseleave', function() {
                 scatterTooltip.classList.remove('visible');
@@ -1483,10 +1468,10 @@
 
         scatterSvg.append('g')
             .selectAll('text')
-            .data(rows.slice().sort((a, b) => (b.totalFunding + b.score) - (a.totalFunding + a.score)).slice(0, 10))
+            .data(rows.slice().sort((a, b) => (b.totalFunding + b.output) - (a.totalFunding + a.output)).slice(0, 10))
             .join('text')
             .attr('x', d => x(d.totalFunding) + radius(d.semiFunding + d.aiFunding) + 4)
-            .attr('y', d => y(d.score) - 2)
+            .attr('y', d => y(d.output) - 2)
             .attr('fill', '#c0c0d0')
             .attr('font-size', '10px')
             .text(d => d.name_en);
