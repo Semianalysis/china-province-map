@@ -221,8 +221,8 @@
     <!-- Map + Panel Container -->
     <div class="flex relative" id="map-panel-wrap" style="height: calc(100vh - 200px); min-height: 500px;">
         <!-- Map -->
-        <div class="flex-1 relative overflow-hidden" id="map-container">
-            <svg id="china-map" class="w-full h-full"></svg>
+        <div class="flex-1 relative" id="map-container">
+            <svg id="china-map" style="width:100%; height:100%; display:block;"></svg>
 
             <!-- Legend -->
             <div class="absolute bottom-4 left-6 flex items-center gap-2 bg-sa-card/80 backdrop-blur rounded-lg px-3 py-2 border border-sa-border">
@@ -587,18 +587,20 @@
         window.provinceData = data; // expose for side panel radar chart
 
         const container = document.getElementById('map-container');
-        const width = container.clientWidth;
+        const width = container.clientWidth || 1200;
         const height = container.clientHeight || 600;
-        svg.attr('viewBox', '0 0 ' + width + ' ' + height);
+        console.log('Map container:', width, 'x', height);
+        svg.attr('viewBox', '0 0 ' + width + ' ' + height)
+           .attr('width', width)
+           .attr('height', height);
 
         const objKey = Object.keys(topo.objects)[0];
         const geojson = topojson.feature(topo, topo.objects[objKey]);
+        console.log('GeoJSON features:', geojson.features.length);
 
+        const padding = 40;
         const projection = d3.geoMercator()
-            .fitSize([width * 0.9, height * 0.9], geojson);
-        // Nudge center slightly to account for padding
-        const [tx, ty] = projection.translate();
-        projection.translate([tx + width * 0.02, ty + height * 0.02]);
+            .fitExtent([[padding, padding], [width - padding, height - padding]], geojson);
 
         const path = d3.geoPath().projection(projection);
 
