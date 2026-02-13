@@ -38,21 +38,41 @@
     </div>
     <script>
     (function() {
+        const metricsObject = {{ province.metrics | tojson }};
+        const shortLabelMap = {
+            composite_score: 'Score',
+            fab_capacity: 'Fabs',
+            ai_compute_power: 'AI',
+            gov_subsidies: 'Gov',
+            stem_graduates: 'STEM',
+            tech_gdp_share: 'GDP%',
+            ic_revenue: 'IC Rev',
+            computing_power: 'Compute',
+            gov_investment: 'Gov Inv',
+            rd_intensity: 'R&D',
+            power_price: 'Power',
+        };
+
+        const keys = Object.keys(metricsObject || {});
+        const radarKeys = keys.filter(k => k !== 'composite_score').slice(0, 5);
+        if (keys.includes('composite_score')) radarKeys.push('composite_score');
+
         // Radar chart data — values normalized to national leader
-        const metrics = [
-            { label: 'Fabs', value: {{ province.metrics.fab_capacity.value }}, key: 'fab_capacity' },
-            { label: 'AI', value: {{ province.metrics.ai_compute_power.value }}, key: 'ai_compute_power' },
-            { label: 'Gov', value: {{ province.metrics.gov_subsidies.value }}, key: 'gov_subsidies' },
-            { label: 'STEM', value: {{ province.metrics.stem_graduates.value }}, key: 'stem_graduates' },
-            { label: 'GDP%', value: {{ province.metrics.tech_gdp_share.value }}, key: 'tech_gdp_share' },
-            { label: 'Score', value: {{ province.metrics.composite_score.value }}, key: 'composite_score' },
-        ];
+        const metrics = radarKeys.map(key => {
+            const m = metricsObject[key] || {};
+            return {
+                key,
+                label: shortLabelMap[key] || m.label || key,
+                value: Number(m.value) || 0,
+            };
+        });
+        if (!metrics.length) return;
 
         // Get national maxes from the parent window's data
         const pData = window.provinceData || {};
         const maxes = {};
         metrics.forEach(m => {
-            const vals = Object.values(pData).map(p => p.metrics[m.key].value);
+            const vals = Object.values(pData).map(p => (p.metrics && p.metrics[m.key] ? Number(p.metrics[m.key].value) || 0 : 0));
             maxes[m.key] = Math.max(...vals) || 1;
         });
 
@@ -132,10 +152,16 @@
                     {{ m.value }}%
                 {% elif m.unit == 'B_CNY' %}
                     &yen;{{ m.value }}B
+                {% elif m.unit == 'CNY/kWh' %}
+                    &yen;{{ m.value }}/kWh
                 {% elif m.unit == 'kwpm' %}
                     {{ m.value | int }}K
                 {% elif m.unit == 'annual' %}
                     {{ "{:,}".format(m.value | int) }}
+                {% elif m.unit == 'MW' %}
+                    {{ m.value }} MW
+                {% elif m.unit == 'index' %}
+                    {{ m.value }}
                 {% else %}
                     {{ m.value }} {{ m.unit }}
                 {% endif %}
@@ -190,7 +216,8 @@
                     <span class="text-xs px-2 py-0.5 rounded-full
                         {% if f.status == 'Operating' %}bg-green-900/40 text-green-400 border border-green-500/30
                         {% elif f.status == 'Under Construction' %}bg-yellow-900/40 text-yellow-400 border border-yellow-500/30
-                        {% elif f.status == 'Planned' %}bg-blue-900/40 text-blue-400 border border-blue-500/30
+                        {% elif f.status == 'Ramping' %}bg-blue-900/40 text-blue-400 border border-blue-500/30
+                        {% elif f.status == 'Pilot' %}bg-purple-900/40 text-purple-400 border border-purple-500/30
                         {% else %}bg-red-900/40 text-red-400 border border-red-500/30{% endif %}">
                         {{ f.status }}
                     </span>
@@ -201,7 +228,7 @@
                     <span class="text-sa-cyan text-xs font-medium">{{ f.capacity_kwpm }}K wpm</span>
                     <!-- Mini capacity bar -->
                     <div class="flex-1 bg-sa-bg rounded-full h-1 ml-1">
-                        <div class="rounded-full h-1 {% if f.status == 'Operating' %}bg-green-500{% elif f.status == 'Under Construction' %}bg-yellow-500{% else %}bg-red-500{% endif %}"
+                        <div class="rounded-full h-1 {% if f.status == 'Operating' %}bg-green-500{% elif f.status == 'Under Construction' %}bg-yellow-500{% elif f.status == 'Ramping' %}bg-blue-500{% elif f.status == 'Pilot' %}bg-purple-500{% else %}bg-red-500{% endif %}"
                              style="width: {{ [f.capacity_kwpm / 40 * 100, 100] | min }}%"></div>
                     </div>
                 </div>

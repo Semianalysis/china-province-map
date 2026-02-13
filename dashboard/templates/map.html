@@ -20,19 +20,19 @@
 
     /* --- Province Paths --- */
     .province-path {
-        stroke: #2a2a3e;
-        stroke-width: 0.5;
+        stroke: #5a5a7e;
+        stroke-width: 1.2;
         cursor: pointer;
         transition: filter 0.15s ease;
     }
     .province-path:hover {
         stroke: #00D9FF;
-        stroke-width: 1.5;
+        stroke-width: 2;
         filter: brightness(1.3);
     }
     .province-path.selected {
         stroke: #f0b429;
-        stroke-width: 2;
+        stroke-width: 2.5;
     }
 
     /* --- Glow filter sizes --- */
@@ -170,6 +170,33 @@
         opacity: 1;
         height: 5px;
     }
+
+    /* --- Layout view tabs --- */
+    .view-tab {
+        border: 1px solid #2a2a3e;
+        color: #8888aa;
+        background: transparent;
+        transition: all 0.2s ease;
+    }
+    .view-tab:hover {
+        border-color: #f0b429;
+        color: #f0b429;
+    }
+    .view-tab.active {
+        border-color: #f0b429;
+        color: #0f0f23;
+        background: #f0b429;
+        font-weight: 600;
+    }
+
+    /* --- Fab entities table --- */
+    .fab-row {
+        transition: background 0.12s ease;
+    }
+    .fab-row:hover {
+        background: #1a1a2e;
+    }
+
 </style>
 {% endblock %}
 
@@ -178,8 +205,8 @@
     <!-- Storytelling Stat Cards -->
     <div class="px-6 pt-4 pb-2 flex flex-wrap gap-3" id="stat-cards">
         <div class="stat-card">
-            <div class="stat-value text-sa-gold" id="sc-total-fab">--</div>
-            <div class="stat-label text-sa-muted">Total Fab Capacity (KWPM)</div>
+            <div class="stat-value text-sa-gold" id="sc-primary">--</div>
+            <div class="stat-label text-sa-muted" id="sc-primary-label">Primary Metric Total</div>
         </div>
         <div class="stat-card">
             <div class="stat-value text-sa-cyan" id="sc-fab-provinces">--</div>
@@ -190,25 +217,14 @@
             <div class="stat-label text-sa-muted">Top Province (Score)</div>
         </div>
         <div class="stat-card">
-            <div class="stat-value text-sa-coral" id="sc-under-construction">--</div>
-            <div class="stat-label text-sa-muted">Fabs Under Construction</div>
+            <div class="stat-value text-sa-coral" id="sc-secondary">--</div>
+            <div class="stat-label text-sa-muted" id="sc-secondary-label">Secondary Indicator</div>
         </div>
     </div>
 
     <!-- Metric Tabs + Summary -->
     <div class="px-6 py-3 flex flex-wrap items-center gap-2" id="metric-tabs">
-        <button class="metric-tab active px-4 py-1.5 rounded-full text-sm border border-sa-border"
-                data-metric="composite_score" data-index="1">Overall Score</button>
-        <button class="metric-tab px-4 py-1.5 rounded-full text-sm border border-sa-border text-sa-muted"
-                data-metric="fab_capacity" data-index="2">Fab Capacity</button>
-        <button class="metric-tab px-4 py-1.5 rounded-full text-sm border border-sa-border text-sa-muted"
-                data-metric="ai_compute_power" data-index="3">AI Compute</button>
-        <button class="metric-tab px-4 py-1.5 rounded-full text-sm border border-sa-border text-sa-muted"
-                data-metric="gov_subsidies" data-index="4">Gov Subsidies</button>
-        <button class="metric-tab px-4 py-1.5 rounded-full text-sm border border-sa-border text-sa-muted"
-                data-metric="stem_graduates" data-index="5">STEM Graduates</button>
-        <button class="metric-tab px-4 py-1.5 rounded-full text-sm border border-sa-border text-sa-muted"
-                data-metric="tech_gdp_share" data-index="6">Tech GDP %</button>
+        <div class="flex flex-wrap items-center gap-2" id="metric-tab-buttons"></div>
         <div class="ml-3 metric-summary text-sm" id="metric-summary">
             <span class="text-sa-muted">National avg:</span>
             <span class="text-white font-semibold" id="metric-avg">--</span>
@@ -216,13 +232,18 @@
             <span class="text-sa-muted">Max:</span>
             <span class="text-sa-gold font-semibold" id="metric-max">--</span>
         </div>
+        <div class="ml-auto inline-flex items-center gap-1.5 bg-sa-card/60 rounded-full px-1.5 py-1 border border-sa-border" id="view-tabs">
+            <button class="view-tab active px-3 py-1 rounded-full text-xs" data-view="split">Split</button>
+            <button class="view-tab px-3 py-1 rounded-full text-xs" data-view="map">Map</button>
+            <button class="view-tab px-3 py-1 rounded-full text-xs" data-view="table">Table</button>
+        </div>
     </div>
 
     <!-- Map + Panel Container -->
-    <div class="relative" id="map-panel-wrap">
+    <div class="relative" id="map-panel-wrap" style="height: calc(100vh - 200px); min-height: 500px; overflow: hidden;">
         <!-- Map -->
-        <div class="relative" id="map-container">
-            <svg id="china-map"></svg>
+        <div id="map-container" style="position: relative; width: 100%; height: 100%; overflow: hidden;">
+            <svg id="china-map" style="display: block;"></svg>
 
             <!-- Legend -->
             <div class="absolute bottom-4 left-6 flex items-center gap-2 bg-sa-card/80 backdrop-blur rounded-lg px-3 py-2 border border-sa-border">
@@ -251,8 +272,7 @@
         <div id="panel-backdrop" class="absolute inset-0 bg-black/30 opacity-0 z-10" onclick="window.closePanel()"></div>
 
         <!-- Side Panel -->
-        <div id="side-panel" class="closed w-[420px] border-l border-sa-border bg-sa-card overflow-y-auto absolute right-0 top-0 z-20" style="height: 100%; max-height: calc(100vh - 200px);"
-        </div>
+        <div id="side-panel" class="closed w-[420px] border-l border-sa-border bg-sa-card overflow-y-auto absolute right-0 top-0 z-20" style="height: 100%; max-height: calc(100vh - 200px);"></div>
     </div>
 
     <!-- Rankings Table -->
@@ -264,20 +284,61 @@
             <div class="overflow-x-auto">
                 <table class="w-full text-sm">
                     <thead class="sticky top-0 bg-sa-card z-10">
-                        <tr class="border-b border-sa-border text-sa-muted text-xs uppercase tracking-wider">
-                            <th class="px-4 py-2.5 text-left w-12">#</th>
-                            <th class="px-4 py-2.5 text-left">Province</th>
-                            <th class="px-4 py-2.5 text-left">Region</th>
-                            <th class="px-4 py-2.5 text-center" title="Overall Score">Score</th>
-                            <th class="px-4 py-2.5 text-center" title="Fab Capacity">Fabs</th>
-                            <th class="px-4 py-2.5 text-center" title="AI Compute">AI</th>
-                            <th class="px-4 py-2.5 text-center" title="Gov Subsidies">Gov</th>
-                            <th class="px-4 py-2.5 text-center" title="STEM Graduates">STEM</th>
-                            <th class="px-4 py-2.5 text-center" title="Tech GDP %">GDP%</th>
-                            <th class="px-4 py-2.5 text-right w-40">Active Metric</th>
-                        </tr>
+                        <tr id="rankings-header-row" class="border-b border-sa-border text-sa-muted text-xs uppercase tracking-wider"></tr>
                     </thead>
                     <tbody id="rankings-body"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fab Entities Table -->
+    <div class="px-6 pb-8" id="entities-section">
+        <div class="flex flex-wrap items-center justify-between gap-3 mb-3">
+            <h3 class="text-sm font-semibold text-sa-muted uppercase tracking-wider">
+                Fab Entity List
+                <span class="normal-case text-xs text-sa-cyan ml-1" id="fab-entity-count"></span>
+            </h3>
+            <div class="flex flex-wrap items-center gap-2">
+                <input
+                    id="fab-search"
+                    type="text"
+                    placeholder="Search fab, province, node..."
+                    class="bg-sa-card border border-sa-border rounded-md px-3 py-1.5 text-xs text-white placeholder-sa-muted outline-none focus:border-sa-cyan"
+                />
+                <select
+                    id="fab-status-filter"
+                    class="bg-sa-card border border-sa-border rounded-md px-2.5 py-1.5 text-xs text-white outline-none focus:border-sa-cyan"
+                >
+                    <option value="">All Statuses</option>
+                </select>
+                <select
+                    id="fab-sort"
+                    class="bg-sa-card border border-sa-border rounded-md px-2.5 py-1.5 text-xs text-white outline-none focus:border-sa-cyan"
+                >
+                    <option value="capacity_desc">Capacity ↓</option>
+                    <option value="capacity_asc">Capacity ↑</option>
+                    <option value="name_asc">Name A-Z</option>
+                    <option value="province_asc">Province A-Z</option>
+                    <option value="status_asc">Status</option>
+                </select>
+            </div>
+        </div>
+        <div class="bg-sa-card rounded-lg border border-sa-border overflow-hidden">
+            <div class="overflow-x-auto">
+                <table class="w-full text-sm">
+                    <thead class="sticky top-0 bg-sa-card z-10">
+                        <tr class="border-b border-sa-border text-sa-muted text-xs uppercase tracking-wider">
+                            <th class="px-4 py-2.5 text-left w-12">#</th>
+                            <th class="px-4 py-2.5 text-left">Fab</th>
+                            <th class="px-4 py-2.5 text-left">Province</th>
+                            <th class="px-4 py-2.5 text-left">Node</th>
+                            <th class="px-4 py-2.5 text-center">Status</th>
+                            <th class="px-4 py-2.5 text-right">Capacity (KWPM)</th>
+                            <th class="px-4 py-2.5 text-left">Sector</th>
+                        </tr>
+                    </thead>
+                    <tbody id="fab-entities-body"></tbody>
                 </table>
             </div>
         </div>
@@ -290,31 +351,163 @@
 (function() {
     let provinceData = {};
     let activeMetric = 'composite_score';
+    let metricKeys = [];
+    let metricMeta = {};
     let selectedAdcode = null;
     let paths, labelGroup, clusterGroup;
     let colorScale;
     let sortedProvinces = []; // for keyboard nav
+    let fabEntities = [];
     let focusIndex = -1;
+    let activeView = 'split';
 
     const svg = d3.select('#china-map');
     const tooltip = document.getElementById('tooltip');
     const panel = document.getElementById('side-panel');
     const backdrop = document.getElementById('panel-backdrop');
+    const mapPanelWrap = document.getElementById('map-panel-wrap');
+    const rankingsSection = document.getElementById('rankings-section');
+    const entitiesSection = document.getElementById('entities-section');
+    const fabSearchInput = document.getElementById('fab-search');
+    const fabStatusFilter = document.getElementById('fab-status-filter');
+    const fabSortSelect = document.getElementById('fab-sort');
 
-    // Metric metadata
-    const metricMeta = {
-        composite_score: { label: 'Overall Score', short: 'Score', format: v => v.toString(), key: 'composite_score' },
-        fab_capacity:    { label: 'Fab Capacity (KWPM)', short: 'Fabs', format: v => v + 'K', key: 'fab_capacity' },
-        ai_compute_power:{ label: 'AI Compute Power (MW)', short: 'AI', format: v => v + ' MW', key: 'ai_compute_power' },
-        gov_subsidies:   { label: 'Gov Subsidies (B CNY)', short: 'Gov', format: v => '\u00a5' + v + 'B', key: 'gov_subsidies' },
-        stem_graduates:  { label: 'STEM Graduates', short: 'STEM', format: v => (v >= 1000 ? (v/1000).toFixed(0) + 'K' : v.toString()), key: 'stem_graduates' },
-        tech_gdp_share:  { label: 'Tech GDP %', short: 'GDP%', format: v => v + '%', key: 'tech_gdp_share' },
+    function setView(view) {
+        activeView = view;
+        document.querySelectorAll('.view-tab').forEach(tab => {
+            tab.classList.toggle('active', tab.dataset.view === view);
+        });
+
+        if (view === 'map') {
+            mapPanelWrap.style.display = 'block';
+            rankingsSection.style.display = 'none';
+            entitiesSection.style.display = 'none';
+            return;
+        }
+        if (view === 'table') {
+            mapPanelWrap.style.display = 'none';
+            rankingsSection.style.display = 'block';
+            entitiesSection.style.display = 'block';
+            window.closePanel();
+            return;
+        }
+
+        mapPanelWrap.style.display = 'block';
+        rankingsSection.style.display = 'block';
+        entitiesSection.style.display = 'none';
+    }
+
+    const knownMetricOrderSets = [
+        ['composite_score', 'fab_capacity', 'ai_compute_power', 'gov_subsidies', 'stem_graduates', 'tech_gdp_share'],
+        ['composite_score', 'ic_revenue', 'computing_power', 'gov_investment', 'rd_intensity', 'power_price'],
+    ];
+
+    const shortLabelMap = {
+        composite_score: 'Score',
+        fab_capacity: 'Fabs',
+        ai_compute_power: 'AI',
+        gov_subsidies: 'Gov',
+        stem_graduates: 'STEM',
+        tech_gdp_share: 'GDP%',
+        ic_revenue: 'IC Rev',
+        computing_power: 'Compute',
+        gov_investment: 'Gov Inv',
+        rd_intensity: 'R&D',
+        power_price: 'Power',
     };
-    const metricKeys = Object.keys(metricMeta);
 
-    // Custom SA color scale: navy -> teal -> gold -> coral
+    function defaultLabelFromKey(key) {
+        return key.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+    }
+
+    function makeValueFormatter(unit) {
+        if (unit === 'pct') return v => v + '%';
+        if (unit === 'B_CNY') return v => '\u00a5' + v + 'B';
+        if (unit === 'kwpm') return v => v + 'K';
+        if (unit === 'annual') return v => Math.round(v).toLocaleString();
+        if (unit === 'MW') return v => v + ' MW';
+        if (unit === 'CNY/kWh') return v => '\u00a5' + v + '/kWh';
+        return v => (Number.isFinite(Number(v)) ? Number(v).toLocaleString() : String(v));
+    }
+
+    function buildMetricModel() {
+        const provinces = Object.values(provinceData);
+        const firstProvince = provinces.find(p => p && p.metrics && typeof p.metrics === 'object');
+        if (!firstProvince) {
+            metricKeys = ['composite_score'];
+            metricMeta = {
+                composite_score: { key: 'composite_score', label: 'Overall Score', short: 'Score', unit: 'index', format: v => v.toString() },
+            };
+            activeMetric = 'composite_score';
+            return;
+        }
+
+        const available = Object.keys(firstProvince.metrics).filter(k =>
+            provinces.some(p => p?.metrics?.[k] && Number.isFinite(Number(p.metrics[k].value)))
+        );
+
+        let ordered = knownMetricOrderSets.find(set => set.every(k => available.includes(k))) || [];
+        if (!ordered.length) {
+            ordered = available.slice();
+            if (ordered.includes('composite_score')) {
+                ordered = ['composite_score', ...ordered.filter(k => k !== 'composite_score')];
+            }
+        }
+        if (!ordered.length) ordered = Object.keys(firstProvince.metrics);
+
+        metricKeys = ordered.slice(0, 6);
+        metricMeta = {};
+        metricKeys.forEach(k => {
+            const sample = provinces.find(p => p?.metrics?.[k])?.metrics?.[k] || {};
+            const label = sample.label || defaultLabelFromKey(k);
+            const short = shortLabelMap[k] || label.split(' ')[0] || label;
+            const unit = sample.unit || '';
+            metricMeta[k] = { key: k, label, short, unit, format: makeValueFormatter(unit) };
+        });
+        activeMetric = metricKeys.includes('composite_score') ? 'composite_score' : metricKeys[0];
+    }
+
+    function renderMetricTabs() {
+        const container = document.getElementById('metric-tab-buttons');
+        container.innerHTML = metricKeys.map((k, i) => {
+            const activeClass = k === activeMetric ? 'active' : 'text-sa-muted';
+            return '<button class="metric-tab ' + activeClass + ' px-4 py-1.5 rounded-full text-sm border border-sa-border" ' +
+                'data-metric="' + k + '" data-index="' + (i + 1) + '">' + escapeHtml(metricMeta[k].label) + '</button>';
+        }).join('');
+
+        document.querySelectorAll('.metric-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.metric-tab').forEach(t => {
+                    t.classList.remove('active');
+                    t.classList.add('text-sa-muted');
+                });
+                tab.classList.add('active');
+                tab.classList.remove('text-sa-muted');
+                activeMetric = tab.dataset.metric;
+                recolor(true);
+                buildRankings();
+            });
+        });
+    }
+
+    function renderRankingsHeader() {
+        const row = document.getElementById('rankings-header-row');
+        const metricHeaders = metricKeys.map(k =>
+            '<th class="px-4 py-2.5 text-center" title="' + escapeHtml(metricMeta[k].label) + '">' +
+            escapeHtml(metricMeta[k].short) + '</th>'
+        ).join('');
+        row.innerHTML =
+            '<th class="px-4 py-2.5 text-left w-12">#</th>' +
+            '<th class="px-4 py-2.5 text-left">Province</th>' +
+            '<th class="px-4 py-2.5 text-left">Region</th>' +
+            metricHeaders +
+            '<th class="px-4 py-2.5 text-right w-40">Active Metric</th>';
+    }
+
+    // Custom SA color scale: visible navy -> teal -> gold -> coral
+    // Floor color (#1a2e4a) must be visually distinct from page background (#0f0f23)
     const saColorInterpolator = (function() {
-        const colors = ['#0a1628', '#0d4f5a', '#0d7377', '#3a9a5c', '#a8b840', '#f0b429', '#ff6b35'];
+        const colors = ['#1a2e4a', '#0d5f6a', '#0d7377', '#3a9a5c', '#a8b840', '#f0b429', '#ff6b35'];
         const scale = d3.scaleLinear()
             .domain(colors.map((_, i) => i / (colors.length - 1)))
             .range(colors)
@@ -322,28 +515,140 @@
         return t => scale(Math.max(0, Math.min(1, t)));
     })();
 
+    function metricValue(province, metric) {
+        return Number(province?.metrics?.[metric]?.value) || 0;
+    }
+
     function makeColorScale(metric) {
-        const values = Object.values(provinceData).map(p => p.metrics[metric].value);
+        const values = Object.values(provinceData).map(p => metricValue(p, metric));
         const max = Math.max(...values) || 1;
         return v => saColorInterpolator(v / max);
     }
 
     function fmtValue(adcode, metric) {
         const p = provinceData[adcode];
-        if (!p) return '';
-        return metricMeta[metric].format(p.metrics[metric].value);
+        if (!p || !metricMeta[metric]) return '';
+        return metricMeta[metric].format(metricValue(p, metric));
     }
 
     function getMaxValue(metric) {
-        return Math.max(...Object.values(provinceData).map(p => p.metrics[metric].value)) || 1;
+        return Math.max(...Object.values(provinceData).map(p => metricValue(p, metric))) || 1;
     }
 
     // Compute rank for a province on active metric
     function getRank(adcode) {
         const sorted = Object.entries(provinceData)
-            .sort((a, b) => b[1].metrics[activeMetric].value - a[1].metrics[activeMetric].value);
+            .sort((a, b) => metricValue(b[1], activeMetric) - metricValue(a[1], activeMetric));
         const idx = sorted.findIndex(([ac]) => ac === adcode);
         return idx >= 0 ? idx + 1 : null;
+    }
+
+    function escapeHtml(value) {
+        return String(value ?? '')
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+    }
+
+    function getStatusBadgeClass(status) {
+        if (status === 'Operating') return 'bg-green-900/40 text-green-400 border border-green-500/30';
+        if (status === 'Under Construction') return 'bg-yellow-900/40 text-yellow-400 border border-yellow-500/30';
+        if (status === 'Ramping') return 'bg-blue-900/40 text-blue-400 border border-blue-500/30';
+        if (status === 'Pilot') return 'bg-purple-900/40 text-purple-400 border border-purple-500/30';
+        if (status === 'Suspended') return 'bg-red-900/40 text-red-400 border border-red-500/30';
+        return 'bg-sa-navy text-sa-cyan border border-sa-cyan/30';
+    }
+
+    function statusSortRank(status) {
+        const order = {
+            Operating: 1,
+            Ramping: 2,
+            Pilot: 3,
+            'Under Construction': 4,
+            Suspended: 5,
+        };
+        return order[status] || 99;
+    }
+
+    function buildFabEntities() {
+        fabEntities = Object.entries(provinceData).flatMap(([adcode, province]) =>
+            (province.fabs || []).map((fab, index) => ({
+                id: adcode + '_' + index,
+                adcode,
+                province_en: province.name_en,
+                province_cn: province.name_cn,
+                region: province.region,
+                name: fab.name || 'Unknown Fab',
+                node: fab.node || 'N/A',
+                capacity_kwpm: Number(fab.capacity_kwpm) || 0,
+                status: fab.status || 'Unknown',
+                sector: fab.sector || 'N/A',
+            }))
+        );
+    }
+
+    function populateFabStatusFilter() {
+        const statuses = Array.from(new Set(fabEntities.map(f => f.status))).sort();
+        fabStatusFilter.innerHTML = '<option value="">All Statuses</option>' +
+            statuses.map(s => '<option value="' + escapeHtml(s) + '">' + escapeHtml(s) + '</option>').join('');
+    }
+
+    function buildFabEntityTable() {
+        const query = (fabSearchInput.value || '').trim().toLowerCase();
+        const status = fabStatusFilter.value || '';
+        const sortBy = fabSortSelect.value || 'capacity_desc';
+
+        let rows = fabEntities.filter(f => {
+            const matchesStatus = !status || f.status === status;
+            if (!matchesStatus) return false;
+            if (!query) return true;
+            const haystack = [
+                f.name,
+                f.province_en,
+                f.province_cn,
+                f.region,
+                f.node,
+                f.status,
+                f.sector,
+            ].join(' ').toLowerCase();
+            return haystack.includes(query);
+        });
+
+        rows = rows.slice().sort((a, b) => {
+            if (sortBy === 'capacity_asc') return a.capacity_kwpm - b.capacity_kwpm;
+            if (sortBy === 'name_asc') return a.name.localeCompare(b.name);
+            if (sortBy === 'province_asc') return a.province_en.localeCompare(b.province_en);
+            if (sortBy === 'status_asc') {
+                const byStatus = statusSortRank(a.status) - statusSortRank(b.status);
+                return byStatus || (b.capacity_kwpm - a.capacity_kwpm);
+            }
+            return b.capacity_kwpm - a.capacity_kwpm;
+        });
+
+        document.getElementById('fab-entity-count').textContent =
+            rows.length + ' / ' + fabEntities.length + ' shown';
+
+        const tbody = document.getElementById('fab-entities-body');
+        tbody.innerHTML = rows.map((f, i) =>
+            '<tr class="fab-row border-b border-sa-border/30 cursor-pointer" ' +
+                'data-adcode="' + f.adcode + '" ' +
+                'onmouseenter="window._highlightProvince(\'' + f.adcode + '\')" ' +
+                'onmouseleave="window._unhighlightProvince(\'' + f.adcode + '\')" ' +
+                'onclick="window._selectProvince(\'' + f.adcode + '\')">' +
+                '<td class="px-4 py-2 text-sa-muted">' + (i + 1) + '</td>' +
+                '<td class="px-4 py-2 text-white font-medium">' + escapeHtml(f.name) + '</td>' +
+                '<td class="px-4 py-2 text-sa-muted text-xs">' +
+                    escapeHtml(f.province_en) + ' <span class="opacity-70">' + escapeHtml(f.province_cn) + '</span></td>' +
+                '<td class="px-4 py-2 text-sa-muted text-xs">' + escapeHtml(f.node) + '</td>' +
+                '<td class="px-4 py-2 text-center">' +
+                    '<span class="text-xs px-2 py-0.5 rounded-full ' + getStatusBadgeClass(f.status) + '">' +
+                    escapeHtml(f.status) + '</span></td>' +
+                '<td class="px-4 py-2 text-right text-sa-cyan font-medium">' + f.capacity_kwpm.toLocaleString() + '</td>' +
+                '<td class="px-4 py-2 text-sa-muted text-xs">' + escapeHtml(f.sector) + '</td>' +
+            '</tr>'
+        ).join('');
     }
 
     // Update stat cards
@@ -351,31 +656,59 @@
         const provinces = Object.values(provinceData);
         if (!provinces.length) return;
 
-        // Total fab capacity
-        const totalFab = provinces.reduce((s, p) => s + p.metrics.fab_capacity.value, 0);
-        document.getElementById('sc-total-fab').textContent = totalFab.toLocaleString();
+        const primaryEl = document.getElementById('sc-primary');
+        const secondaryEl = document.getElementById('sc-secondary');
+        const primaryLabelEl = document.getElementById('sc-primary-label');
+        const secondaryLabelEl = document.getElementById('sc-secondary-label');
 
         // Provinces with active fabs
         const fabProvinces = provinces.filter(p => p.fabs && p.fabs.some(f => f.status === 'Operating')).length;
         document.getElementById('sc-fab-provinces').textContent = fabProvinces + '/31';
 
-        // Top province
-        const top = Object.entries(provinceData)
-            .sort((a, b) => b[1].metrics.composite_score.value - a[1].metrics.composite_score.value)[0];
-        if (top) {
-            document.getElementById('sc-top-province').textContent =
-                top[1].name_en + ' (' + top[1].metrics.composite_score.value + ')';
+        if (metricKeys.includes('fab_capacity')) {
+            const totalFab = provinces.reduce((s, p) => s + metricValue(p, 'fab_capacity'), 0);
+            primaryEl.textContent = totalFab.toLocaleString();
+            primaryLabelEl.textContent = 'Total Fab Capacity (KWPM)';
+
+            const ucFabs = provinces.reduce((s, p) =>
+                s + (p.fabs ? p.fabs.filter(f => f.status === 'Under Construction').length : 0), 0);
+            secondaryEl.textContent = ucFabs;
+            secondaryLabelEl.textContent = 'Fabs Under Construction';
+        } else if (metricKeys.includes('ic_revenue')) {
+            const totalIC = provinces.reduce((s, p) => s + metricValue(p, 'ic_revenue'), 0);
+            primaryEl.textContent = '\u00a5' + Math.round(totalIC).toLocaleString() + 'B';
+            primaryLabelEl.textContent = 'Total IC Revenue (B CNY)';
+
+            const totalAI = provinces.reduce((s, p) =>
+                s + (p.ai_compute ? Number(p.ai_compute.ai_companies || 0) : 0), 0);
+            secondaryEl.textContent = totalAI.toLocaleString();
+            secondaryLabelEl.textContent = 'Total AI Companies';
+        } else {
+            const primaryMetric = metricKeys[1] || metricKeys[0];
+            const secondaryMetric = metricKeys[2] || metricKeys[0];
+            const primaryTotal = provinces.reduce((s, p) => s + metricValue(p, primaryMetric), 0);
+            const secondaryAvg = provinces.reduce((s, p) => s + metricValue(p, secondaryMetric), 0) / provinces.length;
+            primaryEl.textContent = metricMeta[primaryMetric].format(Math.round(primaryTotal * 10) / 10);
+            primaryLabelEl.textContent = 'Total ' + metricMeta[primaryMetric].label;
+            secondaryEl.textContent = metricMeta[secondaryMetric].format(Math.round(secondaryAvg * 10) / 10);
+            secondaryLabelEl.textContent = 'Avg ' + metricMeta[secondaryMetric].label;
         }
 
-        // Under construction fabs
-        const ucFabs = provinces.reduce((s, p) =>
-            s + (p.fabs ? p.fabs.filter(f => f.status === 'Under Construction').length : 0), 0);
-        document.getElementById('sc-under-construction').textContent = ucFabs;
+        // Top province
+        const topMetric = metricKeys.includes('composite_score') ? 'composite_score' : metricKeys[0];
+        const top = Object.entries(provinceData)
+            .sort((a, b) => metricValue(b[1], topMetric) - metricValue(a[1], topMetric))[0];
+        if (top) {
+            document.getElementById('sc-top-province').textContent =
+                top[1].name_en + ' (' + metricMeta[topMetric].format(metricValue(top[1], topMetric)) + ')';
+        }
     }
 
     // Update metric summary
     function updateMetricSummary() {
-        const values = Object.values(provinceData).map(p => p.metrics[activeMetric].value);
+        if (!metricMeta[activeMetric]) return;
+        const values = Object.values(provinceData).map(p => metricValue(p, activeMetric));
+        if (!values.length) return;
         const avg = values.reduce((a, b) => a + b, 0) / values.length;
         const max = Math.max(...values);
         document.getElementById('metric-avg').textContent = metricMeta[activeMetric].format(Math.round(avg * 10) / 10);
@@ -384,6 +717,7 @@
 
     // Update legend
     function updateLegend() {
+        if (!metricMeta[activeMetric]) return;
         const max = getMaxValue(activeMetric);
         const bar = document.getElementById('legend-bar');
         const stops = [];
@@ -403,7 +737,7 @@
         sel.attr('fill', d => {
             const adcode = String(d.properties.adcode);
             const p = provinceData[adcode];
-            return p ? colorScale(p.metrics[activeMetric].value) : '#1a1a2e';
+            return p ? colorScale(metricValue(p, activeMetric)) : '#141e30';
         });
 
         // Update glow classes
@@ -414,7 +748,7 @@
             const el = d3.select(this);
             el.classed('glow-high', false).classed('glow-mid', false);
             if (p) {
-                const ratio = p.metrics[activeMetric].value / max;
+                const ratio = metricValue(p, activeMetric) / max;
                 if (ratio > 0.7) el.classed('glow-high', true);
                 else if (ratio > 0.4) el.classed('glow-mid', true);
             }
@@ -426,20 +760,21 @@
 
     // Build rankings table
     function buildRankings() {
+        if (!activeMetric || !metricMeta[activeMetric] || !metricKeys.length) return;
         const allMetricMaxes = {};
         metricKeys.forEach(k => {
             allMetricMaxes[k] = getMaxValue(k);
         });
 
         const sorted = Object.entries(provinceData)
-            .sort((a, b) => b[1].metrics[activeMetric].value - a[1].metrics[activeMetric].value);
+            .sort((a, b) => metricValue(b[1], activeMetric) - metricValue(a[1], activeMetric));
         sortedProvinces = sorted.map(([ac]) => ac);
 
         document.getElementById('ranking-metric-label').textContent = metricMeta[activeMetric].label;
 
         const tbody = document.getElementById('rankings-body');
         tbody.innerHTML = sorted.map(([adcode, p], i) => {
-            const v = p.metrics[activeMetric].value;
+            const v = metricValue(p, activeMetric);
             const max = allMetricMaxes[activeMetric];
             const pct = max > 0 ? (v / max * 100) : 0;
             const highlighted = adcode === selectedAdcode ? 'highlighted' : '';
@@ -447,15 +782,15 @@
 
             // Mini bars for all metrics
             const miniBars = metricKeys.map(k => {
-                const mv = p.metrics[k].value;
+                const mv = metricValue(p, k);
                 const mmax = allMetricMaxes[k];
                 const mpct = mmax > 0 ? (mv / mmax * 100) : 0;
                 const isActive = k === activeMetric;
                 const color = isActive ? '#f0b429' : '#3a3a5e';
-                return '<div class="w-full flex items-center justify-center" title="' +
+                return '<td class="px-4 py-2 text-center"><div class="w-full flex items-center justify-center" title="' +
                     metricMeta[k].label + ': ' + metricMeta[k].format(mv) + '">' +
                     '<div class="mini-metric-bar ' + (isActive ? 'active-metric' : '') +
-                    '" style="width:' + Math.max(mpct, 2) + '%; background:' + color + '; max-width:40px;"></div></div>';
+                    '" style="width:' + Math.max(mpct, 2) + '%; background:' + color + '; max-width:40px;"></div></div></td>';
             });
 
             return '<tr class="rank-row border-b border-sa-border/30 cursor-pointer ' + highlighted + ' ' + tierClass + '"' +
@@ -487,8 +822,8 @@
 
     window._unhighlightProvince = function(adcode) {
         d3.selectAll('.province-path').filter(d => String(d.properties.adcode) === adcode)
-            .attr('stroke', adcode === selectedAdcode ? '#f0b429' : '#2a2a3e')
-            .attr('stroke-width', adcode === selectedAdcode ? 2 : 0.5);
+            .attr('stroke', adcode === selectedAdcode ? '#f0b429' : '#5a5a7e')
+            .attr('stroke-width', adcode === selectedAdcode ? 2.5 : 1.2);
     };
 
     // Open side panel
@@ -497,11 +832,11 @@
         panel.classList.remove('closed');
         backdrop.classList.add('active');
         d3.selectAll('.province-path').classed('selected', false)
-            .attr('stroke', '#2a2a3e').attr('stroke-width', 0.5);
+            .attr('stroke', '#5a5a7e').attr('stroke-width', 1.2);
         d3.selectAll('.province-path')
             .filter(d => String(d.properties.adcode) === adcode)
             .classed('selected', true)
-            .attr('stroke', '#f0b429').attr('stroke-width', 2);
+            .attr('stroke', '#f0b429').attr('stroke-width', 2.5);
         htmx.ajax('GET', '/api/province/' + adcode, {target: '#side-panel', swap: 'innerHTML'});
         buildRankings();
         focusIndex = sortedProvinces.indexOf(adcode);
@@ -513,11 +848,14 @@
         selectedAdcode = null;
         focusIndex = -1;
         d3.selectAll('.province-path').classed('selected', false)
-            .attr('stroke', '#2a2a3e').attr('stroke-width', 0.5);
+            .attr('stroke', '#5a5a7e').attr('stroke-width', 1.2);
         buildRankings();
     };
 
     window._selectProvince = function(adcode) {
+        if (activeView === 'table') {
+            setView('split');
+        }
         openPanel(adcode);
     };
 
@@ -579,40 +917,65 @@
     });
 
     // Init
+    function rewindGeometry(geometry) {
+        if (!geometry) return geometry;
+        if (geometry.type === 'Polygon') {
+            return {
+                type: 'Polygon',
+                coordinates: geometry.coordinates.map(ring => ring.slice().reverse()),
+            };
+        }
+        if (geometry.type === 'MultiPolygon') {
+            return {
+                type: 'MultiPolygon',
+                coordinates: geometry.coordinates.map(poly =>
+                    poly.map(ring => ring.slice().reverse())
+                ),
+            };
+        }
+        return geometry;
+    }
+
     Promise.all([
-        d3.json('/static/china-provinces.geo.json'),
+        d3.json('/static/china-provinces-source.topo.json'),
         fetch('/api/provinces').then(r => r.json())
-    ]).then(([topo, data]) => {
+    ]).then(([topology, data]) => {
         provinceData = data;
         window.provinceData = data;
+        buildMetricModel();
+        renderMetricTabs();
+        renderRankingsHeader();
 
-        const width = 1200;
-        const height = 700;
+        const container = document.getElementById('map-container');
+        const width = container.clientWidth || 1200;
+        const height = container.clientHeight || 700;
 
         svg.attr('width', width)
            .attr('height', height)
            .attr('viewBox', '0 0 ' + width + ' ' + height);
 
-        // Using GeoJSON directly (no TopoJSON conversion needed)
-        const geojson = topo; // already a FeatureCollection
+        const geojson = topojson.feature(topology, topology.objects.provinces);
+        const provinceFeatures = geojson.features
+            .filter(f => provinceData[String(f.properties.adcode)])
+            .map(f => ({ ...f, geometry: rewindGeometry(f.geometry) }));
 
-        // Manual projection known to work for China
+        // Filter to mainland provinces only for fitSize calculation
+        const mainlandFeatures = provinceFeatures.filter(f => {
+            const ac = String(f.properties.adcode);
+            return ac !== '100000_JD' && ac !== '710000' && ac !== '810000' && ac !== '820000';
+        });
+        const mainlandGeo = { type: 'FeatureCollection', features: mainlandFeatures };
+
+        // Auto-fit projection to container with padding
         const projection = d3.geoMercator()
-            .center([104, 37])
-            .scale(680)
-            .translate([width / 2, height / 2]);
+            .fitExtent([[40, 20], [width - 120, height - 20]], mainlandGeo);
 
         const path = d3.geoPath().projection(projection);
-
-        // Debug: check first path
-        const testPath = path(geojson.features[0]);
-        console.log('First feature:', geojson.features[0].properties.name,
-                     'path length:', testPath ? testPath.length : 'NULL');
 
         const g = svg.append('g');
 
         paths = g.selectAll('path')
-            .data(geojson.features)
+            .data(provinceFeatures)
             .join('path')
             .attr('d', path)
             .attr('class', 'province-path')
@@ -622,7 +985,7 @@
                 if (!p) return;
                 const rank = getRank(adcode);
                 const max = getMaxValue(activeMetric);
-                const val = p.metrics[activeMetric].value;
+                const val = metricValue(p, activeMetric);
                 const pct = max > 0 ? (val / max * 100) : 0;
 
                 document.getElementById('tt-name').textContent = p.name_en;
@@ -712,7 +1075,7 @@
             .text('South China Sea');
 
         // Tiny Hainan representation
-        const hainanFeature = geojson.features.find(f => String(f.properties.adcode) === '460000');
+        const hainanFeature = provinceFeatures.find(f => String(f.properties.adcode) === '460000');
         if (hainanFeature) {
             const miniProj = d3.geoMercator()
                 .center([110, 19])
@@ -744,27 +1107,21 @@
         recolor(false);
         buildRankings();
         updateStatCards();
+        buildFabEntities();
+        populateFabStatusFilter();
+        buildFabEntityTable();
 
-        // Metric tab switching
-        document.querySelectorAll('.metric-tab').forEach(tab => {
-            tab.addEventListener('click', () => {
-                document.querySelectorAll('.metric-tab').forEach(t => {
-                    t.classList.remove('active');
-                    t.classList.add('text-sa-muted');
-                });
-                tab.classList.add('active');
-                tab.classList.remove('text-sa-muted');
-                activeMetric = tab.dataset.metric;
-                recolor(true);
-                buildRankings();
-            });
-        });
+        // Fab entity controls
+        fabSearchInput.addEventListener('input', buildFabEntityTable);
+        fabStatusFilter.addEventListener('change', buildFabEntityTable);
+        fabSortSelect.addEventListener('change', buildFabEntityTable);
 
-        // Zoom
+        // Zoom (wheel is disabled to preserve normal page scroll behavior)
         const zoom = d3.zoom()
             .scaleExtent([1, 8])
             .on('zoom', (event) => g.attr('transform', event.transform));
         svg.call(zoom);
+        svg.on('wheel.zoom', null);
 
         // Double-click to reset zoom
         svg.on('dblclick.zoom', null);
@@ -772,7 +1129,12 @@
             svg.transition().duration(500).call(zoom.transform, d3.zoomIdentity);
         });
 
-        console.log('Map rendered:', paths.size(), 'paths');
+        // Layout view switching
+        document.querySelectorAll('.view-tab').forEach(tab => {
+            tab.addEventListener('click', () => setView(tab.dataset.view));
+        });
+        setView('split');
+
     }).catch(err => {
         console.error('Map init failed:', err);
         document.getElementById('map-container').innerHTML =
