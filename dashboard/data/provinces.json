@@ -263,7 +263,34 @@
       "computing_power": "ODCC 2024 Computing Power Index",
       "power_price": "NDRC 36-city industrial price monitor 2024",
       "population": "NBS 2023 population data"
-    }
+    },
+    "top_stories": [
+      {
+        "headline": "China's Chip Capital",
+        "body": "Shanghai hosts SMIC (China's #1 foundry), Hua Hong (#2), UNISOC (#2 fabless), AMEC (etch equipment), and SMEE (only domestic lithography at 90nm). IC revenue crossed 300B CNY in 2024. The Yangtze Delta cluster it anchors accounts for >60% of national IC revenue.",
+        "tags": [
+          "semiconductor",
+          "foundry",
+          "equipment"
+        ]
+      },
+      {
+        "headline": "The Fund Machine",
+        "body": "Shanghai has deployed 100B+ CNY across 38 IC-related sub-funds since 2016. IC Fund Phase I (28.5B CNY), Phase II (24B CNY), Phase III (6B CNY and growing). Plus a 45B CNY IC mother fund and 22.5B CNY AI fund. The most sophisticated provincial investment apparatus in China.",
+        "tags": [
+          "government"
+        ]
+      },
+      {
+        "headline": "Lingang: The New Fab Frontier",
+        "body": "SMIC's SN2 megafab in Lingang FTZ cost $8.87B, targeting 100K wafers/month at 28nm+. Lingang offers 15% corporate tax (vs 25% national) and 50% R&D matching. It's Shanghai's answer to Hefei's aggressive incentive model.",
+        "tags": [
+          "semiconductor",
+          "foundry",
+          "government"
+        ]
+      }
+    ]
   },
   "320000": {
     "name_en": "Jiangsu",
@@ -516,7 +543,35 @@
       "computing_power": "ODCC 2024 Computing Power Index",
       "power_price": "NDRC 36-city industrial price monitor 2024",
       "population": "NBS 2023 population data"
-    }
+    },
+    "top_stories": [
+      {
+        "headline": "The Fab Belt",
+        "body": "Wuxi-Nanjing-Suzhou corridor is China's densest fab concentration. SK Hynix Wuxi ($14B cumulative DRAM), TSMC Nanjing ($6B across two phases), Hua Hong Wuxi FAB9 ($6.7B), plus JCET (#1 OSAT globally). Provincial IC revenue hit 324B CNY in 2023 — #1 nationally by volume.",
+        "tags": [
+          "semiconductor",
+          "foundry",
+          "memory",
+          "osat",
+          "foreign"
+        ]
+      },
+      {
+        "headline": "Foreign Capital Magnet",
+        "body": "Jiangsu has been China's #1 FDI destination for 8 consecutive years. SK Hynix's $3.5B CDB-led syndicate loan was the largest foreign currency loan in Jiangsu history. TSMC Nanjing received an estimated 10B+ CNY in cumulative government subsidies.",
+        "tags": [
+          "foreign",
+          "government"
+        ]
+      },
+      {
+        "headline": "Nanjing's 140B CNY Ambition",
+        "body": "In 2018 Nanjing announced a 140B CNY ($20B) IC fund target. Combined with Wuxi's 5B CNY dedicated IC fund and Suzhou's 10B CNY high-tech zone fund, Jiangsu's sub-provincial competition mirrors the national tournament.",
+        "tags": [
+          "government"
+        ]
+      }
+    ]
   },
   "440000": {
     "name_en": "Guangdong",
@@ -719,7 +774,34 @@
       "computing_power": "ODCC 2024 Computing Power Index",
       "power_price": "NDRC 36-city industrial price monitor 2024",
       "population": "NBS 2023 population data"
-    }
+    },
+    "top_stories": [
+      {
+        "headline": "Design Kingdom",
+        "body": "Shenzhen alone has 654 IC design companies and 214B CNY in IC revenue (2023). HiSilicon (Huawei's chip arm) is China's largest design house at ~26B CNY revenue. 66% of Guangdong's IC industry is fabless — the inverse of Jiangsu's manufacturing-heavy model.",
+        "tags": [
+          "semiconductor"
+        ]
+      },
+      {
+        "headline": "Guangzhou Enters the Fab Race",
+        "body": "CanSemi is Guangdong's first and only 12-inch fab in mass production. Total investment across 3 phases: 37B CNY, backed by Guangzhou Industrial Investment Group, GAC Capital, SAIC, and BAIC. Zenxin adds another 7B CNY MEMS fab. Guangzhou is using the automotive supply chain as its fab anchor — different strategy from Shanghai/Jiangsu.",
+        "tags": [
+          "semiconductor",
+          "foundry",
+          "government"
+        ]
+      },
+      {
+        "headline": "AI Mega-Funds",
+        "body": "Guangzhou's Pazhou AI Fund targets 100B CNY. Guangdong's AI+Manufacturing plan commits 20B CNY over 3 years. Shaoguan datacenter cluster (East-West Computing GBA hub) has 62B CNY in signed projects.",
+        "tags": [
+          "ai",
+          "datacenter",
+          "government"
+        ]
+      }
+    ]
   },
   "110000": {
     "name_en": "Beijing",
@@ -934,7 +1016,34 @@
       "computing_power": "ODCC 2024 Computing Power Index",
       "power_price": "NDRC 36-city industrial price monitor 2024",
       "population": "NBS 2023 population data"
-    }
+    },
+    "top_stories": [
+      {
+        "headline": "Command Center",
+        "body": "Beijing is where the money originates, not just where it lands. Big Fund I/II/III are all registered here. The National AI Industry Investment Fund (600.6B CNY) is HQ'd here. Naura, China's #1 semi equipment company, is Beijing-based. R&D intensity at 6.73% is 2.5x the national average.",
+        "tags": [
+          "government",
+          "equipment"
+        ]
+      },
+      {
+        "headline": "SMIC's Northern Anchor",
+        "body": "SMIC's Beijing fabs received the single largest Big Fund III deployment: $7.778B (56B CNY) in Dec 2025, plus a 40.6B CNY buyout of SMIC North. Beijing E-Town (Yizhuang) has a 500B CNY umbrella fund cluster covering semi, AI, and biotech.",
+        "tags": [
+          "semiconductor",
+          "foundry",
+          "government"
+        ]
+      },
+      {
+        "headline": "AI Epicenter",
+        "body": "29% of China's AI companies are in Beijing (~1,250). AI industry revenue exceeded 300B CNY in 2024. Beijing is building China's first E-class intelligent computing center. 19 of China's top 50 AI companies are headquartered here.",
+        "tags": [
+          "ai",
+          "compute"
+        ]
+      }
+    ]
   },
   "330000": {
     "name_en": "Zhejiang",
@@ -1088,7 +1197,25 @@
       "computing_power": "ODCC 2024 Computing Power Index",
       "power_price": "NDRC 36-city industrial price monitor 2024",
       "population": "NBS 2023 population data"
-    }
+    },
+    "top_stories": [
+      {
+        "headline": "Hangzhou: AI Capital of China",
+        "body": "Hangzhou plans 100B+ CNY in AI industry funds. Alibaba Cloud committed 380B CNY ($52.4B) over 3 years for AI infrastructure — more than the past decade combined. 569 AI enterprises, 7 with >10B CNY revenue.",
+        "tags": [
+          "ai",
+          "compute"
+        ]
+      },
+      {
+        "headline": "Silan Micro: Power Semi Champion",
+        "body": "Silan's 17B CNY 12-inch fab in Hangzhou makes it world #2 in ≤6-inch chips. Big Fund contributed 600M CNY. Specialty power semiconductors, not logic — a niche that avoids the worst of US sanctions.",
+        "tags": [
+          "semiconductor",
+          "compound_semi"
+        ]
+      }
+    ]
   },
   "340000": {
     "name_en": "Anhui",
@@ -1293,7 +1420,35 @@
       "computing_power": "ODCC 2024 Computing Power Index",
       "power_price": "NDRC 36-city industrial price monitor 2024",
       "population": "NBS 2023 population data"
-    }
+    },
+    "top_stories": [
+      {
+        "headline": "The Hefei Model",
+        "body": "In 2008, Hefei invested 3B CNY in BOE when its entire fiscal revenue was 16.1B CNY — an 18.6% bet on a single company. It worked. They replicated the playbook with CXMT in 2016 (54B CNY, government shouldered 75%). Now CXMT is heading for a 300B CNY IPO. Anhui's IC industry grew at 75.5% CAGR from 2018-2023, the fastest in China.",
+        "tags": [
+          "semiconductor",
+          "memory",
+          "government"
+        ]
+      },
+      {
+        "headline": "DRAM National Champion",
+        "body": "CXMT (ChangXin Memory Technologies) is China's only domestic DRAM producer. Founded 2016 with Hefei municipal backing, first DDR4 chip by 2019, now producing DDR5 and LPDDR5. Big Fund II injected 39B CNY in 2023. The '506 Project' is China's answer to Samsung/SK Hynix.",
+        "tags": [
+          "semiconductor",
+          "memory",
+          "government"
+        ]
+      },
+      {
+        "headline": "Nexchip: Quiet Third",
+        "body": "JV between Hefei state-owned Jiantou and Taiwan's Powerchip (2015). Now China's #3 foundry. Phase IV expansion (35.5B CNY) broke ground Jan 2026. Full capacity Q2 2028.",
+        "tags": [
+          "semiconductor",
+          "foundry"
+        ]
+      }
+    ]
   },
   "420000": {
     "name_en": "Hubei",
@@ -1502,7 +1657,34 @@
       "computing_power": "ODCC 2024 Computing Power Index",
       "power_price": "NDRC 36-city industrial price monitor 2024",
       "population": "NBS 2023 population data"
-    }
+    },
+    "top_stories": [
+      {
+        "headline": "YMTC: The NAND Bet",
+        "body": "Total project cost: 160B CNY across 3 fab buildings. Big Fund Phase I put in 13.6B CNY, Phase II added 12.9B CNY. YMTC achieved 232-layer 3D NAND — competitive with Samsung/Micron — before US sanctions hit. Phase III expansion (20.7B CNY) is underway despite Entity List restrictions.",
+        "tags": [
+          "semiconductor",
+          "memory",
+          "government"
+        ]
+      },
+      {
+        "headline": "Wuhan Hongxin: The Cautionary Tale",
+        "body": "Announced as a 128B CNY project. Only 2B CNY was actually invested (by a local Wuhan development company). The major shareholder committed 18B CNY but delivered zero. An ASML EUV lithography tool was pawned as collateral. Project collapsed in 2021.",
+        "tags": [
+          "failure",
+          "government"
+        ]
+      },
+      {
+        "headline": "Optics Valley Empire",
+        "body": "Wuhan's Donghu High-Tech Zone (Optics Valley) has a 50B CNY industry fund targeting 500B+ CNY in sub-funds during the 14th Five-Year Plan. Covers semi, photonics, AI, biotech. Also hosts China's first public-service AI computing center (Huawei Ascend, expanded to 400P).",
+        "tags": [
+          "government",
+          "ai"
+        ]
+      }
+    ]
   },
   "370000": {
     "name_en": "Shandong",
@@ -1660,7 +1842,17 @@
       "computing_power": "ODCC 2024 Computing Power Index",
       "power_price": "NDRC 36-city industrial price monitor 2024",
       "population": "NBS 2023 population data"
-    }
+    },
+    "top_stories": [
+      {
+        "headline": "Zombie Fab Warning",
+        "body": "Jinan Quanxin: 59.8B CNY planned, claimed 7nm target. Zero construction, zero equipment orders. Capital chain broke by 2021. Classic zombie fab — the dark side of tournament federalism when local officials chase headlines over capability.",
+        "tags": [
+          "failure",
+          "semiconductor"
+        ]
+      }
+    ]
   },
   "510000": {
     "name_en": "Sichuan",
@@ -1826,7 +2018,27 @@
       "computing_power": "ODCC 2024 Computing Power Index",
       "power_price": "NDRC 36-city industrial price monitor 2024",
       "population": "NBS 2023 population data"
-    }
+    },
+    "top_stories": [
+      {
+        "headline": "OSAT Hub",
+        "body": "Intel Chengdu ($525M cumulative + $300M 2024 expansion) and Texas Instruments ($1.69B planned over 15 years) anchor Chengdu's packaging/test cluster. Not front-end fab — assembly and test for export.",
+        "tags": [
+          "semiconductor",
+          "osat",
+          "foreign"
+        ]
+      },
+      {
+        "headline": "Chengdu's AI Bet",
+        "body": "50B CNY AI industry fund. 10.9B CNY smart computing center (Ascend 300P). Tianfu cluster is an East-West Computing hub. Chengdu is positioning as the western anchor for AI compute.",
+        "tags": [
+          "ai",
+          "compute",
+          "government"
+        ]
+      }
+    ]
   },
   "610000": {
     "name_en": "Shaanxi",
@@ -1990,7 +2202,25 @@
       "computing_power": "ODCC 2024 Computing Power Index",
       "power_price": "NDRC 36-city industrial price monitor 2024",
       "population": "NBS 2023 population data"
-    }
+    },
+    "top_stories": [
+      {
+        "headline": "Samsung's Mega-Fab",
+        "body": "Samsung Xi'an NAND complex: $25.87B cumulative across two plants and four phases. Produces ~40% of Samsung's global NAND wafers. One of the largest single foreign investments in China's history. A wild card — foreign-owned, not counted in domestic IC metrics, but massive economic presence.",
+        "tags": [
+          "semiconductor",
+          "memory",
+          "foreign"
+        ]
+      },
+      {
+        "headline": "Defense Microelectronics Legacy",
+        "body": "Xi'an has been China's military microelectronics base since the 1960s. Multiple defense research institutes. This 'Third Front' industrial base seeded the talent pool that Samsung and commercial IC design houses now draw from.",
+        "tags": [
+          "semiconductor"
+        ]
+      }
+    ]
   },
   "350000": {
     "name_en": "Fujian",
@@ -2185,7 +2415,26 @@
       "computing_power": "ODCC 2024 Computing Power Index",
       "power_price": "NDRC 36-city industrial price monitor 2024",
       "population": "NBS 2023 population data"
-    }
+    },
+    "top_stories": [
+      {
+        "headline": "JHICC: Sanctions Casualty",
+        "body": "40.3B CNY DRAM fab in Jinjiang. US Entity List in Oct 2018 killed it — operations suspended by Mar 2019. UMC technology partner also sanctioned. Settled with Micron Dec 2023. The first major US sanctions hit on a Chinese chip project.",
+        "tags": [
+          "failure",
+          "memory",
+          "foreign"
+        ]
+      },
+      {
+        "headline": "San'an: Compound Semi Empire",
+        "body": "Big Fund I invested 4.7B CNY. San'an is China's leading compound semiconductor IDM (LED, SiC, GaN). HQ in Xiamen but major SiC fab in Changsha (16B CNY). Big Fund II established a new Xiamen entity in 2025 — signaling continued investment.",
+        "tags": [
+          "semiconductor",
+          "compound_semi"
+        ]
+      }
+    ]
   },
   "210000": {
     "name_en": "Liaoning",
@@ -2321,7 +2570,18 @@
       "computing_power": "ODCC 2024 Computing Power Index",
       "power_price": "NDRC 36-city industrial price monitor 2024",
       "population": "NBS 2023 population data"
-    }
+    },
+    "top_stories": [
+      {
+        "headline": "Intel to SK Hynix Handoff",
+        "body": "Intel built Fab 68 in Dalian for $2.5B (2007), spent up to $5.5B converting to 3D NAND. SK Hynix acquired it all plus Intel's NAND/SSD business for $9B (2020-2025). Now producing 192-layer NAND under SK Hynix.",
+        "tags": [
+          "semiconductor",
+          "memory",
+          "foreign"
+        ]
+      }
+    ]
   },
   "430000": {
     "name_en": "Hunan",
@@ -2459,7 +2719,17 @@
       "computing_power": "ODCC 2024 Computing Power Index",
       "power_price": "NDRC 36-city industrial price monitor 2024",
       "population": "NBS 2023 population data"
-    }
+    },
+    "top_stories": [
+      {
+        "headline": "SiC Triangle",
+        "body": "San'an's 16B CNY vertically integrated SiC fab (China's first), plus CRRC Times Semi (rail IGBT, valued at 20B+ CNY, Big Fund II invested). Changsha is becoming China's compound semiconductor hub.",
+        "tags": [
+          "semiconductor",
+          "compound_semi"
+        ]
+      }
+    ]
   },
   "410000": {
     "name_en": "Henan",
@@ -2549,7 +2819,17 @@
       "computing_power": "ODCC 2024 Computing Power Index",
       "power_price": "NDRC 36-city industrial price monitor 2024",
       "population": "NBS 2023 population data"
-    }
+    },
+    "top_stories": [
+      {
+        "headline": "Late Mover, Big Compute",
+        "body": "No significant IC manufacturing, but the Airport Smart Computing Center is a 16.4B CNY project targeting 100,000P at full build. Zhengzhou's Ascend AI center was built in 100 days at 37% lower cost per PFLOP than Shanghai.",
+        "tags": [
+          "compute",
+          "ai"
+        ]
+      }
+    ]
   },
   "500000": {
     "name_en": "Chongqing",
@@ -2705,7 +2985,25 @@
       "computing_power": "ODCC 2024 Computing Power Index",
       "power_price": "NDRC 36-city industrial price monitor 2024",
       "population": "NBS 2023 population data"
-    }
+    },
+    "top_stories": [
+      {
+        "headline": "Power Semi Hub",
+        "body": "China Resources Micro's 7.55B CNY 12-inch power semiconductor fab plus 4.2B CNY packaging facility. STMicro-San'an SiC JV ($3.2B). Chongqing is specializing in power/automotive chips, not logic.",
+        "tags": [
+          "semiconductor",
+          "compound_semi"
+        ]
+      },
+      {
+        "headline": "Western Compute Node",
+        "body": "East-West Computing Chengdu-Chongqing hub. 20B+ CNY Western Science City datacenter hub anchoring the region's compute buildout.",
+        "tags": [
+          "datacenter",
+          "compute"
+        ]
+      }
+    ]
   },
   "120000": {
     "name_en": "Tianjin",
@@ -2805,7 +3103,17 @@
       "computing_power": "ODCC 2024 Computing Power Index",
       "power_price": "NDRC 36-city industrial price monitor 2024",
       "population": "NBS 2023 population data"
-    }
+    },
+    "top_stories": [
+      {
+        "headline": "SMIC's Biggest Single Bet",
+        "body": "$7.5B (54B CNY) for a new 12-inch fab in Xiqing. 100K wafers/month, 28nm-180nm. Already hosts world's largest 8-inch wafer base (200K wpm). SMIC chose Tianjin for its proximity to Beijing and port access.",
+        "tags": [
+          "semiconductor",
+          "foundry"
+        ]
+      }
+    ]
   },
   "130000": {
     "name_en": "Hebei",
@@ -2891,7 +3199,25 @@
       "computing_power": "ODCC 2024 Computing Power Index",
       "power_price": "NDRC 36-city industrial price monitor 2024",
       "population": "NBS 2023 population data"
-    }
+    },
+    "top_stories": [
+      {
+        "headline": "Beijing's Data Backyard",
+        "body": "Zero semiconductor manufacturing, but #1 nationally on the computing power index. Zhangjiakou has 137.7B CNY in datacenter investments (39 projects, 1.24M servers). Langfang adds another 95.7B CNY. Together they serve Beijing's insatiable compute demand at 30-40% lower power costs.",
+        "tags": [
+          "datacenter",
+          "compute"
+        ]
+      },
+      {
+        "headline": "The East-West Bridge",
+        "body": "Hebei is the only East-West Computing hub province that's actually eastern. It benefits from proximity to Beijing (low latency) while offering cheaper land and power. Classic land finance: cheap industrial land subsidizing the compute buildout.",
+        "tags": [
+          "datacenter",
+          "government"
+        ]
+      }
+    ]
   },
   "150000": {
     "name_en": "Inner Mongolia",
@@ -3005,7 +3331,18 @@
       "computing_power": "ODCC 2024 Computing Power Index",
       "power_price": "NDRC 36-city industrial price monitor 2024",
       "population": "NBS 2023 population data"
-    }
+    },
+    "top_stories": [
+      {
+        "headline": "Cheapest Power, Most Racks",
+        "body": "Industrial electricity at 0.40 CNY/kWh (half of Beijing's 0.82 CNY). Hohhot/Helingeer cluster: 220K racks, China Telecom's 46.6B CNY smart computing center (largest carrier facility), 11,000P under construction. No IC industry whatsoever — pure compute arbitrage on power costs.",
+        "tags": [
+          "datacenter",
+          "compute",
+          "power"
+        ]
+      }
+    ]
   },
   "520000": {
     "name_en": "Guizhou",
@@ -3162,7 +3499,25 @@
       "computing_power": "ODCC 2024 Computing Power Index",
       "power_price": "NDRC 36-city industrial price monitor 2024",
       "population": "NBS 2023 population data"
-    }
+    },
+    "top_stories": [
+      {
+        "headline": "Data Valley",
+        "body": "150 EFLOPS of compute power (2025), 90%+ intelligent computing. Gui'an hosts Apple ($1B), Huawei (8B CNY), Tencent, all three telcos. 138.5B CNY planned total. Guizhou went from one of China's poorest provinces to a national computing hub by leveraging cheap power and cool climate.",
+        "tags": [
+          "datacenter",
+          "compute"
+        ]
+      },
+      {
+        "headline": "Huaxintong: The Qualcomm JV Failure",
+        "body": "Qualcomm ARM server chip JV burned $570M before shutting down in 2019. The lesson: compute infrastructure works in western provinces, but advanced chip design doesn't transplant without the talent ecosystem.",
+        "tags": [
+          "failure",
+          "semiconductor"
+        ]
+      }
+    ]
   },
   "640000": {
     "name_en": "Ningxia",
@@ -3289,7 +3644,18 @@
       "computing_power": "ODCC 2024 Computing Power Index",
       "power_price": "NDRC 36-city industrial price monitor 2024",
       "population": "NBS 2023 population data"
-    }
+    },
+    "top_stories": [
+      {
+        "headline": "Desert Data Center",
+        "body": "Zhongwei cluster: 300B CNY planned total, 41.7B CNY cumulative actual. AWS (via NWCD), three telcos. Power at 0.40 CNY/kWh. 130K racks. Ningxia proves the East-West Computing thesis: you don't need an IC industry to matter in the compute race.",
+        "tags": [
+          "datacenter",
+          "compute",
+          "power"
+        ]
+      }
+    ]
   },
   "140000": {
     "name_en": "Shanxi",
@@ -3394,7 +3760,17 @@
       "computing_power": "ODCC 2024 Computing Power Index",
       "power_price": "NDRC 36-city industrial price monitor 2024",
       "population": "NBS 2023 population data"
-    }
+    },
+    "top_stories": [
+      {
+        "headline": "Datong Data Cluster",
+        "body": "ByteDance (7.3B CNY), JD (2.5B CNY), Zhonglian Green DC (30B CNY). Total 44.2B CNY planned. Coal province pivoting to compute — using existing power infrastructure.",
+        "tags": [
+          "datacenter",
+          "compute"
+        ]
+      }
+    ]
   },
   "650000": {
     "name_en": "Xinjiang",
@@ -3492,7 +3868,17 @@
       "computing_power": "ODCC 2024 Computing Power Index",
       "power_price": "NDRC 36-city industrial price monitor 2024",
       "population": "NBS 2023 population data"
-    }
+    },
+    "top_stories": [
+      {
+        "headline": "Cheapest Power in China",
+        "body": "0.37 CNY/kWh (tied with Qinghai for lowest). Hami signed 21B CNY across 6 computing projects in 2024. Remoteness limits growth, but the power cost advantage is unmatched.",
+        "tags": [
+          "power",
+          "datacenter"
+        ]
+      }
+    ]
   },
   "360000": {
     "name_en": "Jiangxi",
@@ -3602,7 +3988,14 @@
       "computing_power": "ODCC 2024 Computing Power Index",
       "power_price": "NDRC 36-city industrial price monitor 2024",
       "population": "NBS 2023 population data"
-    }
+    },
+    "top_stories": [
+      {
+        "headline": "Nothing",
+        "body": "No significant semiconductor or AI investment identified. Nanchang has a small LED cluster but nothing moving the needle at national scale.",
+        "tags": []
+      }
+    ]
   },
   "450000": {
     "name_en": "Guangxi",
@@ -3699,7 +4092,16 @@
       "computing_power": "ODCC 2024 Computing Power Index",
       "power_price": "NDRC 36-city industrial price monitor 2024",
       "population": "NBS 2023 population data"
-    }
+    },
+    "top_stories": [
+      {
+        "headline": "Guilin Compute Moonshot",
+        "body": "11B CNY Green Smart Computing Center targeting 10,000P. Otherwise minimal tech industry. Guangxi is mostly a bystander in the semiconductor tournament.",
+        "tags": [
+          "compute"
+        ]
+      }
+    ]
   },
   "230000": {
     "name_en": "Heilongjiang",
@@ -3809,7 +4211,16 @@
       "computing_power": "ODCC 2024 Computing Power Index",
       "power_price": "NDRC 36-city industrial price monitor 2024",
       "population": "NBS 2023 population data"
-    }
+    },
+    "top_stories": [
+      {
+        "headline": "World's Largest Carrier Smart Cluster",
+        "body": "China Mobile built a 6.9 EFLOPS single-cluster smart computing center in Harbin. 9B+ CNY in approved projects. Cold climate is a natural cooling advantage for datacenter operations.",
+        "tags": [
+          "compute"
+        ]
+      }
+    ]
   },
   "530000": {
     "name_en": "Yunnan",
@@ -3908,7 +4319,16 @@
       "computing_power": "ODCC 2024 Computing Power Index",
       "power_price": "NDRC 36-city industrial price monitor 2024",
       "population": "NBS 2023 population data"
-    }
+    },
+    "top_stories": [
+      {
+        "headline": "Hydro Power Play",
+        "body": "0.41 CNY/kWh from abundant hydropower. Minimal IC/AI investment but cheapest renewable power in southern China. Potential future compute location as demand outgrows eastern capacity.",
+        "tags": [
+          "power"
+        ]
+      }
+    ]
   },
   "620000": {
     "name_en": "Gansu",
@@ -4029,7 +4449,25 @@
       "computing_power": "ODCC 2024 Computing Power Index",
       "power_price": "NDRC 36-city industrial price monitor 2024",
       "population": "NBS 2023 population data"
-    }
+    },
+    "top_stories": [
+      {
+        "headline": "OSAT Surprise",
+        "body": "Tianshui Huatian Technology is one of China's largest OSAT companies, pushing Gansu to top-3 nationally in IC production volume despite zero fabs. Cheap labor for packaging.",
+        "tags": [
+          "semiconductor",
+          "osat"
+        ]
+      },
+      {
+        "headline": "Qingyang Compute Hub",
+        "body": "96.8B CNY in 2024 digital economy projects. China Mobile planning a 27B CNY datacenter. East-West Computing hub province leveraging cheap power and empty land.",
+        "tags": [
+          "datacenter",
+          "compute"
+        ]
+      }
+    ]
   },
   "220000": {
     "name_en": "Jilin",
@@ -4127,7 +4565,16 @@
       "computing_power": "ODCC 2024 Computing Power Index",
       "power_price": "NDRC 36-city industrial price monitor 2024",
       "population": "NBS 2023 population data"
-    }
+    },
+    "top_stories": [
+      {
+        "headline": "Minimal",
+        "body": "800M CNY smart computing center (200P) in Changchun. Optoelectronics cluster and satellite production are the province's only semiconductor-adjacent assets.",
+        "tags": [
+          "compute"
+        ]
+      }
+    ]
   },
   "460000": {
     "name_en": "Hainan",
@@ -4202,7 +4649,16 @@
       "computing_power": "ODCC 2024 Computing Power Index",
       "power_price": "NDRC 36-city industrial price monitor 2024",
       "population": "NBS 2023 population data"
-    }
+    },
+    "top_stories": [
+      {
+        "headline": "Free Trade Zone Play",
+        "body": "Tax incentives (15% CIT like Lingang) but no semiconductor or major AI investment yet. Hainan Free Trade Port could attract IC design companies via tax arbitrage, but nothing has materialized at scale.",
+        "tags": [
+          "government"
+        ]
+      }
+    ]
   },
   "630000": {
     "name_en": "Qinghai",
@@ -4282,7 +4738,17 @@
       "computing_power": "ODCC 2024 Computing Power Index",
       "power_price": "NDRC 36-city industrial price monitor 2024",
       "population": "NBS 2023 population data"
-    }
+    },
+    "top_stories": [
+      {
+        "headline": "Cheapest Power, Coldest Climate",
+        "body": "0.37 CNY/kWh, coldest year-round temperatures in China. 2B+ CNY Unicom-Alibaba Cloud green computing project. Natural cooling advantage cuts datacenter opex significantly.",
+        "tags": [
+          "power",
+          "datacenter"
+        ]
+      }
+    ]
   },
   "540000": {
     "name_en": "Tibet",
@@ -4356,6 +4822,15 @@
       "computing_power": "ODCC 2024 Computing Power Index",
       "power_price": "NDRC 36-city industrial price monitor 2024",
       "population": "NBS 2023 population data"
-    }
+    },
+    "top_stories": [
+      {
+        "headline": "First AI DC",
+        "body": "First large AI datacenter commissioned in 2025. Otherwise essentially zero tech industry. Remote geography and high altitude make semiconductor manufacturing impractical.",
+        "tags": [
+          "datacenter"
+        ]
+      }
+    ]
   }
 }

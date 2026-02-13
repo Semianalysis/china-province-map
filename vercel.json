@@ -1,9 +1,16 @@
 {
   "builds": [
-    { "src": "dashboard/main.py", "use": "@vercel/python" }
+    {
+      "src": "dashboard/main.py",
+      "use": "@vercel/python",
+      "config": {
+        "includeFiles": [
+          "dashboard/**"
+        ]
+      }
+    }
   ],
   "routes": [
-    { "src": "/static/(.*)", "dest": "dashboard/static/$1" },
     { "src": "/(.*)", "dest": "dashboard/main.py" }
   ]
 }
