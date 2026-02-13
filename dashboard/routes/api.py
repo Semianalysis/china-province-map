@@ -9,8 +9,12 @@ router = APIRouter()
 templates = Jinja2Templates(directory=Path(__file__).resolve().parent.parent / "templates")
 
 DATA_PATH = Path(__file__).resolve().parent.parent / "data" / "provinces.json"
+SEMI_COMPANIES_PATH = Path(__file__).resolve().parent.parent / "data" / "semi_companies.json"
+AI_COMPANY_PROFILES_PATH = Path(__file__).resolve().parent.parent / "data" / "ai_company_profiles.json"
 
 _provinces_cache: dict | None = None
+_semi_companies_cache: list | None = None
+_ai_company_profiles_cache: list | None = None
 _schema_report_cache: dict | None = None
 
 
@@ -20,6 +24,25 @@ def _load_provinces() -> dict:
         with open(DATA_PATH) as f:
             _provinces_cache = json.load(f)
     return _provinces_cache
+
+
+def _load_semi_companies() -> list:
+    global _semi_companies_cache
+    if _semi_companies_cache is None:
+        with open(SEMI_COMPANIES_PATH) as f:
+            data = json.load(f)
+            _semi_companies_cache = data if isinstance(data, list) else []
+    return _semi_companies_cache
+
+
+def _load_ai_company_profiles() -> list:
+    global _ai_company_profiles_cache
+    if _ai_company_profiles_cache is None:
+        with open(AI_COMPANY_PROFILES_PATH) as f:
+            data = json.load(f)
+            companies = data.get("companies", []) if isinstance(data, dict) else []
+            _ai_company_profiles_cache = companies if isinstance(companies, list) else []
+    return _ai_company_profiles_cache
 
 
 def _is_number(value: Any) -> bool:
@@ -106,6 +129,29 @@ async def get_provinces():
 @router.get("/schema-report")
 async def get_schema_report():
     return JSONResponse(_get_schema_report())
+
+
+@router.get("/company-profiles")
+async def get_company_profiles():
+    semi_companies = _load_semi_companies()
+    ai_companies = _load_ai_company_profiles()
+
+    def _sum_revenue(companies: list[dict[str, Any]]) -> float:
+        return sum(float(c.get("revenue_b_cny") or 0) for c in companies if isinstance(c, dict))
+
+    response = {
+        "semi_companies": semi_companies,
+        "ai_companies": ai_companies,
+        "summary": {
+            "semi_count": len(semi_companies),
+            "ai_count": len(ai_companies),
+            "total_count": len(semi_companies) + len(ai_companies),
+            "semi_revenue_b_cny": _sum_revenue(semi_companies),
+            "ai_revenue_b_cny": _sum_revenue(ai_companies),
+            "total_revenue_b_cny": _sum_revenue(semi_companies) + _sum_revenue(ai_companies),
+        },
+    }
+    return JSONResponse(response)
 
 
 @router.get("/province/{adcode}")
