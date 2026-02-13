@@ -1,0 +1,498 @@
+[
+  {
+    "name": "SMIC",
+    "name_cn": "中芯国际",
+    "type": "semiconductor",
+    "sub_type": "foundry",
+    "hq_city": "Shanghai",
+    "hq_province": "Shanghai",
+    "founded": 2000,
+    "revenue_b_cny": 57.8,
+    "employees": 19100,
+    "public": true,
+    "ticker": "688981.SS / 0981.HK",
+    "valuation_b_cny": 690,
+    "key_products": "Contract wafer fabrication from 180nm to 14nm FinFET and 7nm-class (N+2) process nodes. Serves mobile, IoT, automotive, and HPC markets.",
+    "technology_node": "14nm FinFET (mass production), 7nm-class N+1/N+2 (limited production), 28nm and above (volume)",
+    "capacity_kwpm": 948,
+    "profile": "Founded in 2000 by Richard Chang, SMIC is China's largest and most advanced contract chipmaker, ranking third globally behind TSMC and Samsung. The company is the linchpin of China's semiconductor self-sufficiency push, having achieved 7nm-class production despite US export controls blocking EUV lithography access. SMIC's 2024 revenue hit a record 57.8B CNY ($8B USD), though net profit declined 23% to 3.7B CNY due to heavy capex of $7.3B on new fabs. The company is aggressively expanding with four new 12-inch fabs planned across Shanghai, Beijing, Tianjin, and Shenzhen.",
+    "key_facts": [
+      "2024 revenue: 57.8B CNY ($8.03B USD), up 27.7% YoY — record high",
+      "Monthly capacity reached 948K 8-inch equivalent wafers by end of 2024",
+      "Capex of $7.33B in 2024, among the highest in China's semiconductor industry",
+      "Overtook GlobalFoundries and UMC in 2024 to become world's #3 foundry by revenue",
+      "Dual-listed on HKEX (0981.HK) and Shanghai STAR Market (688981.SS)"
+    ],
+    "province_operations": {
+      "310000": "Shanghai HQ and mega-fab complex in Pudong Zhangjiang. One 300mm fab and three 200mm fabs. New 12-inch fab under construction.",
+      "110000": "Beijing mega-fab in Economic-Technological Development Area (SMBC). Two 300mm fabs operational, expanding to 100K wafers/month.",
+      "120000": "Tianjin fab at Xiqing Economic Development Area. One 200mm fab operational, new 12-inch fab planned.",
+      "440000": "Shenzhen fab in Pingshan District. 200mm fab under construction, 12-inch expansion planned."
+    }
+  },
+  {
+    "name": "Hua Hong Semiconductor",
+    "name_cn": "华虹半导体",
+    "type": "semiconductor",
+    "sub_type": "foundry",
+    "hq_city": "Shanghai",
+    "hq_province": "Shanghai",
+    "founded": 1997,
+    "revenue_b_cny": 14.3,
+    "employees": 7400,
+    "public": true,
+    "ticker": "688347.SS / 1347.HK",
+    "valuation_b_cny": 106,
+    "key_products": "Specialty process foundry services: embedded NVM, power discrete (IGBT, MOSFET, SJ-MOSFET), analog & power management ICs, MCUs. Focus on automotive, industrial, and IoT applications.",
+    "technology_node": "350nm to 55nm specialty processes. 90nm BCD on 12-inch. No advanced digital logic below 55nm.",
+    "capacity_kwpm": 391,
+    "profile": "Founded in 1997 as a national project backed by Shanghai municipal government and NEC, Hua Hong is China's second-largest foundry specializing in mature-node specialty processes rather than advanced logic. The company operates 8-inch fabs in Shanghai and has built a major 12-inch fab complex in Wuxi, with Phase II entering pilot production in late 2024. Hua Hong runs at near-100% utilization thanks to strong demand for power semiconductors and automotive chips. The company is dual-listed on HKEX and Shanghai STAR Market.",
+    "key_facts": [
+      "2024 revenue: 14.3B CNY ($2.0B USD), with near-100% utilization across fabs",
+      "Monthly capacity: 391K 8-inch equivalent wafers as of Q4 2024",
+      "Wuxi Phase II 12-inch fab (83K wafers/month) entered pilot production late 2024",
+      "Achieved mass production of 12-inch 90nm BCD process for automotive power management",
+      "Specialty in embedded flash, power discrete, and analog ICs — not competing on advanced nodes"
+    ],
+    "province_operations": {
+      "310000": "Shanghai HQ with multiple 8-inch fabs (Fab 1-3) in Jinqiao and Zhangjiang.",
+      "320000": "Wuxi, Jiangsu: Major 12-inch fab complex. Phase I operational (20K wpm), Phase II ramping (83K wpm target)."
+    }
+  },
+  {
+    "name": "Nexchip",
+    "name_cn": "晶合集成",
+    "type": "semiconductor",
+    "sub_type": "foundry",
+    "hq_city": "Hefei",
+    "hq_province": "Anhui",
+    "founded": 2015,
+    "revenue_b_cny": 9.25,
+    "employees": 5492,
+    "public": true,
+    "ticker": "688249.SS",
+    "valuation_b_cny": 40,
+    "key_products": "12-inch wafer foundry for display driver ICs (DDIC), CMOS image sensors (CIS), power management ICs, and MCUs. Process nodes from 150nm to 55nm.",
+    "technology_node": "150nm to 90nm (mass production), 55nm (ramping), 40nm (development)",
+    "capacity_kwpm": 100,
+    "profile": "Nexchip was established in 2015 as a joint venture between Taiwanese foundry Powerchip and Hefei municipal government, inheriting Powerchip's mature process technology. The company rapidly became China's third-largest foundry by revenue, dominating the domestic display driver IC market. Nexchip IPO'd on the Shanghai STAR Market in May 2023 with a 1,160x oversubscribed offering raising 9.96B CNY. The company is building a second fab (N3) in Hefei targeting 100K wafers/month at 55nm and 40nm for automotive CIS applications.",
+    "key_facts": [
+      "2024 revenue: 9.25B CNY, up 27.7% YoY; profit surged 152%",
+      "IPO on STAR Market (May 2023) raised 9.96B CNY, 1,160x oversubscribed",
+      "Originated as Powerchip (Taiwan) JV with Hefei government in 2015",
+      "N3 fab ramping to 100K wafers/month at 55nm/40nm for automotive CIS",
+      "Launched $5.1B Hefei fab expansion in early 2026 targeting 28nm mature-node capacity"
+    ],
+    "province_operations": {
+      "340000": "Hefei, Anhui: HQ and all fabs located in Hefei Xinzhan Comprehensive Bonded Zone. N1/N2 fabs operational, N3 fab under construction."
+    }
+  },
+  {
+    "name": "YMTC",
+    "name_cn": "长江存储",
+    "type": "semiconductor",
+    "sub_type": "memory",
+    "hq_city": "Wuhan",
+    "hq_province": "Hubei",
+    "founded": 2016,
+    "revenue_b_cny": 36,
+    "employees": 8000,
+    "public": false,
+    "ticker": null,
+    "valuation_b_cny": 161,
+    "key_products": "3D NAND flash memory chips and SSDs. Proprietary Xtacking architecture. Products include X3-9070 (232-layer QLC), consumer SSDs, and enterprise storage solutions.",
+    "technology_node": "232-layer 3D NAND (mass production), 128-layer legacy, 294-layer (in development)",
+    "capacity_kwpm": 150,
+    "profile": "YMTC was founded in 2016 as a national champion for NAND flash memory, backed by Tsinghua Unigroup and the National IC Industry Investment Fund. Its proprietary Xtacking architecture bonds CMOS logic to memory arrays, enabling industry-leading density. In August 2022, YMTC unveiled the X3-9070 232-layer 3D NAND, achieving a then-record 19.8 Gbit/mm2 density. The US placed YMTC on the Entity List in December 2022, restricting access to American equipment and technology, but the company has continued expanding using domestic and non-US suppliers.",
+    "key_facts": [
+      "232-layer 3D QLC NAND shipped in 2023, setting industry record of 19.8 Gbit/mm2 density",
+      "Current capacity ~150K 12-inch wafers/month, ~8% of global 3D NAND market",
+      "Placed on US Entity List in December 2022; continues operations with domestic equipment",
+      "R&D spending of 6B CNY in 2024, working on 294-layer NAND and LPDDR5 DRAM entry",
+      "Phase III Wuhan fab ($3B investment) announced in 2025 targeting 300K total wafers/month"
+    ],
+    "province_operations": {
+      "420000": "Wuhan, Hubei: HQ and all fab operations in Wuhan East Lake High-Tech Development Zone. Phase I and II fabs operational, Phase III under construction."
+    }
+  },
+  {
+    "name": "CXMT",
+    "name_cn": "长鑫存储",
+    "type": "semiconductor",
+    "sub_type": "memory",
+    "hq_city": "Hefei",
+    "hq_province": "Anhui",
+    "founded": 2016,
+    "revenue_b_cny": 25,
+    "employees": 3000,
+    "public": false,
+    "ticker": null,
+    "valuation_b_cny": 300,
+    "key_products": "DRAM memory chips: DDR4, DDR5 (up to 8000 Mbps), LPDDR4X, LPDDR5, LPDDR5X (up to 10667 Mbps). Capacities up to 24Gb per die.",
+    "technology_node": "17nm DRAM (mass production), advanced sub-17nm nodes in development",
+    "capacity_kwpm": 180,
+    "profile": "CXMT was founded in 2016 in Hefei, Anhui, with backing from the Hefei municipal government and Hefei Industry Investment Group. The company licensed Qimonda DRAM technology and has since developed indigenous process technology. In 2024, CXMT unveiled China's first domestically developed DDR5 chips at 8000 Mbps and LPDDR5X at 10667 Mbps, narrowing the gap with Samsung, SK Hynix, and Micron. CXMT holds approximately 4.9% of global DRAM market share and is planning a $4.2B IPO on the Shanghai STAR Market that could value the company near 300B CNY.",
+    "key_facts": [
+      "Planning STAR Market IPO to raise 29.5B CNY ($4.2B USD) — would be 2nd largest STAR IPO ever",
+      "Implied IPO valuation approaching 300B CNY (~$43B USD)",
+      "Producing 180K 12-inch wafers/month as of late 2025, holding ~4.9% global DRAM share",
+      "First Chinese DDR5 at 8000 Mbps and LPDDR5X at 10667 Mbps unveiled in 2024",
+      "Originally licensed Qimonda DRAM technology; now developing proprietary sub-17nm nodes"
+    ],
+    "province_operations": {
+      "340000": "Hefei, Anhui: HQ and primary 12-inch DRAM fab. Expanding capacity with additional production phases."
+    }
+  },
+  {
+    "name": "HiSilicon",
+    "name_cn": "海思半导体",
+    "type": "semiconductor",
+    "sub_type": "fabless",
+    "hq_city": "Shenzhen",
+    "hq_province": "Guangdong",
+    "founded": 2004,
+    "revenue_b_cny": 26,
+    "employees": 7000,
+    "public": false,
+    "ticker": null,
+    "valuation_b_cny": null,
+    "key_products": "Kirin mobile SoCs (smartphone/tablet), Ascend AI training/inference chips, Kunpeng Arm-based server CPUs, Balong 5G modem, IPC vision chips, HiSilicon connectivity chips.",
+    "technology_node": "Designs at 7nm and 5nm-class nodes (manufactured by SMIC). Most advanced Kirin chips fabbed at 7nm N+2.",
+    "capacity_kwpm": null,
+    "profile": "HiSilicon is Huawei's wholly-owned semiconductor design subsidiary, tracing its origins to Huawei's ASIC design center established in 1991 and formally incorporated in 2004. Despite US sanctions cutting off access to TSMC in 2020, HiSilicon engineered a comeback by partnering with SMIC for 7nm-class chip production. In 2024, HiSilicon's revenue roughly doubled YoY, driven by strong Kirin 9000S/9010 sales in Huawei's Mate 60/70 and Pura 70 smartphones. HiSilicon ranked third globally in premium Android smartphone SoC revenue in 2024 with 12% market share, behind Qualcomm (59%) and Samsung (13%).",
+    "key_facts": [
+      "Revenue approximately doubled in 2024, driven by Kirin chip comeback in Huawei smartphones",
+      "Ranked #3 globally in premium Android smartphone SoC revenue in 2024 (12% share)",
+      "Kirin 9000S (2023) was first 7nm-class chip fabbed by SMIC, bypassing US sanctions",
+      "Ascend 910B/910C AI chips power Huawei's domestic AI training clusters",
+      "Wholly owned by Huawei; does not publish separate financials"
+    ],
+    "province_operations": {
+      "440000": "Shenzhen, Guangdong: HQ and primary design center in Bantian, Longgang District.",
+      "110000": "Beijing: R&D center for server CPUs (Kunpeng) and AI chips (Ascend).",
+      "310000": "Shanghai: R&D and design center.",
+      "510000": "Chengdu, Sichuan: R&D center.",
+      "420000": "Wuhan, Hubei: R&D center."
+    }
+  },
+  {
+    "name": "UNISOC",
+    "name_cn": "紫光展锐",
+    "type": "semiconductor",
+    "sub_type": "fabless",
+    "hq_city": "Shanghai",
+    "hq_province": "Shanghai",
+    "founded": 2018,
+    "revenue_b_cny": 13,
+    "employees": 5000,
+    "public": false,
+    "ticker": null,
+    "valuation_b_cny": 66,
+    "key_products": "Mobile SoCs (T820, T770, T760 5G platforms), IoT chips, smart wearable platforms, baseband modems, satellite communication chips. Fourth-largest mobile SoC vendor globally.",
+    "technology_node": "Designs at 6nm (T820 flagship). Fabbed by TSMC and SMIC at various nodes.",
+    "capacity_kwpm": null,
+    "profile": "UNISOC was formed in January 2018 through the merger of Spreadtrum Communications and RDA Microelectronics under Tsinghua Unigroup (now New Unigroup). The company is the world's fourth-largest mobile processor vendor with 13% global market share in 2024, behind MediaTek, Qualcomm, and Apple. UNISOC dominates the budget smartphone and IoT chip markets, shipping billions of chips to emerging markets. The company completed a $552M private equity round in June 2024 at a 66B CNY ($9.1B) valuation and is planning an IPO.",
+    "key_facts": [
+      "2024 revenue exceeded 13B CNY, securing a top-10 global IC design house ranking",
+      "World's #4 mobile SoC vendor with 13% global market share in 2024",
+      "Valued at 66B CNY ($9.1B) after June 2024 funding round",
+      "Formed from 2018 merger of Spreadtrum and RDA under Tsinghua Unigroup",
+      "R&D team accounts for 90% of 5,000+ employees"
+    ],
+    "province_operations": {
+      "310000": "Shanghai: HQ and primary R&D/design center.",
+      "110000": "Beijing: R&D center.",
+      "440000": "Shenzhen, Guangdong: R&D and business operations."
+    }
+  },
+  {
+    "name": "Cambricon",
+    "name_cn": "寒武纪",
+    "type": "semiconductor",
+    "sub_type": "fabless",
+    "hq_city": "Beijing",
+    "hq_province": "Beijing",
+    "founded": 2016,
+    "revenue_b_cny": 1.17,
+    "employees": 980,
+    "public": true,
+    "ticker": "688256.SS",
+    "valuation_b_cny": 597,
+    "key_products": "AI training and inference chips: Siyuan (MLU) series cloud AI processors (Siyuan 370/590), edge AI chips, IP licensing for neural network accelerators. Software platform: Cambricon Neuware.",
+    "technology_node": "Designs at 7nm (Siyuan 590). Fabbed by TSMC/SMIC.",
+    "capacity_kwpm": null,
+    "profile": "Cambricon was founded in 2016 by brothers Chen Tianshi and Chen Yunji, who spun out of the Institute of Computing Technology at the Chinese Academy of Sciences. The company pioneered commercial neural network processor IP, with its early designs integrated into Huawei's Kirin 970/980 NPUs before HiSilicon developed in-house AI cores. Cambricon IPO'd on the STAR Market in 2020 and has become a speculative darling, trading at extreme valuations despite modest revenue. Its Siyuan 590 cloud AI chip is positioned as a domestic alternative to NVIDIA A100/H100 for government and SOE buyers.",
+    "key_facts": [
+      "2024 revenue: 1.17B CNY, up 65.6% YoY — still operating at a net loss",
+      "Market cap ~597B CNY (~$82B USD) as of Jan 2026, driven by AI hype premium",
+      "Siyuan 590 AI chip targets domestic alternative to NVIDIA A100/H100",
+      "Founded by CAS Institute of Computing Technology researchers; early IP used in Huawei Kirin 970 NPU",
+      "Only ~980 employees — one of the highest market-cap-per-employee ratios globally"
+    ],
+    "province_operations": {
+      "110000": "Beijing: HQ in Haidian District. Primary R&D and business operations.",
+      "310000": "Shanghai: R&D center.",
+      "440000": "Shenzhen, Guangdong: Regional office."
+    }
+  },
+  {
+    "name": "Hygon",
+    "name_cn": "海光信息",
+    "type": "semiconductor",
+    "sub_type": "fabless",
+    "hq_city": "Beijing",
+    "hq_province": "Beijing",
+    "founded": 2014,
+    "revenue_b_cny": 9.16,
+    "employees": 2803,
+    "public": true,
+    "ticker": "688041.SS",
+    "valuation_b_cny": 563,
+    "key_products": "x86-compatible server CPUs (Hygon C86 series, based on AMD Zen 1 microarchitecture), Deep Computing Unit (DCU) AI/HPC accelerators. Targets domestic data center and government markets.",
+    "technology_node": "7nm (C86 7000 series CPUs). DCU accelerators at 7nm.",
+    "capacity_kwpm": null,
+    "profile": "Hygon was founded in 2014 and obtained x86 CPU design capabilities through a 2016 joint venture with AMD, which licensed its Zen 1 microarchitecture. This makes Hygon one of only three companies globally with x86 server CPU designs (alongside Intel and AMD). The company IPO'd on the STAR Market in August 2022 and has since become one of China's most valuable semiconductor companies. Hygon's C86 processors are the preferred domestic alternative for Chinese government and enterprise data centers replacing Intel/AMD, driving 52% revenue growth in 2024 to 9.16B CNY.",
+    "key_facts": [
+      "2024 revenue: 9.16B CNY, up 52.4% YoY — strong demand for domestic x86 server CPUs",
+      "Market cap ~563B CNY as of early 2026; stock hit all-time high of 308.56 CNY in Jan 2026",
+      "x86 architecture licensed from AMD (Zen 1) via 2016 JV — one of only 3 x86 CPU designers globally",
+      "C86 4.0GHz processor now powering domestic desktops and workstations",
+      "DCU accelerators compete with NVIDIA GPUs for domestic AI/HPC workloads"
+    ],
+    "province_operations": {
+      "110000": "Beijing: HQ and primary R&D center.",
+      "120000": "Tianjin: Manufacturing partnership and operations."
+    }
+  },
+  {
+    "name": "Horizon Robotics",
+    "name_cn": "地平线",
+    "type": "semiconductor",
+    "sub_type": "fabless",
+    "hq_city": "Beijing",
+    "hq_province": "Beijing",
+    "founded": 2015,
+    "revenue_b_cny": 2.38,
+    "employees": 2177,
+    "public": true,
+    "ticker": "9660.HK",
+    "valuation_b_cny": 120,
+    "key_products": "Automotive AI computing platforms: Journey 3 (J3), Journey 5 (J5), Journey 6 (J6) series for ADAS and autonomous driving. Software development platform SuperDrive.",
+    "technology_node": "Designs at 16nm (J5) and 7nm (J6). Fabbed by TSMC.",
+    "capacity_kwpm": null,
+    "profile": "Horizon Robotics was founded in 2015 by Yu Kai, formerly head of Baidu's Institute of Deep Learning. The company has become China's leading automotive AI chip designer, with Journey series computing platforms adopted by 27 automakers across 290 vehicle models. Horizon completed Hong Kong's largest IPO of 2024, raising HK$5.4B ($696M) in October 2024. The company holds over 40% of China's intelligent driving solution market share, with cumulative chip shipments exceeding 10 million units by 2025. Major investors include Alibaba, Baidu, and Intel Capital.",
+    "key_facts": [
+      "2024 revenue: 2.38B CNY; H1 2024 revenue up 151.6% YoY with 79% gross margin",
+      "Largest Hong Kong IPO of 2024, raising HK$5.4B ($696M) in October",
+      "Journey series chips adopted in 290 vehicle models from 27 automakers",
+      "Cumulative chip shipments exceeded 10 million units by 2025",
+      "Over 40% market share in China's intelligent driving solutions, second only to NVIDIA globally"
+    ],
+    "province_operations": {
+      "110000": "Beijing: HQ in Daxing District. Core R&D for chip design, algorithms, and AI.",
+      "310000": "Shanghai: R&D and automotive OEM partnerships.",
+      "440000": "Shenzhen, Guangdong: Regional R&D and business development."
+    }
+  },
+  {
+    "name": "Naura Technology",
+    "name_cn": "北方华创",
+    "type": "semiconductor",
+    "sub_type": "equipment",
+    "hq_city": "Beijing",
+    "hq_province": "Beijing",
+    "founded": 2001,
+    "revenue_b_cny": 29.84,
+    "employees": 16354,
+    "public": true,
+    "ticker": "002371.SZ",
+    "valuation_b_cny": 350,
+    "key_products": "Semiconductor equipment: plasma etch systems, thin-film deposition (PVD/CVD/ALD), oxidation/diffusion furnaces, wet cleaning systems, annealing. Also electronic components and precision parts.",
+    "technology_node": null,
+    "capacity_kwpm": null,
+    "profile": "Naura Technology was established in 2001 through the restructuring of the Beijing No. 7 Electronics Factory (est. 1965), inheriting decades of state-backed semiconductor equipment R&D. The company has risen to become the #6 semiconductor equipment manufacturer globally by revenue in 2024 and the only Chinese company in the global top 10, competing with Applied Materials, Lam Research, and Tokyo Electron. Naura's product portfolio covers the broadest range of semiconductor equipment among Chinese vendors, spanning etch, deposition, thermal processing, and cleaning — making it the cornerstone of China's equipment localization strategy.",
+    "key_facts": [
+      "2024 revenue: 29.84B CNY, up 35.1% YoY; net profit 5.62B CNY, up 44.2%",
+      "Ranked #6 globally among semiconductor equipment manufacturers in 2024 (up from #8 in 2023)",
+      "Only Chinese company in the global top-10 semiconductor equipment vendors",
+      "Product line spans etch, PVD/CVD/ALD deposition, diffusion furnaces, and wet cleaning",
+      "Four manufacturing bases: three in Beijing (Yizhuang, Pinggu, Shunyi), one in Pennsylvania, USA"
+    ],
+    "province_operations": {
+      "110000": "Beijing: HQ in Yizhuang Economic-Technological Development Area. Three manufacturing bases in Beijing (Yizhuang, Pinggu Mafang, Shunyi Tianzhu)."
+    }
+  },
+  {
+    "name": "AMEC",
+    "name_cn": "中微公司",
+    "type": "semiconductor",
+    "sub_type": "equipment",
+    "hq_city": "Shanghai",
+    "hq_province": "Shanghai",
+    "founded": 2004,
+    "revenue_b_cny": 9.07,
+    "employees": 2000,
+    "public": true,
+    "ticker": "688012.SS",
+    "valuation_b_cny": 121,
+    "key_products": "Plasma etch equipment (CCP and ICP): Primo series for dielectric, conductor, and TSV etch. MOCVD equipment: Prismo series for LED and compound semiconductor epitaxy. Competing with Lam Research and Tokyo Electron.",
+    "technology_node": null,
+    "capacity_kwpm": null,
+    "profile": "AMEC was founded in 2004 by Gerald Yin, a former VP at Applied Materials, who returned to China to build a world-class etch equipment company. The company IPO'd on the STAR Market in 2019 and has since become China's second-largest semiconductor equipment vendor. AMEC's CCP etch tools are qualified at TSMC down to 5nm nodes, and its MOCVD systems hold significant global market share in LED manufacturing. In 2024, etch equipment revenue surged 54.7% to 7.28B CNY as Chinese fabs aggressively localized their equipment supply chains.",
+    "key_facts": [
+      "2024 revenue: 9.07B CNY, up 44.7% YoY; etch equipment contributed 7.28B CNY (up 54.7%)",
+      "Founded by Gerald Yin, former Applied Materials VP — returned to China in 2004",
+      "CCP etch tools qualified at TSMC for 5nm node production",
+      "MOCVD systems (Prismo series) hold leading global share in GaN/LED epitaxy",
+      "Listed on STAR Market (688012.SS) since July 2019"
+    ],
+    "province_operations": {
+      "310000": "Shanghai: HQ and primary R&D/manufacturing in Pudong."
+    }
+  },
+  {
+    "name": "SMEE",
+    "name_cn": "上海微电子",
+    "type": "semiconductor",
+    "sub_type": "equipment",
+    "hq_city": "Shanghai",
+    "hq_province": "Shanghai",
+    "founded": 2002,
+    "revenue_b_cny": null,
+    "employees": 5000,
+    "public": false,
+    "ticker": null,
+    "valuation_b_cny": 10,
+    "key_products": "DUV lithography systems: SSA600 series (90nm resolution), SSA800-10W immersion scanner (28nm-class). Advanced packaging lithography (37% global market share). LED lithography (55% global share).",
+    "technology_node": null,
+    "capacity_kwpm": null,
+    "profile": "SMEE was founded in 2002 with a mandate to develop China's indigenous lithography capability — the most critical and restricted semiconductor equipment. The company's SSA600 series achieves 90nm resolution for mature-node production, while the SSA800-10W immersion scanner, completed in late 2023, targets 28nm-class patterning. SMEE dominates global advanced packaging lithography (37% share) and LED lithography (55% share). In 2025, SMEE restructured by spinning off its mature lithography business into AMIES while retaining next-generation R&D including EUV lithography development. An IPO was prepared but withdrawn in October 2024.",
+    "key_facts": [
+      "Only Chinese company developing front-end semiconductor lithography systems",
+      "SSA800-10W immersion scanner completed in late 2023, targeting 28nm resolution",
+      "37% global market share in advanced packaging lithography, 55% in LED lithography",
+      "Spun off mature products into AMIES in 2025; SMEE retains next-gen R&D including EUV",
+      "IPO preparations begun in 2017, withdrawn October 2024; expected to refile"
+    ],
+    "province_operations": {
+      "310000": "Shanghai: HQ, R&D, and manufacturing operations. All primary facilities located in Shanghai."
+    }
+  },
+  {
+    "name": "JCET",
+    "name_cn": "长电科技",
+    "type": "semiconductor",
+    "sub_type": "osat",
+    "hq_city": "Jiangyin",
+    "hq_province": "Jiangsu",
+    "founded": 1972,
+    "revenue_b_cny": 35.96,
+    "employees": 24044,
+    "public": true,
+    "ticker": "600584.SS",
+    "valuation_b_cny": 83,
+    "key_products": "Advanced packaging (fan-out, 2.5D/3D, SiP, flip chip, bumping), wafer-level packaging, wire bonding, testing. Turnkey back-end semiconductor manufacturing. Acquired SanDisk Shanghai (80% stake) in 2024.",
+    "technology_node": null,
+    "capacity_kwpm": null,
+    "profile": "JCET traces its origins to 1972 as a state-owned electronics factory in Jiangyin, Jiangsu province. Through organic growth and the transformative 2015 acquisition of Singapore's STATS ChipPAC for $1.8B, JCET became China's largest and the world's third-largest OSAT (outsourced semiconductor assembly and test) company. Advanced packaging accounts for over 72% of 2024 revenue, positioning JCET as a critical enabler for AI and HPC chips in China. The company acquired an 80% stake in SanDisk Shanghai in late 2024 to expand its memory packaging capabilities.",
+    "key_facts": [
+      "2024 revenue: 35.96B CNY (record high), up 21.2% YoY",
+      "China's #1 and world's #3 OSAT company by revenue",
+      "Advanced packaging revenue exceeded 72% of total in 2024",
+      "2015 acquisition of STATS ChipPAC ($1.8B) was transformational for global reach",
+      "Acquired 80% of SanDisk Shanghai in Q4 2024 to expand memory packaging"
+    ],
+    "province_operations": {
+      "320000": "Jiangyin, Jiangsu: HQ and primary manufacturing base. New Microelectronics Microsystem Integration High-End Manufacturing Base operational in Jiangyin.",
+      "310000": "Shanghai: SanDisk Shanghai operations (acquired Q4 2024).",
+      "440000": "Shenzhen, Guangdong: Manufacturing facility."
+    }
+  },
+  {
+    "name": "Tongfu Microelectronics",
+    "name_cn": "通富微电",
+    "type": "semiconductor",
+    "sub_type": "osat",
+    "hq_city": "Nantong",
+    "hq_province": "Jiangsu",
+    "founded": 1994,
+    "revenue_b_cny": 23.88,
+    "employees": 20062,
+    "public": true,
+    "ticker": "002156.SZ",
+    "valuation_b_cny": 60,
+    "key_products": "IC packaging and testing: advanced packaging (FC-BGA, FC-CSP, SiP, 2.5D), wafer bumping, system-level testing. Key AMD packaging partner for CPU and GPU products.",
+    "technology_node": null,
+    "capacity_kwpm": null,
+    "profile": "Tongfu Microelectronics was founded in 1994 as Nantong Fujitsu Microelectronics (NFME), a joint venture with Fujitsu. The company renamed to Tongfu in 2016 and has become China's second-largest OSAT company. A pivotal partnership with AMD — stemming from AMD's 2016 divestiture of its Suzhou and Penang packaging operations into an 85/15 JV with Tongfu — gives the company deep expertise in advanced x86 CPU and GPU packaging. Tongfu is a key node in China's semiconductor supply chain, packaging AMD processors, Qualcomm chips, and domestic designs.",
+    "key_facts": [
+      "2024 revenue: 23.88B CNY, up 7.2% YoY",
+      "China's #2 OSAT company by revenue, competing globally with ASE and Amkor",
+      "Strategic AMD partnership: operates former AMD packaging facilities in Suzhou and Penang",
+      "Originally a Fujitsu JV (1994); renamed Tongfu Microelectronics in 2016",
+      "Listed on Shenzhen Stock Exchange (002156.SZ)"
+    ],
+    "province_operations": {
+      "320000": "Nantong, Jiangsu: HQ and primary manufacturing base. Suzhou: Former AMD packaging facilities (Tongfu-AMD JV operations).",
+      "340000": "Hefei, Anhui: Manufacturing facility."
+    }
+  },
+  {
+    "name": "San'an Optoelectronics",
+    "name_cn": "三安光电",
+    "type": "semiconductor",
+    "sub_type": "compound_semi",
+    "hq_city": "Xiamen",
+    "hq_province": "Fujian",
+    "founded": 2000,
+    "revenue_b_cny": 16.11,
+    "employees": 15828,
+    "public": true,
+    "ticker": "600703.SS",
+    "valuation_b_cny": 76,
+    "key_products": "LED epitaxial wafers and chips, SiC substrates and power devices, GaN RF and power devices, GaAs optoelectronic chips, InP photonic chips, sapphire substrates. STMicroelectronics SiC JV in Chongqing.",
+    "technology_node": "6-inch SiC (production), 8-inch SiC (development). GaN-on-Si and GaN-on-SiC.",
+    "capacity_kwpm": null,
+    "profile": "San'an Optoelectronics was founded in 2000 in Xiamen, Fujian, and has grown into China's largest compound semiconductor IDM (integrated device manufacturer). The company dominates domestic LED chip production and has aggressively diversified into SiC and GaN power/RF devices for the EV and 5G markets. San'an's subsidiary Hunan Sanan Semiconductor opened China's first vertically integrated SiC production line in Changsha with a $2.5B investment. In 2023, San'an formed a $3.2B SiC device manufacturing JV with STMicroelectronics in Chongqing, signaling global validation of its compound semiconductor capabilities.",
+    "key_facts": [
+      "2024 revenue: 16.11B CNY, up 14.6% YoY",
+      "China's largest compound semiconductor IDM — LED, SiC, GaN, GaAs, InP",
+      "Hunan Sanan opened China's first vertically integrated SiC line in Changsha ($2.5B investment)",
+      "$3.2B SiC JV with STMicroelectronics in Chongqing announced June 2023",
+      "Hunan Sanan won a $500M SiC order — largest in Chinese compound semi history"
+    ],
+    "province_operations": {
+      "350000": "Xiamen, Fujian: HQ and primary LED/compound semiconductor manufacturing. Quanzhou, Fujian: Additional operations.",
+      "430000": "Changsha, Hunan: Hunan Sanan Semiconductor — China's first vertically integrated SiC fab ($2.5B investment).",
+      "500000": "Chongqing: STMicroelectronics-Sanan SiC device manufacturing JV ($3.2B, production expected Q4 2025)."
+    }
+  },
+  {
+    "name": "Silan Micro",
+    "name_cn": "士兰微",
+    "type": "semiconductor",
+    "sub_type": "idm",
+    "hq_city": "Hangzhou",
+    "hq_province": "Zhejiang",
+    "founded": 1997,
+    "revenue_b_cny": 10.67,
+    "employees": 10223,
+    "public": true,
+    "ticker": "600460.SS",
+    "valuation_b_cny": 47,
+    "key_products": "Power semiconductors (IGBT, MOSFET, SiC, diodes), IPM/PIM power modules, AC-DC and DC-DC converters, LED drivers, MEMS sensors (accelerometers, gyroscopes), MCU ICs. Automotive and industrial focus.",
+    "technology_node": "5-inch, 6-inch, and 8-inch fabs. 8-inch SiC power device line under construction.",
+    "capacity_kwpm": null,
+    "profile": "Silan Micro was founded in 1997 in Hangzhou and became the first IC design company to list on the Shanghai Stock Exchange in March 2003. The company has since evolved into China's largest IDM (integrated device manufacturer) for power semiconductors, operating three fabs (5/6/8-inch) and two packaging plants. Silan is a world top-2 player in the 6-inch and below power chip segment and is aggressively investing in 8-inch SiC power device manufacturing to serve the booming EV market. The company raised 6.5B CNY in 2022 via private placement to expand vehicle power semiconductor capacity.",
+    "key_facts": [
+      "2024 revenue: 10.67B CNY — China's largest power semiconductor IDM",
+      "First IC design company listed on Shanghai Stock Exchange (March 2003, ticker 600460)",
+      "Operates 5/6/8-inch fabs plus two packaging factories — full IDM model",
+      "World #2 in 6-inch and below power semiconductor chips",
+      "Building 8-inch SiC power device fab; raised 6.5B CNY in 2022 for EV chip expansion"
+    ],
+    "province_operations": {
+      "330000": "Hangzhou, Zhejiang: HQ, design center, and three wafer fabs (5/6/8-inch). Two packaging and testing plants also in Hangzhou."
+    }
+  }
+]

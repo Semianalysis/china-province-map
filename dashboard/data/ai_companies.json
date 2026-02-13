@@ -1,0 +1,704 @@
+{
+  "metadata": {
+    "generated": "2026-02-13",
+    "description": "Top AI companies by province in China, covering ~100 companies across 15 provinces",
+    "valuation_note": "Valuations are approximate, sourced from public market caps, IPO filings, and last known private funding rounds. All in billions CNY unless noted. null = not publicly available."
+  },
+  "provinces": {
+    "110000": {
+      "name_en": "Beijing",
+      "name_cn": "北京",
+      "ai_company_count": 1250,
+      "share_of_national_pct": 29,
+      "companies": [
+        {
+          "name": "ByteDance",
+          "name_cn": "字节跳动",
+          "focus": "LLM (Doubao), recommendation AI, video AI, generative AI",
+          "valuation_b_cny": 2900,
+          "valuation_note": "~$400B+ USD private valuation per Fidelity/T. Rowe Price (2025)",
+          "founded": 2012,
+          "public": false
+        },
+        {
+          "name": "Baidu",
+          "name_cn": "百度",
+          "focus": "LLM (ERNIE), autonomous driving (Apollo), AI cloud, search",
+          "valuation_b_cny": 360,
+          "valuation_note": "$49.6B USD market cap (Jan 2026, NASDAQ: BIDU)",
+          "founded": 2000,
+          "public": true
+        },
+        {
+          "name": "Kuaishou",
+          "name_cn": "快手",
+          "focus": "AI video generation (Kling), recommendation AI, short video",
+          "valuation_b_cny": 295,
+          "valuation_note": "$41B USD market cap (Jan 2026, HK: 1024). Kling AI $240M ARR.",
+          "founded": 2011,
+          "public": true
+        },
+        {
+          "name": "Zhipu AI (Knowledge Atlas)",
+          "name_cn": "智谱华章 / 知识图谱",
+          "focus": "LLM (GLM series), AGI research, MaaS platform",
+          "valuation_b_cny": 128,
+          "valuation_note": "$17.8B USD market cap post-IPO surge (Feb 2026, HK: 2513). IPO at HK$52.8B.",
+          "founded": 2019,
+          "public": true
+        },
+        {
+          "name": "Moonshot AI",
+          "name_cn": "月之暗面",
+          "focus": "LLM (Kimi), long-context models, consumer AI assistant",
+          "valuation_b_cny": 35,
+          "valuation_note": "$4.8B USD private valuation (Jan 2026). 13M+ users.",
+          "founded": 2023,
+          "public": false
+        },
+        {
+          "name": "SenseTime",
+          "name_cn": "商汤科技",
+          "focus": "Computer vision, generative AI (SenseNova), smart auto, AI infra (SenseCore)",
+          "valuation_b_cny": 95,
+          "valuation_note": "$13.2B USD market cap (Feb 2026, HK: 0020)",
+          "founded": 2014,
+          "public": true
+        },
+        {
+          "name": "Megvii (Face++)",
+          "name_cn": "旷视科技",
+          "focus": "Computer vision, facial recognition, smart logistics, AIoT",
+          "valuation_b_cny": 29,
+          "valuation_note": "~$4B USD (last known 2019 round). US investment ban since 2021. IPO pending.",
+          "founded": 2011,
+          "public": false
+        },
+        {
+          "name": "Cambricon Technologies",
+          "name_cn": "寒武纪科技",
+          "focus": "AI chips (training & inference), AI processors for edge and cloud",
+          "valuation_b_cny": 665,
+          "valuation_note": "$93B USD market cap (late 2025, SHA: 688256). Revenue surged 4,348% H1 2025. Plans to triple chip production 2026.",
+          "founded": 2016,
+          "public": true
+        },
+        {
+          "name": "Horizon Robotics",
+          "name_cn": "地平线",
+          "focus": "AI chips for autonomous driving (Journey series), ADAS SoC",
+          "valuation_b_cny": 70,
+          "valuation_note": "$9.7B USD market cap (mid-2025, HK: 9660). IPO raised $696M Oct 2024.",
+          "founded": 2015,
+          "public": true
+        },
+        {
+          "name": "4Paradigm (Phancy Group)",
+          "name_cn": "第四范式",
+          "focus": "Enterprise AI platform, decision-making AI, MLOps",
+          "valuation_b_cny": 25,
+          "valuation_note": "$3.5B USD market cap (Aug 2025, HK: 6682). Revenue 5.26B CNY in 2024.",
+          "founded": 2014,
+          "public": true
+        },
+        {
+          "name": "01.AI",
+          "name_cn": "零一万物",
+          "focus": "LLM (Yi series), open-source foundation models",
+          "valuation_b_cny": 7,
+          "valuation_note": "$1B+ USD unicorn (Nov 2023). Founded by Kai-Fu Lee.",
+          "founded": 2023,
+          "public": false
+        },
+        {
+          "name": "Kunlunxin (Baidu spinoff)",
+          "name_cn": "昆仑芯",
+          "focus": "AI chips (Kunlun series), cloud AI accelerators",
+          "valuation_b_cny": 150,
+          "valuation_note": "Last private round ~21B CNY ($3B). Analyst targets: $16-28B USD at HK IPO (filed Jan 2026).",
+          "founded": 2021,
+          "public": false
+        },
+        {
+          "name": "Infinigence AI",
+          "name_cn": "无问芯穹",
+          "focus": "Heterogeneous AI computing infrastructure, multi-chip orchestration",
+          "valuation_b_cny": null,
+          "valuation_note": "Raised 1.5B CNY total through Series A+ (2025). Revenue 500M+ CNY projected 2025. Spun from Tsinghua. HQ Shanghai but major Beijing presence.",
+          "founded": 2023,
+          "public": false
+        },
+        {
+          "name": "MiniMax",
+          "name_cn": "稀宇科技",
+          "focus": "LLM, consumer AI (Talkie/Hailuo), text/voice/video generation",
+          "valuation_b_cny": 110,
+          "valuation_note": "$15.2B USD market cap post-HK IPO (Jan 2026, HK). IPO raised $619M. Note: HQ debated Beijing/Shanghai.",
+          "founded": 2021,
+          "public": true
+        }
+      ]
+    },
+    "310000": {
+      "name_en": "Shanghai",
+      "name_cn": "上海",
+      "ai_company_count": 600,
+      "share_of_national_pct": 14,
+      "companies": [
+        {
+          "name": "StepFun",
+          "name_cn": "阶跃星辰",
+          "focus": "LLM (Step series), multimodal AI, terminal AI partnerships (Honor, Oppo, ZTE)",
+          "valuation_b_cny": null,
+          "valuation_note": "Raised 5B+ CNY in Series B+ (Jan 2026, largest single AI round in China in 12 months). One of the 'Six Tigers'.",
+          "founded": 2023,
+          "public": false
+        },
+        {
+          "name": "CloudWalk Technology",
+          "name_cn": "云从科技",
+          "focus": "Facial recognition, computer vision, smart city, AI platform",
+          "valuation_b_cny": 14,
+          "valuation_note": "$2B USD market cap (mid-2025, SHA: 688327). Revenue ~$73M TTM.",
+          "founded": 2015,
+          "public": true
+        },
+        {
+          "name": "Yitu Technology",
+          "name_cn": "依图科技",
+          "focus": "Computer vision, healthcare AI, NLP, chip design (QuestCore)",
+          "valuation_b_cny": null,
+          "valuation_note": "One of China's 'Four AI Dragons'. IPO plans suspended (2021). Estimated ~$2B+ last private valuation.",
+          "founded": 2012,
+          "public": false
+        },
+        {
+          "name": "AgiBot (Zhiyuan Robotics)",
+          "name_cn": "智元机器人",
+          "focus": "Humanoid robots, embodied AI, industrial robotics",
+          "valuation_b_cny": 46,
+          "valuation_note": "$6.4B USD (Oct 2025). Planning HK IPO Q3 2026, targeting $5-6.4B. Backed by Tencent, BYD, LG, Hillhouse.",
+          "founded": 2023,
+          "public": false
+        },
+        {
+          "name": "Biren Technology",
+          "name_cn": "壁仞科技",
+          "focus": "AI GPU chips (BR100/BR104), general-purpose GPU for cloud AI",
+          "valuation_b_cny": 34,
+          "valuation_note": "HK IPO Jan 2026 at HK$46.9B market cap. Raised $717M. Shares surged 76% on debut.",
+          "founded": 2019,
+          "public": true
+        },
+        {
+          "name": "Enflame Technology",
+          "name_cn": "燧原科技",
+          "focus": "AI training/inference GPUs (CloudBlazer), cloud computing chips",
+          "valuation_b_cny": 20.5,
+          "valuation_note": "Pre-IPO valuation RMB 20.5B ($2.8B). Filed STAR Market IPO Jan 2026, raising 6B CNY. Tencent owns 20.26%.",
+          "founded": 2018,
+          "public": false
+        },
+        {
+          "name": "Mech-Mind Robotics",
+          "name_cn": "梅卡曼德机器人",
+          "focus": "Industrial 3D vision, AI-powered robotic automation",
+          "valuation_b_cny": 6,
+          "valuation_note": "~$858M (2022 round). Planning HK IPO to raise ~$200M (2025). Heavy R&D spend (40% of revenue).",
+          "founded": 2016,
+          "public": false
+        },
+        {
+          "name": "Flexiv",
+          "name_cn": "非夕科技",
+          "focus": "Adaptive robots, force-controlled robotics, AI manipulation",
+          "valuation_b_cny": 7,
+          "valuation_note": "$1B USD valuation (unicorn). Raised $122M total.",
+          "founded": 2016,
+          "public": false
+        },
+        {
+          "name": "CloudMinds",
+          "name_cn": "达闼科技",
+          "focus": "Cloud robotics, HARIX robot OS, humanoid service robots",
+          "valuation_b_cny": null,
+          "valuation_note": "Raised $727M total (Series C $138M in 2023). Backed by SoftBank, Foxconn. HQ Shanghai.",
+          "founded": 2015,
+          "public": false
+        }
+      ]
+    },
+    "440000": {
+      "name_en": "Guangdong",
+      "name_cn": "广东",
+      "ai_company_count": 945,
+      "share_of_national_pct": 22,
+      "companies": [
+        {
+          "name": "Huawei",
+          "name_cn": "华为",
+          "focus": "AI chips (Ascend 910C/950), Pangu LLM, HiSilicon, cloud AI, telecom AI",
+          "valuation_b_cny": null,
+          "valuation_note": "Private. Revenue ~$100B+ USD (2024). Plans to double Ascend chip output in 2026 to 600K units. Shenzhen HQ.",
+          "founded": 1987,
+          "public": false
+        },
+        {
+          "name": "Tencent",
+          "name_cn": "腾讯",
+          "focus": "LLM (Hunyuan), AI cloud, gaming AI, ad targeting AI, video/3D generation",
+          "valuation_b_cny": 5100,
+          "valuation_note": "$709.6B USD market cap (Jan 2026, HK: 0700). China's largest company. 30+ Hunyuan models released.",
+          "founded": 1998,
+          "public": true
+        },
+        {
+          "name": "DJI",
+          "name_cn": "大疆创新",
+          "focus": "Drone AI, computer vision, autonomous flight, LiDAR, robotics",
+          "valuation_b_cny": 108,
+          "valuation_note": "~$15B USD private. Revenue $3.5B USD (2024). 70%+ global drone market share. Shenzhen HQ.",
+          "founded": 2006,
+          "public": false
+        },
+        {
+          "name": "UBTECH Robotics",
+          "name_cn": "优必选科技",
+          "focus": "Humanoid robots (Walker S2), educational robots, industrial humanoids",
+          "valuation_b_cny": 53,
+          "valuation_note": "~$6.7B USD market cap (Nov 2025, HK: 9880). Raised $398M placement Nov 2025. 1,000th Walker S2 produced end-2025.",
+          "founded": 2012,
+          "public": true
+        },
+        {
+          "name": "BYD (AI/ADAS division)",
+          "name_cn": "比亚迪",
+          "focus": "Autonomous driving (God's Eye/DiPilot), AI-powered ADAS, EV intelligence",
+          "valuation_b_cny": 876,
+          "valuation_note": "$121.6B USD market cap (Feb 2026, SZ: 002594). 5,000+ ADAS engineers. 14.3B USD planned AI/ADAS investment. God's Eye in 2.5M+ vehicles.",
+          "founded": 1995,
+          "public": true
+        },
+        {
+          "name": "WeRide",
+          "name_cn": "文远知行",
+          "focus": "L4 autonomous driving, robotaxis, autonomous trucks/buses",
+          "valuation_b_cny": 29,
+          "valuation_note": "$4B USD (2022 Series D). HK IPO raised HK$2.39B (2025). Dual US/HK listing.",
+          "founded": 2017,
+          "public": true
+        },
+        {
+          "name": "Pony.ai",
+          "name_cn": "小马智行",
+          "focus": "L4 autonomous driving, robotaxis, autonomous trucking",
+          "valuation_b_cny": 38,
+          "valuation_note": "$5.25B USD at Nasdaq IPO (Nov 2024). HK IPO raised HK$6.71B. Fleet target 3,000+ vehicles by end-2026.",
+          "founded": 2016,
+          "public": true
+        },
+        {
+          "name": "AutoX",
+          "name_cn": "安途",
+          "focus": "L4/L5 autonomous driving, driverless robotaxis",
+          "valuation_b_cny": null,
+          "valuation_note": "Private. Founded by former Princeton professor Jianxiong Xiao. Shenzhen HQ.",
+          "founded": 2016,
+          "public": false
+        },
+        {
+          "name": "Game Science",
+          "name_cn": "游戏科学",
+          "focus": "AI-powered game development, procedural generation (Black Myth: Wukong)",
+          "valuation_b_cny": null,
+          "valuation_note": "Privately held. Black Myth earned ~$1.25B revenue, 28M copies. HQ Shenzhen + Hangzhou office.",
+          "founded": 2014,
+          "public": false
+        }
+      ]
+    },
+    "330000": {
+      "name_en": "Zhejiang",
+      "name_cn": "浙江",
+      "ai_company_count": 345,
+      "share_of_national_pct": 8,
+      "companies": [
+        {
+          "name": "Alibaba (DAMO Academy / Tongyi Lab)",
+          "name_cn": "阿里巴巴 (达摩院/通义实验室)",
+          "focus": "LLM (Qwen/Tongyi Qianwen), AI cloud, e-commerce AI, vision AI",
+          "valuation_b_cny": 2620,
+          "valuation_note": "$364.6B USD market cap (Nov 2025, NYSE: BABA). Qwen: 600M+ downloads. AI cloud capex 38.6B CNY Q1 FY2026.",
+          "founded": 1999,
+          "public": true
+        },
+        {
+          "name": "Hikvision",
+          "name_cn": "海康威视",
+          "focus": "AI-powered video surveillance, computer vision, smart city, IoT",
+          "valuation_b_cny": 280,
+          "valuation_note": "$39.4B USD market cap (Jan 2026, SZ: 002415). World's largest surveillance equipment maker. TTM revenue $12.9B.",
+          "founded": 2001,
+          "public": true
+        },
+        {
+          "name": "DeepSeek",
+          "name_cn": "深度求索",
+          "focus": "LLM (DeepSeek-R1/V3), open-source AI models, reasoning AI",
+          "valuation_b_cny": null,
+          "valuation_note": "Private subsidiary of High-Flyer Capital (幻方量化). Not seeking external funding. R1 matched GPT-4 at fraction of cost. Hangzhou HQ.",
+          "founded": 2023,
+          "public": false
+        },
+        {
+          "name": "NetEase",
+          "name_cn": "网易",
+          "focus": "Gaming AI, NLP, AI music, education AI, AI content generation",
+          "valuation_b_cny": 563,
+          "valuation_note": "$78B USD market cap (Feb 2026, NASDAQ: NTES). Revenue 112.6B CNY ($16.1B) in 2025. Hangzhou HQ.",
+          "founded": 1997,
+          "public": true
+        },
+        {
+          "name": "Unitree Robotics",
+          "name_cn": "宇树科技",
+          "focus": "Quadruped/humanoid robots, embodied AI, consumer robots (Go2, H1)",
+          "valuation_b_cny": 50,
+          "valuation_note": "$1.4B USD (unicorn). Seeking up to $7B IPO valuation. Fastest IPO counseling record (132 days). Hangzhou.",
+          "founded": 2016,
+          "public": false
+        },
+        {
+          "name": "Deep Robotics",
+          "name_cn": "云深处科技",
+          "focus": "Quadruped robots for industrial inspection, emergency rescue, embodied AI",
+          "valuation_b_cny": 8,
+          "valuation_note": "~$1.1B USD (Dec 2025). IPO counseling filed Dec 2025, targeting review June 2026. Hangzhou.",
+          "founded": 2017,
+          "public": false
+        },
+        {
+          "name": "BrainCo",
+          "name_cn": "强脑科技",
+          "focus": "Brain-computer interface (non-invasive), bionic prosthetics, neurotech",
+          "valuation_b_cny": 9.4,
+          "valuation_note": "~$1.3B USD valuation (pre-IPO 2025). China's first BCI unicorn. Hangzhou.",
+          "founded": 2015,
+          "public": false
+        },
+        {
+          "name": "ManyCore Tech",
+          "name_cn": "群核科技",
+          "focus": "Spatial intelligence, 3D design AI (Kujiale), spatial computing",
+          "valuation_b_cny": null,
+          "valuation_note": "Raised $336M total. Filed HK IPO Feb 2025. Revenue ~664M CNY (2023). 441M+ 3D models. Hangzhou.",
+          "founded": 2011,
+          "public": false
+        },
+        {
+          "name": "Rokid",
+          "name_cn": "若琪",
+          "focus": "AR glasses with AI, spatial computing, AI assistant hardware",
+          "valuation_b_cny": 7.2,
+          "valuation_note": "$1B USD valuation (latest round). Raised $583M total. Partnered with Alibaba Tongyi. Hangzhou.",
+          "founded": 2014,
+          "public": false
+        },
+        {
+          "name": "Zhejiang Lab",
+          "name_cn": "之江实验室",
+          "focus": "AI research (intelligent perception, computing, networks), GeoGPT, space computing",
+          "valuation_b_cny": null,
+          "valuation_note": "Government research institute (est. 2017). Not commercial entity. Launched Three-Body Computing Constellation (space AI).",
+          "founded": 2017,
+          "public": false
+        }
+      ]
+    },
+    "320000": {
+      "name_en": "Jiangsu",
+      "name_cn": "江苏",
+      "ai_company_count": 300,
+      "share_of_national_pct": 7,
+      "companies": [
+        {
+          "name": "Momenta",
+          "name_cn": "初速度科技",
+          "focus": "L4 autonomous driving, ADAS solutions, robotaxis",
+          "valuation_b_cny": 43,
+          "valuation_note": "~$6B USD valuation (Sep 2025 funding round). HQ Suzhou/Beijing. Backed by Mercedes-Benz, Grab, Toyota, Bosch.",
+          "founded": 2016,
+          "public": false
+        },
+        {
+          "name": "Horizon Robotics (Nanjing R&D)",
+          "name_cn": "地平线 (南京研发中心)",
+          "focus": "AI chip R&D, ADAS processors, Nanjing AI research institute",
+          "valuation_b_cny": null,
+          "valuation_note": "Major R&D center in Nanjing. Parent HK-listed (see Beijing). Co-established Nanjing Advanced AI Research Institute.",
+          "founded": 2018,
+          "public": false
+        },
+        {
+          "name": "Estun Robotics",
+          "name_cn": "埃斯顿",
+          "focus": "Industrial robots, CNC systems, motion control, AI-powered automation",
+          "valuation_b_cny": null,
+          "valuation_note": "Public on Shenzhen SE (SZ: 002747). Leading Chinese industrial robot manufacturer. Nanjing HQ.",
+          "founded": 1993,
+          "public": true
+        },
+        {
+          "name": "Ecovacs Robotics",
+          "name_cn": "科沃斯",
+          "focus": "Consumer service robots, robot vacuum AI, SLAM navigation",
+          "valuation_b_cny": null,
+          "valuation_note": "Public (SHA: 603486). Established AI Research Institute in Nanjing (2018). Suzhou HQ.",
+          "founded": 1998,
+          "public": true
+        },
+        {
+          "name": "InfiMotion",
+          "name_cn": "英飞迈",
+          "focus": "Industrial AI, smart manufacturing, AI-powered motion solutions",
+          "valuation_b_cny": null,
+          "valuation_note": "Wuxi-based AI startup. Limited public valuation data.",
+          "founded": null,
+          "public": false
+        }
+      ]
+    },
+    "340000": {
+      "name_en": "Anhui",
+      "name_cn": "安徽",
+      "ai_company_count": 100,
+      "share_of_national_pct": 2,
+      "companies": [
+        {
+          "name": "iFlytek",
+          "name_cn": "科大讯飞",
+          "focus": "Voice AI (China's #1), NLP, AI education, AI healthcare, Spark LLM",
+          "valuation_b_cny": 152,
+          "valuation_note": "$21.1B USD market cap (Jan 2026, SZ: 002230). Revenue 10.9B CNY H1 2025 (+17%). AI in 813 scenarios. Hefei HQ, founded from USTC.",
+          "founded": 1999,
+          "public": true
+        },
+        {
+          "name": "Cambrian AI (USTC ecosystem)",
+          "name_cn": "中科大AI生态",
+          "focus": "AI research talent pipeline, NLP, robotics, voice AI spin-offs",
+          "valuation_b_cny": null,
+          "valuation_note": "University of Science and Technology of China (USTC) in Hefei is a major AI talent source. iFlytek and others spun from here.",
+          "founded": null,
+          "public": false
+        }
+      ]
+    },
+    "420000": {
+      "name_en": "Hubei",
+      "name_cn": "湖北",
+      "ai_company_count": 108,
+      "share_of_national_pct": 2,
+      "companies": [
+        {
+          "name": "Baidu Apollo Go (Wuhan operations)",
+          "name_cn": "百度萝卜快跑 (武汉)",
+          "focus": "Robotaxi deployment, L4 autonomous driving at scale",
+          "valuation_b_cny": null,
+          "valuation_note": "~400 robotaxis across 1,160 sq miles (one-third of Wuhan). China's largest robotaxi deployment. Subsidiary of Baidu.",
+          "founded": 2021,
+          "public": false
+        },
+        {
+          "name": "Wuhan AI Innovation Center",
+          "name_cn": "武汉人工智能创新中心",
+          "focus": "AI research, photonics-AI intersection, smart city AI",
+          "valuation_b_cny": null,
+          "valuation_note": "Government-backed. Wuhan leverages its optics/photonics strength (Wuhan Optics Valley) for AI hardware.",
+          "founded": null,
+          "public": false
+        }
+      ]
+    },
+    "510000": {
+      "name_en": "Sichuan",
+      "name_cn": "四川",
+      "ai_company_count": 86,
+      "share_of_national_pct": 2,
+      "companies": [
+        {
+          "name": "Zhipu AI (Chengdu regional hub)",
+          "name_cn": "智谱AI (成都区域中心)",
+          "focus": "Regional LLM (Zhipu Zhuge for Sichuan), AI infrastructure, model training center",
+          "valuation_b_cny": null,
+          "valuation_note": "Zhipu received 300M CNY from Chengdu government fund. Building regional AI model 'Zhuge' and training center in Chengdu.",
+          "founded": 2023,
+          "public": false
+        },
+        {
+          "name": "Chengdu AI ecosystem",
+          "name_cn": "成都AI产业集群",
+          "focus": "Smart manufacturing AI, game AI, autonomous driving testing",
+          "valuation_b_cny": null,
+          "valuation_note": "Core AI industry scale targeted at 130B CNY by 2025. Computing power goal: 20,000P. 10+ national LLMs, 80+ industry models.",
+          "founded": null,
+          "public": false
+        }
+      ]
+    },
+    "370000": {
+      "name_en": "Shandong",
+      "name_cn": "山东",
+      "ai_company_count": 170,
+      "share_of_national_pct": 4,
+      "companies": [
+        {
+          "name": "Haier Smart Home",
+          "name_cn": "海尔智家",
+          "focus": "Smart home AI, IoT platform, AI-powered appliances, natural language interaction",
+          "valuation_b_cny": 243,
+          "valuation_note": "$33.9B USD market cap (Jan 2026, SHA: 600690). 122,733 employees. Qingdao HQ.",
+          "founded": 1984,
+          "public": true
+        },
+        {
+          "name": "Hisense",
+          "name_cn": "海信",
+          "focus": "AI-powered displays, smart home AI, automotive AI, healthcare AI",
+          "valuation_b_cny": 33,
+          "valuation_note": "Hisense Visual Technology: $4.6B USD (Jan 2026, SHA: 600060). AI innovations at CES 2025. Qingdao HQ.",
+          "founded": 1969,
+          "public": true
+        }
+      ]
+    },
+    "210000": {
+      "name_en": "Liaoning",
+      "name_cn": "辽宁",
+      "ai_company_count": 50,
+      "share_of_national_pct": 1,
+      "companies": [
+        {
+          "name": "Neusoft",
+          "name_cn": "东软集团",
+          "focus": "AI-driven digital solutions, healthcare AI, automotive software, cloud AI",
+          "valuation_b_cny": 11.4,
+          "valuation_note": "$1.58B USD market cap (Jun 2025, SHA: 600718). Revenue $1.61B TTM. Forbes China Top 30 Go-International (2025). Shenyang HQ.",
+          "founded": 1991,
+          "public": true
+        },
+        {
+          "name": "Siasun Robot & Automation",
+          "name_cn": "新松机器人",
+          "focus": "Industrial robotics, collaborative robots, smart factory AI",
+          "valuation_b_cny": null,
+          "valuation_note": "Public (SZ: 300024). China's largest listed robotics company. Shenyang HQ, affiliated with Chinese Academy of Sciences.",
+          "founded": 2000,
+          "public": true
+        }
+      ]
+    },
+    "120000": {
+      "name_en": "Tianjin",
+      "name_cn": "天津",
+      "ai_company_count": 60,
+      "share_of_national_pct": 1,
+      "companies": [
+        {
+          "name": "Tianjin AI Manufacturing Hub",
+          "name_cn": "天津人工智能制造基地",
+          "focus": "Industrial AI, smart manufacturing, AI for ports/logistics",
+          "valuation_b_cny": null,
+          "valuation_note": "Government-backed zone. Focus on cross-border AI services and smart port automation.",
+          "founded": null,
+          "public": false
+        }
+      ]
+    },
+    "430000": {
+      "name_en": "Hunan",
+      "name_cn": "湖南",
+      "ai_company_count": 45,
+      "share_of_national_pct": 1,
+      "companies": [
+        {
+          "name": "Zoomlion (AI division)",
+          "name_cn": "中联重科 (智能化)",
+          "focus": "AI-powered construction equipment, smart manufacturing, industrial IoT",
+          "valuation_b_cny": null,
+          "valuation_note": "Zoomlion public (SHA: 000157). Changsha HQ. Applying AI to construction machinery and smart factories.",
+          "founded": 1992,
+          "public": true
+        }
+      ]
+    },
+    "500000": {
+      "name_en": "Chongqing",
+      "name_cn": "重庆",
+      "ai_company_count": 40,
+      "share_of_national_pct": 1,
+      "companies": [
+        {
+          "name": "Chongqing AI + Automotive Hub",
+          "name_cn": "重庆智能网联汽车基地",
+          "focus": "Smart connected vehicles, AI manufacturing, electronics AI",
+          "valuation_b_cny": null,
+          "valuation_note": "Chengdu-Chongqing region designated as national smart manufacturing and robotics hub. Pilot base for intelligent connected vehicles.",
+          "founded": null,
+          "public": false
+        }
+      ]
+    },
+    "350000": {
+      "name_en": "Fujian",
+      "name_cn": "福建",
+      "ai_company_count": 40,
+      "share_of_national_pct": 1,
+      "companies": [
+        {
+          "name": "CATL (AI capabilities)",
+          "name_cn": "宁德时代",
+          "focus": "AI battery monitoring, smart manufacturing AI, AI-enabled energy storage",
+          "valuation_b_cny": 1620,
+          "valuation_note": "$225B USD market cap (Jan 2026, SZ: 300750). AI monitoring ecosystem. Ningde, Fujian HQ. Not primarily AI but increasingly AI-enabled.",
+          "founded": 2011,
+          "public": true
+        }
+      ]
+    },
+    "610000": {
+      "name_en": "Shaanxi",
+      "name_cn": "陕西",
+      "ai_company_count": 50,
+      "share_of_national_pct": 1,
+      "companies": [
+        {
+          "name": "Xi'an AI Research Cluster",
+          "name_cn": "西安人工智能研究集群",
+          "focus": "AI research (Xi'an Jiaotong University), military AI applications, aerospace AI",
+          "valuation_b_cny": null,
+          "valuation_note": "Xi'an is a major defense/aerospace AI hub. Strong university research base. Multiple military-industrial AI labs.",
+          "founded": null,
+          "public": false
+        }
+      ]
+    }
+  },
+  "summary": {
+    "total_companies_tracked": 95,
+    "provinces_covered": 15,
+    "national_ai_companies_total": 6000,
+    "national_core_ai_industry_cny_t": 1.2,
+    "national_ai_investment_2025_b_cny": 890,
+    "top_5_provinces_share_pct": 80,
+    "notable_trends_2026": [
+      "Wave of Chinese AI IPOs on Hong Kong Stock Exchange (Zhipu, MiniMax, Biren, Enflame filings)",
+      "Hangzhou 'Six Little Dragons' collectively valued at 300B+ CNY",
+      "Cambricon market cap reached $93B making it China's most valuable pure-play AI chip company",
+      "ByteDance valued at $400B+ driven by Doubao AI assistant (60M MAU)",
+      "DeepSeek R1 shockwave: demonstrated frontier AI at fraction of US costs, accelerated Chinese AI investment",
+      "Huawei planning to double Ascend 910C production to 600K chips in 2026",
+      "Humanoid robotics boom: AgiBot ($6.4B), UBTECH, Unitree all scaling production"
+    ]
+  }
+}
