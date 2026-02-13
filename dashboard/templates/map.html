@@ -580,7 +580,7 @@
 
     // Init
     Promise.all([
-        d3.json('/static/china-provinces.topo.json'),
+        d3.json('/static/china-provinces.geo.json'),
         fetch('/api/provinces').then(r => r.json())
     ]).then(([topo, data]) => {
         provinceData = data;
@@ -593,8 +593,8 @@
            .attr('height', height)
            .attr('viewBox', '0 0 ' + width + ' ' + height);
 
-        const objKey = Object.keys(topo.objects)[0];
-        const geojson = topojson.feature(topo, topo.objects[objKey]);
+        // Using GeoJSON directly (no TopoJSON conversion needed)
+        const geojson = topo; // already a FeatureCollection
 
         // Manual projection known to work for China
         const projection = d3.geoMercator()
