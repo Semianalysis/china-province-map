@@ -29,6 +29,56 @@
         </div>
     </div>
 
+    <!-- Capital Story -->
+    {% if province.funding_summary %}
+    {% set fs = province.funding_summary %}
+    {% set semi = fs.semiconductor_total_b_cny | default(0) | float %}
+    {% set ai = fs.ai_compute_total_b_cny | default(0) | float %}
+    {% set total = fs.grand_total_b_cny | default(semi + ai) | float %}
+    {% set semi_pct = ((semi / total) * 100) if total > 0 else 0 %}
+    {% set ai_pct = 100 - semi_pct if total > 0 else 0 %}
+    {% if semi > ai * 1.5 %}
+    {% set strategy = 'Semiconductor-heavy capital strategy' %}
+    {% elif ai > semi * 1.5 %}
+    {% set strategy = 'AI-compute-first capital strategy' %}
+    {% else %}
+    {% set strategy = 'Balanced semi and AI capital strategy' %}
+    {% endif %}
+    <div class="bg-sa-navy/40 rounded-lg p-4 border border-sa-border">
+        <div class="flex items-center justify-between gap-3 mb-2">
+            <h3 class="text-xs font-semibold text-sa-muted uppercase tracking-wider">Capital Story</h3>
+            <span class="text-sa-gold text-sm font-semibold">&yen;{{ "{:,.1f}".format(total) }}B</span>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-3">
+            <div class="bg-sa-card border border-sa-border rounded px-2.5 py-2">
+                <div class="text-[10px] uppercase tracking-wider text-sa-muted">Semi</div>
+                <div class="text-sa-cyan text-sm font-semibold">&yen;{{ "{:,.1f}".format(semi) }}B</div>
+            </div>
+            <div class="bg-sa-card border border-sa-border rounded px-2.5 py-2">
+                <div class="text-[10px] uppercase tracking-wider text-sa-muted">AI</div>
+                <div class="text-sa-cyan text-sm font-semibold">&yen;{{ "{:,.1f}".format(ai) }}B</div>
+            </div>
+            <div class="bg-sa-card border border-sa-border rounded px-2.5 py-2">
+                <div class="text-[10px] uppercase tracking-wider text-sa-muted">Deals</div>
+                <div class="text-white text-sm font-semibold">{{ fs.deal_count | default(0) }}</div>
+            </div>
+            <div class="bg-sa-card border border-sa-border rounded px-2.5 py-2">
+                <div class="text-[10px] uppercase tracking-wider text-sa-muted">Active</div>
+                <div class="text-white text-sm font-semibold">{{ fs.active_projects | default(0) }}</div>
+            </div>
+        </div>
+        <div class="w-full bg-sa-bg rounded-full h-2 overflow-hidden mb-2">
+            <div class="bg-sa-gold h-full inline-block align-top" style="width: {{ "%.2f"|format(semi_pct) }}%"></div>
+            <div class="bg-sa-cyan h-full inline-block align-top" style="width: {{ "%.2f"|format(ai_pct) }}%"></div>
+        </div>
+        <div class="flex items-center justify-between text-[11px] text-sa-muted mb-2">
+            <span>Semi {{ "%.0f"|format(semi_pct) }}%</span>
+            <span>AI {{ "%.0f"|format(ai_pct) }}%</span>
+        </div>
+        <p class="text-xs text-sa-muted leading-relaxed">{{ strategy }}. {{ fs.failed_projects | default(0) }} failed and {{ fs.planned_projects | default(0) }} planned projects shape the current risk profile.</p>
+    </div>
+    {% endif %}
+
     <!-- Radar Chart -->
     <div>
         <h3 class="text-xs font-semibold text-sa-muted uppercase tracking-wider mb-2">Capability Profile</h3>
