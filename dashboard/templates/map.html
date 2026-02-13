@@ -584,34 +584,30 @@
         fetch('/api/provinces').then(r => r.json())
     ]).then(([topo, data]) => {
         provinceData = data;
-        window.provinceData = data; // expose for side panel radar chart
+        window.provinceData = data;
 
-        const container = document.getElementById('map-container');
-        const width = Math.max(container.clientWidth, 800);
-        const height = Math.max(window.innerHeight - 280, 500);
+        const width = 1200;
+        const height = 700;
 
         svg.attr('width', width)
            .attr('height', height)
-           .attr('viewBox', '0 0 ' + width + ' ' + height)
-           .style('display', 'block')
-           .style('background', '#0f0f23');
+           .attr('viewBox', '0 0 ' + width + ' ' + height);
 
         const objKey = Object.keys(topo.objects)[0];
         const geojson = topojson.feature(topo, topo.objects[objKey]);
 
-        const padding = 50;
+        // Manual projection known to work for China
         const projection = d3.geoMercator()
-            .fitExtent([[padding, padding], [width - padding, height - padding]], geojson);
+            .center([104, 37])
+            .scale(680)
+            .translate([width / 2, height / 2]);
 
         const path = d3.geoPath().projection(projection);
 
-        // SVG defs for glow filter
-        const defs = svg.append('defs');
-        const glowFilter = defs.append('filter').attr('id', 'glow');
-        glowFilter.append('feGaussianBlur').attr('stdDeviation', '3').attr('result', 'blur');
-        const feMerge = glowFilter.append('feMerge');
-        feMerge.append('feMergeNode').attr('in', 'blur');
-        feMerge.append('feMergeNode').attr('in', 'SourceGraphic');
+        // Debug: check first path
+        const testPath = path(geojson.features[0]);
+        console.log('First feature:', geojson.features[0].properties.name,
+                     'path length:', testPath ? testPath.length : 'NULL');
 
         const g = svg.append('g');
 
@@ -775,6 +771,12 @@
         svg.on('dblclick', () => {
             svg.transition().duration(500).call(zoom.transform, d3.zoomIdentity);
         });
+
+        console.log('Map rendered:', paths.size(), 'paths');
+    }).catch(err => {
+        console.error('Map init failed:', err);
+        document.getElementById('map-container').innerHTML =
+            '<p style="color:red;padding:20px;">Map failed to load: ' + err.message + '</p>';
     });
 })();
 </script>
