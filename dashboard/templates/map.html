@@ -57,22 +57,6 @@
     }
     .map-tooltip.visible { opacity: 1; }
 
-    /* --- Side Panel --- */
-    #side-panel {
-        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    #side-panel.closed {
-        transform: translateX(100%);
-    }
-    #panel-backdrop {
-        transition: opacity 0.3s ease;
-        pointer-events: none;
-    }
-    #panel-backdrop.active {
-        opacity: 1;
-        pointer-events: all;
-    }
-
     /* --- Rankings Table --- */
     .rank-row {
         transition: background 0.12s ease;
@@ -140,18 +124,6 @@
 
     /* --- Responsive --- */
     @media (max-width: 768px) {
-        #side-panel {
-            width: 100% !important;
-            bottom: 0;
-            top: auto !important;
-            height: 70vh !important;
-            border-left: none !important;
-            border-top: 1px solid #2a2a3e;
-            border-radius: 12px 12px 0 0;
-        }
-        #side-panel.closed {
-            transform: translateY(100%);
-        }
         .stat-card { min-width: 120px; padding: 8px 12px; }
         .stat-card .stat-value { font-size: 1.1rem; }
         #rankings-section table { font-size: 12px; }
@@ -245,6 +217,16 @@
         </div>
     </div>
 
+    <div id="province-modal" class="fixed inset-0 z-[130] hidden">
+        <div id="province-backdrop" class="absolute inset-0 bg-black/70"></div>
+        <div class="relative h-full w-full p-2 sm:p-4">
+            <div
+                id="province-modal-content"
+                class="mx-auto h-full w-full max-w-[1280px] overflow-y-auto rounded-lg border border-sa-border bg-sa-card shadow-2xl"
+            ></div>
+        </div>
+    </div>
+
     <!-- Storytelling Stat Cards -->
     <div class="px-6 pt-4 pb-2 flex flex-wrap gap-3" id="stat-cards">
         <div class="stat-card">
@@ -282,7 +264,7 @@
         </div>
     </div>
 
-    <!-- Map + Panel Container -->
+    <!-- Map Container -->
     <div class="relative" id="map-panel-wrap" style="height: calc(100vh - 200px); min-height: 500px; overflow: hidden;">
         <!-- Map -->
         <div id="map-container" style="position: relative; width: 100%; height: 100%; overflow: hidden;">
@@ -311,11 +293,6 @@
             </div>
         </div>
 
-        <!-- Panel backdrop -->
-        <div id="panel-backdrop" class="absolute inset-0 bg-black/30 opacity-0 z-10" onclick="window.closePanel()"></div>
-
-        <!-- Side Panel -->
-        <div id="side-panel" class="closed w-[420px] border-l border-sa-border bg-sa-card overflow-y-auto absolute right-0 top-0 z-20" style="height: 100%; max-height: calc(100vh - 200px);"></div>
     </div>
 
     <!-- Rankings Table -->
@@ -407,8 +384,9 @@
 
     const svg = d3.select('#china-map');
     const tooltip = document.getElementById('tooltip');
-    const panel = document.getElementById('side-panel');
-    const backdrop = document.getElementById('panel-backdrop');
+    const provinceModal = document.getElementById('province-modal');
+    const provinceBackdrop = document.getElementById('province-backdrop');
+    const provinceModalContent = document.getElementById('province-modal-content');
     const mapPanelWrap = document.getElementById('map-panel-wrap');
     const rankingsSection = document.getElementById('rankings-section');
     const entitiesSection = document.getElementById('entities-section');
@@ -424,6 +402,12 @@
     const storiesCount = document.getElementById('stories-count');
     const storiesModalMeta = document.getElementById('stories-modal-meta');
     const storiesList = document.getElementById('stories-list');
+
+    function syncBodyScrollLock() {
+        const hasStoriesOpen = !storiesModal.classList.contains('hidden');
+        const hasProvinceOpen = !provinceModal.classList.contains('hidden');
+        document.body.style.overflow = (hasStoriesOpen || hasProvinceOpen) ? 'hidden' : '';
+    }
 
     function setView(view) {
         activeView = view;
@@ -715,14 +699,14 @@
     function openStoriesModal() {
         if (!topStories.length) return;
         storiesModal.classList.remove('hidden');
-        document.body.style.overflow = 'hidden';
+        syncBodyScrollLock();
         storiesSearch.value = '';
         renderStoriesList();
     }
 
     function closeStoriesModal() {
         storiesModal.classList.add('hidden');
-        document.body.style.overflow = '';
+        syncBodyScrollLock();
     }
 
     function populateFabStatusFilter() {
@@ -962,25 +946,26 @@
             .attr('stroke-width', adcode === selectedAdcode ? 2.5 : 1.2);
     };
 
-    // Open side panel
+    // Open full-screen province modal
     function openPanel(adcode) {
         selectedAdcode = adcode;
-        panel.classList.remove('closed');
-        backdrop.classList.add('active');
+        provinceModal.classList.remove('hidden');
+        syncBodyScrollLock();
         d3.selectAll('.province-path').classed('selected', false)
             .attr('stroke', '#5a5a7e').attr('stroke-width', 1.2);
         d3.selectAll('.province-path')
             .filter(d => String(d.properties.adcode) === adcode)
             .classed('selected', true)
             .attr('stroke', '#f0b429').attr('stroke-width', 2.5);
-        htmx.ajax('GET', '/api/province/' + adcode, {target: '#side-panel', swap: 'innerHTML'});
+        htmx.ajax('GET', '/api/province/' + adcode, {target: '#province-modal-content', swap: 'innerHTML'});
         buildRankings();
         focusIndex = sortedProvinces.indexOf(adcode);
     }
 
     window.closePanel = function() {
-        panel.classList.add('closed');
-        backdrop.classList.remove('active');
+        provinceModal.classList.add('hidden');
+        provinceModalContent.innerHTML = '';
+        syncBodyScrollLock();
         selectedAdcode = null;
         focusIndex = -1;
         d3.selectAll('.province-path').classed('selected', false)
@@ -1022,13 +1007,15 @@
 
     // Keyboard nav
     document.addEventListener('keydown', function(e) {
-        // Escape closes panel
+        // Escape closes modal(s)
         if (e.key === 'Escape') {
             if (!storiesModal.classList.contains('hidden')) {
                 closeStoriesModal();
                 return;
             }
-            window.closePanel();
+            if (!provinceModal.classList.contains('hidden')) {
+                window.closePanel();
+            }
             return;
         }
         // Number keys 1-6 switch metrics
@@ -1076,6 +1063,49 @@
         return geometry;
     }
 
+    function keepPrimaryProvincePolygon(feature) {
+        if (!feature) return feature;
+        const geometry = feature.geometry;
+        if (!geometry || geometry.type !== 'MultiPolygon' || !Array.isArray(geometry.coordinates) || !geometry.coordinates.length) {
+            return feature;
+        }
+
+        const candidates = geometry.coordinates.map(poly => {
+            const polygon = { type: 'Polygon', coordinates: poly };
+            return {
+                poly,
+                area: d3.geoArea(polygon),
+                centroid: d3.geoCentroid(polygon),
+            };
+        });
+
+        const adcode = String(feature?.properties?.adcode || '');
+        let source = candidates;
+        if (adcode === '460000') {
+            const nearHainan = candidates.filter(c => {
+                const lon = c.centroid[0];
+                const lat = c.centroid[1];
+                return lon >= 108 && lon <= 113 && lat >= 18 && lat <= 22;
+            });
+            if (nearHainan.length) source = nearHainan;
+        }
+
+        let largest = null;
+        let maxArea = -1;
+        source.forEach(candidate => {
+            if (candidate.area > maxArea) {
+                maxArea = candidate.area;
+                largest = candidate.poly;
+            }
+        });
+
+        if (!largest) return feature;
+        return {
+            ...feature,
+            geometry: { type: 'Polygon', coordinates: [largest[0]] },
+        };
+    }
+
     Promise.all([
         d3.json('/static/china-provinces-source.topo.json'),
         fetch('/api/provinces').then(r => r.json())
@@ -1097,7 +1127,8 @@
         const geojson = topojson.feature(topology, topology.objects.provinces);
         const provinceFeatures = geojson.features
             .filter(f => provinceData[String(f.properties.adcode)])
-            .map(f => ({ ...f, geometry: rewindGeometry(f.geometry) }));
+            .map(f => ({ ...f, geometry: rewindGeometry(f.geometry) }))
+            .map(keepPrimaryProvincePolygon);
 
         // Filter to mainland provinces only for fitSize calculation
         const mainlandFeatures = provinceFeatures.filter(f => {
@@ -1111,8 +1142,24 @@
             .fitExtent([[40, 20], [width - 120, height - 20]], mainlandGeo);
 
         const path = d3.geoPath().projection(projection);
+        const hainanFeature = provinceFeatures.find(f => String(f.properties.adcode) === '460000');
+        let clipBottomY = height;
+        if (hainanFeature) {
+            const hainanBounds = path.bounds(hainanFeature);
+            clipBottomY = Math.min(height, hainanBounds[1][1] + 8);
+        }
+        const clipId = 'china-mainland-clip';
+        svg.append('defs')
+            .append('clipPath')
+            .attr('id', clipId)
+            .append('rect')
+            .attr('x', 0)
+            .attr('y', 0)
+            .attr('width', width)
+            .attr('height', clipBottomY);
 
-        const g = svg.append('g');
+        const g = svg.append('g')
+            .attr('clip-path', 'url(#' + clipId + ')');
 
         paths = g.selectAll('path')
             .data(provinceFeatures)
@@ -1210,6 +1257,7 @@
         storiesOpenBtn.addEventListener('click', openStoriesModal);
         storiesCloseBtn.addEventListener('click', closeStoriesModal);
         storiesBackdrop.addEventListener('click', closeStoriesModal);
+        provinceBackdrop.addEventListener('click', window.closePanel);
         storiesSearch.addEventListener('input', renderStoriesList);
         storiesList.addEventListener('click', (event) => {
             const button = event.target.closest('.story-open-item');
