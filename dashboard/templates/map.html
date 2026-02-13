@@ -197,11 +197,37 @@
         background: #1a1a2e;
     }
 
+    /* --- Story strip --- */
+    #stories-strip .story-tag {
+        border: 1px solid #2a2a3e;
+        color: #00D9FF;
+        background: #16213e;
+    }
+
 </style>
 {% endblock %}
 
 {% block content %}
 <div class="relative" id="app-root">
+    <div class="px-6 pt-4 pb-1" id="stories-strip" style="display:none;">
+        <div class="bg-sa-card rounded-lg border border-sa-border px-4 py-3 flex flex-wrap items-start gap-3">
+            <div class="min-w-0 flex-1">
+                <div class="text-[11px] uppercase tracking-wider text-sa-muted mb-1">
+                    Strategic Storyline <span id="story-position"></span>
+                </div>
+                <div class="text-white font-semibold text-sm" id="story-headline"></div>
+                <div class="text-sa-cyan text-xs mt-1" id="story-province"></div>
+                <p class="text-sa-muted text-xs mt-1.5 leading-relaxed" id="story-body"></p>
+                <div class="mt-2 flex flex-wrap gap-1.5" id="story-tags"></div>
+            </div>
+            <div class="flex items-center gap-1.5">
+                <button id="story-prev" class="text-xs px-2.5 py-1 rounded border border-sa-border text-sa-muted hover:text-sa-gold hover:border-sa-gold">Prev</button>
+                <button id="story-next" class="text-xs px-2.5 py-1 rounded border border-sa-border text-sa-muted hover:text-sa-gold hover:border-sa-gold">Next</button>
+                <button id="story-open" class="text-xs px-2.5 py-1 rounded border border-sa-gold text-sa-gold hover:bg-sa-gold hover:text-sa-bg">Open Province</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Storytelling Stat Cards -->
     <div class="px-6 pt-4 pb-2 flex flex-wrap gap-3" id="stat-cards">
         <div class="stat-card">
@@ -358,6 +384,9 @@
     let colorScale;
     let sortedProvinces = []; // for keyboard nav
     let fabEntities = [];
+    let topStories = [];
+    let activeStoryIndex = 0;
+    let storyTimer = null;
     let focusIndex = -1;
     let activeView = 'split';
 
@@ -371,6 +400,15 @@
     const fabSearchInput = document.getElementById('fab-search');
     const fabStatusFilter = document.getElementById('fab-status-filter');
     const fabSortSelect = document.getElementById('fab-sort');
+    const storiesStrip = document.getElementById('stories-strip');
+    const storyPosition = document.getElementById('story-position');
+    const storyHeadline = document.getElementById('story-headline');
+    const storyProvince = document.getElementById('story-province');
+    const storyBody = document.getElementById('story-body');
+    const storyTags = document.getElementById('story-tags');
+    const storyPrevBtn = document.getElementById('story-prev');
+    const storyNextBtn = document.getElementById('story-next');
+    const storyOpenBtn = document.getElementById('story-open');
 
     function setView(view) {
         activeView = view;
@@ -587,6 +625,51 @@
                 sector: fab.sector || 'N/A',
             }))
         );
+    }
+
+    function buildTopStories() {
+        topStories = Object.entries(provinceData).flatMap(([adcode, province]) =>
+            (province.top_stories || []).map((story, idx) => ({
+                id: adcode + '_' + idx,
+                adcode,
+                headline: story.headline || 'Untitled Story',
+                body: story.body || '',
+                tags: Array.isArray(story.tags) ? story.tags : [],
+                province_en: province.name_en || adcode,
+                province_cn: province.name_cn || '',
+                story_order: idx,
+                score: metricValue(province, 'composite_score'),
+            }))
+        );
+        topStories.sort((a, b) => (b.score - a.score) || (a.story_order - b.story_order));
+    }
+
+    function renderStory(index) {
+        if (!topStories.length) {
+            storiesStrip.style.display = 'none';
+            return;
+        }
+        storiesStrip.style.display = 'block';
+        activeStoryIndex = ((index % topStories.length) + topStories.length) % topStories.length;
+        const story = topStories[activeStoryIndex];
+
+        storyPosition.textContent = '(' + (activeStoryIndex + 1) + '/' + topStories.length + ')';
+        storyHeadline.textContent = story.headline;
+        storyProvince.textContent = story.province_en + (story.province_cn ? ' · ' + story.province_cn : '');
+        storyBody.textContent = story.body;
+        storyTags.innerHTML = story.tags.map(tag =>
+            '<span class="story-tag text-[11px] px-2 py-0.5 rounded-full">' + escapeHtml(tag) + '</span>'
+        ).join('');
+    }
+
+    function startStoryRotation() {
+        if (storyTimer) {
+            clearInterval(storyTimer);
+            storyTimer = null;
+        }
+        if (topStories.length > 1) {
+            storyTimer = setInterval(() => renderStory(activeStoryIndex + 1), 9000);
+        }
     }
 
     function populateFabStatusFilter() {
@@ -1110,11 +1193,28 @@
         buildFabEntities();
         populateFabStatusFilter();
         buildFabEntityTable();
+        buildTopStories();
+        renderStory(0);
+        startStoryRotation();
 
         // Fab entity controls
         fabSearchInput.addEventListener('input', buildFabEntityTable);
         fabStatusFilter.addEventListener('change', buildFabEntityTable);
         fabSortSelect.addEventListener('change', buildFabEntityTable);
+
+        storyPrevBtn.addEventListener('click', () => {
+            renderStory(activeStoryIndex - 1);
+            startStoryRotation();
+        });
+        storyNextBtn.addEventListener('click', () => {
+            renderStory(activeStoryIndex + 1);
+            startStoryRotation();
+        });
+        storyOpenBtn.addEventListener('click', () => {
+            if (!topStories.length) return;
+            setView('split');
+            openPanel(topStories[activeStoryIndex].adcode);
+        });
 
         // Zoom (wheel is disabled to preserve normal page scroll behavior)
         const zoom = d3.zoom()
