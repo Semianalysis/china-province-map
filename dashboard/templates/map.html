@@ -1,0 +1,777 @@
+{% extends "base.html" %}
+
+{% block head %}
+<style>
+    /* --- Metric Tabs --- */
+    .metric-tab {
+        transition: all 0.2s ease;
+        position: relative;
+    }
+    .metric-tab.active {
+        background: #f0b429;
+        color: #0f0f23;
+        border-color: #f0b429;
+        font-weight: 600;
+    }
+    .metric-tab:not(.active):hover {
+        border-color: #f0b429;
+        color: #f0b429;
+    }
+
+    /* --- Province Paths --- */
+    .province-path {
+        stroke: #2a2a3e;
+        stroke-width: 0.5;
+        cursor: pointer;
+        transition: filter 0.15s ease;
+    }
+    .province-path:hover {
+        stroke: #00D9FF;
+        stroke-width: 1.5;
+        filter: brightness(1.3);
+    }
+    .province-path.selected {
+        stroke: #f0b429;
+        stroke-width: 2;
+    }
+
+    /* --- Glow filter sizes --- */
+    .province-path.glow-high { filter: drop-shadow(0 0 6px rgba(240,180,41,0.4)); }
+    .province-path.glow-mid  { filter: drop-shadow(0 0 3px rgba(13,115,119,0.3)); }
+    .province-path:hover { filter: brightness(1.3) drop-shadow(0 0 8px rgba(0,217,255,0.4)); }
+
+    /* --- Tooltip --- */
+    .map-tooltip {
+        position: fixed;
+        pointer-events: none;
+        background: #1a1a2e;
+        border: 1px solid #3a3a5e;
+        border-radius: 8px;
+        padding: 10px 14px;
+        font-size: 13px;
+        opacity: 0;
+        transition: opacity 0.15s ease;
+        z-index: 100;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.5), 0 0 12px rgba(0,217,255,0.1);
+        min-width: 180px;
+    }
+    .map-tooltip.visible { opacity: 1; }
+
+    /* --- Side Panel --- */
+    #side-panel {
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    #side-panel.closed {
+        transform: translateX(100%);
+    }
+    #panel-backdrop {
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+    }
+    #panel-backdrop.active {
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    /* --- Rankings Table --- */
+    .rank-row {
+        transition: background 0.12s ease;
+    }
+    .rank-row:hover {
+        background: #1a1a2e;
+    }
+    .rank-row.highlighted {
+        background: #16213e;
+        border-left: 3px solid #00D9FF;
+    }
+    .rank-row.tier-gold td:first-child { color: #f0b429; font-weight: 700; }
+    .rank-row.tier-silver td:first-child { color: #a0a0b8; font-weight: 600; }
+
+    /* --- Stat Cards --- */
+    .stat-card {
+        background: #1a1a2e;
+        border: 1px solid #2a2a3e;
+        border-radius: 8px;
+        padding: 12px 16px;
+        min-width: 160px;
+    }
+    .stat-card .stat-value {
+        font-size: 1.5rem;
+        font-weight: 700;
+        line-height: 1.2;
+    }
+    .stat-card .stat-label {
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+    }
+
+    /* --- Cluster annotations --- */
+    .cluster-label {
+        font-size: 10px;
+        fill: #8888aa;
+        font-weight: 500;
+        pointer-events: none;
+        text-anchor: middle;
+        letter-spacing: 0.05em;
+        paint-order: stroke;
+        stroke: #0f0f23;
+        stroke-width: 3px;
+        stroke-linejoin: round;
+    }
+
+    /* --- Province labels --- */
+    .province-label {
+        font-size: 8px;
+        fill: #c0c0d0;
+        pointer-events: none;
+        text-anchor: middle;
+        dominant-baseline: central;
+        paint-order: stroke;
+        stroke: #0f0f23;
+        stroke-width: 2.5px;
+        stroke-linejoin: round;
+    }
+
+    /* --- Metric summary bar --- */
+    .metric-summary {
+        transition: opacity 0.3s ease;
+    }
+
+    /* --- Responsive --- */
+    @media (max-width: 768px) {
+        #side-panel {
+            width: 100% !important;
+            bottom: 0;
+            top: auto !important;
+            height: 70vh !important;
+            border-left: none !important;
+            border-top: 1px solid #2a2a3e;
+            border-radius: 12px 12px 0 0;
+        }
+        #side-panel.closed {
+            transform: translateY(100%);
+        }
+        .stat-card { min-width: 120px; padding: 8px 12px; }
+        .stat-card .stat-value { font-size: 1.1rem; }
+        #rankings-section table { font-size: 12px; }
+    }
+
+    /* --- Mini bar in rankings --- */
+    .mini-metric-bar {
+        display: inline-block;
+        height: 3px;
+        border-radius: 2px;
+        vertical-align: middle;
+        opacity: 0.3;
+        transition: opacity 0.15s;
+    }
+    .mini-metric-bar.active-metric {
+        opacity: 1;
+        height: 5px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="relative" id="app-root">
+    <!-- Storytelling Stat Cards -->
+    <div class="px-6 pt-4 pb-2 flex flex-wrap gap-3" id="stat-cards">
+        <div class="stat-card">
+            <div class="stat-value text-sa-gold" id="sc-total-fab">--</div>
+            <div class="stat-label text-sa-muted">Total Fab Capacity (KWPM)</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value text-sa-cyan" id="sc-fab-provinces">--</div>
+            <div class="stat-label text-sa-muted">Provinces with Active Fabs</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value text-white" id="sc-top-province">--</div>
+            <div class="stat-label text-sa-muted">Top Province (Score)</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value text-sa-coral" id="sc-under-construction">--</div>
+            <div class="stat-label text-sa-muted">Fabs Under Construction</div>
+        </div>
+    </div>
+
+    <!-- Metric Tabs + Summary -->
+    <div class="px-6 py-3 flex flex-wrap items-center gap-2" id="metric-tabs">
+        <button class="metric-tab active px-4 py-1.5 rounded-full text-sm border border-sa-border"
+                data-metric="composite_score" data-index="1">Overall Score</button>
+        <button class="metric-tab px-4 py-1.5 rounded-full text-sm border border-sa-border text-sa-muted"
+                data-metric="fab_capacity" data-index="2">Fab Capacity</button>
+        <button class="metric-tab px-4 py-1.5 rounded-full text-sm border border-sa-border text-sa-muted"
+                data-metric="ai_compute_power" data-index="3">AI Compute</button>
+        <button class="metric-tab px-4 py-1.5 rounded-full text-sm border border-sa-border text-sa-muted"
+                data-metric="gov_subsidies" data-index="4">Gov Subsidies</button>
+        <button class="metric-tab px-4 py-1.5 rounded-full text-sm border border-sa-border text-sa-muted"
+                data-metric="stem_graduates" data-index="5">STEM Graduates</button>
+        <button class="metric-tab px-4 py-1.5 rounded-full text-sm border border-sa-border text-sa-muted"
+                data-metric="tech_gdp_share" data-index="6">Tech GDP %</button>
+        <div class="ml-3 metric-summary text-sm" id="metric-summary">
+            <span class="text-sa-muted">National avg:</span>
+            <span class="text-white font-semibold" id="metric-avg">--</span>
+            <span class="text-sa-muted mx-1">|</span>
+            <span class="text-sa-muted">Max:</span>
+            <span class="text-sa-gold font-semibold" id="metric-max">--</span>
+        </div>
+    </div>
+
+    <!-- Map + Panel Container -->
+    <div class="flex relative" id="map-panel-wrap" style="height: calc(100vh - 200px); min-height: 500px;">
+        <!-- Map -->
+        <div class="flex-1 relative overflow-hidden" id="map-container">
+            <svg id="china-map" class="w-full h-full"></svg>
+
+            <!-- Legend -->
+            <div class="absolute bottom-4 left-6 flex items-center gap-2 bg-sa-card/80 backdrop-blur rounded-lg px-3 py-2 border border-sa-border">
+                <span class="text-xs text-sa-muted" id="legend-label">Low</span>
+                <div id="legend-bar" class="h-3 rounded" style="width: 140px;"></div>
+                <span class="text-xs text-sa-muted" id="legend-max-label">High</span>
+            </div>
+
+            <!-- Tooltip -->
+            <div class="map-tooltip" id="tooltip">
+                <div class="flex items-center justify-between mb-1">
+                    <span class="text-white font-semibold text-sm" id="tt-name"></span>
+                    <span class="text-sa-muted text-xs" id="tt-cn"></span>
+                </div>
+                <div class="flex items-center justify-between mb-1.5">
+                    <span class="text-sa-cyan text-sm font-medium" id="tt-value"></span>
+                    <span class="text-sa-muted text-xs" id="tt-rank"></span>
+                </div>
+                <div class="w-full bg-sa-bg rounded-full h-1.5 mt-1">
+                    <div class="rounded-full h-1.5 transition-all" id="tt-bar" style="width:0%; background: #00D9FF;"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Panel backdrop -->
+        <div id="panel-backdrop" class="absolute inset-0 bg-black/30 opacity-0 z-10" onclick="window.closePanel()"></div>
+
+        <!-- Side Panel -->
+        <div id="side-panel" class="closed w-[420px] border-l border-sa-border bg-sa-card overflow-y-auto absolute right-0 top-0 h-full z-20">
+        </div>
+    </div>
+
+    <!-- Rankings Table -->
+    <div class="px-6 py-6" id="rankings-section">
+        <h3 class="text-sm font-semibold text-sa-muted uppercase tracking-wider mb-3">
+            Province Rankings — <span id="ranking-metric-label">Overall Score</span>
+        </h3>
+        <div class="bg-sa-card rounded-lg border border-sa-border overflow-hidden">
+            <div class="overflow-x-auto">
+                <table class="w-full text-sm">
+                    <thead class="sticky top-0 bg-sa-card z-10">
+                        <tr class="border-b border-sa-border text-sa-muted text-xs uppercase tracking-wider">
+                            <th class="px-4 py-2.5 text-left w-12">#</th>
+                            <th class="px-4 py-2.5 text-left">Province</th>
+                            <th class="px-4 py-2.5 text-left">Region</th>
+                            <th class="px-4 py-2.5 text-center" title="Overall Score">Score</th>
+                            <th class="px-4 py-2.5 text-center" title="Fab Capacity">Fabs</th>
+                            <th class="px-4 py-2.5 text-center" title="AI Compute">AI</th>
+                            <th class="px-4 py-2.5 text-center" title="Gov Subsidies">Gov</th>
+                            <th class="px-4 py-2.5 text-center" title="STEM Graduates">STEM</th>
+                            <th class="px-4 py-2.5 text-center" title="Tech GDP %">GDP%</th>
+                            <th class="px-4 py-2.5 text-right w-40">Active Metric</th>
+                        </tr>
+                    </thead>
+                    <tbody id="rankings-body"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+(function() {
+    let provinceData = {};
+    let activeMetric = 'composite_score';
+    let selectedAdcode = null;
+    let paths, labelGroup, clusterGroup;
+    let colorScale;
+    let sortedProvinces = []; // for keyboard nav
+    let focusIndex = -1;
+
+    const svg = d3.select('#china-map');
+    const tooltip = document.getElementById('tooltip');
+    const panel = document.getElementById('side-panel');
+    const backdrop = document.getElementById('panel-backdrop');
+
+    // Metric metadata
+    const metricMeta = {
+        composite_score: { label: 'Overall Score', short: 'Score', format: v => v.toString(), key: 'composite_score' },
+        fab_capacity:    { label: 'Fab Capacity (KWPM)', short: 'Fabs', format: v => v + 'K', key: 'fab_capacity' },
+        ai_compute_power:{ label: 'AI Compute Power (MW)', short: 'AI', format: v => v + ' MW', key: 'ai_compute_power' },
+        gov_subsidies:   { label: 'Gov Subsidies (B CNY)', short: 'Gov', format: v => '\u00a5' + v + 'B', key: 'gov_subsidies' },
+        stem_graduates:  { label: 'STEM Graduates', short: 'STEM', format: v => (v >= 1000 ? (v/1000).toFixed(0) + 'K' : v.toString()), key: 'stem_graduates' },
+        tech_gdp_share:  { label: 'Tech GDP %', short: 'GDP%', format: v => v + '%', key: 'tech_gdp_share' },
+    };
+    const metricKeys = Object.keys(metricMeta);
+
+    // Custom SA color scale: navy -> teal -> gold -> coral
+    const saColorInterpolator = (function() {
+        const colors = ['#0a1628', '#0d4f5a', '#0d7377', '#3a9a5c', '#a8b840', '#f0b429', '#ff6b35'];
+        const scale = d3.scaleLinear()
+            .domain(colors.map((_, i) => i / (colors.length - 1)))
+            .range(colors)
+            .interpolate(d3.interpolateRgb);
+        return t => scale(Math.max(0, Math.min(1, t)));
+    })();
+
+    function makeColorScale(metric) {
+        const values = Object.values(provinceData).map(p => p.metrics[metric].value);
+        const max = Math.max(...values) || 1;
+        return v => saColorInterpolator(v / max);
+    }
+
+    function fmtValue(adcode, metric) {
+        const p = provinceData[adcode];
+        if (!p) return '';
+        return metricMeta[metric].format(p.metrics[metric].value);
+    }
+
+    function getMaxValue(metric) {
+        return Math.max(...Object.values(provinceData).map(p => p.metrics[metric].value)) || 1;
+    }
+
+    // Compute rank for a province on active metric
+    function getRank(adcode) {
+        const sorted = Object.entries(provinceData)
+            .sort((a, b) => b[1].metrics[activeMetric].value - a[1].metrics[activeMetric].value);
+        const idx = sorted.findIndex(([ac]) => ac === adcode);
+        return idx >= 0 ? idx + 1 : null;
+    }
+
+    // Update stat cards
+    function updateStatCards() {
+        const provinces = Object.values(provinceData);
+        if (!provinces.length) return;
+
+        // Total fab capacity
+        const totalFab = provinces.reduce((s, p) => s + p.metrics.fab_capacity.value, 0);
+        document.getElementById('sc-total-fab').textContent = totalFab.toLocaleString();
+
+        // Provinces with active fabs
+        const fabProvinces = provinces.filter(p => p.fabs && p.fabs.some(f => f.status === 'Operating')).length;
+        document.getElementById('sc-fab-provinces').textContent = fabProvinces + '/31';
+
+        // Top province
+        const top = Object.entries(provinceData)
+            .sort((a, b) => b[1].metrics.composite_score.value - a[1].metrics.composite_score.value)[0];
+        if (top) {
+            document.getElementById('sc-top-province').textContent =
+                top[1].name_en + ' (' + top[1].metrics.composite_score.value + ')';
+        }
+
+        // Under construction fabs
+        const ucFabs = provinces.reduce((s, p) =>
+            s + (p.fabs ? p.fabs.filter(f => f.status === 'Under Construction').length : 0), 0);
+        document.getElementById('sc-under-construction').textContent = ucFabs;
+    }
+
+    // Update metric summary
+    function updateMetricSummary() {
+        const values = Object.values(provinceData).map(p => p.metrics[activeMetric].value);
+        const avg = values.reduce((a, b) => a + b, 0) / values.length;
+        const max = Math.max(...values);
+        document.getElementById('metric-avg').textContent = metricMeta[activeMetric].format(Math.round(avg * 10) / 10);
+        document.getElementById('metric-max').textContent = metricMeta[activeMetric].format(max);
+    }
+
+    // Update legend
+    function updateLegend() {
+        const max = getMaxValue(activeMetric);
+        const bar = document.getElementById('legend-bar');
+        const stops = [];
+        for (let i = 0; i <= 10; i++) {
+            const t = i / 10;
+            stops.push(saColorInterpolator(t) + ' ' + (t * 100) + '%');
+        }
+        bar.style.background = 'linear-gradient(to right, ' + stops.join(', ') + ')';
+        document.getElementById('legend-label').textContent = '0';
+        document.getElementById('legend-max-label').textContent = metricMeta[activeMetric].format(max);
+    }
+
+    // Recolor map
+    function recolor(transition) {
+        colorScale = makeColorScale(activeMetric);
+        const sel = transition ? paths.transition().duration(400).ease(d3.easeCubicOut) : paths;
+        sel.attr('fill', d => {
+            const adcode = String(d.properties.adcode);
+            const p = provinceData[adcode];
+            return p ? colorScale(p.metrics[activeMetric].value) : '#1a1a2e';
+        });
+
+        // Update glow classes
+        const max = getMaxValue(activeMetric);
+        paths.each(function(d) {
+            const adcode = String(d.properties.adcode);
+            const p = provinceData[adcode];
+            const el = d3.select(this);
+            el.classed('glow-high', false).classed('glow-mid', false);
+            if (p) {
+                const ratio = p.metrics[activeMetric].value / max;
+                if (ratio > 0.7) el.classed('glow-high', true);
+                else if (ratio > 0.4) el.classed('glow-mid', true);
+            }
+        });
+
+        updateLegend();
+        updateMetricSummary();
+    }
+
+    // Build rankings table
+    function buildRankings() {
+        const allMetricMaxes = {};
+        metricKeys.forEach(k => {
+            allMetricMaxes[k] = getMaxValue(k);
+        });
+
+        const sorted = Object.entries(provinceData)
+            .sort((a, b) => b[1].metrics[activeMetric].value - a[1].metrics[activeMetric].value);
+        sortedProvinces = sorted.map(([ac]) => ac);
+
+        document.getElementById('ranking-metric-label').textContent = metricMeta[activeMetric].label;
+
+        const tbody = document.getElementById('rankings-body');
+        tbody.innerHTML = sorted.map(([adcode, p], i) => {
+            const v = p.metrics[activeMetric].value;
+            const max = allMetricMaxes[activeMetric];
+            const pct = max > 0 ? (v / max * 100) : 0;
+            const highlighted = adcode === selectedAdcode ? 'highlighted' : '';
+            const tierClass = i < 5 ? 'tier-gold' : (i < 10 ? 'tier-silver' : '');
+
+            // Mini bars for all metrics
+            const miniBars = metricKeys.map(k => {
+                const mv = p.metrics[k].value;
+                const mmax = allMetricMaxes[k];
+                const mpct = mmax > 0 ? (mv / mmax * 100) : 0;
+                const isActive = k === activeMetric;
+                const color = isActive ? '#f0b429' : '#3a3a5e';
+                return '<div class="w-full flex items-center justify-center" title="' +
+                    metricMeta[k].label + ': ' + metricMeta[k].format(mv) + '">' +
+                    '<div class="mini-metric-bar ' + (isActive ? 'active-metric' : '') +
+                    '" style="width:' + Math.max(mpct, 2) + '%; background:' + color + '; max-width:40px;"></div></div>';
+            });
+
+            return '<tr class="rank-row border-b border-sa-border/30 cursor-pointer ' + highlighted + ' ' + tierClass + '"' +
+                ' data-adcode="' + adcode + '"' +
+                ' onmouseenter="window._highlightProvince(\'' + adcode + '\')"' +
+                ' onmouseleave="window._unhighlightProvince(\'' + adcode + '\')"' +
+                ' onclick="window._selectProvince(\'' + adcode + '\')">' +
+                '<td class="px-4 py-2 text-sa-muted">' + (i + 1) + '</td>' +
+                '<td class="px-4 py-2 text-white font-medium">' + p.name_en +
+                ' <span class="text-sa-muted text-xs">' + p.name_cn + '</span></td>' +
+                '<td class="px-4 py-2 text-sa-muted text-xs">' + p.region + '</td>' +
+                miniBars.join('') +
+                '<td class="px-4 py-2 text-right">' +
+                '<div class="flex items-center justify-end gap-2">' +
+                '<span class="text-sa-cyan font-medium">' + fmtValue(adcode, activeMetric) + '</span>' +
+                '<div class="w-20 bg-sa-bg rounded-full h-1.5">' +
+                '<div class="bg-sa-gold rounded-full h-1.5" style="width:' + pct + '%"></div>' +
+                '</div></div></td></tr>';
+        }).join('');
+    }
+
+    // Bidirectional highlighting: table row -> map path
+    window._highlightProvince = function(adcode) {
+        d3.selectAll('.province-path').filter(d => String(d.properties.adcode) === adcode)
+            .raise()
+            .attr('stroke', '#00D9FF')
+            .attr('stroke-width', 2);
+    };
+
+    window._unhighlightProvince = function(adcode) {
+        d3.selectAll('.province-path').filter(d => String(d.properties.adcode) === adcode)
+            .attr('stroke', adcode === selectedAdcode ? '#f0b429' : '#2a2a3e')
+            .attr('stroke-width', adcode === selectedAdcode ? 2 : 0.5);
+    };
+
+    // Open side panel
+    function openPanel(adcode) {
+        selectedAdcode = adcode;
+        panel.classList.remove('closed');
+        backdrop.classList.add('active');
+        d3.selectAll('.province-path').classed('selected', false)
+            .attr('stroke', '#2a2a3e').attr('stroke-width', 0.5);
+        d3.selectAll('.province-path')
+            .filter(d => String(d.properties.adcode) === adcode)
+            .classed('selected', true)
+            .attr('stroke', '#f0b429').attr('stroke-width', 2);
+        htmx.ajax('GET', '/api/province/' + adcode, {target: '#side-panel', swap: 'innerHTML'});
+        buildRankings();
+        focusIndex = sortedProvinces.indexOf(adcode);
+    }
+
+    window.closePanel = function() {
+        panel.classList.add('closed');
+        backdrop.classList.remove('active');
+        selectedAdcode = null;
+        focusIndex = -1;
+        d3.selectAll('.province-path').classed('selected', false)
+            .attr('stroke', '#2a2a3e').attr('stroke-width', 0.5);
+        buildRankings();
+    };
+
+    window._selectProvince = function(adcode) {
+        openPanel(adcode);
+    };
+
+    // Cluster annotations data
+    const clusters = [
+        { label: 'YANGTZE DELTA', lat: 30.5, lng: 120.5, provinces: ['310000', '320000', '330000'] },
+        { label: 'PEARL RIVER DELTA', lat: 22.5, lng: 113.5, provinces: ['440000'] },
+        { label: 'BEIJING-TIANJIN', lat: 40.5, lng: 117.5, provinces: ['110000', '120000'] },
+        { label: 'WUHAN MEMORY', lat: 29.5, lng: 114.0, provinces: ['420000'] },
+        { label: "XI'AN NAND", lat: 34.0, lng: 108.0, provinces: ['610000'] },
+    ];
+
+    // Province labels for tier 1/2 provinces
+    const provinceLabels = {
+        '310000': { short: 'SH',  lat: 31.2, lng: 121.5 },
+        '110000': { short: 'BJ',  lat: 39.9, lng: 116.4 },
+        '440000': { short: 'GD',  lat: 23.1, lng: 113.3 },
+        '320000': { short: 'JS',  lat: 32.9, lng: 119.5 },
+        '420000': { short: 'HB',  lat: 30.6, lng: 112.2 },
+        '340000': { short: 'AH',  lat: 31.8, lng: 117.2 },
+        '610000': { short: 'SN',  lat: 34.3, lng: 109.0 },
+        '330000': { short: 'ZJ',  lat: 29.2, lng: 120.0 },
+        '510000': { short: 'SC',  lat: 30.6, lng: 104.0 },
+        '120000': { short: 'TJ',  lat: 39.1, lng: 117.2 },
+        '350000': { short: 'FJ',  lat: 26.0, lng: 118.3 },
+        '210000': { short: 'LN',  lat: 41.8, lng: 123.4 },
+    };
+
+    // Keyboard nav
+    document.addEventListener('keydown', function(e) {
+        // Escape closes panel
+        if (e.key === 'Escape') {
+            window.closePanel();
+            return;
+        }
+        // Number keys 1-6 switch metrics
+        if (e.key >= '1' && e.key <= '6' && !e.ctrlKey && !e.metaKey && !e.altKey) {
+            const idx = parseInt(e.key) - 1;
+            if (idx < metricKeys.length) {
+                const tab = document.querySelector('[data-index="' + e.key + '"]');
+                if (tab) tab.click();
+            }
+            return;
+        }
+        // Arrow keys cycle provinces
+        if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+            e.preventDefault();
+            if (!sortedProvinces.length) return;
+            if (e.key === 'ArrowDown') {
+                focusIndex = Math.min(focusIndex + 1, sortedProvinces.length - 1);
+            } else {
+                focusIndex = Math.max(focusIndex - 1, 0);
+            }
+            openPanel(sortedProvinces[focusIndex]);
+            // Scroll row into view
+            const row = document.querySelector('[data-adcode="' + sortedProvinces[focusIndex] + '"]');
+            if (row) row.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+        }
+    });
+
+    // Init
+    Promise.all([
+        d3.json('/static/china-provinces.topo.json'),
+        fetch('/api/provinces').then(r => r.json())
+    ]).then(([topo, data]) => {
+        provinceData = data;
+        window.provinceData = data; // expose for side panel radar chart
+
+        const container = document.getElementById('map-container');
+        const width = container.clientWidth;
+        const height = container.clientHeight || 600;
+        svg.attr('viewBox', '0 0 ' + width + ' ' + height);
+
+        const objKey = Object.keys(topo.objects)[0];
+        const geojson = topojson.feature(topo, topo.objects[objKey]);
+
+        const projection = d3.geoMercator()
+            .center([105, 35])
+            .scale(Math.min(width, height) * 0.85)
+            .translate([width / 2, height / 2]);
+
+        const path = d3.geoPath().projection(projection);
+
+        // SVG defs for glow filter
+        const defs = svg.append('defs');
+        const glowFilter = defs.append('filter').attr('id', 'glow');
+        glowFilter.append('feGaussianBlur').attr('stdDeviation', '3').attr('result', 'blur');
+        const feMerge = glowFilter.append('feMerge');
+        feMerge.append('feMergeNode').attr('in', 'blur');
+        feMerge.append('feMergeNode').attr('in', 'SourceGraphic');
+
+        const g = svg.append('g');
+
+        paths = g.selectAll('path')
+            .data(geojson.features)
+            .join('path')
+            .attr('d', path)
+            .attr('class', 'province-path')
+            .on('mouseover', function(event, d) {
+                const adcode = String(d.properties.adcode);
+                const p = provinceData[adcode];
+                if (!p) return;
+                const rank = getRank(adcode);
+                const max = getMaxValue(activeMetric);
+                const val = p.metrics[activeMetric].value;
+                const pct = max > 0 ? (val / max * 100) : 0;
+
+                document.getElementById('tt-name').textContent = p.name_en;
+                document.getElementById('tt-cn').textContent = p.name_cn;
+                document.getElementById('tt-value').textContent =
+                    metricMeta[activeMetric].short + ': ' + fmtValue(adcode, activeMetric);
+                document.getElementById('tt-rank').textContent =
+                    rank ? '#' + rank + ' of ' + Object.keys(provinceData).length : '';
+                document.getElementById('tt-bar').style.width = pct + '%';
+                tooltip.classList.add('visible');
+
+                // Highlight matching table row
+                document.querySelectorAll('.rank-row').forEach(r => r.classList.remove('highlighted'));
+                const row = document.querySelector('[data-adcode="' + adcode + '"]');
+                if (row) row.classList.add('highlighted');
+            })
+            .on('mousemove', function(event) {
+                const x = event.clientX + 16;
+                const y = event.clientY - 20;
+                tooltip.style.left = x + 'px';
+                tooltip.style.top = y + 'px';
+            })
+            .on('mouseout', function(event, d) {
+                tooltip.classList.remove('visible');
+                // Restore table highlight state
+                document.querySelectorAll('.rank-row').forEach(r => {
+                    r.classList.toggle('highlighted', r.dataset.adcode === selectedAdcode);
+                });
+            })
+            .on('click', function(event, d) {
+                openPanel(String(d.properties.adcode));
+            });
+
+        // Province labels
+        labelGroup = g.append('g').attr('class', 'province-labels');
+        Object.entries(provinceLabels).forEach(([adcode, info]) => {
+            const [x, y] = projection([info.lng, info.lat]);
+            labelGroup.append('text')
+                .attr('class', 'province-label')
+                .attr('x', x)
+                .attr('y', y)
+                .text(info.short);
+        });
+
+        // Cluster annotations
+        clusterGroup = g.append('g').attr('class', 'cluster-annotations');
+        clusters.forEach(c => {
+            const [x, y] = projection([c.lng, c.lat]);
+            // Dashed ellipse around cluster
+            clusterGroup.append('ellipse')
+                .attr('cx', x)
+                .attr('cy', y - 12)
+                .attr('rx', 45)
+                .attr('ry', 18)
+                .attr('fill', 'none')
+                .attr('stroke', '#8888aa')
+                .attr('stroke-width', 0.5)
+                .attr('stroke-dasharray', '3,3')
+                .attr('opacity', 0.4);
+
+            clusterGroup.append('text')
+                .attr('class', 'cluster-label')
+                .attr('x', x)
+                .attr('y', y - 22)
+                .text(c.label);
+        });
+
+        // South China Sea inset box
+        const seaBoxX = width - 100;
+        const seaBoxY = height - 90;
+        const seaGroup = svg.append('g').attr('class', 'sea-inset');
+        seaGroup.append('rect')
+            .attr('x', seaBoxX)
+            .attr('y', seaBoxY)
+            .attr('width', 85)
+            .attr('height', 75)
+            .attr('fill', '#0f0f23')
+            .attr('stroke', '#2a2a3e')
+            .attr('stroke-width', 1)
+            .attr('rx', 4);
+        seaGroup.append('text')
+            .attr('x', seaBoxX + 42)
+            .attr('y', seaBoxY + 14)
+            .attr('text-anchor', 'middle')
+            .attr('fill', '#8888aa')
+            .attr('font-size', '7px')
+            .text('South China Sea');
+
+        // Tiny Hainan representation
+        const hainanFeature = geojson.features.find(f => String(f.properties.adcode) === '460000');
+        if (hainanFeature) {
+            const miniProj = d3.geoMercator()
+                .center([110, 19])
+                .scale(250)
+                .translate([seaBoxX + 30, seaBoxY + 48]);
+            const miniPath = d3.geoPath().projection(miniProj);
+            seaGroup.append('path')
+                .datum(hainanFeature)
+                .attr('d', miniPath)
+                .attr('fill', '#1a1a2e')
+                .attr('stroke', '#2a2a3e')
+                .attr('stroke-width', 0.5);
+        }
+
+        // Nine-dash line dots
+        const dashPoints = [
+            [112, 5], [114, 8], [116, 11], [117, 14], [116, 17], [113, 19], [110, 17]
+        ];
+        dashPoints.forEach(([lng, lat]) => {
+            const [dx, dy] = d3.geoMercator()
+                .center([110, 12])
+                .scale(120)
+                .translate([seaBoxX + 50, seaBoxY + 52])([lng, lat]);
+            seaGroup.append('circle')
+                .attr('cx', dx).attr('cy', dy).attr('r', 1)
+                .attr('fill', '#3a3a5e');
+        });
+
+        recolor(false);
+        buildRankings();
+        updateStatCards();
+
+        // Metric tab switching
+        document.querySelectorAll('.metric-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.metric-tab').forEach(t => {
+                    t.classList.remove('active');
+                    t.classList.add('text-sa-muted');
+                });
+                tab.classList.add('active');
+                tab.classList.remove('text-sa-muted');
+                activeMetric = tab.dataset.metric;
+                recolor(true);
+                buildRankings();
+            });
+        });
+
+        // Zoom
+        const zoom = d3.zoom()
+            .scaleExtent([1, 8])
+            .on('zoom', (event) => g.attr('transform', event.transform));
+        svg.call(zoom);
+
+        // Double-click to reset zoom
+        svg.on('dblclick.zoom', null);
+        svg.on('dblclick', () => {
+            svg.transition().duration(500).call(zoom.transform, d3.zoomIdentity);
+        });
+    });
+})();
+</script>
+{% endblock %}

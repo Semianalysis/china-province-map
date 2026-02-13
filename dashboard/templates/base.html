@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}China Semiconductor Map{% endblock %} — SemiAnalysis</title>
+    <link rel="icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://unpkg.com/topojson-client@3"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sa: {
+                            bg: '#0f0f23',
+                            card: '#1a1a2e',
+                            border: '#2a2a3e',
+                            gold: '#f0b429',
+                            navy: '#16213e',
+                            cyan: '#00D9FF',
+                            coral: '#ff6b35',
+                            teal: '#0d7377',
+                            text: '#e0e0e0',
+                            muted: '#8888aa',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background: #0f0f23; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #1a1a2e; }
+        ::-webkit-scrollbar-thumb { background: #3a3a5e; border-radius: 3px; }
+        * { box-sizing: border-box; }
+    </style>
+    {% block head %}{% endblock %}
+</head>
+<body class="text-sa-text min-h-screen">
+    <nav class="border-b border-sa-border px-6 py-3 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+            <span class="text-sa-gold font-bold text-lg tracking-wide">SemiAnalysis</span>
+            <span class="text-sa-muted text-sm">/ China Semiconductor Map</span>
+        </div>
+        <div class="text-sa-muted text-xs">Tournament Federalism</div>
+    </nav>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,239 @@
+<div class="p-5 space-y-5">
+    <!-- Header with Tier Badge -->
+    <div class="flex items-start justify-between">
+        <div>
+            <div class="flex items-center gap-2 mb-1">
+                <h2 class="text-xl font-bold text-white">{{ province.name_en }}</h2>
+                {% set score = province.metrics.composite_score.value %}
+                {% if score > 60 %}
+                <span class="text-xs px-2 py-0.5 rounded-full bg-yellow-900/40 text-yellow-400 border border-yellow-500/30 font-semibold">TIER 1</span>
+                {% elif score > 25 %}
+                <span class="text-xs px-2 py-0.5 rounded-full bg-blue-900/40 text-blue-400 border border-blue-500/30 font-semibold">TIER 2</span>
+                {% else %}
+                <span class="text-xs px-2 py-0.5 rounded-full bg-gray-800/60 text-gray-400 border border-gray-600/30 font-semibold">TIER 3</span>
+                {% endif %}
+            </div>
+            <p class="text-sa-muted text-sm">{{ province.name_cn }} &middot; {{ province.region }}</p>
+        </div>
+        <button onclick="closePanel()" class="text-sa-muted hover:text-white text-lg leading-none p-1">&times;</button>
+    </div>
+
+    <!-- Composite Score -->
+    <div class="bg-sa-navy/50 rounded-lg p-4 border border-sa-border">
+        <div class="flex items-center justify-between mb-2">
+            <span class="text-sa-muted text-xs uppercase tracking-wider">Overall Score</span>
+            <span class="text-2xl font-bold text-sa-gold">{{ province.metrics.composite_score.value }}</span>
+        </div>
+        <div class="w-full bg-sa-bg rounded-full h-2">
+            <div class="bg-sa-gold rounded-full h-2" style="width: {{ province.metrics.composite_score.value }}%"></div>
+        </div>
+    </div>
+
+    <!-- Radar Chart -->
+    <div>
+        <h3 class="text-xs font-semibold text-sa-muted uppercase tracking-wider mb-2">Capability Profile</h3>
+        <div class="flex justify-center">
+            <svg id="radar-chart" width="240" height="220" viewBox="0 0 240 220"></svg>
+        </div>
+    </div>
+    <script>
+    (function() {
+        // Radar chart data — values normalized to national leader
+        const metrics = [
+            { label: 'Fabs', value: {{ province.metrics.fab_capacity.value }}, key: 'fab_capacity' },
+            { label: 'AI', value: {{ province.metrics.ai_compute_power.value }}, key: 'ai_compute_power' },
+            { label: 'Gov', value: {{ province.metrics.gov_subsidies.value }}, key: 'gov_subsidies' },
+            { label: 'STEM', value: {{ province.metrics.stem_graduates.value }}, key: 'stem_graduates' },
+            { label: 'GDP%', value: {{ province.metrics.tech_gdp_share.value }}, key: 'tech_gdp_share' },
+            { label: 'Score', value: {{ province.metrics.composite_score.value }}, key: 'composite_score' },
+        ];
+
+        // Get national maxes from the parent window's data
+        const pData = window.provinceData || {};
+        const maxes = {};
+        metrics.forEach(m => {
+            const vals = Object.values(pData).map(p => p.metrics[m.key].value);
+            maxes[m.key] = Math.max(...vals) || 1;
+        });
+
+        const svg = d3.select('#radar-chart');
+        const cx = 120, cy = 105, radius = 80;
+        const n = metrics.length;
+        const angleSlice = (2 * Math.PI) / n;
+
+        // Draw concentric rings
+        [0.25, 0.5, 0.75, 1.0].forEach(level => {
+            const r = radius * level;
+            const points = [];
+            for (let i = 0; i < n; i++) {
+                const angle = angleSlice * i - Math.PI / 2;
+                points.push([cx + r * Math.cos(angle), cy + r * Math.sin(angle)]);
+            }
+            svg.append('polygon')
+                .attr('points', points.map(p => p.join(',')).join(' '))
+                .attr('fill', 'none')
+                .attr('stroke', '#2a2a3e')
+                .attr('stroke-width', 0.5);
+        });
+
+        // Draw axes + labels
+        metrics.forEach((m, i) => {
+            const angle = angleSlice * i - Math.PI / 2;
+            const x = cx + radius * Math.cos(angle);
+            const y = cy + radius * Math.sin(angle);
+            svg.append('line')
+                .attr('x1', cx).attr('y1', cy)
+                .attr('x2', x).attr('y2', y)
+                .attr('stroke', '#2a2a3e')
+                .attr('stroke-width', 0.5);
+
+            const lx = cx + (radius + 16) * Math.cos(angle);
+            const ly = cy + (radius + 16) * Math.sin(angle);
+            svg.append('text')
+                .attr('x', lx).attr('y', ly)
+                .attr('text-anchor', 'middle')
+                .attr('dominant-baseline', 'central')
+                .attr('fill', '#8888aa')
+                .attr('font-size', '9px')
+                .text(m.label);
+        });
+
+        // Data polygon
+        const points = metrics.map((m, i) => {
+            const norm = maxes[m.key] > 0 ? m.value / maxes[m.key] : 0;
+            const angle = angleSlice * i - Math.PI / 2;
+            const r = radius * Math.max(norm, 0.02);
+            return [cx + r * Math.cos(angle), cy + r * Math.sin(angle)];
+        });
+
+        svg.append('polygon')
+            .attr('points', points.map(p => p.join(',')).join(' '))
+            .attr('fill', 'rgba(0,217,255,0.12)')
+            .attr('stroke', '#00D9FF')
+            .attr('stroke-width', 1.5);
+
+        // Data points
+        points.forEach(([x, y]) => {
+            svg.append('circle')
+                .attr('cx', x).attr('cy', y).attr('r', 3)
+                .attr('fill', '#00D9FF');
+        });
+    })();
+    </script>
+
+    <!-- Metrics Grid -->
+    <div class="grid grid-cols-2 gap-3">
+        {% for key, m in province.metrics.items() %}
+        {% if key != 'composite_score' %}
+        <div class="bg-sa-card rounded-lg p-3 border border-sa-border">
+            <div class="text-sa-muted text-xs mb-1">{{ m.label }}</div>
+            <div class="text-white font-semibold">
+                {% if m.unit == 'pct' %}
+                    {{ m.value }}%
+                {% elif m.unit == 'B_CNY' %}
+                    &yen;{{ m.value }}B
+                {% elif m.unit == 'kwpm' %}
+                    {{ m.value | int }}K
+                {% elif m.unit == 'annual' %}
+                    {{ "{:,}".format(m.value | int) }}
+                {% else %}
+                    {{ m.value }} {{ m.unit }}
+                {% endif %}
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+
+    <!-- Companies -->
+    {% if province.companies %}
+    <div>
+        <h3 class="text-xs font-semibold text-sa-muted uppercase tracking-wider mb-2">Key Companies</h3>
+        <div class="flex flex-wrap gap-1.5">
+            {% set sector_colors = {
+                'Foundry': 'bg-blue-900/40 text-blue-400 border-blue-500/30',
+                'Design': 'bg-purple-900/40 text-purple-400 border-purple-500/30',
+                'Fabless/Design': 'bg-purple-900/40 text-purple-400 border-purple-500/30',
+                'Equipment': 'bg-emerald-900/40 text-emerald-400 border-emerald-500/30',
+                'Memory/Design': 'bg-amber-900/40 text-amber-400 border-amber-500/30',
+                '3D NAND': 'bg-amber-900/40 text-amber-400 border-amber-500/30',
+                'NAND': 'bg-amber-900/40 text-amber-400 border-amber-500/30',
+                'DRAM': 'bg-amber-900/40 text-amber-400 border-amber-500/30',
+                'Power Semi': 'bg-red-900/40 text-red-400 border-red-500/30',
+                'OSAT': 'bg-teal-900/40 text-teal-400 border-teal-500/30',
+                'Assembly': 'bg-teal-900/40 text-teal-400 border-teal-500/30',
+                'Packaging': 'bg-teal-900/40 text-teal-400 border-teal-500/30',
+                'AI chips': 'bg-cyan-900/40 text-cyan-400 border-cyan-500/30',
+                'Telecom Equipment': 'bg-sky-900/40 text-sky-400 border-sky-500/30',
+                'Compound Semi': 'bg-lime-900/40 text-lime-400 border-lime-500/30',
+                'Photonics': 'bg-pink-900/40 text-pink-400 border-pink-500/30',
+            } %}
+            {% for c in province.companies %}
+            {% set color_class = sector_colors.get(c.sector, 'bg-sa-navy text-sa-cyan border-sa-cyan/30') %}
+            <span class="text-xs px-2.5 py-1 rounded-full border {{ color_class }}">
+                {{ c.name }} <span class="opacity-60">{{ c.sector }}</span>
+            </span>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Fabs -->
+    {% if province.fabs %}
+    <div>
+        <h3 class="text-xs font-semibold text-sa-muted uppercase tracking-wider mb-2">Fabs</h3>
+        <div class="space-y-1.5">
+            {% for f in province.fabs %}
+            <div class="bg-sa-card rounded px-3 py-2 border border-sa-border">
+                <div class="flex items-center justify-between">
+                    <span class="text-white text-sm font-medium">{{ f.name }}</span>
+                    <span class="text-xs px-2 py-0.5 rounded-full
+                        {% if f.status == 'Operating' %}bg-green-900/40 text-green-400 border border-green-500/30
+                        {% elif f.status == 'Under Construction' %}bg-yellow-900/40 text-yellow-400 border border-yellow-500/30
+                        {% elif f.status == 'Planned' %}bg-blue-900/40 text-blue-400 border border-blue-500/30
+                        {% else %}bg-red-900/40 text-red-400 border border-red-500/30{% endif %}">
+                        {{ f.status }}
+                    </span>
+                </div>
+                <div class="flex items-center gap-2 mt-1">
+                    <span class="text-sa-muted text-xs">{{ f.node }}</span>
+                    <span class="text-sa-muted text-xs">&middot;</span>
+                    <span class="text-sa-cyan text-xs font-medium">{{ f.capacity_kwpm }}K wpm</span>
+                    <!-- Mini capacity bar -->
+                    <div class="flex-1 bg-sa-bg rounded-full h-1 ml-1">
+                        <div class="rounded-full h-1 {% if f.status == 'Operating' %}bg-green-500{% elif f.status == 'Under Construction' %}bg-yellow-500{% else %}bg-red-500{% endif %}"
+                             style="width: {{ [f.capacity_kwpm / 40 * 100, 100] | min }}%"></div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <!-- Fab summary -->
+        <div class="mt-2 flex items-center gap-3 text-xs text-sa-muted">
+            {% set operating = province.fabs | selectattr('status', 'equalto', 'Operating') | list %}
+            {% set uc = province.fabs | selectattr('status', 'equalto', 'Under Construction') | list %}
+            <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-green-500 inline-block"></span> {{ operating | length }} operating</span>
+            {% if uc %}
+            <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-yellow-500 inline-block"></span> {{ uc | length }} building</span>
+            {% endif %}
+            <span class="text-sa-cyan">{{ province.fabs | sum(attribute='capacity_kwpm') }}K total wpm</span>
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Notes -->
+    {% if province.notes %}
+    <div class="bg-sa-navy/30 rounded-lg p-3 border border-sa-border">
+        <p class="text-sa-muted text-sm leading-relaxed">{{ province.notes }}</p>
+    </div>
+    {% endif %}
+</div>
+
+<script>
+// Expose province data to radar chart
+if (typeof window.provinceData === 'undefined') {
+    fetch('/api/provinces').then(r => r.json()).then(d => {
+        window.provinceData = d;
+    });
+}
+</script>

@@ -1,0 +1,2164 @@
+{
+  "320000": {
+    "name_en": "Jiangsu",
+    "name_cn": "江苏",
+    "region": "East China",
+    "metrics": {
+      "composite_score": {
+        "value": 75.4,
+        "unit": "index",
+        "label": "Overall Score"
+      },
+      "fab_capacity": {
+        "value": 359,
+        "unit": "kwpm",
+        "label": "Fab Capacity (KWPM)"
+      },
+      "ai_compute_power": {
+        "value": 220,
+        "unit": "MW",
+        "label": "AI Compute Power (MW)"
+      },
+      "gov_subsidies": {
+        "value": 42.0,
+        "unit": "B_CNY",
+        "label": "Gov Subsidies (B CNY)"
+      },
+      "stem_graduates": {
+        "value": 280000,
+        "unit": "annual",
+        "label": "STEM Graduates"
+      },
+      "tech_gdp_share": {
+        "value": 11.5,
+        "unit": "pct",
+        "label": "Tech GDP %"
+      }
+    },
+    "companies": [
+      {
+        "name": "TSMC Nanjing",
+        "sector": "Foundry"
+      },
+      {
+        "name": "SK Hynix Wuxi",
+        "sector": "Memory (DRAM)"
+      },
+      {
+        "name": "Hua Hong Wuxi",
+        "sector": "Foundry"
+      },
+      {
+        "name": "JCET Group",
+        "sector": "OSAT"
+      },
+      {
+        "name": "Tongfu Microelectronics (TFME)",
+        "sector": "OSAT"
+      },
+      {
+        "name": "Nexperia (Wingtech)",
+        "sector": "Discrete/Power"
+      },
+      {
+        "name": "Nantong Fujitsu",
+        "sector": "OSAT"
+      },
+      {
+        "name": "Yangtze Memory (Nanjing R&D)",
+        "sector": "Memory"
+      },
+      {
+        "name": "GTA Semiconductor",
+        "sector": "Foundry"
+      }
+    ],
+    "fabs": [
+      {
+        "name": "SK Hynix Wuxi DRAM",
+        "node": "1a DRAM",
+        "capacity_kwpm": 185,
+        "status": "Operating"
+      },
+      {
+        "name": "Hua Hong Wuxi Fab7 (300mm)",
+        "node": "90-55nm specialty",
+        "capacity_kwpm": 94,
+        "status": "Operating"
+      },
+      {
+        "name": "Hua Hong Wuxi Fab9 Phase I (300mm)",
+        "node": "65-40nm specialty",
+        "capacity_kwpm": 40,
+        "status": "Ramping"
+      },
+      {
+        "name": "TSMC Nanjing (300mm)",
+        "node": "16nm/28nm",
+        "capacity_kwpm": 60,
+        "status": "Operating"
+      },
+      {
+        "name": "GTA Semiconductor Nanjing (200mm)",
+        "node": "0.35-0.11um",
+        "capacity_kwpm": 20,
+        "status": "Operating"
+      }
+    ],
+    "notes": "Largest total fab capacity in China. SK Hynix Wuxi is 30-40% of company's total DRAM output (~185K wpm, upgraded to 1a process). TSMC Nanjing VEU expired end-2025; 60K wpm at 16/28nm. Hua Hong Wuxi Phase II doubling 12-inch capacity. JCET is China's #1 OSAT (revenue CNY36B in 2024). Wuxi-Nanjing-Suzhou corridor is China's densest fab belt. Jiangsu offers US$74M/yr semiconductor subsidy; Wuxi IC fund at CNY5B."
+  },
+  "310000": {
+    "name_en": "Shanghai",
+    "name_cn": "上海",
+    "region": "East China",
+    "metrics": {
+      "composite_score": {
+        "value": 73.7,
+        "unit": "index",
+        "label": "Overall Score"
+      },
+      "fab_capacity": {
+        "value": 250,
+        "unit": "kwpm",
+        "label": "Fab Capacity (KWPM)"
+      },
+      "ai_compute_power": {
+        "value": 400,
+        "unit": "MW",
+        "label": "AI Compute Power (MW)"
+      },
+      "gov_subsidies": {
+        "value": 48.0,
+        "unit": "B_CNY",
+        "label": "Gov Subsidies (B CNY)"
+      },
+      "stem_graduates": {
+        "value": 145000,
+        "unit": "annual",
+        "label": "STEM Graduates"
+      },
+      "tech_gdp_share": {
+        "value": 16.5,
+        "unit": "pct",
+        "label": "Tech GDP %"
+      }
+    },
+    "companies": [
+      {
+        "name": "SMIC",
+        "sector": "Foundry"
+      },
+      {
+        "name": "Hua Hong Semiconductor",
+        "sector": "Foundry"
+      },
+      {
+        "name": "AMEC",
+        "sector": "Equipment (Etch)"
+      },
+      {
+        "name": "ACM Research",
+        "sector": "Equipment (Clean)"
+      },
+      {
+        "name": "SMEE",
+        "sector": "Equipment (Lithography)"
+      },
+      {
+        "name": "Montage Technology",
+        "sector": "Design (Memory Interface)"
+      },
+      {
+        "name": "UNISOC",
+        "sector": "Fabless/Design (Mobile SoC)"
+      },
+      {
+        "name": "Will Semiconductor",
+        "sector": "Fabless/Design (CIS)"
+      },
+      {
+        "name": "Espressif Systems",
+        "sector": "Fabless/Design (IoT)"
+      },
+      {
+        "name": "Empyrean Technology",
+        "sector": "EDA"
+      },
+      {
+        "name": "Primarius Technologies",
+        "sector": "EDA"
+      },
+      {
+        "name": "ASE Shanghai",
+        "sector": "OSAT"
+      },
+      {
+        "name": "Shanghai Silicon Industry Group",
+        "sector": "Materials (Wafer)"
+      }
+    ],
+    "fabs": [
+      {
+        "name": "SMIC SN1 (Pudong)",
+        "node": "14nm/7nm",
+        "capacity_kwpm": 35,
+        "status": "Operating"
+      },
+      {
+        "name": "SMIC SN2 (Pudong)",
+        "node": "28nm",
+        "capacity_kwpm": 35,
+        "status": "Operating"
+      },
+      {
+        "name": "SMIC Lingang",
+        "node": "28nm",
+        "capacity_kwpm": 30,
+        "status": "Ramping"
+      },
+      {
+        "name": "Hua Hong Fab1 (Jinqiao, 200mm)",
+        "node": "0.35-0.13um",
+        "capacity_kwpm": 60,
+        "status": "Operating"
+      },
+      {
+        "name": "Hua Hong Fab2 (Zhangjiang, 200mm)",
+        "node": "0.25-0.11um",
+        "capacity_kwpm": 60,
+        "status": "Operating"
+      },
+      {
+        "name": "Hua Hong Fab3 (Zhangjiang, 200mm)",
+        "node": "0.18-0.09um",
+        "capacity_kwpm": 60,
+        "status": "Operating"
+      }
+    ],
+    "notes": "China's semiconductor capital. SMIC HQ with SN1 running 14nm/N+1 for Huawei. Zhangjiang Hi-Tech Park hosts 1,000+ IC firms. Leading equipment cluster (AMEC, ACM, SMEE). SMIC Lingang 100K target fab still ramping. Hua Hong operates three 200mm fabs in Shanghai with ~180K 200mm wpm total. Tech services 5.6% of Shanghai GDP in 2024; Shanghai targets 5 new AI datacenters in 2025."
+  },
+  "440000": {
+    "name_en": "Guangdong",
+    "name_cn": "广东",
+    "region": "South China",
+    "metrics": {
+      "composite_score": {
+        "value": 63.2,
+        "unit": "index",
+        "label": "Overall Score"
+      },
+      "fab_capacity": {
+        "value": 90,
+        "unit": "kwpm",
+        "label": "Fab Capacity (KWPM)"
+      },
+      "ai_compute_power": {
+        "value": 350,
+        "unit": "MW",
+        "label": "AI Compute Power (MW)"
+      },
+      "gov_subsidies": {
+        "value": 45.0,
+        "unit": "B_CNY",
+        "label": "Gov Subsidies (B CNY)"
+      },
+      "stem_graduates": {
+        "value": 340000,
+        "unit": "annual",
+        "label": "STEM Graduates"
+      },
+      "tech_gdp_share": {
+        "value": 14.5,
+        "unit": "pct",
+        "label": "Tech GDP %"
+      }
+    },
+    "companies": [
+      {
+        "name": "Huawei/HiSilicon",
+        "sector": "Fabless/SoC/AI"
+      },
+      {
+        "name": "ZTE",
+        "sector": "Telecom Equipment"
+      },
+      {
+        "name": "BYD Semiconductor",
+        "sector": "Power Semi (SiC/IGBT)"
+      },
+      {
+        "name": "Goodix Technology",
+        "sector": "Touch/Fingerprint IC"
+      },
+      {
+        "name": "Allwinner Technology",
+        "sector": "SoC Design"
+      },
+      {
+        "name": "Goke Microelectronics",
+        "sector": "Video ISP"
+      },
+      {
+        "name": "Guangdong Tianyu Semiconductor",
+        "sector": "SiC Epitaxy"
+      },
+      {
+        "name": "DJI (Hasselblad)",
+        "sector": "Drone SoC consumer"
+      },
+      {
+        "name": "Oppo/Vivo",
+        "sector": "Consumer electronics"
+      },
+      {
+        "name": "CanSemi",
+        "sector": "Foundry"
+      }
+    ],
+    "fabs": [
+      {
+        "name": "SMIC Shenzhen (existing)",
+        "node": "28nm",
+        "capacity_kwpm": 15,
+        "status": "Operating"
+      },
+      {
+        "name": "SMIC Shenzhen (new 12-inch)",
+        "node": "28nm",
+        "capacity_kwpm": 20,
+        "status": "Ramping"
+      },
+      {
+        "name": "CanSemi Guangzhou Phase I+II",
+        "node": "180-90nm analog",
+        "capacity_kwpm": 40,
+        "status": "Operating"
+      },
+      {
+        "name": "CanSemi Guangzhou Phase III",
+        "node": "90nm analog",
+        "capacity_kwpm": 40,
+        "status": "Ramping"
+      },
+      {
+        "name": "Founder Micro Shenzhen (8-inch)",
+        "node": "90nm power",
+        "capacity_kwpm": 5,
+        "status": "Operating"
+      }
+    ],
+    "notes": "Huawei/HiSilicon anchor (~¥83.4B revenue). Largest OSAT cluster. Shenzhen produces 1/5 of China's ICs, 40% of global smartphones, 70% of global drones. R&D spending 6.46% of GDP."
+  },
+  "110000": {
+    "name_en": "Beijing",
+    "name_cn": "北京",
+    "region": "North China",
+    "metrics": {
+      "composite_score": {
+        "value": 55.0,
+        "unit": "index",
+        "label": "Overall Score"
+      },
+      "fab_capacity": {
+        "value": 45,
+        "unit": "kwpm",
+        "label": "Fab Capacity (KWPM)"
+      },
+      "ai_compute_power": {
+        "value": 400,
+        "unit": "MW",
+        "label": "AI Compute Power (MW)"
+      },
+      "gov_subsidies": {
+        "value": 45.0,
+        "unit": "B_CNY",
+        "label": "Gov Subsidies (B CNY)"
+      },
+      "stem_graduates": {
+        "value": 190000,
+        "unit": "annual",
+        "label": "STEM Graduates"
+      },
+      "tech_gdp_share": {
+        "value": 19.5,
+        "unit": "pct",
+        "label": "Tech GDP %"
+      }
+    },
+    "companies": [
+      {
+        "name": "NAURA Technology",
+        "sector": "Equipment"
+      },
+      {
+        "name": "Wingtech/Nexperia",
+        "sector": "Discrete/Assembly"
+      },
+      {
+        "name": "Beijing Smartchip",
+        "sector": "IC Design"
+      },
+      {
+        "name": "GigaDevice",
+        "sector": "NOR Flash/MCU"
+      },
+      {
+        "name": "Bitmain",
+        "sector": "ASIC Design"
+      },
+      {
+        "name": "Zhaoxin",
+        "sector": "x86 CPU Design"
+      },
+      {
+        "name": "SMIC Beijing",
+        "sector": "Foundry"
+      },
+      {
+        "name": "Tsinghua Unigroup (restructured)",
+        "sector": "Memory/Design"
+      },
+      {
+        "name": "Cambricon",
+        "sector": "AI chips"
+      },
+      {
+        "name": "Moore Threads",
+        "sector": "GPU"
+      }
+    ],
+    "fabs": [
+      {
+        "name": "SMIC Beijing B1",
+        "node": "28nm",
+        "capacity_kwpm": 20,
+        "status": "Operating"
+      },
+      {
+        "name": "SMIC Beijing B2 (SMBC Phase 1)",
+        "node": "28nm",
+        "capacity_kwpm": 50,
+        "status": "Ramping"
+      },
+      {
+        "name": "SMIC Beijing B2 (SMBC Phase 2)",
+        "node": "28nm",
+        "capacity_kwpm": 50,
+        "status": "Under Construction"
+      }
+    ],
+    "notes": "China's semiconductor policy center. Home to Big Fund management (all 3 phases, $47.5B Phase III launched May 2024). NAURA is China's #1 equipment maker (~RMB 30B revenue 2024, 6th globally). SMIC Beijing expanding to 100K wpm across two phases. Zhongguancun IC Design Park hosts 30+ leading fabless firms. R&D intensity at 6.58% of GDP, highest in China. Tsinghua and Peking universities anchor the talent pipeline. Information services sector is Beijing's largest industry at 38.8% of GDP."
+  },
+  "420000": {
+    "name_en": "Hubei",
+    "name_cn": "湖北",
+    "region": "Central China",
+    "metrics": {
+      "composite_score": {
+        "value": 44.8,
+        "unit": "index",
+        "label": "Overall Score"
+      },
+      "fab_capacity": {
+        "value": 90,
+        "unit": "kwpm",
+        "label": "Fab Capacity (KWPM)"
+      },
+      "ai_compute_power": {
+        "value": 90,
+        "unit": "MW",
+        "label": "AI Compute Power (MW)"
+      },
+      "gov_subsidies": {
+        "value": 55.0,
+        "unit": "B_CNY",
+        "label": "Gov Subsidies (B CNY)"
+      },
+      "stem_graduates": {
+        "value": 210000,
+        "unit": "annual",
+        "label": "STEM Graduates"
+      },
+      "tech_gdp_share": {
+        "value": 9.5,
+        "unit": "pct",
+        "label": "Tech GDP %"
+      }
+    },
+    "companies": [
+      {
+        "name": "YMTC",
+        "sector": "3D NAND Memory"
+      },
+      {
+        "name": "XMC (Wuhan Xinxin)",
+        "sector": "Foundry/NOR Flash"
+      },
+      {
+        "name": "YOFC",
+        "sector": "Optical Fiber"
+      },
+      {
+        "name": "FiberHome",
+        "sector": "Telecom/Photonics"
+      },
+      {
+        "name": "Accelink Technologies",
+        "sector": "Photonics"
+      },
+      {
+        "name": "Wuhan Raycus",
+        "sector": "Photonics"
+      }
+    ],
+    "fabs": [
+      {
+        "name": "YMTC Wuhan Phase I",
+        "node": "232L 3D NAND",
+        "capacity_kwpm": 65,
+        "status": "Operating"
+      },
+      {
+        "name": "YMTC Wuhan Phase II",
+        "node": "232L/270L 3D NAND",
+        "capacity_kwpm": 65,
+        "status": "Ramping"
+      },
+      {
+        "name": "YMTC Wuhan Phase III",
+        "node": "3D NAND",
+        "capacity_kwpm": 0,
+        "status": "Under Construction"
+      },
+      {
+        "name": "XMC Wuhan Fab 1",
+        "node": "40nm+ NOR/CIS/Logic",
+        "capacity_kwpm": 25,
+        "status": "Operating"
+      },
+      {
+        "name": "XMC Wuhan HBM R&D Line",
+        "node": "HBM packaging",
+        "capacity_kwpm": 3,
+        "status": "Pilot"
+      }
+    ],
+    "notes": "YMTC is China's 3D NAND champion (270-layer). Under US sanctions since Oct 2022 but expanding. Entering DRAM market ($2.9B investment). XMC IPO on STAR Market. Optics Valley: 300+ chip enterprises, ¥600B optoelectronic industry."
+  },
+  "340000": {
+    "name_en": "Anhui",
+    "name_cn": "安徽",
+    "region": "East China",
+    "metrics": {
+      "composite_score": {
+        "value": 44.3,
+        "unit": "index",
+        "label": "Overall Score"
+      },
+      "fab_capacity": {
+        "value": 215,
+        "unit": "kwpm",
+        "label": "Fab Capacity (KWPM)"
+      },
+      "ai_compute_power": {
+        "value": 75,
+        "unit": "MW",
+        "label": "AI Compute Power (MW)"
+      },
+      "gov_subsidies": {
+        "value": 22.0,
+        "unit": "B_CNY",
+        "label": "Gov Subsidies (B CNY)"
+      },
+      "stem_graduates": {
+        "value": 175000,
+        "unit": "annual",
+        "label": "STEM Graduates"
+      },
+      "tech_gdp_share": {
+        "value": 7.5,
+        "unit": "pct",
+        "label": "Tech GDP %"
+      }
+    },
+    "companies": [
+      {
+        "name": "CXMT (ChangXin Memory)",
+        "sector": "Memory (DRAM)"
+      },
+      {
+        "name": "Nexchip (HLMC)",
+        "sector": "Foundry"
+      },
+      {
+        "name": "BOE Technology",
+        "sector": "Display/Semiconductor"
+      },
+      {
+        "name": "CR Micro Hefei",
+        "sector": "Foundry (Power)"
+      },
+      {
+        "name": "Tongfu Microelectronics Hefei",
+        "sector": "OSAT"
+      },
+      {
+        "name": "NIO (EV/chip user)",
+        "sector": "Automotive"
+      },
+      {
+        "name": "Anhui Ruichuang Microelectronics",
+        "sector": "Design"
+      }
+    ],
+    "fabs": [
+      {
+        "name": "CXMT Hefei Fab 1",
+        "node": "19nm/18.5nm DRAM",
+        "capacity_kwpm": 100,
+        "status": "Operating"
+      },
+      {
+        "name": "CXMT Hefei Fab 2",
+        "node": "18.5nm DRAM",
+        "capacity_kwpm": 50,
+        "status": "Ramping"
+      },
+      {
+        "name": "Nexchip Hefei Phase I-III (300mm)",
+        "node": "55nm-28nm",
+        "capacity_kwpm": 100,
+        "status": "Operating"
+      },
+      {
+        "name": "Nexchip Hefei Phase IV (300mm)",
+        "node": "40nm/28nm",
+        "capacity_kwpm": 55,
+        "status": "Under Construction"
+      },
+      {
+        "name": "CR Micro Hefei (200mm)",
+        "node": "150nm-55nm",
+        "capacity_kwpm": 15,
+        "status": "Operating"
+      }
+    ],
+    "notes": "Hefei is China's most aggressive municipal semiconductor investor. CXMT is China's only volume DRAM maker: 100K wpm in Fab 1, doubled to 200K wpm by Q1 2025, targeting 300K by 2026. CXMT achieved 80% DDR5 yield in late 2024. Nexchip is China's 3rd largest foundry (rev $344M in Q4 2024), launching CNY35.5B Phase IV for 55K additional wpm. Hefei GDP hit CNY1.35T in 2024. 180+ display companies anchor the ecosystem."
+  },
+  "610000": {
+    "name_en": "Shaanxi",
+    "name_cn": "陕西",
+    "region": "Northwest China",
+    "metrics": {
+      "composite_score": {
+        "value": 40.1,
+        "unit": "index",
+        "label": "Overall Score"
+      },
+      "fab_capacity": {
+        "value": 250,
+        "unit": "kwpm",
+        "label": "Fab Capacity (KWPM)"
+      },
+      "ai_compute_power": {
+        "value": 50,
+        "unit": "MW",
+        "label": "AI Compute Power (MW)"
+      },
+      "gov_subsidies": {
+        "value": 10.0,
+        "unit": "B_CNY",
+        "label": "Gov Subsidies (B CNY)"
+      },
+      "stem_graduates": {
+        "value": 165000,
+        "unit": "annual",
+        "label": "STEM Graduates"
+      },
+      "tech_gdp_share": {
+        "value": 6.5,
+        "unit": "pct",
+        "label": "Tech GDP %"
+      }
+    },
+    "companies": [
+      {
+        "name": "Samsung Xi'an",
+        "sector": "NAND Flash"
+      },
+      {
+        "name": "Micron Xi'an",
+        "sector": "DRAM Backend/Packaging"
+      },
+      {
+        "name": "UniIC (Tsinghua Unigroup)",
+        "sector": "Memory/ASIC Design"
+      },
+      {
+        "name": "Tianshui Huatian Technology",
+        "sector": "OSAT/Packaging"
+      },
+      {
+        "name": "Xi'an Jiaotong University",
+        "sector": "Research"
+      },
+      {
+        "name": "Northwestern Polytechnical University",
+        "sector": "Research"
+      }
+    ],
+    "fabs": [
+      {
+        "name": "Samsung Xi'an NAND Phase 1",
+        "node": "V-NAND (V8/V9)",
+        "capacity_kwpm": 120,
+        "status": "Operating"
+      },
+      {
+        "name": "Samsung Xi'an NAND Phase 2",
+        "node": "V-NAND (V8/V9)",
+        "capacity_kwpm": 130,
+        "status": "Operating"
+      }
+    ],
+    "notes": "Samsung's largest overseas NAND complex (~15% of global NAND output). 120+ IC design companies. Strong university base (Xi'an Jiaotong, Northwestern Poly). Shaanxi 'Strong Chip Project'."
+  },
+  "330000": {
+    "name_en": "Zhejiang",
+    "name_cn": "浙江",
+    "region": "East China",
+    "metrics": {
+      "composite_score": {
+        "value": 31.4,
+        "unit": "index",
+        "label": "Overall Score"
+      },
+      "fab_capacity": {
+        "value": 33,
+        "unit": "kwpm",
+        "label": "Fab Capacity (KWPM)"
+      },
+      "ai_compute_power": {
+        "value": 180,
+        "unit": "MW",
+        "label": "AI Compute Power (MW)"
+      },
+      "gov_subsidies": {
+        "value": 14.0,
+        "unit": "B_CNY",
+        "label": "Gov Subsidies (B CNY)"
+      },
+      "stem_graduates": {
+        "value": 195000,
+        "unit": "annual",
+        "label": "STEM Graduates"
+      },
+      "tech_gdp_share": {
+        "value": 8.5,
+        "unit": "pct",
+        "label": "Tech GDP %"
+      }
+    },
+    "companies": [
+      {
+        "name": "Alibaba T-Head",
+        "sector": "Fabless/Design (AI SoC)"
+      },
+      {
+        "name": "Hikvision",
+        "sector": "ISP/AI SoC"
+      },
+      {
+        "name": "Dahua Technology",
+        "sector": "ISP/AI SoC"
+      },
+      {
+        "name": "Hangzhou Silan Microelectronics",
+        "sector": "IDM (Power Semi)"
+      },
+      {
+        "name": "VeriSilicon",
+        "sector": "IP/Design Services"
+      },
+      {
+        "name": "Hangzhou Semiconductor Wafer (Ferrotec)",
+        "sector": "Materials (Silicon Wafer)"
+      },
+      {
+        "name": "Zhejiang Jimaak Electronic",
+        "sector": "Materials (Sputtering Targets)"
+      }
+    ],
+    "fabs": [
+      {
+        "name": "Silan Hangzhou (200mm)",
+        "node": "110nm power/analog",
+        "capacity_kwpm": 12,
+        "status": "Operating"
+      },
+      {
+        "name": "Silan Hangzhou (150mm)",
+        "node": "150mm discrete/LED",
+        "capacity_kwpm": 13,
+        "status": "Operating"
+      },
+      {
+        "name": "Ferrotec Hangzhou (200mm)",
+        "node": "Silicon wafer",
+        "capacity_kwpm": 8,
+        "status": "Operating"
+      }
+    ],
+    "notes": "Alibaba T-Head designs Yitian 710 server chips and Hanguang 800 AI inference chips in Hangzhou. Hikvision invests CNY11.9B in R&D (2024) including custom AI/ISP chips. Silan is one of China's largest power semi IDMs with 220K 6-inch wpm in Hangzhou (world #2 in sub-6-inch capacity). Emerging fabless design hub; limited 300mm fab presence."
+  },
+  "520000": {
+    "name_en": "Guizhou",
+    "name_cn": "贵州",
+    "region": "Southwest China",
+    "metrics": {
+      "composite_score": {
+        "value": 28.8,
+        "unit": "index",
+        "label": "Overall Score"
+      },
+      "fab_capacity": {
+        "value": 0,
+        "unit": "kwpm",
+        "label": "Fab Capacity (KWPM)"
+      },
+      "ai_compute_power": {
+        "value": 540,
+        "unit": "MW",
+        "label": "AI Compute Power (MW)"
+      },
+      "gov_subsidies": {
+        "value": 5.0,
+        "unit": "B_CNY",
+        "label": "Gov Subsidies (B CNY)"
+      },
+      "stem_graduates": {
+        "value": 55000,
+        "unit": "annual",
+        "label": "STEM Graduates"
+      },
+      "tech_gdp_share": {
+        "value": 5.5,
+        "unit": "pct",
+        "label": "Tech GDP %"
+      }
+    },
+    "companies": [
+      {
+        "name": "Guizhou-Cloud Big Data (Apple iCloud China)",
+        "sector": "Cloud/Datacenter"
+      },
+      {
+        "name": "Huawei Cloud Guian",
+        "sector": "Cloud/Datacenter"
+      },
+      {
+        "name": "Tencent Qixing DC",
+        "sector": "Cloud/Datacenter"
+      },
+      {
+        "name": "China Telecom Guizhou",
+        "sector": "Cloud/Datacenter"
+      },
+      {
+        "name": "Alibaba Cloud",
+        "sector": "Datacenter"
+      }
+    ],
+    "fabs": [],
+    "notes": "China's data valley. 86 EFLOPS computing power, providing 23% of China's total. 49+ major DCs. Huawei deploying 1M servers in Gui'an. Central to East Data West Computing strategy. Digital economy = 42% of GDP."
+  },
+  "370000": {
+    "name_en": "Shandong",
+    "name_cn": "山东",
+    "region": "East China",
+    "metrics": {
+      "composite_score": {
+        "value": 22.8,
+        "unit": "index",
+        "label": "Overall Score"
+      },
+      "fab_capacity": {
+        "value": 15,
+        "unit": "kwpm",
+        "label": "Fab Capacity (KWPM)"
+      },
+      "ai_compute_power": {
+        "value": 50,
+        "unit": "MW",
+        "label": "AI Compute Power (MW)"
+      },
+      "gov_subsidies": {
+        "value": 6.0,
+        "unit": "B_CNY",
+        "label": "Gov Subsidies (B CNY)"
+      },
+      "stem_graduates": {
+        "value": 240000,
+        "unit": "annual",
+        "label": "STEM Graduates"
+      },
+      "tech_gdp_share": {
+        "value": 3.5,
+        "unit": "pct",
+        "label": "Tech GDP %"
+      }
+    },
+    "companies": [
+      {
+        "name": "Inspur Group",
+        "sector": "Server/AI Compute"
+      },
+      {
+        "name": "SICC",
+        "sector": "Materials (SiC Substrate)"
+      },
+      {
+        "name": "Tianyue Advanced",
+        "sector": "Materials (SiC Substrate)"
+      },
+      {
+        "name": "SiEn (Qingdao) Integrated Circuits",
+        "sector": "Foundry"
+      },
+      {
+        "name": "Shandong Gettop",
+        "sector": "Power Semi (SiC)"
+      },
+      {
+        "name": "Haier",
+        "sector": "Electronics/IoT"
+      },
+      {
+        "name": "Hisense",
+        "sector": "Electronics/Display"
+      },
+      {
+        "name": "Inspur Huaguang",
+        "sector": "Compound Semi (Laser)"
+      }
+    ],
+    "fabs": [
+      {
+        "name": "SiEn Qingdao (200mm + 300mm)",
+        "node": "0.18um-55nm",
+        "capacity_kwpm": 10,
+        "status": "Operating"
+      },
+      {
+        "name": "SICC Jinan (SiC substrate)",
+        "node": "SiC 6/8-inch",
+        "capacity_kwpm": 3,
+        "status": "Operating"
+      },
+      {
+        "name": "Tianyue Jinan (SiC substrate)",
+        "node": "SiC 6/8/12-inch",
+        "capacity_kwpm": 2,
+        "status": "Operating"
+      }
+    ],
+    "notes": "Inspur is China's #1 AI server maker. SICC is world's #2 SiC substrate maker. Tianyue has world's first 12-inch SiC substrate."
+  },
+  "510000": {
+    "name_en": "Sichuan",
+    "name_cn": "四川",
+    "region": "Southwest China",
+    "metrics": {
+      "composite_score": {
+        "value": 21.0,
+        "unit": "index",
+        "label": "Overall Score"
+      },
+      "fab_capacity": {
+        "value": 15,
+        "unit": "kwpm",
+        "label": "Fab Capacity (KWPM)"
+      },
+      "ai_compute_power": {
+        "value": 70,
+        "unit": "MW",
+        "label": "AI Compute Power (MW)"
+      },
+      "gov_subsidies": {
+        "value": 10.0,
+        "unit": "B_CNY",
+        "label": "Gov Subsidies (B CNY)"
+      },
+      "stem_graduates": {
+        "value": 200000,
+        "unit": "annual",
+        "label": "STEM Graduates"
+      },
+      "tech_gdp_share": {
+        "value": 5.5,
+        "unit": "pct",
+        "label": "Tech GDP %"
+      }
+    },
+    "companies": [
+      {
+        "name": "Hygon/Haiguang Information",
+        "sector": "x86 CPU/DCU Design"
+      },
+      {
+        "name": "Intel Chengdu",
+        "sector": "Assembly/Test"
+      },
+      {
+        "name": "Huahong Chengdu (ex-GF)",
+        "sector": "Foundry"
+      }
+    ],
+    "fabs": [
+      {
+        "name": "Intel Chengdu A/T Facility",
+        "node": "Packaging/Test",
+        "capacity_kwpm": 15,
+        "status": "Operating"
+      },
+      {
+        "name": "Huahong Chengdu (ex-GlobalFoundries)",
+        "node": "130nm/180nm",
+        "capacity_kwpm": 10,
+        "status": "Ramping"
+      }
+    ],
+    "notes": "Intel's largest China A/T facility ($300M expansion Oct 2024). Hygon/Haiguang revenue ¥9.15B (2024, +52% YoY), market cap ¥600B+. 100+ IC design companies. UESTC pipeline."
+  },
+  "210000": {
+    "name_en": "Liaoning",
+    "name_cn": "辽宁",
+    "region": "Northeast China",
+    "metrics": {
+      "composite_score": {
+        "value": 19.9,
+        "unit": "index",
+        "label": "Overall Score"
+      },
+      "fab_capacity": {
+        "value": 100,
+        "unit": "kwpm",
+        "label": "Fab Capacity (KWPM)"
+      },
+      "ai_compute_power": {
+        "value": 30,
+        "unit": "MW",
+        "label": "AI Compute Power (MW)"
+      },
+      "gov_subsidies": {
+        "value": 5.0,
+        "unit": "B_CNY",
+        "label": "Gov Subsidies (B CNY)"
+      },
+      "stem_graduates": {
+        "value": 120000,
+        "unit": "annual",
+        "label": "STEM Graduates"
+      },
+      "tech_gdp_share": {
+        "value": 3.5,
+        "unit": "pct",
+        "label": "Tech GDP %"
+      }
+    },
+    "companies": [
+      {
+        "name": "SK Hynix Dalian (Solidigm)",
+        "sector": "NAND Flash"
+      },
+      {
+        "name": "Dalian University of Technology",
+        "sector": "Research"
+      },
+      {
+        "name": "Shenyang Institute of Computing (CAS)",
+        "sector": "Research"
+      }
+    ],
+    "fabs": [
+      {
+        "name": "SK Hynix Dalian (ex-Intel)",
+        "node": "192-layer 3D NAND",
+        "capacity_kwpm": 100,
+        "status": "Operating"
+      }
+    ],
+    "notes": "SK Hynix completed $9B acquisition of Intel's Dalian NAND fab in April 2025. Facility produces ~100K wafers/month of 192-layer NAND, accounting for ~20% of SK Hynix total NAND output. SK Hynix has denied sale rumors: 'Not considering selling at all.' Faces US export control risks with Validated End-User status under annual review. Dalian was Intel's first fab in China (2010). Strong university research base but commercial ecosystem is thin beyond the fab."
+  },
+  "350000": {
+    "name_en": "Fujian",
+    "name_cn": "福建",
+    "region": "East China",
+    "metrics": {
+      "composite_score": {
+        "value": 19.9,
+        "unit": "index",
+        "label": "Overall Score"
+      },
+      "fab_capacity": {
+        "value": 39,
+        "unit": "kwpm",
+        "label": "Fab Capacity (KWPM)"
+      },
+      "ai_compute_power": {
+        "value": 35,
+        "unit": "MW",
+        "label": "AI Compute Power (MW)"
+      },
+      "gov_subsidies": {
+        "value": 10.0,
+        "unit": "B_CNY",
+        "label": "Gov Subsidies (B CNY)"
+      },
+      "stem_graduates": {
+        "value": 95000,
+        "unit": "annual",
+        "label": "STEM Graduates"
+      },
+      "tech_gdp_share": {
+        "value": 4.8,
+        "unit": "pct",
+        "label": "Tech GDP %"
+      }
+    },
+    "companies": [
+      {
+        "name": "Sanan Optoelectronics",
+        "sector": "Compound Semi (GaN/SiC)"
+      },
+      {
+        "name": "Sanan IC",
+        "sector": "Compound Semi Foundry"
+      },
+      {
+        "name": "JHICC (Fujian Jinhua)",
+        "sector": "DRAM (Sanctioned)"
+      },
+      {
+        "name": "Xiamen Changelight",
+        "sector": "Compound Semi (LED)"
+      },
+      {
+        "name": "Silan Xiamen",
+        "sector": "Foundry (Power/MEMS)"
+      },
+      {
+        "name": "United Semi Xiamen",
+        "sector": "Foundry"
+      },
+      {
+        "name": "Tongfu Microelectronics Xiamen",
+        "sector": "OSAT"
+      }
+    ],
+    "fabs": [
+      {
+        "name": "Sanan IC Xiamen (150mm)",
+        "node": "GaN/SiC",
+        "capacity_kwpm": 10,
+        "status": "Operating"
+      },
+      {
+        "name": "Silan Xiamen (300mm)",
+        "node": "28nm Power/MEMS",
+        "capacity_kwpm": 6,
+        "status": "Ramping"
+      },
+      {
+        "name": "United Semi (UMC) Xiamen",
+        "node": "55nm-28nm",
+        "capacity_kwpm": 25,
+        "status": "Operating"
+      },
+      {
+        "name": "JHICC Jinjiang (300mm)",
+        "node": "DRAM (US Entity List)",
+        "capacity_kwpm": 0,
+        "status": "Suspended"
+      },
+      {
+        "name": "Changelight Xiamen (150mm)",
+        "node": "GaN LED/Power",
+        "capacity_kwpm": 4,
+        "status": "Operating"
+      }
+    ],
+    "notes": "Sanan Optoelectronics is China's leading compound semiconductor player. Sanan IC ramping GaN/SiC foundry in Xiamen; also building $2B SiC Megafab in Changsha targeting 30K wpm. JHICC remains effectively dead after 2018 US sanctions and Micron IP theft case (settled Dec 2023, but DoJ case pending). Silan investing CNY17B for two 12-inch lines in Xiamen Haicang. United Semi operates specialty foundry."
+  },
+  "430000": {
+    "name_en": "Hunan",
+    "name_cn": "湖南",
+    "region": "Central China",
+    "metrics": {
+      "composite_score": {
+        "value": 18.7,
+        "unit": "index",
+        "label": "Overall Score"
+      },
+      "fab_capacity": {
+        "value": 36,
+        "unit": "kwpm",
+        "label": "Fab Capacity (KWPM)"
+      },
+      "ai_compute_power": {
+        "value": 30,
+        "unit": "MW",
+        "label": "AI Compute Power (MW)"
+      },
+      "gov_subsidies": {
+        "value": 5.0,
+        "unit": "B_CNY",
+        "label": "Gov Subsidies (B CNY)"
+      },
+      "stem_graduates": {
+        "value": 180000,
+        "unit": "annual",
+        "label": "STEM Graduates"
+      },
+      "tech_gdp_share": {
+        "value": 3.5,
+        "unit": "pct",
+        "label": "Tech GDP %"
+      }
+    },
+    "companies": [
+      {
+        "name": "CRRC Times Semiconductor (Zhuzhou)",
+        "sector": "IGBT/Power Semi"
+      },
+      {
+        "name": "Hunan Sanan Semiconductor (Changsha)",
+        "sector": "SiC Compound Semi"
+      },
+      {
+        "name": "Guangzhou Qinglan (49% CRRC)",
+        "sector": "Automotive IGBT"
+      }
+    ],
+    "fabs": [
+      {
+        "name": "CRRC Zhuzhou 8-inch IGBT Line",
+        "node": "IGBT 8-inch",
+        "capacity_kwpm": 10,
+        "status": "Operating"
+      },
+      {
+        "name": "CRRC Zhuzhou 6-inch SiC Line",
+        "node": "SiC",
+        "capacity_kwpm": 1,
+        "status": "Operating"
+      },
+      {
+        "name": "Sanan Changsha SiC Mega Fab Phase I",
+        "node": "SiC 6-inch",
+        "capacity_kwpm": 25,
+        "status": "Operating"
+      },
+      {
+        "name": "Sanan Changsha SiC Mega Fab Phase II",
+        "node": "SiC 6-inch",
+        "capacity_kwpm": 0,
+        "status": "Under Construction"
+      }
+    ],
+    "notes": "Emerging as China's power semiconductor and compound semi hub. CRRC Times Semiconductor (Zhuzhou) built China's first 8-inch IGBT production line (2014), capacity ~120K wafers/year. Has 6-inch bipolar, 8-inch IGBT, and 6-inch SiC lines. Acquired UK's Dynex Semiconductor in 2008 for IGBT IP. Full IGBT product range broke foreign monopoly in rail transit and UHV transmission. Hunan Sanan's $2.5B Changsha Mega Fab is China's first vertically integrated SiC line (crystal to packaging). Phase I producing 300K 6-inch SiC wafers/year (~25K wpm). Secured $524M SiC chip order from major NEV brand. Phase II doubling capacity. Sanan-ST Chongqing JV is separate. Provincial government actively bolstering 3rd-gen semiconductor industry."
+  },
+  "500000": {
+    "name_en": "Chongqing",
+    "name_cn": "重庆",
+    "region": "Southwest China",
+    "metrics": {
+      "composite_score": {
+        "value": 18.0,
+        "unit": "index",
+        "label": "Overall Score"
+      },
+      "fab_capacity": {
+        "value": 25,
+        "unit": "kwpm",
+        "label": "Fab Capacity (KWPM)"
+      },
+      "ai_compute_power": {
+        "value": 40,
+        "unit": "MW",
+        "label": "AI Compute Power (MW)"
+      },
+      "gov_subsidies": {
+        "value": 8.0,
+        "unit": "B_CNY",
+        "label": "Gov Subsidies (B CNY)"
+      },
+      "stem_graduates": {
+        "value": 110000,
+        "unit": "annual",
+        "label": "STEM Graduates"
+      },
+      "tech_gdp_share": {
+        "value": 4.5,
+        "unit": "pct",
+        "label": "Tech GDP %"
+      }
+    },
+    "companies": [
+      {
+        "name": "SK Hynix Chongqing",
+        "sector": "DRAM Packaging/Test"
+      },
+      {
+        "name": "Chongqing AOS (CQAOS)",
+        "sector": "Power Semi Foundry"
+      },
+      {
+        "name": "Sanan-STMicroelectronics JV",
+        "sector": "SiC"
+      },
+      {
+        "name": "Huarun Micro Chongqing",
+        "sector": "Foundry"
+      },
+      {
+        "name": "CETC",
+        "sector": "Defense Electronics"
+      }
+    ],
+    "fabs": [
+      {
+        "name": "SK Hynix Chongqing",
+        "node": "DRAM packaging",
+        "capacity_kwpm": 10,
+        "status": "Operating"
+      },
+      {
+        "name": "CQAOS 12-inch Power Fab",
+        "node": "Power MOSFET 12-inch",
+        "capacity_kwpm": 10,
+        "status": "Operating"
+      },
+      {
+        "name": "Sanan-ST Chongqing SiC Fab",
+        "node": "SiC 8-inch",
+        "capacity_kwpm": 0,
+        "status": "Ramping"
+      },
+      {
+        "name": "Sanan Chongqing SiC Substrate",
+        "node": "SiC substrate 8-inch",
+        "capacity_kwpm": 0,
+        "status": "Ramping"
+      }
+    ],
+    "notes": "Growing semiconductor hub with both foreign and domestic investment. SK Hynix has operated a DRAM back-end packaging facility since 2009. CQAOS (Alpha & Omega Semiconductor JV) has a 12-inch power semi fab in Liangjiang New Area -- SIMIC Holdings acquired a strategic stake for $1.39B in 2025, signaling the fab's value for China's power chip self-sufficiency. Major development: Sanan-STMicroelectronics $3.2B SiC JV (51% Sanan, 49% ST) inaugurated Feb 2025, production starting Q4 2025, targeting 480K 8-inch SiC automotive wafers/year (~40K wpm at full buildout by 2028). First large-scale 8-inch SiC automotive line in China. Sanan separately building 200mm SiC substrate facility nearby. Sanan Chongqing SiC substrate project entered trial production Sep 2024. Emerging as China's SiC capital alongside Changsha."
+  },
+  "120000": {
+    "name_en": "Tianjin",
+    "name_cn": "天津",
+    "region": "North China",
+    "metrics": {
+      "composite_score": {
+        "value": 14.0,
+        "unit": "index",
+        "label": "Overall Score"
+      },
+      "fab_capacity": {
+        "value": 10,
+        "unit": "kwpm",
+        "label": "Fab Capacity (KWPM)"
+      },
+      "ai_compute_power": {
+        "value": 45,
+        "unit": "MW",
+        "label": "AI Compute Power (MW)"
+      },
+      "gov_subsidies": {
+        "value": 8.0,
+        "unit": "B_CNY",
+        "label": "Gov Subsidies (B CNY)"
+      },
+      "stem_graduates": {
+        "value": 85000,
+        "unit": "annual",
+        "label": "STEM Graduates"
+      },
+      "tech_gdp_share": {
+        "value": 5.5,
+        "unit": "pct",
+        "label": "Tech GDP %"
+      }
+    },
+    "companies": [
+      {
+        "name": "NXP Tianjin",
+        "sector": "Test & Packaging"
+      },
+      {
+        "name": "SMIC Tianjin",
+        "sector": "Foundry"
+      },
+      {
+        "name": "Samsung LED Tianjin",
+        "sector": "LED"
+      }
+    ],
+    "fabs": [
+      {
+        "name": "SMIC Tianjin (existing 8-inch)",
+        "node": "180nm",
+        "capacity_kwpm": 10,
+        "status": "Operating"
+      },
+      {
+        "name": "SMIC Tianjin (new 12-inch)",
+        "node": "28nm",
+        "capacity_kwpm": 20,
+        "status": "Ramping"
+      }
+    ],
+    "notes": "SMIC investing $7.5B in new 12-inch fab. Legacy NXP/Motorola operations. Growing A/T presence."
+  },
+  "410000": {
+    "name_en": "Henan",
+    "name_cn": "河南",
+    "region": "Central China",
+    "metrics": {
+      "composite_score": {
+        "value": 12.5,
+        "unit": "index",
+        "label": "Overall Score"
+      },
+      "fab_capacity": {
+        "value": 2,
+        "unit": "kwpm",
+        "label": "Fab Capacity (KWPM)"
+      },
+      "ai_compute_power": {
+        "value": 20,
+        "unit": "MW",
+        "label": "AI Compute Power (MW)"
+      },
+      "gov_subsidies": {
+        "value": 3.0,
+        "unit": "B_CNY",
+        "label": "Gov Subsidies (B CNY)"
+      },
+      "stem_graduates": {
+        "value": 200000,
+        "unit": "annual",
+        "label": "STEM Graduates"
+      },
+      "tech_gdp_share": {
+        "value": 2.2,
+        "unit": "pct",
+        "label": "Tech GDP %"
+      }
+    },
+    "companies": [
+      {
+        "name": "Foxconn Zhengzhou",
+        "sector": "Assembly/Manufacturing"
+      },
+      {
+        "name": "ZTE Zhengzhou R&D",
+        "sector": "Telecom"
+      }
+    ],
+    "fabs": [],
+    "notes": "Foxconn Zhengzhou is world's largest iPhone assembly site (2.8M sqm, 200+ supply chain companies, 300B+ CNY cumulative investment). Foxconn doubling down with new HQ (1B CNY), EV battery plant (600M CNY), and '3+3' strategy covering EVs, AI, and semiconductors. No wafer fabs but massive electronics assembly ecosystem. Large STEM pipeline from provincial universities but brain drain to coastal cities."
+  },
+  "360000": {
+    "name_en": "Jiangxi",
+    "name_cn": "江西",
+    "region": "East China",
+    "metrics": {
+      "composite_score": {
+        "value": 10.1,
+        "unit": "index",
+        "label": "Overall Score"
+      },
+      "fab_capacity": {
+        "value": 5,
+        "unit": "kwpm",
+        "label": "Fab Capacity (KWPM)"
+      },
+      "ai_compute_power": {
+        "value": 15,
+        "unit": "MW",
+        "label": "AI Compute Power (MW)"
+      },
+      "gov_subsidies": {
+        "value": 3.5,
+        "unit": "B_CNY",
+        "label": "Gov Subsidies (B CNY)"
+      },
+      "stem_graduates": {
+        "value": 100000,
+        "unit": "annual",
+        "label": "STEM Graduates"
+      },
+      "tech_gdp_share": {
+        "value": 2.5,
+        "unit": "pct",
+        "label": "Tech GDP %"
+      }
+    },
+    "companies": [
+      {
+        "name": "Jinko Solar",
+        "sector": "Solar/Semi Materials"
+      },
+      {
+        "name": "LatticePower",
+        "sector": "LED (GaN-on-Si)"
+      },
+      {
+        "name": "Lattice Lighting",
+        "sector": "LED Packaging"
+      },
+      {
+        "name": "ShineOn",
+        "sector": "LED"
+      }
+    ],
+    "fabs": [
+      {
+        "name": "LatticePower Nanchang",
+        "node": "GaN-on-Si LED",
+        "capacity_kwpm": 3,
+        "status": "Operating"
+      }
+    ],
+    "notes": "Nanchang is one of China's four largest LED industrial areas, pioneering silicon substrate GaN LED technology. LED industry targeting CNY50B scale by 2026. Jinko Solar anchors the solar supply chain. No mainstream logic/memory fab presence. Primarily a materials and LED packaging hub."
+  },
+  "130000": {
+    "name_en": "Hebei",
+    "name_cn": "河北",
+    "region": "North China",
+    "metrics": {
+      "composite_score": {
+        "value": 9.5,
+        "unit": "index",
+        "label": "Overall Score"
+      },
+      "fab_capacity": {
+        "value": 2,
+        "unit": "kwpm",
+        "label": "Fab Capacity (KWPM)"
+      },
+      "ai_compute_power": {
+        "value": 20,
+        "unit": "MW",
+        "label": "AI Compute Power (MW)"
+      },
+      "gov_subsidies": {
+        "value": 2.0,
+        "unit": "B_CNY",
+        "label": "Gov Subsidies (B CNY)"
+      },
+      "stem_graduates": {
+        "value": 150000,
+        "unit": "annual",
+        "label": "STEM Graduates"
+      },
+      "tech_gdp_share": {
+        "value": 2.0,
+        "unit": "pct",
+        "label": "Tech GDP %"
+      }
+    },
+    "companies": [
+      {
+        "name": "13th Research Institute (CETC)",
+        "sector": "Compound Semi R&D"
+      }
+    ],
+    "fabs": [],
+    "notes": "Limited semiconductor presence. Proximity to Beijing creates some spillover in Langfang and Baoding. CETC 13th Research Institute in Shijiazhuang works on GaAs/GaN compound semiconductors for defense. Large STEM graduate base from provincial universities but most talent flows to Beijing."
+  },
+  "150000": {
+    "name_en": "Inner Mongolia",
+    "name_cn": "内蒙古",
+    "region": "North China",
+    "metrics": {
+      "composite_score": {
+        "value": 9.3,
+        "unit": "index",
+        "label": "Overall Score"
+      },
+      "fab_capacity": {
+        "value": 0,
+        "unit": "kwpm",
+        "label": "Fab Capacity (KWPM)"
+      },
+      "ai_compute_power": {
+        "value": 150,
+        "unit": "MW",
+        "label": "AI Compute Power (MW)"
+      },
+      "gov_subsidies": {
+        "value": 0.5,
+        "unit": "B_CNY",
+        "label": "Gov Subsidies (B CNY)"
+      },
+      "stem_graduates": {
+        "value": 45000,
+        "unit": "annual",
+        "label": "STEM Graduates"
+      },
+      "tech_gdp_share": {
+        "value": 1.5,
+        "unit": "pct",
+        "label": "Tech GDP %"
+      }
+    },
+    "companies": [
+      {
+        "name": "China Telecom Inner Mongolia Info Park",
+        "sector": "Datacenter"
+      },
+      {
+        "name": "China Mobile Hohhot AI Center",
+        "sector": "AI Computing"
+      }
+    ],
+    "fabs": [],
+    "notes": "Major datacenter hub driven by cheap power and cold climate. Hohhot computing capacity targeting 100K petaflops by end 2025. Ulanqab has 56 data centers with 68K petaflops as of early 2025 (targeting 120K). China Mobile operates the world's largest single-unit telecom intelligent computing center in Hohhot (6,700 petaflops peak). Over 80% of DC energy from renewables. Green computing capacity reached 94K petaflops in 2024. No fab presence."
+  },
+  "640000": {
+    "name_en": "Ningxia",
+    "name_cn": "宁夏",
+    "region": "Northwest China",
+    "metrics": {
+      "composite_score": {
+        "value": 9.1,
+        "unit": "index",
+        "label": "Overall Score"
+      },
+      "fab_capacity": {
+        "value": 0,
+        "unit": "kwpm",
+        "label": "Fab Capacity (KWPM)"
+      },
+      "ai_compute_power": {
+        "value": 120,
+        "unit": "MW",
+        "label": "AI Compute Power (MW)"
+      },
+      "gov_subsidies": {
+        "value": 0.5,
+        "unit": "B_CNY",
+        "label": "Gov Subsidies (B CNY)"
+      },
+      "stem_graduates": {
+        "value": 20000,
+        "unit": "annual",
+        "label": "STEM Graduates"
+      },
+      "tech_gdp_share": {
+        "value": 2.5,
+        "unit": "pct",
+        "label": "Tech GDP %"
+      }
+    },
+    "companies": [
+      {
+        "name": "Ferrotec Ningxia",
+        "sector": "Materials"
+      },
+      {
+        "name": "Chindata",
+        "sector": "Datacenter"
+      }
+    ],
+    "fabs": [
+      {
+        "name": "Ferrotec Ningxia 8-inch Wafer Line",
+        "node": "Substrate",
+        "capacity_kwpm": 0,
+        "status": "Operating",
+        "sector": "Materials"
+      },
+      {
+        "name": "Ferrotec Ningxia 12-inch Wafer Line",
+        "node": "Substrate",
+        "capacity_kwpm": 0,
+        "status": "Operating",
+        "sector": "Materials"
+      }
+    ],
+    "notes": "Zhongwei Cloud Computing Base: 121K racks, 88K+ GPU cards, 44K PFLOPS. Ferrotec silicon wafer substrate production. Chindata 1.2GW/$3.3B cluster. AWS presence."
+  },
+  "220000": {
+    "name_en": "Jilin",
+    "name_cn": "吉林",
+    "region": "Northeast China",
+    "metrics": {
+      "composite_score": {
+        "value": 6.9,
+        "unit": "index",
+        "label": "Overall Score"
+      },
+      "fab_capacity": {
+        "value": 2,
+        "unit": "kwpm",
+        "label": "Fab Capacity (KWPM)"
+      },
+      "ai_compute_power": {
+        "value": 12,
+        "unit": "MW",
+        "label": "AI Compute Power (MW)"
+      },
+      "gov_subsidies": {
+        "value": 1.5,
+        "unit": "B_CNY",
+        "label": "Gov Subsidies (B CNY)"
+      },
+      "stem_graduates": {
+        "value": 75000,
+        "unit": "annual",
+        "label": "STEM Graduates"
+      },
+      "tech_gdp_share": {
+        "value": 2.5,
+        "unit": "pct",
+        "label": "Tech GDP %"
+      }
+    },
+    "companies": [
+      {
+        "name": "Changchun New Industries Optoelectronics",
+        "sector": "Lasers/Optoelectronics"
+      },
+      {
+        "name": "Chang Guang Satellite",
+        "sector": "Remote Sensing"
+      },
+      {
+        "name": "Jilin OLED Material Tech",
+        "sector": "Display Materials"
+      }
+    ],
+    "fabs": [],
+    "notes": "Strong optoelectronics cluster in Changchun. Total optoelectronic information industry output exceeded 90B CNY in 2024 (7.1% growth), targeting 100B CNY in 2025. Changchun International Optoelectronic Expo drew 670+ exhibitors across 70K sqm. Chang Guang Satellite operates China's largest commercial remote sensing constellation (Jilin-1) with 100% component localization. MINI-LED, OLED materials, and lithography photoresist development underway. Legacy automotive electronics from FAW Group."
+  },
+  "450000": {
+    "name_en": "Guangxi",
+    "name_cn": "广西",
+    "region": "South China",
+    "metrics": {
+      "composite_score": {
+        "value": 5.1,
+        "unit": "index",
+        "label": "Overall Score"
+      },
+      "fab_capacity": {
+        "value": 1,
+        "unit": "kwpm",
+        "label": "Fab Capacity (KWPM)"
+      },
+      "ai_compute_power": {
+        "value": 5,
+        "unit": "MW",
+        "label": "AI Compute Power (MW)"
+      },
+      "gov_subsidies": {
+        "value": 0.8,
+        "unit": "B_CNY",
+        "label": "Gov Subsidies (B CNY)"
+      },
+      "stem_graduates": {
+        "value": 65000,
+        "unit": "annual",
+        "label": "STEM Graduates"
+      },
+      "tech_gdp_share": {
+        "value": 1.2,
+        "unit": "pct",
+        "label": "Tech GDP %"
+      }
+    },
+    "companies": [
+      {
+        "name": "Hot Chip Semiconductor",
+        "sector": "Foundry (startup)"
+      }
+    ],
+    "fabs": [
+      {
+        "name": "Hot Chip Semiconductor Nanning",
+        "node": "legacy",
+        "capacity_kwpm": 1,
+        "status": "Operating"
+      }
+    ],
+    "notes": "Nascent semiconductor presence. Hot Chip Semiconductor project filled Guangxi FTZ's gap in semiconductor manufacturing. Electronic information manufacturing industry output exceeds 20B CNY in the Nanning FTZ area. Focus on ASEAN trade gateway role rather than high-tech manufacturing. Nanning FTZ added 13,000 new enterprises in 2023."
+  },
+  "140000": {
+    "name_en": "Shanxi",
+    "name_cn": "山西",
+    "region": "North China",
+    "metrics": {
+      "composite_score": {
+        "value": 5.0,
+        "unit": "index",
+        "label": "Overall Score"
+      },
+      "fab_capacity": {
+        "value": 0,
+        "unit": "kwpm",
+        "label": "Fab Capacity (KWPM)"
+      },
+      "ai_compute_power": {
+        "value": 12,
+        "unit": "MW",
+        "label": "AI Compute Power (MW)"
+      },
+      "gov_subsidies": {
+        "value": 1.0,
+        "unit": "B_CNY",
+        "label": "Gov Subsidies (B CNY)"
+      },
+      "stem_graduates": {
+        "value": 80000,
+        "unit": "annual",
+        "label": "STEM Graduates"
+      },
+      "tech_gdp_share": {
+        "value": 1.5,
+        "unit": "pct",
+        "label": "Tech GDP %"
+      }
+    },
+    "companies": [],
+    "fabs": [],
+    "notes": "Coal-dominated economy transitioning to renewables. Provincial plans mention boosting semiconductors and digital industries, with breakthroughs in carbon-based semiconductor materials. Advanced coal production at 83% of capacity. Photovoltaic industry chain targeting 100B CNY output by 2025. No commercial fab activity."
+  },
+  "230000": {
+    "name_en": "Heilongjiang",
+    "name_cn": "黑龙江",
+    "region": "Northeast China",
+    "metrics": {
+      "composite_score": {
+        "value": 4.9,
+        "unit": "index",
+        "label": "Overall Score"
+      },
+      "fab_capacity": {
+        "value": 0,
+        "unit": "kwpm",
+        "label": "Fab Capacity (KWPM)"
+      },
+      "ai_compute_power": {
+        "value": 10,
+        "unit": "MW",
+        "label": "AI Compute Power (MW)"
+      },
+      "gov_subsidies": {
+        "value": 1.0,
+        "unit": "B_CNY",
+        "label": "Gov Subsidies (B CNY)"
+      },
+      "stem_graduates": {
+        "value": 70000,
+        "unit": "annual",
+        "label": "STEM Graduates"
+      },
+      "tech_gdp_share": {
+        "value": 1.5,
+        "unit": "pct",
+        "label": "Tech GDP %"
+      }
+    },
+    "companies": [
+      {
+        "name": "Harbin Institute of Technology",
+        "sector": "Research"
+      }
+    ],
+    "fabs": [],
+    "notes": "Harbin Institute of Technology (ranked 3rd globally in Engineering, 2024) is the anchor institution. HIT announced successful development of a 13.5nm EUV lithography light source in early 2025, a breakthrough for China's lithography ambitions. Professor Zhao Yongpeng's team won first prize in provincial innovation competition for the discharge plasma EUV light source. No commercial fab or IC design industry. Heavy industry and agriculture dominate the economy."
+  },
+  "530000": {
+    "name_en": "Yunnan",
+    "name_cn": "云南",
+    "region": "Southwest China",
+    "metrics": {
+      "composite_score": {
+        "value": 4.4,
+        "unit": "index",
+        "label": "Overall Score"
+      },
+      "fab_capacity": {
+        "value": 0,
+        "unit": "kwpm",
+        "label": "Fab Capacity (KWPM)"
+      },
+      "ai_compute_power": {
+        "value": 5,
+        "unit": "MW",
+        "label": "AI Compute Power (MW)"
+      },
+      "gov_subsidies": {
+        "value": 0.8,
+        "unit": "B_CNY",
+        "label": "Gov Subsidies (B CNY)"
+      },
+      "stem_graduates": {
+        "value": 50000,
+        "unit": "annual",
+        "label": "STEM Graduates"
+      },
+      "tech_gdp_share": {
+        "value": 1.0,
+        "unit": "pct",
+        "label": "Tech GDP %"
+      }
+    },
+    "companies": [
+      {
+        "name": "Yunnan Chihong Zinc & Germanium",
+        "sector": "Germanium Production"
+      },
+      {
+        "name": "Yunnan Lincang Xinyuan Germanium",
+        "sector": "Germanium Production"
+      },
+      {
+        "name": "Yunnan Germanium Industry Co.",
+        "sector": "Germanium/Compound Semi Materials"
+      }
+    ],
+    "fabs": [],
+    "notes": "No semiconductor fabs but critical strategic role in semiconductor materials supply chain. Yunnan is a major source of germanium -- China controls 83% of global germanium production and Yunnan is one of the top producing provinces alongside Inner Mongolia and Jiangxi. Yunnan Germanium Industry produced 34 metric tons of material-grade germanium in 2024, plus infrared-grade, PV-grade (491K pieces), and fiber-optic-grade germanium products. Plans to produce 200K gallium arsenide wafers and 83K indium phosphide wafers in 2025 (compound semiconductor substrates). China restricted export of germanium, gallium, and antimony to the US in Dec 2024, elevating Yunnan's strategic importance. Sichuan-Yunnan-Guizhou region also has germanium/gallium-rich zinc deposits."
+  },
+  "620000": {
+    "name_en": "Gansu",
+    "name_cn": "甘肃",
+    "region": "Northwest China",
+    "metrics": {
+      "composite_score": {
+        "value": 3.8,
+        "unit": "index",
+        "label": "Overall Score"
+      },
+      "fab_capacity": {
+        "value": 0,
+        "unit": "kwpm",
+        "label": "Fab Capacity (KWPM)"
+      },
+      "ai_compute_power": {
+        "value": 8,
+        "unit": "MW",
+        "label": "AI Compute Power (MW)"
+      },
+      "gov_subsidies": {
+        "value": 1.0,
+        "unit": "B_CNY",
+        "label": "Gov Subsidies (B CNY)"
+      },
+      "stem_graduates": {
+        "value": 40000,
+        "unit": "annual",
+        "label": "STEM Graduates"
+      },
+      "tech_gdp_share": {
+        "value": 1.2,
+        "unit": "pct",
+        "label": "Tech GDP %"
+      }
+    },
+    "companies": [
+      {
+        "name": "Tianshui Huatian Technology (HT-Tech)",
+        "sector": "OSAT/Packaging"
+      },
+      {
+        "name": "Huatian Technology",
+        "sector": "OSAT"
+      }
+    ],
+    "fabs": [],
+    "notes": "Huatian Technology (Tianshui) — one of China's largest OSAT companies (SiP, TSV, Fan-Out). Rare earth processing."
+  },
+  "650000": {
+    "name_en": "Xinjiang",
+    "name_cn": "新疆",
+    "region": "Northwest China",
+    "metrics": {
+      "composite_score": {
+        "value": 3.4,
+        "unit": "index",
+        "label": "Overall Score"
+      },
+      "fab_capacity": {
+        "value": 0,
+        "unit": "kwpm",
+        "label": "Fab Capacity (KWPM)"
+      },
+      "ai_compute_power": {
+        "value": 8,
+        "unit": "MW",
+        "label": "AI Compute Power (MW)"
+      },
+      "gov_subsidies": {
+        "value": 0.5,
+        "unit": "B_CNY",
+        "label": "Gov Subsidies (B CNY)"
+      },
+      "stem_graduates": {
+        "value": 30000,
+        "unit": "annual",
+        "label": "STEM Graduates"
+      },
+      "tech_gdp_share": {
+        "value": 0.6,
+        "unit": "pct",
+        "label": "Tech GDP %"
+      }
+    },
+    "companies": [
+      {
+        "name": "Xinjiang East Hope New Energy",
+        "sector": "Polysilicon"
+      },
+      {
+        "name": "Xinte Energy (TBEA subsidiary)",
+        "sector": "Polysilicon"
+      },
+      {
+        "name": "Daqo New Energy",
+        "sector": "Polysilicon"
+      }
+    ],
+    "fabs": [],
+    "notes": "No semiconductor fabs. Xinjiang is China's (and the world's) polysilicon production heartland -- China produced 93.5% of global polysilicon in 2024 and Xinjiang is the largest producing region due to ultra-cheap coal power and industrial electricity rates. East Hope, Xinte Energy, and Daqo are major global polysilicon producers based here. However, this is solar-grade polysilicon, not the electronic-grade (EG) polysilicon used for semiconductor wafers. Some overlap: as China pushes to domesticate EG polysilicon for semiconductor wafers (to supply Ferrotec/Ningxia Zhongxin, etc.), Xinjiang's production infrastructure could play a role. Cheap power also makes it a candidate for 'East Data, West Computing' datacenter expansion."
+  },
+  "460000": {
+    "name_en": "Hainan",
+    "name_cn": "海南",
+    "region": "South China",
+    "metrics": {
+      "composite_score": {
+        "value": 1.7,
+        "unit": "index",
+        "label": "Overall Score"
+      },
+      "fab_capacity": {
+        "value": 0,
+        "unit": "kwpm",
+        "label": "Fab Capacity (KWPM)"
+      },
+      "ai_compute_power": {
+        "value": 5,
+        "unit": "MW",
+        "label": "AI Compute Power (MW)"
+      },
+      "gov_subsidies": {
+        "value": 0.5,
+        "unit": "B_CNY",
+        "label": "Gov Subsidies (B CNY)"
+      },
+      "stem_graduates": {
+        "value": 20000,
+        "unit": "annual",
+        "label": "STEM Graduates"
+      },
+      "tech_gdp_share": {
+        "value": 1.0,
+        "unit": "pct",
+        "label": "Tech GDP %"
+      }
+    },
+    "companies": [],
+    "fabs": [],
+    "notes": "Free Trade Port focus. Island-wide independent customs launched December 2025 with 6,600+ zero-tariff items. 15% corporate tax for encouraged industries. Potential for IC design companies attracted by tax incentives, but no significant semiconductor operations yet. Development emphasis on high-end manufacturing, digital economy, and healthcare rather than semiconductors."
+  },
+  "630000": {
+    "name_en": "Qinghai",
+    "name_cn": "青海",
+    "region": "Northwest China",
+    "metrics": {
+      "composite_score": {
+        "value": 1.5,
+        "unit": "index",
+        "label": "Overall Score"
+      },
+      "fab_capacity": {
+        "value": 0,
+        "unit": "kwpm",
+        "label": "Fab Capacity (KWPM)"
+      },
+      "ai_compute_power": {
+        "value": 3,
+        "unit": "MW",
+        "label": "AI Compute Power (MW)"
+      },
+      "gov_subsidies": {
+        "value": 0.3,
+        "unit": "B_CNY",
+        "label": "Gov Subsidies (B CNY)"
+      },
+      "stem_graduates": {
+        "value": 15000,
+        "unit": "annual",
+        "label": "STEM Graduates"
+      },
+      "tech_gdp_share": {
+        "value": 0.5,
+        "unit": "pct",
+        "label": "Tech GDP %"
+      }
+    },
+    "companies": [
+      {
+        "name": "Qinghai Lihao Qingneng",
+        "sector": "Polysilicon"
+      }
+    ],
+    "fabs": [],
+    "notes": "No semiconductor fabs. Strategic importance for upstream materials: Qinghai has ~10 million tons of brine lithium reserves (critical for battery production). Qinghai Lihao Qingneng is a top-7 global polysilicon producer (solar-grade, not semi-grade). Some potential for 'East Data, West Computing' datacenter buildout leveraging abundant solar/hydro power. Recent massive lithium ore discoveries across Sichuan-Qinghai corridor."
+  },
+  "540000": {
+    "name_en": "Tibet",
+    "name_cn": "西藏",
+    "region": "Southwest China",
+    "metrics": {
+      "composite_score": {
+        "value": 0.3,
+        "unit": "index",
+        "label": "Overall Score"
+      },
+      "fab_capacity": {
+        "value": 0,
+        "unit": "kwpm",
+        "label": "Fab Capacity (KWPM)"
+      },
+      "ai_compute_power": {
+        "value": 0,
+        "unit": "MW",
+        "label": "AI Compute Power (MW)"
+      },
+      "gov_subsidies": {
+        "value": 0,
+        "unit": "B_CNY",
+        "label": "Gov Subsidies (B CNY)"
+      },
+      "stem_graduates": {
+        "value": 5000,
+        "unit": "annual",
+        "label": "STEM Graduates"
+      },
+      "tech_gdp_share": {
+        "value": 0.1,
+        "unit": "pct",
+        "label": "Tech GDP %"
+      }
+    },
+    "companies": [],
+    "fabs": [],
+    "notes": "No semiconductor activity. Remote geography, limited infrastructure, and sparse population make it unsuitable for semiconductor manufacturing. Some lithium and rare earth mineral potential in the Tibetan plateau but no extraction for semiconductor use at scale."
+  }
+}
