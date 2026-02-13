@@ -1,147 +1,51 @@
 {
-  "320000": {
-    "name_en": "Jiangsu",
-    "name_cn": "江苏",
-    "region": "East China",
-    "metrics": {
-      "composite_score": {
-        "value": 75.4,
-        "unit": "index",
-        "label": "Overall Score"
-      },
-      "fab_capacity": {
-        "value": 359,
-        "unit": "kwpm",
-        "label": "Fab Capacity (KWPM)"
-      },
-      "ai_compute_power": {
-        "value": 220,
-        "unit": "MW",
-        "label": "AI Compute Power (MW)"
-      },
-      "gov_subsidies": {
-        "value": 42.0,
-        "unit": "B_CNY",
-        "label": "Gov Subsidies (B CNY)"
-      },
-      "stem_graduates": {
-        "value": 280000,
-        "unit": "annual",
-        "label": "STEM Graduates"
-      },
-      "tech_gdp_share": {
-        "value": 11.5,
-        "unit": "pct",
-        "label": "Tech GDP %"
-      }
-    },
-    "companies": [
-      {
-        "name": "TSMC Nanjing",
-        "sector": "Foundry"
-      },
-      {
-        "name": "SK Hynix Wuxi",
-        "sector": "Memory (DRAM)"
-      },
-      {
-        "name": "Hua Hong Wuxi",
-        "sector": "Foundry"
-      },
-      {
-        "name": "JCET Group",
-        "sector": "OSAT"
-      },
-      {
-        "name": "Tongfu Microelectronics (TFME)",
-        "sector": "OSAT"
-      },
-      {
-        "name": "Nexperia (Wingtech)",
-        "sector": "Discrete/Power"
-      },
-      {
-        "name": "Nantong Fujitsu",
-        "sector": "OSAT"
-      },
-      {
-        "name": "Yangtze Memory (Nanjing R&D)",
-        "sector": "Memory"
-      },
-      {
-        "name": "GTA Semiconductor",
-        "sector": "Foundry"
-      }
-    ],
-    "fabs": [
-      {
-        "name": "SK Hynix Wuxi DRAM",
-        "node": "1a DRAM",
-        "capacity_kwpm": 185,
-        "status": "Operating"
-      },
-      {
-        "name": "Hua Hong Wuxi Fab7 (300mm)",
-        "node": "90-55nm specialty",
-        "capacity_kwpm": 94,
-        "status": "Operating"
-      },
-      {
-        "name": "Hua Hong Wuxi Fab9 Phase I (300mm)",
-        "node": "65-40nm specialty",
-        "capacity_kwpm": 40,
-        "status": "Ramping"
-      },
-      {
-        "name": "TSMC Nanjing (300mm)",
-        "node": "16nm/28nm",
-        "capacity_kwpm": 60,
-        "status": "Operating"
-      },
-      {
-        "name": "GTA Semiconductor Nanjing (200mm)",
-        "node": "0.35-0.11um",
-        "capacity_kwpm": 20,
-        "status": "Operating"
-      }
-    ],
-    "notes": "Largest total fab capacity in China. SK Hynix Wuxi is 30-40% of company's total DRAM output (~185K wpm, upgraded to 1a process). TSMC Nanjing VEU expired end-2025; 60K wpm at 16/28nm. Hua Hong Wuxi Phase II doubling 12-inch capacity. JCET is China's #1 OSAT (revenue CNY36B in 2024). Wuxi-Nanjing-Suzhou corridor is China's densest fab belt. Jiangsu offers US$74M/yr semiconductor subsidy; Wuxi IC fund at CNY5B."
-  },
   "310000": {
     "name_en": "Shanghai",
     "name_cn": "上海",
     "region": "East China",
     "metrics": {
       "composite_score": {
-        "value": 73.7,
+        "value": 82.3,
         "unit": "index",
         "label": "Overall Score"
       },
-      "fab_capacity": {
-        "value": 250,
-        "unit": "kwpm",
-        "label": "Fab Capacity (KWPM)"
-      },
-      "ai_compute_power": {
-        "value": 400,
-        "unit": "MW",
-        "label": "AI Compute Power (MW)"
-      },
-      "gov_subsidies": {
-        "value": 48.0,
+      "ic_revenue": {
+        "value": 300,
         "unit": "B_CNY",
-        "label": "Gov Subsidies (B CNY)"
+        "label": "IC Revenue (B CNY)"
       },
-      "stem_graduates": {
-        "value": 145000,
-        "unit": "annual",
-        "label": "STEM Graduates"
+      "computing_power": {
+        "value": 95,
+        "unit": "index",
+        "label": "Computing Power Index"
       },
-      "tech_gdp_share": {
-        "value": 16.5,
+      "gov_investment": {
+        "value": 121.5,
+        "unit": "B_CNY",
+        "label": "Gov IC/AI Investment (B CNY)"
+      },
+      "rd_intensity": {
+        "value": 4.34,
         "unit": "pct",
-        "label": "Tech GDP %"
+        "label": "R&D Intensity (% GDP)"
+      },
+      "power_price": {
+        "value": 0.74,
+        "unit": "CNY/kWh",
+        "label": "Industrial Power Price"
       }
+    },
+    "economic": {
+      "gdp_b_cny": 4720,
+      "gdp_per_capita_cny": 189747,
+      "population_m": 24.87,
+      "electricity_twh": 195
+    },
+    "ai_compute": {
+      "ai_companies": 600,
+      "smart_computing_centers": 18,
+      "dc_capacity_mw": 800,
+      "computing_hub": "YRD"
     },
     "companies": [
       {
@@ -235,7 +139,384 @@
         "status": "Operating"
       }
     ],
-    "notes": "China's semiconductor capital. SMIC HQ with SN1 running 14nm/N+1 for Huawei. Zhangjiang Hi-Tech Park hosts 1,000+ IC firms. Leading equipment cluster (AMEC, ACM, SMEE). SMIC Lingang 100K target fab still ramping. Hua Hong operates three 200mm fabs in Shanghai with ~180K 200mm wpm total. Tech services 5.6% of Shanghai GDP in 2024; Shanghai targets 5 new AI datacenters in 2025."
+    "notes": "China's semiconductor capital with Big Fund HQ allocating ~21.5B CNY and municipal IC fund exceeding 100B CNY. Zhangjiang Hi-Tech Park hosts 1,000+ IC firms across the full value chain from design (UNISOC) to equipment (AMEC, SMEE) to EDA (Empyrean). SMIC Lingang targeting 100K wpm represents the city's push to scale advanced foundry capacity despite US restrictions.",
+    "investments": {
+      "semiconductor": [
+        {
+          "year": 2016,
+          "source": "Shanghai Municipal Government (via Shanghai Kechuang Group, Shanghai Guosheng Group, Shanghai International Group et al.)",
+          "target": "Shanghai IC Industry Investment Fund Phase I (上海集成电路产业投资基金一期)",
+          "amount_b_cny": 28.5,
+          "type": "guidance_fund",
+          "status": "active",
+          "citation": "https://www.scmp.com/tech/tech-war/article/3275077/tech-war-shanghai-injects-us1-billion-chip-fund-china-strives-self-reliance",
+          "note": "Registered capital 28.5B CNY (实缴175.6B). Invested in SMIC, Hua Hong HLMC, ACM Research Shanghai, Ziguang Zhanrui, etc. Some sources cite 24B registered capital."
+        },
+        {
+          "year": 2020,
+          "source": "Shanghai Municipal Government (Pudong New Area, Lingang Fund, Shanghai Guosheng Group et al.)",
+          "target": "Shanghai IC Industry Investment Fund Phase II (上海集成电路产业投资基金二期)",
+          "amount_b_cny": 24.06,
+          "type": "guidance_fund",
+          "status": "active",
+          "citation": "https://www.chnfund.com/article/AR74e00e6d-f02b-e04a-3b87-3a14687a54eb",
+          "note": "Originally 14.53B, increased to 24.06B (~66% jump). Invested in 16 companies across Phases I+II including SMIC, Chaosi Semiconductor, Ziguang Zhanrui, Jita Semiconductor."
+        },
+        {
+          "year": 2025,
+          "source": "Shanghai State-owned Capital Investment Leading IC PE Fund + Pudong Venture Capital",
+          "target": "Shanghai IC Industry Investment Fund Phase III (上海集成电路产业投资基金三期)",
+          "amount_b_cny": 6.0,
+          "type": "guidance_fund",
+          "status": "active",
+          "citation": "https://www.trendforce.com/news/2026/02/11/news-shanghai-ic-fund-iii-reportedly-expands-11-fold-to-rmb-6b-as-chinas-chip-drive-accelerates/",
+          "note": "Registered capital expanded 11-fold from 0.5B to 6B. Shanghai State-owned Capital IC Fund investing 4.5B, Pudong VC 0.5B. Feb 2026 reports."
+        },
+        {
+          "year": 2015,
+          "source": "National IC Industry Investment Fund Phase I (Big Fund I)",
+          "target": "SMIC — equity investment via Xinxin (Hong Kong) Investment Co.",
+          "amount_b_cny": 15.0,
+          "type": "equity",
+          "status": "active",
+          "citation": "https://en.wikipedia.org/wiki/China_Integrated_Circuit_Industry_Investment_Fund",
+          "note": "~15B CNY estimated. Big Fund I acquired ~15.76% stake pre-STAR Market IPO. Since reduced to ~6.91% as of Mar 2025."
+        },
+        {
+          "year": 2025,
+          "source": "National IC Industry Investment Fund Phase III (Big Fund III) + ICBC, ABC, BOC, CCB, BoCom, PSBC",
+          "target": "SMIC South (SMSC) — capital increase",
+          "amount_b_cny": 56.0,
+          "type": "equity",
+          "status": "active",
+          "citation": "https://www.trendforce.com/news/2026/01/01/news-smic-announced-two-massive-capital-investment/",
+          "note": "$7.778B total capital increase (registered capital from $6.5B to $10.077B). Big Fund III becomes new shareholder. SMIC stake rises to 41.56%."
+        },
+        {
+          "year": 2025,
+          "source": "SMIC (share issuance)",
+          "target": "SMIC North China (中芯北方) — acquisition of remaining 49%",
+          "amount_b_cny": 40.6,
+          "type": "equity",
+          "status": "active",
+          "citation": "https://www.trendforce.com/news/2026/01/01/news-smic-announced-two-massive-capital-investment/",
+          "note": "CNY 40.6B share issuance to acquire remaining 49% equity; SMIC North becomes wholly-owned subsidiary."
+        },
+        {
+          "year": 2021,
+          "source": "SMIC + Lingang Management Committee (Shanghai FTZ)",
+          "target": "SMIC SN2 Lingang 12-inch wafer fab",
+          "amount_b_cny": 63.9,
+          "type": "capex",
+          "status": "active",
+          "citation": "https://www.anandtech.com/show/16931/china-smic-build-gigafab",
+          "note": "$8.87B total investment. JV structure: SMIC ≥51%, government up to 25%. 100K wafers/month capacity, 28nm+."
+        },
+        {
+          "year": 2020,
+          "source": "National IC Industry Investment Fund Phase II (Big Fund II)",
+          "target": "Hua Hong Semiconductor — A-share IPO subscription",
+          "amount_b_cny": 3.0,
+          "type": "equity",
+          "status": "active",
+          "citation": "https://www.scmp.com/tech/big-tech/article/3228827/tech-war-chinas-second-largest-chip-maker-sets-shanghai-listing-price-hefty-premium-hong-kong-big",
+          "note": "Big Fund II earmarked 3B CNY for Hua Hong's STAR Market IPO. Total raise 21.2B CNY."
+        },
+        {
+          "year": 2024,
+          "source": "Shanghai Municipal Government (SDIC-managed)",
+          "target": "Shanghai three-industry mother fund — IC portion (part of 100B total across IC, AI, biopharma)",
+          "amount_b_cny": 45.0,
+          "type": "guidance_fund",
+          "status": "active",
+          "citation": "https://www.digitimes.com/news/a20240730PD211/shanghai-government-investment-ic-ai-biopharmaceuticals.html",
+          "note": "Part of 100B CNY ($13.8B) across three sectors. IC fund is the largest portion (~45B). Leveraged 17.2B in social capital in 9 months."
+        }
+      ],
+      "ai_compute": [
+        {
+          "year": 2024,
+          "source": "Shanghai Municipal Government",
+          "target": "Shanghai AI Industry Mother Fund (上海人工智能产业母基金)",
+          "amount_b_cny": 22.5,
+          "type": "guidance_fund",
+          "status": "active",
+          "citation": "https://www.scmp.com/tech/big-tech/article/3295513/tech-war-china-creates-us82-billion-ai-investment-fund-amid-tightened-us-trade-controls",
+          "note": "225B CNY. Prioritizes AI chips, software, autonomous driving, robotics. Part of the 100B three-industry package."
+        },
+        {
+          "year": 2024,
+          "source": "Lingang FTZ Administration",
+          "target": "Lingang New Area semiconductor/AI 15% CIT incentive zone",
+          "amount_b_cny": null,
+          "type": "tax_break",
+          "status": "active",
+          "citation": "https://www.china-briefing.com/news/lower-corporate-tax-rate-in-lingang-new-area-of-shanghai-ftz-eligibilty-criteria/",
+          "note": "15% corporate income tax rate (vs 25% standard) for first 5 years for IC/AI enterprises. Up to 50% R&D cost matching grants. Import duty exemptions."
+        }
+      ]
+    },
+    "sources": {
+      "ic_revenue": "CSIA 2024 Annual Report",
+      "gdp": "NBS 2023 Statistical Communique",
+      "rd_intensity": "NBS 2023 S&T Expenditure Report",
+      "computing_power": "ODCC 2024 Computing Power Index",
+      "power_price": "NDRC 36-city industrial price monitor 2024",
+      "population": "NBS 2023 population data"
+    }
+  },
+  "320000": {
+    "name_en": "Jiangsu",
+    "name_cn": "江苏",
+    "region": "East China",
+    "metrics": {
+      "composite_score": {
+        "value": 83.4,
+        "unit": "index",
+        "label": "Overall Score"
+      },
+      "ic_revenue": {
+        "value": 324,
+        "unit": "B_CNY",
+        "label": "IC Revenue (B CNY)"
+      },
+      "computing_power": {
+        "value": 90,
+        "unit": "index",
+        "label": "Computing Power Index"
+      },
+      "gov_investment": {
+        "value": 30,
+        "unit": "B_CNY",
+        "label": "Gov IC/AI Investment (B CNY)"
+      },
+      "rd_intensity": {
+        "value": 3.29,
+        "unit": "pct",
+        "label": "R&D Intensity (% GDP)"
+      },
+      "power_price": {
+        "value": 0.66,
+        "unit": "CNY/kWh",
+        "label": "Industrial Power Price"
+      }
+    },
+    "economic": {
+      "gdp_b_cny": 12820,
+      "gdp_per_capita_cny": 150375,
+      "population_m": 85.26,
+      "electricity_twh": 720
+    },
+    "ai_compute": {
+      "ai_companies": 300,
+      "smart_computing_centers": 23,
+      "dc_capacity_mw": 800,
+      "computing_hub": "YRD"
+    },
+    "companies": [
+      {
+        "name": "TSMC Nanjing",
+        "sector": "Foundry"
+      },
+      {
+        "name": "SK Hynix Wuxi",
+        "sector": "Memory (DRAM)"
+      },
+      {
+        "name": "Hua Hong Wuxi",
+        "sector": "Foundry"
+      },
+      {
+        "name": "JCET Group",
+        "sector": "OSAT"
+      },
+      {
+        "name": "Tongfu Microelectronics (TFME)",
+        "sector": "OSAT"
+      },
+      {
+        "name": "Nexperia (Wingtech)",
+        "sector": "Discrete/Power"
+      },
+      {
+        "name": "Nantong Fujitsu",
+        "sector": "OSAT"
+      },
+      {
+        "name": "Yangtze Memory (Nanjing R&D)",
+        "sector": "Memory"
+      },
+      {
+        "name": "GTA Semiconductor",
+        "sector": "Foundry"
+      }
+    ],
+    "fabs": [
+      {
+        "name": "SK Hynix Wuxi DRAM",
+        "node": "1a DRAM",
+        "capacity_kwpm": 185,
+        "status": "Operating"
+      },
+      {
+        "name": "Hua Hong Wuxi Fab7 (300mm)",
+        "node": "90-55nm specialty",
+        "capacity_kwpm": 94,
+        "status": "Operating"
+      },
+      {
+        "name": "Hua Hong Wuxi Fab9 Phase I (300mm)",
+        "node": "65-40nm specialty",
+        "capacity_kwpm": 40,
+        "status": "Ramping"
+      },
+      {
+        "name": "TSMC Nanjing (300mm)",
+        "node": "16nm/28nm",
+        "capacity_kwpm": 60,
+        "status": "Operating"
+      },
+      {
+        "name": "GTA Semiconductor Nanjing (200mm)",
+        "node": "0.35-0.11um",
+        "capacity_kwpm": 20,
+        "status": "Operating"
+      }
+    ],
+    "notes": "China's densest fab belt along Wuxi-Nanjing-Suzhou corridor with highest IC revenue nationally at 324B CNY. Big Fund allocated ~10B CNY with provincial IC fund at 20B+. JCET is China's #1 OSAT by revenue. SK Hynix Wuxi produces 30-40% of the company's total DRAM output, making Jiangsu a critical node in global memory supply chains.",
+    "investments": {
+      "semiconductor": [
+        {
+          "year": 2018,
+          "source": "National IC Industry Investment Fund Phase I (Big Fund I)",
+          "target": "JCET Group (长电科技) — non-public offering subscription",
+          "amount_b_cny": 2.6,
+          "type": "equity",
+          "status": "active",
+          "citation": "https://en.wikipedia.org/wiki/China_Integrated_Circuit_Industry_Investment_Fund",
+          "note": "2.6B CNY subscription in 3.62B total raise. Big Fund became largest shareholder at 19%. Later reduced to ~17% by 2021."
+        },
+        {
+          "year": 2016,
+          "source": "National IC Industry Investment Fund Phase I (Big Fund I) + Tongfu Microelectronics",
+          "target": "Tongfu Microelectronics (通富微电) — acquisition of AMD Suzhou + AMD Penang (85% stakes each)",
+          "amount_b_cny": 2.67,
+          "type": "equity",
+          "status": "active",
+          "citation": "https://en.wikipedia.org/wiki/China_Integrated_Circuit_Industry_Investment_Fund",
+          "note": "$371M joint acquisition. Tongfu is the only A-share company with investment from both Big Fund I and II."
+        },
+        {
+          "year": 2024,
+          "source": "Jiangsu Strategic Emerging Industries Flagship Fund + Wuxi Municipal Government",
+          "target": "Wuxi IC Industry Special Fund (无锡集成电路产业专项基金)",
+          "amount_b_cny": 5.0,
+          "type": "guidance_fund",
+          "status": "active",
+          "citation": "https://news.futunn.com/en/post/62070547/the-year-of-practical-operations-for-the-state-owned-semiconductor",
+          "note": "5B CNY total. First sub-fund: China Electronics Tech (Wuxi) Fundamental Electronic Industry Fund, 2B CNY, full IC value chain."
+        },
+        {
+          "year": 2005,
+          "source": "SK Hynix (with China Development Bank-led syndicate loan)",
+          "target": "SK Hynix Wuxi DRAM fab — cumulative investment",
+          "amount_b_cny": 100.8,
+          "type": "capex",
+          "status": "active",
+          "citation": "https://news.skhynix.com/sk-hynix-completes-expanded-fab-c2f-in-wuxi-china/",
+          "note": "$14B cumulative investment. CDB-led syndicate loan was $3.5B — largest foreign currency loan in Jiangsu history. 180K wafers/month 10nm-class DRAM."
+        },
+        {
+          "year": 2017,
+          "source": "SK Hynix",
+          "target": "SK Hynix Wuxi C2F expansion",
+          "amount_b_cny": 6.84,
+          "type": "capex",
+          "status": "active",
+          "citation": "https://news.skhynix.com/sk-hynix-completes-expanded-fab-c2f-in-wuxi-china/",
+          "note": "950B KRW (~$835M / ~6B CNY) from June 2017 to April 2019. 58,000m2 building."
+        },
+        {
+          "year": 2023,
+          "source": "Hua Hong Semiconductor + Big Fund Phase II + Wuxi Government Entity",
+          "target": "Hua Hong Wuxi FAB9 (second 12-inch line) — Phase 1",
+          "amount_b_cny": 48.2,
+          "type": "capex",
+          "status": "active",
+          "citation": "https://www.scmp.com/tech/tech-trends/article/3207368/hua-hong-semiconductor-gets-state-backing-us67-billion-wafer-fab-china-continues-its-pivot-mature",
+          "note": "$6.7B total. Big Fund II invested $1.17B. Hua Hong contributed $4.02B new capital + $2.68B debt. Targeting 65/55/40nm, 20K wafers/month by 2025."
+        },
+        {
+          "year": 2016,
+          "source": "TSMC",
+          "target": "TSMC Nanjing 12-inch fab (Fab 16) — original investment",
+          "amount_b_cny": 21.6,
+          "type": "capex",
+          "status": "active",
+          "citation": "https://pr.tsmc.com/english/news/1887",
+          "note": "$3B initial investment. Wholly-owned subsidiary TSMC (Nanjing) Co. Ltd. 16nm initial, later expanded 28nm."
+        },
+        {
+          "year": 2021,
+          "source": "TSMC",
+          "target": "TSMC Nanjing 28nm expansion",
+          "amount_b_cny": 20.7,
+          "type": "capex",
+          "status": "active",
+          "citation": "https://www.tomshardware.com/tech-industry/china-and-japan-gave-tsmc-over-dollar15-billion-in-subsidies-to-build-and-equip-new-fabs",
+          "note": "$2.88B expansion for 28nm process. Nanjing local government provided substantial subsidies — TSMC received NT$47.5B ($1.51B) from China+Japan combined in 2023 alone."
+        },
+        {
+          "year": 2023,
+          "source": "Nanjing / Jiangsu Provincial Government",
+          "target": "TSMC Nanjing — government subsidies",
+          "amount_b_cny": 10.0,
+          "type": "subsidy",
+          "status": "active",
+          "citation": "https://www.taipeitimes.com/News/biz/archives/2024/03/11/2003814729",
+          "note": "Estimated ~10B+ CNY in cumulative subsidies. TSMC disclosed NT$47.5B ($1.51B) combined China+Japan subsidies in 2023, up 574% YoY. Majority from Nanjing expansion."
+        },
+        {
+          "year": 2018,
+          "source": "Nanjing Municipal Government",
+          "target": "Nanjing IC Industry Development Fund target",
+          "amount_b_cny": 140.0,
+          "type": "guidance_fund",
+          "status": "planned",
+          "citation": "https://technode.com/2018/07/18/nanjing-integrated-circuit-fund/",
+          "note": "$20B announced target. Nanjing Huaiyin District invested 2B+ CNY in Dehuai Semiconductor in 2017."
+        },
+        {
+          "year": 2020,
+          "source": "Suzhou High-tech Zone + local government guidance funds + corporates",
+          "target": "Suzhou High-tech Zone IC Fund",
+          "amount_b_cny": 10.0,
+          "type": "guidance_fund",
+          "status": "active",
+          "citation": "https://www.avcj.com/avcj/news/3020400/china-launches-usd14b-semiconductor-fund",
+          "note": "10B CNY ($1.4B) target. Initial commitments 3B. Focus: IC design, 5G communications, next-gen IT."
+        }
+      ],
+      "ai_compute": [
+        {
+          "year": 2024,
+          "source": "Jiangsu Provincial / City Governments",
+          "target": "Various AI computing centers across Jiangsu (Nanjing, Wuxi, Suzhou)",
+          "amount_b_cny": null,
+          "type": "infrastructure",
+          "status": "active",
+          "note": "Multiple municipal AI computing centers established. Specific investment amounts not individually disclosed in public sources. Part of national East-West Computing Transfer project."
+        }
+      ]
+    },
+    "sources": {
+      "ic_revenue": "CSIA 2024 Annual Report",
+      "gdp": "NBS 2023 Statistical Communique",
+      "rd_intensity": "NBS 2023 S&T Expenditure Report",
+      "computing_power": "ODCC 2024 Computing Power Index",
+      "power_price": "NDRC 36-city industrial price monitor 2024",
+      "population": "NBS 2023 population data"
+    }
   },
   "440000": {
     "name_en": "Guangdong",
@@ -243,35 +524,47 @@
     "region": "South China",
     "metrics": {
       "composite_score": {
-        "value": 63.2,
+        "value": 82.8,
         "unit": "index",
         "label": "Overall Score"
       },
-      "fab_capacity": {
-        "value": 90,
-        "unit": "kwpm",
-        "label": "Fab Capacity (KWPM)"
-      },
-      "ai_compute_power": {
-        "value": 350,
-        "unit": "MW",
-        "label": "AI Compute Power (MW)"
-      },
-      "gov_subsidies": {
-        "value": 45.0,
+      "ic_revenue": {
+        "value": 214,
         "unit": "B_CNY",
-        "label": "Gov Subsidies (B CNY)"
+        "label": "IC Revenue (B CNY)"
       },
-      "stem_graduates": {
-        "value": 340000,
-        "unit": "annual",
-        "label": "STEM Graduates"
+      "computing_power": {
+        "value": 93,
+        "unit": "index",
+        "label": "Computing Power Index"
       },
-      "tech_gdp_share": {
-        "value": 14.5,
+      "gov_investment": {
+        "value": 100,
+        "unit": "B_CNY",
+        "label": "Gov IC/AI Investment (B CNY)"
+      },
+      "rd_intensity": {
+        "value": 3.54,
         "unit": "pct",
-        "label": "Tech GDP %"
+        "label": "R&D Intensity (% GDP)"
+      },
+      "power_price": {
+        "value": 0.63,
+        "unit": "CNY/kWh",
+        "label": "Industrial Power Price"
       }
+    },
+    "economic": {
+      "gdp_b_cny": 13570,
+      "gdp_per_capita_cny": 106814,
+      "population_m": 127.06,
+      "electricity_twh": 850
+    },
+    "ai_compute": {
+      "ai_companies": 945,
+      "smart_computing_centers": 23,
+      "dc_capacity_mw": 1400,
+      "computing_hub": "GBA"
     },
     "companies": [
       {
@@ -299,11 +592,11 @@
         "sector": "Video ISP"
       },
       {
-        "name": "Guangdong Tianyu Semiconductor",
-        "sector": "SiC Epitaxy"
+        "name": "CanSemi",
+        "sector": "Foundry"
       },
       {
-        "name": "DJI (Hasselblad)",
+        "name": "DJI",
         "sector": "Drone SoC consumer"
       },
       {
@@ -311,8 +604,8 @@
         "sector": "Consumer electronics"
       },
       {
-        "name": "CanSemi",
-        "sector": "Foundry"
+        "name": "Guangdong Tianyu Semiconductor",
+        "sector": "SiC Epitaxy"
       }
     ],
     "fabs": [
@@ -347,7 +640,86 @@
         "status": "Operating"
       }
     ],
-    "notes": "Huawei/HiSilicon anchor (~¥83.4B revenue). Largest OSAT cluster. Shenzhen produces 1/5 of China's ICs, 40% of global smartphones, 70% of global drones. R&D spending 6.46% of GDP."
+    "notes": "Huawei/HiSilicon anchors the GBA ecosystem with ~83.4B CNY revenue. Provincial IC/AI fund exceeds 100B CNY with Big Fund Phase III growing allocation. Shenzhen produces 1/5 of China's ICs, 40% of global smartphones, and 70% of global drones. Guangdong is the demand-side heavyweight -- massive downstream pull from consumer electronics drives upstream IC design investment.",
+    "investments": {
+      "semiconductor": [
+        {
+          "year": 2022,
+          "source": "CanSemi (Guangzhou Municipal Government backing)",
+          "target": "CanSemi Guangzhou 12-inch fab (3 phases)",
+          "amount_b_cny": 37.0,
+          "type": "capex",
+          "status": "active",
+          "citation": "https://www.scmp.com/tech/tech-war/article/3196774/chinas-cansemi-starts-production-guangzhou-chip-plant"
+        },
+        {
+          "year": 2024,
+          "source": "Zenxin Semiconductor",
+          "target": "Zenxin semiconductor project (Guangdong)",
+          "amount_b_cny": 7.0,
+          "type": "capex",
+          "status": "active"
+        },
+        {
+          "year": 2024,
+          "source": "Guangdong Provincial Government",
+          "target": "Saimi Semiconductor Industry Fund",
+          "amount_b_cny": 5.0,
+          "type": "guidance_fund",
+          "status": "active"
+        }
+      ],
+      "ai_compute": [
+        {
+          "year": 2024,
+          "source": "Shaoguan Municipal Government",
+          "target": "Shaoguan Data Center cluster",
+          "amount_b_cny": 62.1,
+          "type": "infrastructure",
+          "status": "planned"
+        },
+        {
+          "year": 2024,
+          "source": "Guangdong Provincial Government",
+          "target": "AI + Manufacturing integration plan",
+          "amount_b_cny": 20.0,
+          "type": "guidance_fund",
+          "status": "active"
+        },
+        {
+          "year": 2024,
+          "source": "Guangzhou Pazhou Lab / Government",
+          "target": "Pazhou AI Industry Fund",
+          "amount_b_cny": 10.0,
+          "type": "guidance_fund",
+          "status": "active"
+        },
+        {
+          "year": 2024,
+          "source": "Guangdong Provincial Government",
+          "target": "AI + Robotics Industry Fund",
+          "amount_b_cny": 10.0,
+          "type": "guidance_fund",
+          "status": "active"
+        },
+        {
+          "year": 2024,
+          "source": "Shenzhen Longgang District Government",
+          "target": "Longgang AI computing center",
+          "amount_b_cny": 1.0,
+          "type": "infrastructure",
+          "status": "active"
+        }
+      ]
+    },
+    "sources": {
+      "ic_revenue": "CSIA 2024 Annual Report",
+      "gdp": "NBS 2023 Statistical Communique",
+      "rd_intensity": "NBS 2023 S&T Expenditure Report",
+      "computing_power": "ODCC 2024 Computing Power Index",
+      "power_price": "NDRC 36-city industrial price monitor 2024",
+      "population": "NBS 2023 population data"
+    }
   },
   "110000": {
     "name_en": "Beijing",
@@ -355,35 +727,47 @@
     "region": "North China",
     "metrics": {
       "composite_score": {
-        "value": 55.0,
+        "value": 79.4,
         "unit": "index",
         "label": "Overall Score"
       },
-      "fab_capacity": {
-        "value": 45,
-        "unit": "kwpm",
-        "label": "Fab Capacity (KWPM)"
-      },
-      "ai_compute_power": {
-        "value": 400,
-        "unit": "MW",
-        "label": "AI Compute Power (MW)"
-      },
-      "gov_subsidies": {
-        "value": 45.0,
+      "ic_revenue": {
+        "value": 200,
         "unit": "B_CNY",
-        "label": "Gov Subsidies (B CNY)"
+        "label": "IC Revenue (B CNY)"
       },
-      "stem_graduates": {
-        "value": 190000,
-        "unit": "annual",
-        "label": "STEM Graduates"
+      "computing_power": {
+        "value": 92,
+        "unit": "index",
+        "label": "Computing Power Index"
       },
-      "tech_gdp_share": {
-        "value": 19.5,
+      "gov_investment": {
+        "value": 60,
+        "unit": "B_CNY",
+        "label": "Gov IC/AI Investment (B CNY)"
+      },
+      "rd_intensity": {
+        "value": 6.73,
         "unit": "pct",
-        "label": "Tech GDP %"
+        "label": "R&D Intensity (% GDP)"
+      },
+      "power_price": {
+        "value": 0.82,
+        "unit": "CNY/kWh",
+        "label": "Industrial Power Price"
       }
+    },
+    "economic": {
+      "gdp_b_cny": 4380,
+      "gdp_per_capita_cny": 200457,
+      "population_m": 21.85,
+      "electricity_twh": 130
+    },
+    "ai_compute": {
+      "ai_companies": 1250,
+      "smart_computing_centers": 14,
+      "dc_capacity_mw": 1200,
+      "computing_hub": "JJJ"
     },
     "companies": [
       {
@@ -391,12 +775,20 @@
         "sector": "Equipment"
       },
       {
-        "name": "Wingtech/Nexperia",
-        "sector": "Discrete/Assembly"
+        "name": "SMIC Beijing",
+        "sector": "Foundry"
       },
       {
-        "name": "Beijing Smartchip",
-        "sector": "IC Design"
+        "name": "Hygon/Haiguang Information",
+        "sector": "x86 CPU/DCU Design"
+      },
+      {
+        "name": "Cambricon",
+        "sector": "AI chips"
+      },
+      {
+        "name": "Moore Threads",
+        "sector": "GPU"
       },
       {
         "name": "GigaDevice",
@@ -411,20 +803,16 @@
         "sector": "x86 CPU Design"
       },
       {
-        "name": "SMIC Beijing",
-        "sector": "Foundry"
+        "name": "Wingtech/Nexperia",
+        "sector": "Discrete/Assembly"
+      },
+      {
+        "name": "Beijing Smartchip",
+        "sector": "IC Design"
       },
       {
         "name": "Tsinghua Unigroup (restructured)",
         "sector": "Memory/Design"
-      },
-      {
-        "name": "Cambricon",
-        "sector": "AI chips"
-      },
-      {
-        "name": "Moore Threads",
-        "sector": "GPU"
       }
     ],
     "fabs": [
@@ -447,103 +835,260 @@
         "status": "Under Construction"
       }
     ],
-    "notes": "China's semiconductor policy center. Home to Big Fund management (all 3 phases, $47.5B Phase III launched May 2024). NAURA is China's #1 equipment maker (~RMB 30B revenue 2024, 6th globally). SMIC Beijing expanding to 100K wpm across two phases. Zhongguancun IC Design Park hosts 30+ leading fabless firms. R&D intensity at 6.58% of GDP, highest in China. Tsinghua and Peking universities anchor the talent pipeline. Information services sector is Beijing's largest industry at 38.8% of GDP."
+    "notes": "China's semiconductor policy center and home to Big Fund management (all 3 phases). Big Fund allocated ~15B CNY to Beijing-based projects. NAURA is China's #1 equipment maker (~30B CNY revenue, 6th globally). R&D intensity at 6.73% is China's highest. AI revenue exceeds 300B CNY with 1,250+ AI companies -- the densest AI cluster in the country.",
+    "investments": {
+      "semiconductor": [
+        {
+          "year": 2015,
+          "source": "National IC Industry Investment Fund Phase I (Big Fund I)",
+          "target": "SMIC — equity investment",
+          "amount_b_cny": 15.0,
+          "type": "equity",
+          "status": "active",
+          "citation": "https://en.wikipedia.org/wiki/China_Integrated_Circuit_Industry_Investment_Fund"
+        },
+        {
+          "year": 2020,
+          "source": "National IC Industry Investment Fund Phase II (Big Fund II)",
+          "target": "SMIC — additional equity investment",
+          "amount_b_cny": 10.7,
+          "type": "equity",
+          "status": "active"
+        },
+        {
+          "year": 2025,
+          "source": "National IC Industry Investment Fund Phase III (Big Fund III) + ICBC, ABC, BOC, CCB, BoCom, PSBC",
+          "target": "SMIC South (SMSC) — capital increase",
+          "amount_b_cny": 56.0,
+          "type": "equity",
+          "status": "active",
+          "citation": "https://www.trendforce.com/news/2026/01/01/news-smic-announced-two-massive-capital-investment/"
+        },
+        {
+          "year": 2025,
+          "source": "SMIC (share issuance)",
+          "target": "SMIC North China (中芯北方) — acquisition of remaining 49%",
+          "amount_b_cny": 40.6,
+          "type": "equity",
+          "status": "active",
+          "citation": "https://www.trendforce.com/news/2026/01/01/news-smic-announced-two-massive-capital-investment/"
+        },
+        {
+          "year": 2023,
+          "source": "NAURA Technology",
+          "target": "NAURA capacity expansion",
+          "amount_b_cny": 1.5,
+          "type": "capex",
+          "status": "active"
+        },
+        {
+          "year": 2023,
+          "source": "Haidian District Government",
+          "target": "Haidian IC Industry Fund",
+          "amount_b_cny": 8.5,
+          "type": "guidance_fund",
+          "status": "active"
+        },
+        {
+          "year": 2024,
+          "source": "Beijing Yizhuang (BDA)",
+          "target": "Yizhuang 500B CNY umbrella fund for strategic industries",
+          "amount_b_cny": 500.0,
+          "type": "guidance_fund",
+          "status": "active",
+          "note": "Umbrella fund across all strategic industries, not exclusively semiconductor"
+        }
+      ],
+      "ai_compute": [
+        {
+          "year": 2024,
+          "source": "Beijing Municipal Government",
+          "target": "E-class AI Computing Center (Beijing)",
+          "amount_b_cny": 5.0,
+          "type": "infrastructure",
+          "status": "active"
+        },
+        {
+          "year": 2024,
+          "source": "Beijing Yizhuang (BDA)",
+          "target": "Yizhuang AI industry investment",
+          "amount_b_cny": 80.0,
+          "type": "infrastructure",
+          "status": "planned"
+        },
+        {
+          "year": 2024,
+          "source": "Ministry of Science and Technology / Beijing",
+          "target": "National AI Industry Investment Fund (HQ Beijing)",
+          "amount_b_cny": 60.06,
+          "type": "guidance_fund",
+          "status": "active",
+          "note": "National fund headquartered in Beijing"
+        }
+      ]
+    },
+    "sources": {
+      "ic_revenue": "CSIA 2024 Annual Report",
+      "gdp": "NBS 2023 Statistical Communique",
+      "rd_intensity": "NBS 2023 S&T Expenditure Report",
+      "computing_power": "ODCC 2024 Computing Power Index",
+      "power_price": "NDRC 36-city industrial price monitor 2024",
+      "population": "NBS 2023 population data"
+    }
   },
-  "420000": {
-    "name_en": "Hubei",
-    "name_cn": "湖北",
-    "region": "Central China",
+  "330000": {
+    "name_en": "Zhejiang",
+    "name_cn": "浙江",
+    "region": "East China",
     "metrics": {
       "composite_score": {
-        "value": 44.8,
+        "value": 67.2,
         "unit": "index",
         "label": "Overall Score"
       },
-      "fab_capacity": {
-        "value": 90,
-        "unit": "kwpm",
-        "label": "Fab Capacity (KWPM)"
-      },
-      "ai_compute_power": {
-        "value": 90,
-        "unit": "MW",
-        "label": "AI Compute Power (MW)"
-      },
-      "gov_subsidies": {
-        "value": 55.0,
+      "ic_revenue": {
+        "value": 204,
         "unit": "B_CNY",
-        "label": "Gov Subsidies (B CNY)"
+        "label": "IC Revenue (B CNY)"
       },
-      "stem_graduates": {
-        "value": 210000,
-        "unit": "annual",
-        "label": "STEM Graduates"
+      "computing_power": {
+        "value": 85,
+        "unit": "index",
+        "label": "Computing Power Index"
       },
-      "tech_gdp_share": {
-        "value": 9.5,
+      "gov_investment": {
+        "value": 20,
+        "unit": "B_CNY",
+        "label": "Gov IC/AI Investment (B CNY)"
+      },
+      "rd_intensity": {
+        "value": 3.2,
         "unit": "pct",
-        "label": "Tech GDP %"
+        "label": "R&D Intensity (% GDP)"
+      },
+      "power_price": {
+        "value": 0.68,
+        "unit": "CNY/kWh",
+        "label": "Industrial Power Price"
       }
+    },
+    "economic": {
+      "gdp_b_cny": 8260,
+      "gdp_per_capita_cny": 124622,
+      "population_m": 66.27,
+      "electricity_twh": 580
+    },
+    "ai_compute": {
+      "ai_companies": 345,
+      "smart_computing_centers": 14,
+      "dc_capacity_mw": 600,
+      "computing_hub": "YRD"
     },
     "companies": [
       {
-        "name": "YMTC",
-        "sector": "3D NAND Memory"
+        "name": "Alibaba T-Head",
+        "sector": "Fabless/Design (AI SoC)"
       },
       {
-        "name": "XMC (Wuhan Xinxin)",
-        "sector": "Foundry/NOR Flash"
+        "name": "Hikvision",
+        "sector": "ISP/AI SoC"
       },
       {
-        "name": "YOFC",
-        "sector": "Optical Fiber"
+        "name": "Dahua Technology",
+        "sector": "ISP/AI SoC"
       },
       {
-        "name": "FiberHome",
-        "sector": "Telecom/Photonics"
+        "name": "Hangzhou Silan Microelectronics",
+        "sector": "IDM (Power Semi)"
       },
       {
-        "name": "Accelink Technologies",
-        "sector": "Photonics"
+        "name": "VeriSilicon",
+        "sector": "IP/Design Services"
       },
       {
-        "name": "Wuhan Raycus",
-        "sector": "Photonics"
+        "name": "Hangzhou Semiconductor Wafer (Ferrotec)",
+        "sector": "Materials (Silicon Wafer)"
+      },
+      {
+        "name": "Zhejiang Jimaak Electronic",
+        "sector": "Materials (Sputtering Targets)"
       }
     ],
     "fabs": [
       {
-        "name": "YMTC Wuhan Phase I",
-        "node": "232L 3D NAND",
-        "capacity_kwpm": 65,
+        "name": "Silan Hangzhou (200mm)",
+        "node": "110nm power/analog",
+        "capacity_kwpm": 12,
         "status": "Operating"
       },
       {
-        "name": "YMTC Wuhan Phase II",
-        "node": "232L/270L 3D NAND",
-        "capacity_kwpm": 65,
-        "status": "Ramping"
-      },
-      {
-        "name": "YMTC Wuhan Phase III",
-        "node": "3D NAND",
-        "capacity_kwpm": 0,
-        "status": "Under Construction"
-      },
-      {
-        "name": "XMC Wuhan Fab 1",
-        "node": "40nm+ NOR/CIS/Logic",
-        "capacity_kwpm": 25,
+        "name": "Silan Hangzhou (150mm)",
+        "node": "150mm discrete/LED",
+        "capacity_kwpm": 13,
         "status": "Operating"
       },
       {
-        "name": "XMC Wuhan HBM R&D Line",
-        "node": "HBM packaging",
-        "capacity_kwpm": 3,
-        "status": "Pilot"
+        "name": "Ferrotec Hangzhou (200mm)",
+        "node": "Silicon wafer",
+        "capacity_kwpm": 8,
+        "status": "Operating"
       }
     ],
-    "notes": "YMTC is China's 3D NAND champion (270-layer). Under US sanctions since Oct 2022 but expanding. Entering DRAM market ($2.9B investment). XMC IPO on STAR Market. Optics Valley: 300+ chip enterprises, ¥600B optoelectronic industry."
+    "notes": "Hangzhou announced a 1T CNY AI industry fund plan, signaling aggressive tournament play in AI compute. Alibaba T-Head designs Yitian 710 server and Hanguang 800 inference chips. Silan is one of China's largest power semi IDMs. Strong fabless design hub but limited 300mm fab capacity leaves Zhejiang dependent on YRD neighbors for manufacturing.",
+    "investments": {
+      "semiconductor": [
+        {
+          "year": 2021,
+          "source": "Silan Microelectronics (士兰微) + Hangzhou Qiantang New District",
+          "target": "Silan 12-inch integrated circuit production line (Hangzhou)",
+          "amount_b_cny": 17.0,
+          "type": "capex",
+          "status": "active",
+          "citation": "https://www.yicaiglobal.com/news/silan-local-chinese-government-will-jointly-invest-usd26-billion-in-se-china-integrated-circuit-project",
+          "note": "17B CNY ($2.6B) total. IC chip production in Qiantang New District. 220K units/month actual output, world #2 in ≤6-inch chips."
+        },
+        {
+          "year": 2022,
+          "source": "National IC Industry Investment Fund (Big Fund I/II)",
+          "target": "Silan Microelectronics 12-inch chip project",
+          "amount_b_cny": 0.6,
+          "type": "equity",
+          "status": "active",
+          "citation": "https://jw.ijiwei.com/n/808518",
+          "note": "600M CNY from ICF for Silan's 12-inch project launched 2021."
+        }
+      ],
+      "ai_compute": [
+        {
+          "year": 2025,
+          "source": "Hangzhou Municipal Government",
+          "target": "Hangzhou AI Industry Fund (杭州人工智能产业基金) — 100B+ target",
+          "amount_b_cny": 100.0,
+          "type": "guidance_fund",
+          "status": "active",
+          "citation": "https://en.hangzhou.com.cn/News/content/2025-04/16/content_8975048.html",
+          "note": "100B+ CNY ($13.9B) target. '3+N' fund cluster leveraging social and financial capital. 50 EFLOPS intelligent computing power target by end 2025."
+        },
+        {
+          "year": 2025,
+          "source": "Alibaba Group",
+          "target": "Alibaba Cloud AI and cloud infrastructure (global, HQ Hangzhou)",
+          "amount_b_cny": 380.0,
+          "type": "capex",
+          "status": "planned",
+          "citation": "https://www.eweek.com/news/alibaba-generative-ai-cloud-investment/",
+          "note": "380B CNY ($52.4B) over 3 years — exceeds past decade of capex. Global scope but Hangzhou-anchored. 1M+ servers planned across Nantong, Hangzhou, Ulanqab."
+        }
+      ]
+    },
+    "sources": {
+      "ic_revenue": "CSIA 2024 Annual Report",
+      "gdp": "NBS 2023 Statistical Communique",
+      "rd_intensity": "NBS 2023 S&T Expenditure Report",
+      "computing_power": "ODCC 2024 Computing Power Index",
+      "power_price": "NDRC 36-city industrial price monitor 2024",
+      "population": "NBS 2023 population data"
+    }
   },
   "340000": {
     "name_en": "Anhui",
@@ -551,35 +1096,47 @@
     "region": "East China",
     "metrics": {
       "composite_score": {
-        "value": 44.3,
+        "value": 54.0,
         "unit": "index",
         "label": "Overall Score"
       },
-      "fab_capacity": {
-        "value": 215,
-        "unit": "kwpm",
-        "label": "Fab Capacity (KWPM)"
-      },
-      "ai_compute_power": {
-        "value": 75,
-        "unit": "MW",
-        "label": "AI Compute Power (MW)"
-      },
-      "gov_subsidies": {
-        "value": 22.0,
+      "ic_revenue": {
+        "value": 150,
         "unit": "B_CNY",
-        "label": "Gov Subsidies (B CNY)"
+        "label": "IC Revenue (B CNY)"
       },
-      "stem_graduates": {
-        "value": 175000,
-        "unit": "annual",
-        "label": "STEM Graduates"
+      "computing_power": {
+        "value": 55,
+        "unit": "index",
+        "label": "Computing Power Index"
       },
-      "tech_gdp_share": {
-        "value": 7.5,
+      "gov_investment": {
+        "value": 40,
+        "unit": "B_CNY",
+        "label": "Gov IC/AI Investment (B CNY)"
+      },
+      "rd_intensity": {
+        "value": 2.69,
         "unit": "pct",
-        "label": "Tech GDP %"
+        "label": "R&D Intensity (% GDP)"
+      },
+      "power_price": {
+        "value": 0.62,
+        "unit": "CNY/kWh",
+        "label": "Industrial Power Price"
       }
+    },
+    "economic": {
+      "gdp_b_cny": 4700,
+      "gdp_per_capita_cny": 76792,
+      "population_m": 61.21,
+      "electricity_twh": 310
+    },
+    "ai_compute": {
+      "ai_companies": 100,
+      "smart_computing_centers": 11,
+      "dc_capacity_mw": 200,
+      "computing_hub": "YRD"
     },
     "companies": [
       {
@@ -643,234 +1200,309 @@
         "status": "Operating"
       }
     ],
-    "notes": "Hefei is China's most aggressive municipal semiconductor investor. CXMT is China's only volume DRAM maker: 100K wpm in Fab 1, doubled to 200K wpm by Q1 2025, targeting 300K by 2026. CXMT achieved 80% DDR5 yield in late 2024. Nexchip is China's 3rd largest foundry (rev $344M in Q4 2024), launching CNY35.5B Phase IV for 55K additional wpm. Hefei GDP hit CNY1.35T in 2024. 180+ display companies anchor the ecosystem."
+    "notes": "Hefei is China's most aggressive municipal semiconductor investor, pioneering the 'Hefei Model' of direct equity stakes in CXMT and NIO. Big Fund deployed ~10B CNY (primarily CXMT) with Hefei IC fund at 30B CNY. IC revenue grew at 75.5% CAGR 2018-23 -- the fastest in China. CXMT achieved 80% DDR5 yield and is China's only volume DRAM maker, targeting 300K wpm by 2026.",
+    "investments": {
+      "semiconductor": [
+        {
+          "year": 2008,
+          "source": "Hefei Municipal Government (via Hefei Jiantou 合肥建投 + Hefei Chantou 合肥产投)",
+          "target": "BOE 6th-generation LCD production line (template investment — the Hefei Model)",
+          "amount_b_cny": 3.0,
+          "type": "equity",
+          "status": "active",
+          "citation": "https://sinocities.substack.com/p/city-report-hefei-local-state-as",
+          "note": "Government invested 3B CNY (two platforms, 1.5B each). Leveraged to 12B total raise. Hefei's annual fiscal revenue was only 16.1B at the time. Floating gains exceeded 10B+ at peak."
+        },
+        {
+          "year": 2016,
+          "source": "Hefei Municipal Government + Anhui Province",
+          "target": "CXMT (ChangXin Memory Technologies 长鑫存储) — founding investment ('506 Project')",
+          "amount_b_cny": 54.0,
+          "type": "equity",
+          "status": "active",
+          "citation": "https://hellochinatech.com/p/hefei-model-cxmt-ipo-china-semiconductor",
+          "note": "~54B CNY in provincial government funding for the '506 Project'. City government shouldered ~75% of initial capital. Groundbreaking 2017, first DDR4 chip 2019."
+        },
+        {
+          "year": 2023,
+          "source": "National IC Industry Investment Fund Phase II (Big Fund II) + Hefei government affiliates",
+          "target": "Changxin Xinqiao Memory Technologies (长鑫新桥) — capital increase",
+          "amount_b_cny": 39.0,
+          "type": "equity",
+          "status": "active",
+          "citation": "https://www.tomshardware.com/tech-industry/manufacturing/china-increases-investment-in-domestic-memory-maker-to-dollar54-billion-report",
+          "note": "39B CNY ($5.4B). Big Fund II + two Hefei government-affiliated investors. Targeting 3-year mass production timeline."
+        },
+        {
+          "year": 2025,
+          "source": "CXMT (IPO on STAR Market)",
+          "target": "CXMT IPO — proceeds for DRAM manufacturing upgrades",
+          "amount_b_cny": 29.5,
+          "type": "equity",
+          "status": "planned",
+          "citation": "https://finance.yahoo.com/news/chinas-cxmt-eyes-4-2-044325583.html",
+          "note": "29.5B CNY ($4.22B) IPO planned. 10.6B shares. Implied valuation ~300B CNY ($43B). Proceeds for DRAM wafer lines, process upgrades, R&D."
+        },
+        {
+          "year": 2015,
+          "source": "Hefei City Construction and Investment Holding Group (国资) + Powerchip (Taiwan)",
+          "target": "Nexchip Semiconductor (合肥晶合集成) — founding JV",
+          "amount_b_cny": null,
+          "type": "equity",
+          "status": "active",
+          "citation": "https://en.wikipedia.org/wiki/Nexchip",
+          "note": "JV between Hefei state-owned Jiantou and Taiwanese Powerchip. Now China's 3rd largest foundry."
+        },
+        {
+          "year": 2026,
+          "source": "Nexchip Semiconductor",
+          "target": "Nexchip Phase IV expansion (合肥晶合四期)",
+          "amount_b_cny": 35.5,
+          "type": "capex",
+          "status": "active",
+          "citation": "https://www.digitimes.com/news/a20260105VL203/nexchip-capacity-28nm-wafer-fab.html",
+          "note": "35.5B CNY ($5.07B). Construction began Jan 2026. Equipment install Q4 2026, full capacity Q2 2028. 12-inch mature-node expansion."
+        },
+        {
+          "year": 2016,
+          "source": "Hefei Municipal Government (via Hefei Xinping Industrial Investment Fund 合肥芯屏产业投资基金)",
+          "target": "Hefei Chip-Screen Fund ('Xinping Fund') — strategic industries fund",
+          "amount_b_cny": null,
+          "type": "guidance_fund",
+          "status": "active",
+          "citation": "https://sinocities.substack.com/p/city-report-hefei-local-state-as",
+          "note": "Focus on semiconductors and display panels. Exact fund size not publicly confirmed; part of broader Hefei venture capital ecosystem."
+        }
+      ],
+      "ai_compute": [
+        {
+          "year": 2024,
+          "source": "Hefei Municipal / Anhui Provincial Government",
+          "target": "Hefei AI and advanced computing infrastructure",
+          "amount_b_cny": null,
+          "type": "infrastructure",
+          "status": "active",
+          "note": "Hefei has established multiple AI computing centers as part of East-West Computing Transfer. Specific investment figures not individually disclosed."
+        }
+      ]
+    },
+    "sources": {
+      "ic_revenue": "CSIA 2024 Annual Report",
+      "gdp": "NBS 2023 Statistical Communique",
+      "rd_intensity": "NBS 2023 S&T Expenditure Report",
+      "computing_power": "ODCC 2024 Computing Power Index",
+      "power_price": "NDRC 36-city industrial price monitor 2024",
+      "population": "NBS 2023 population data"
+    }
   },
-  "610000": {
-    "name_en": "Shaanxi",
-    "name_cn": "陕西",
-    "region": "Northwest China",
+  "420000": {
+    "name_en": "Hubei",
+    "name_cn": "湖北",
+    "region": "Central China",
     "metrics": {
       "composite_score": {
-        "value": 40.1,
+        "value": 48.2,
         "unit": "index",
         "label": "Overall Score"
       },
-      "fab_capacity": {
-        "value": 250,
-        "unit": "kwpm",
-        "label": "Fab Capacity (KWPM)"
+      "ic_revenue": {
+        "value": 100,
+        "unit": "B_CNY",
+        "label": "IC Revenue (B CNY)"
       },
-      "ai_compute_power": {
+      "computing_power": {
         "value": 50,
-        "unit": "MW",
-        "label": "AI Compute Power (MW)"
+        "unit": "index",
+        "label": "Computing Power Index"
       },
-      "gov_subsidies": {
-        "value": 10.0,
+      "gov_investment": {
+        "value": 49,
         "unit": "B_CNY",
-        "label": "Gov Subsidies (B CNY)"
+        "label": "Gov IC/AI Investment (B CNY)"
       },
-      "stem_graduates": {
-        "value": 165000,
-        "unit": "annual",
-        "label": "STEM Graduates"
-      },
-      "tech_gdp_share": {
-        "value": 6.5,
+      "rd_intensity": {
+        "value": 2.5,
         "unit": "pct",
-        "label": "Tech GDP %"
+        "label": "R&D Intensity (% GDP)"
+      },
+      "power_price": {
+        "value": 0.62,
+        "unit": "CNY/kWh",
+        "label": "Industrial Power Price"
       }
+    },
+    "economic": {
+      "gdp_b_cny": 5580,
+      "gdp_per_capita_cny": 97043,
+      "population_m": 57.5,
+      "electricity_twh": 310
+    },
+    "ai_compute": {
+      "ai_companies": 108,
+      "smart_computing_centers": 6,
+      "dc_capacity_mw": 200,
+      "computing_hub": null
     },
     "companies": [
       {
-        "name": "Samsung Xi'an",
-        "sector": "NAND Flash"
+        "name": "YMTC",
+        "sector": "3D NAND Memory"
       },
       {
-        "name": "Micron Xi'an",
-        "sector": "DRAM Backend/Packaging"
+        "name": "XMC (Wuhan Xinxin)",
+        "sector": "Foundry/NOR Flash"
       },
       {
-        "name": "UniIC (Tsinghua Unigroup)",
-        "sector": "Memory/ASIC Design"
+        "name": "San'an Optoelectronics",
+        "sector": "Compound Semi"
       },
       {
-        "name": "Tianshui Huatian Technology",
-        "sector": "OSAT/Packaging"
+        "name": "YOFC",
+        "sector": "Optical Fiber"
       },
       {
-        "name": "Xi'an Jiaotong University",
-        "sector": "Research"
+        "name": "FiberHome",
+        "sector": "Telecom/Photonics"
       },
       {
-        "name": "Northwestern Polytechnical University",
-        "sector": "Research"
+        "name": "Accelink Technologies",
+        "sector": "Photonics"
+      },
+      {
+        "name": "Wuhan Raycus",
+        "sector": "Photonics"
       }
     ],
     "fabs": [
       {
-        "name": "Samsung Xi'an NAND Phase 1",
-        "node": "V-NAND (V8/V9)",
-        "capacity_kwpm": 120,
+        "name": "YMTC Wuhan Phase I",
+        "node": "232L 3D NAND",
+        "capacity_kwpm": 65,
         "status": "Operating"
       },
       {
-        "name": "Samsung Xi'an NAND Phase 2",
-        "node": "V-NAND (V8/V9)",
-        "capacity_kwpm": 130,
+        "name": "YMTC Wuhan Phase II",
+        "node": "232L/270L 3D NAND",
+        "capacity_kwpm": 65,
+        "status": "Ramping"
+      },
+      {
+        "name": "YMTC Wuhan Phase III",
+        "node": "3D NAND",
+        "capacity_kwpm": 0,
+        "status": "Under Construction"
+      },
+      {
+        "name": "XMC Wuhan Fab 1",
+        "node": "40nm+ NOR/CIS/Logic",
+        "capacity_kwpm": 25,
         "status": "Operating"
+      },
+      {
+        "name": "XMC Wuhan HBM R&D Line",
+        "node": "HBM packaging",
+        "capacity_kwpm": 3,
+        "status": "Pilot"
       }
     ],
-    "notes": "Samsung's largest overseas NAND complex (~15% of global NAND output). 120+ IC design companies. Strong university base (Xi'an Jiaotong, Northwestern Poly). Shaanxi 'Strong Chip Project'."
-  },
-  "330000": {
-    "name_en": "Zhejiang",
-    "name_cn": "浙江",
-    "region": "East China",
-    "metrics": {
-      "composite_score": {
-        "value": 31.4,
-        "unit": "index",
-        "label": "Overall Score"
-      },
-      "fab_capacity": {
-        "value": 33,
-        "unit": "kwpm",
-        "label": "Fab Capacity (KWPM)"
-      },
-      "ai_compute_power": {
-        "value": 180,
-        "unit": "MW",
-        "label": "AI Compute Power (MW)"
-      },
-      "gov_subsidies": {
-        "value": 14.0,
-        "unit": "B_CNY",
-        "label": "Gov Subsidies (B CNY)"
-      },
-      "stem_graduates": {
-        "value": 195000,
-        "unit": "annual",
-        "label": "STEM Graduates"
-      },
-      "tech_gdp_share": {
-        "value": 8.5,
-        "unit": "pct",
-        "label": "Tech GDP %"
-      }
+    "notes": "YMTC received the single largest Big Fund allocation at ~19B CNY, making Hubei a top recipient of central government semiconductor capital. Wuhan IC fund adds 30B+ CNY. YMTC is China's 3D NAND champion (270-layer) and expanding despite US sanctions since Oct 2022. Optics Valley hosts 300+ chip enterprises with a 600B CNY optoelectronic industry.",
+    "investments": {
+      "semiconductor": [
+        {
+          "year": 2016,
+          "source": "Tsinghua Unigroup / Hubei Provincial Government",
+          "target": "YMTC (Yangtze Memory Technologies) — total cumulative investment",
+          "amount_b_cny": 160.0,
+          "type": "capex",
+          "status": "active"
+        },
+        {
+          "year": 2016,
+          "source": "National IC Industry Investment Fund Phase I (Big Fund I)",
+          "target": "YMTC — equity investment",
+          "amount_b_cny": 13.6,
+          "type": "equity",
+          "status": "active",
+          "citation": "https://en.wikipedia.org/wiki/China_Integrated_Circuit_Industry_Investment_Fund"
+        },
+        {
+          "year": 2020,
+          "source": "National IC Industry Investment Fund Phase II (Big Fund II)",
+          "target": "YMTC — additional equity investment",
+          "amount_b_cny": 12.9,
+          "type": "equity",
+          "status": "active"
+        },
+        {
+          "year": 2024,
+          "source": "YMTC",
+          "target": "YMTC Phase III expansion",
+          "amount_b_cny": 20.7,
+          "type": "capex",
+          "status": "planned"
+        },
+        {
+          "year": 2022,
+          "source": "Hubei Provincial Government",
+          "target": "Hubei IC Industry Fund",
+          "amount_b_cny": 30.0,
+          "type": "guidance_fund",
+          "status": "active"
+        },
+        {
+          "year": 2017,
+          "source": "Wuhan Municipal Government / Private investors",
+          "target": "Wuhan Hongxin Semiconductor (HSMC) — 14nm/7nm fab (FAILED)",
+          "amount_b_cny": 2.0,
+          "type": "capex",
+          "status": "failed",
+          "note": "128B CNY announced, only ~2B CNY actual investment before collapse. Operations ceased 2020."
+        },
+        {
+          "year": 2015,
+          "source": "Wuhan Xinxin Semiconductor (XMC) / Government",
+          "target": "XMC NOR Flash / foundry expansion",
+          "amount_b_cny": 5.0,
+          "type": "capex",
+          "status": "active"
+        },
+        {
+          "year": 2024,
+          "source": "Changfei Optics / Hubei Government",
+          "target": "Changfei SiC project (Hubei)",
+          "amount_b_cny": 20.0,
+          "type": "capex",
+          "status": "planned"
+        }
+      ],
+      "ai_compute": [
+        {
+          "year": 2023,
+          "source": "Wuhan Municipal Government",
+          "target": "Wuhan AI Computing Center",
+          "amount_b_cny": 1.0,
+          "type": "infrastructure",
+          "status": "active"
+        },
+        {
+          "year": 2023,
+          "source": "Hubei Provincial Government / Optics Valley",
+          "target": "Optics Valley Industry Fund (光谷产业基金)",
+          "amount_b_cny": 50.0,
+          "type": "guidance_fund",
+          "status": "active",
+          "note": "Broader fund covering optoelectronics, AI, and semiconductor sectors"
+        }
+      ]
     },
-    "companies": [
-      {
-        "name": "Alibaba T-Head",
-        "sector": "Fabless/Design (AI SoC)"
-      },
-      {
-        "name": "Hikvision",
-        "sector": "ISP/AI SoC"
-      },
-      {
-        "name": "Dahua Technology",
-        "sector": "ISP/AI SoC"
-      },
-      {
-        "name": "Hangzhou Silan Microelectronics",
-        "sector": "IDM (Power Semi)"
-      },
-      {
-        "name": "VeriSilicon",
-        "sector": "IP/Design Services"
-      },
-      {
-        "name": "Hangzhou Semiconductor Wafer (Ferrotec)",
-        "sector": "Materials (Silicon Wafer)"
-      },
-      {
-        "name": "Zhejiang Jimaak Electronic",
-        "sector": "Materials (Sputtering Targets)"
-      }
-    ],
-    "fabs": [
-      {
-        "name": "Silan Hangzhou (200mm)",
-        "node": "110nm power/analog",
-        "capacity_kwpm": 12,
-        "status": "Operating"
-      },
-      {
-        "name": "Silan Hangzhou (150mm)",
-        "node": "150mm discrete/LED",
-        "capacity_kwpm": 13,
-        "status": "Operating"
-      },
-      {
-        "name": "Ferrotec Hangzhou (200mm)",
-        "node": "Silicon wafer",
-        "capacity_kwpm": 8,
-        "status": "Operating"
-      }
-    ],
-    "notes": "Alibaba T-Head designs Yitian 710 server chips and Hanguang 800 AI inference chips in Hangzhou. Hikvision invests CNY11.9B in R&D (2024) including custom AI/ISP chips. Silan is one of China's largest power semi IDMs with 220K 6-inch wpm in Hangzhou (world #2 in sub-6-inch capacity). Emerging fabless design hub; limited 300mm fab presence."
-  },
-  "520000": {
-    "name_en": "Guizhou",
-    "name_cn": "贵州",
-    "region": "Southwest China",
-    "metrics": {
-      "composite_score": {
-        "value": 28.8,
-        "unit": "index",
-        "label": "Overall Score"
-      },
-      "fab_capacity": {
-        "value": 0,
-        "unit": "kwpm",
-        "label": "Fab Capacity (KWPM)"
-      },
-      "ai_compute_power": {
-        "value": 540,
-        "unit": "MW",
-        "label": "AI Compute Power (MW)"
-      },
-      "gov_subsidies": {
-        "value": 5.0,
-        "unit": "B_CNY",
-        "label": "Gov Subsidies (B CNY)"
-      },
-      "stem_graduates": {
-        "value": 55000,
-        "unit": "annual",
-        "label": "STEM Graduates"
-      },
-      "tech_gdp_share": {
-        "value": 5.5,
-        "unit": "pct",
-        "label": "Tech GDP %"
-      }
-    },
-    "companies": [
-      {
-        "name": "Guizhou-Cloud Big Data (Apple iCloud China)",
-        "sector": "Cloud/Datacenter"
-      },
-      {
-        "name": "Huawei Cloud Guian",
-        "sector": "Cloud/Datacenter"
-      },
-      {
-        "name": "Tencent Qixing DC",
-        "sector": "Cloud/Datacenter"
-      },
-      {
-        "name": "China Telecom Guizhou",
-        "sector": "Cloud/Datacenter"
-      },
-      {
-        "name": "Alibaba Cloud",
-        "sector": "Datacenter"
-      }
-    ],
-    "fabs": [],
-    "notes": "China's data valley. 86 EFLOPS computing power, providing 23% of China's total. 49+ major DCs. Huawei deploying 1M servers in Gui'an. Central to East Data West Computing strategy. Digital economy = 42% of GDP."
+    "sources": {
+      "ic_revenue": "CSIA 2024 Annual Report",
+      "gdp": "NBS 2023 Statistical Communique",
+      "rd_intensity": "NBS 2023 S&T Expenditure Report",
+      "computing_power": "ODCC 2024 Computing Power Index",
+      "power_price": "NDRC 36-city industrial price monitor 2024",
+      "population": "NBS 2023 population data"
+    }
   },
   "370000": {
     "name_en": "Shandong",
@@ -878,35 +1510,47 @@
     "region": "East China",
     "metrics": {
       "composite_score": {
-        "value": 22.8,
+        "value": 36.0,
         "unit": "index",
         "label": "Overall Score"
       },
-      "fab_capacity": {
-        "value": 15,
-        "unit": "kwpm",
-        "label": "Fab Capacity (KWPM)"
-      },
-      "ai_compute_power": {
-        "value": 50,
-        "unit": "MW",
-        "label": "AI Compute Power (MW)"
-      },
-      "gov_subsidies": {
-        "value": 6.0,
+      "ic_revenue": {
+        "value": 30,
         "unit": "B_CNY",
-        "label": "Gov Subsidies (B CNY)"
+        "label": "IC Revenue (B CNY)"
       },
-      "stem_graduates": {
-        "value": 240000,
-        "unit": "annual",
-        "label": "STEM Graduates"
+      "computing_power": {
+        "value": 60,
+        "unit": "index",
+        "label": "Computing Power Index"
       },
-      "tech_gdp_share": {
-        "value": 3.5,
+      "gov_investment": {
+        "value": 8,
+        "unit": "B_CNY",
+        "label": "Gov IC/AI Investment (B CNY)"
+      },
+      "rd_intensity": {
+        "value": 2.41,
         "unit": "pct",
-        "label": "Tech GDP %"
+        "label": "R&D Intensity (% GDP)"
+      },
+      "power_price": {
+        "value": 0.65,
+        "unit": "CNY/kWh",
+        "label": "Industrial Power Price"
       }
+    },
+    "economic": {
+      "gdp_b_cny": 9210,
+      "gdp_per_capita_cny": 90975,
+      "population_m": 101.22,
+      "electricity_twh": 620
+    },
+    "ai_compute": {
+      "ai_companies": 170,
+      "smart_computing_centers": 11,
+      "dc_capacity_mw": 400,
+      "computing_hub": null
     },
     "companies": [
       {
@@ -962,7 +1606,61 @@
         "status": "Operating"
       }
     ],
-    "notes": "Inspur is China's #1 AI server maker. SICC is world's #2 SiC substrate maker. Tianyue has world's first 12-inch SiC substrate."
+    "notes": "Shandong competes on SiC materials rather than logic fabs. SICC is world's #2 SiC substrate maker, Tianyue holds the world's first 12-inch SiC substrate. Inspur is China's #1 AI server maker, giving the province weight in compute infrastructure. Modest IC industry but large economic base and moderate R&D intensity support gradual scaling.",
+    "investments": {
+      "semiconductor": [
+        {
+          "year": 2018,
+          "source": "Jinan Municipal Government / Private investors",
+          "target": "Jinan Funenergy Semiconductor (济南富能半导体) — 8/12-inch fabs",
+          "amount_b_cny": 6.0,
+          "type": "capex",
+          "status": "planned",
+          "citation": "https://zhuanlan.zhihu.com/p/16449642987",
+          "note": "Phase 1 investment 6B CNY. Planned two 8-inch and one 12-inch fabs. Provincial key support project. Trial production began 2020."
+        },
+        {
+          "year": 2019,
+          "source": "Jinan Government backing",
+          "target": "Jinan Quanxin IC Manufacturing (济南泉芯集成电路) — 12-inch fab (FAILED)",
+          "amount_b_cny": 59.8,
+          "type": "capex",
+          "status": "failed",
+          "citation": "https://www.tomshardware.com/tech-industry/semiconductors/zombie-fabs-plague-chinas-chipmaking-ambitions-failures-burning-tens-of-billions-of-dollars",
+          "note": "59.8B CNY planned. Claimed 7nm target. FAILED: capital chain broke, no equipment orders, no construction. Operations suspended by 2021. Classic zombie fab."
+        },
+        {
+          "year": 2024,
+          "source": "Shandong Provincial Government",
+          "target": "Shandong major projects list — 1 trillion total across sectors",
+          "amount_b_cny": null,
+          "type": "infrastructure",
+          "status": "active",
+          "citation": "https://news.global-ce.com/n/202401/29/130645.html",
+          "note": "Shandong released 1T CNY major project list for 2024 across all sectors. Semi/AI not individually broken out."
+        }
+      ],
+      "ai_compute": [
+        {
+          "year": 2025,
+          "source": "Shandong Provincial Government / Qingdao Municipal",
+          "target": "Shandong first AI computing center (山东首个人工智能算力中心) — operations began",
+          "amount_b_cny": null,
+          "type": "infrastructure",
+          "status": "active",
+          "citation": "https://blog.csdn.net/Daokeyunkj/article/details/146196401",
+          "note": "Shandong's first AI computing center officially entered operation in 2025. Exact investment amount not disclosed in available public sources."
+        }
+      ]
+    },
+    "sources": {
+      "ic_revenue": "CSIA 2024 Annual Report",
+      "gdp": "NBS 2023 Statistical Communique",
+      "rd_intensity": "NBS 2023 S&T Expenditure Report",
+      "computing_power": "ODCC 2024 Computing Power Index",
+      "power_price": "NDRC 36-city industrial price monitor 2024",
+      "population": "NBS 2023 population data"
+    }
   },
   "510000": {
     "name_en": "Sichuan",
@@ -970,35 +1668,47 @@
     "region": "Southwest China",
     "metrics": {
       "composite_score": {
-        "value": 21.0,
+        "value": 37.2,
         "unit": "index",
         "label": "Overall Score"
       },
-      "fab_capacity": {
-        "value": 15,
-        "unit": "kwpm",
-        "label": "Fab Capacity (KWPM)"
-      },
-      "ai_compute_power": {
-        "value": 70,
-        "unit": "MW",
-        "label": "AI Compute Power (MW)"
-      },
-      "gov_subsidies": {
-        "value": 10.0,
+      "ic_revenue": {
+        "value": 40,
         "unit": "B_CNY",
-        "label": "Gov Subsidies (B CNY)"
+        "label": "IC Revenue (B CNY)"
       },
-      "stem_graduates": {
-        "value": 200000,
-        "unit": "annual",
-        "label": "STEM Graduates"
+      "computing_power": {
+        "value": 45,
+        "unit": "index",
+        "label": "Computing Power Index"
       },
-      "tech_gdp_share": {
-        "value": 5.5,
+      "gov_investment": {
+        "value": 50,
+        "unit": "B_CNY",
+        "label": "Gov IC/AI Investment (B CNY)"
+      },
+      "rd_intensity": {
+        "value": 2.26,
         "unit": "pct",
-        "label": "Tech GDP %"
+        "label": "R&D Intensity (% GDP)"
+      },
+      "power_price": {
+        "value": 0.62,
+        "unit": "CNY/kWh",
+        "label": "Industrial Power Price"
       }
+    },
+    "economic": {
+      "gdp_b_cny": 6010,
+      "gdp_per_capita_cny": 71829,
+      "population_m": 83.68,
+      "electricity_twh": 400
+    },
+    "ai_compute": {
+      "ai_companies": 86,
+      "smart_computing_centers": 8,
+      "dc_capacity_mw": 400,
+      "computing_hub": "Chengdu-Chongqing"
     },
     "companies": [
       {
@@ -1012,6 +1722,10 @@
       {
         "name": "Huahong Chengdu (ex-GF)",
         "sector": "Foundry"
+      },
+      {
+        "name": "Texas Instruments Chengdu",
+        "sector": "Analog"
       }
     ],
     "fabs": [
@@ -1028,67 +1742,255 @@
         "status": "Ramping"
       }
     ],
-    "notes": "Intel's largest China A/T facility ($300M expansion Oct 2024). Hygon/Haiguang revenue ¥9.15B (2024, +52% YoY), market cap ¥600B+. 100+ IC design companies. UESTC pipeline."
+    "notes": "Chengdu announced a 50B CNY AI fund, aggressively competing with eastern cities for AI investment. Intel's largest China A/T facility received a $300M expansion in Oct 2024. Hygon/Haiguang revenue hit 9.15B CNY (2024, +52% YoY) with 600B+ market cap, making Chengdu a rising center for domestic x86/DCU chip design.",
+    "investments": {
+      "semiconductor": [
+        {
+          "year": 2003,
+          "source": "Intel",
+          "target": "Intel Products (Chengdu) — OSAT facility Phase 1",
+          "amount_b_cny": 1.9,
+          "type": "capex",
+          "status": "active",
+          "citation": "https://www.exploreintel.com/chengdu",
+          "note": "$525M cumulative by 2006 including microprocessor factory"
+        },
+        {
+          "year": 2024,
+          "source": "Intel",
+          "target": "Intel Products (Chengdu) — server chip packaging expansion",
+          "amount_b_cny": 2.16,
+          "type": "capex",
+          "status": "planned",
+          "citation": "https://www.scmp.com/tech/big-tech/article/3284195/intel-invests-us300-million-china-chip-packaging-and-testing-plant",
+          "note": "$300M announced Oct 2024"
+        },
+        {
+          "year": 2010,
+          "source": "Texas Instruments",
+          "target": "TI Semiconductor Manufacturing (Chengdu) — 200mm fab",
+          "amount_b_cny": 2.0,
+          "type": "capex",
+          "status": "planned",
+          "citation": "https://www.ti.com/about-ti/newsroom/news-releases/2010/2010-10-14-texas-instruments-opens-the-company-s-first-semiconductor-manufacturing-plant-in-china.html",
+          "note": "Up to $275M initial; $1.69B total planned over 15 years"
+        },
+        {
+          "year": 2013,
+          "source": "Texas Instruments",
+          "target": "TI Chengdu — UTAC facility acquisition for assembly/test",
+          "amount_b_cny": null,
+          "type": "capex",
+          "status": "active",
+          "citation": "https://www.ti.com/about-ti/newsroom/news-releases/2013/2013-12-19-texas-instruments-acquires-utac-facility-in-chengdu--china.html",
+          "note": "Undisclosed acquisition; part of $1.69B 15-year plan"
+        }
+      ],
+      "ai_compute": [
+        {
+          "year": 2022,
+          "source": "Chengdu Municipal Government / Huawei",
+          "target": "Chengdu Smart Computing Center (成都智算中心) — Ascend 300P",
+          "amount_b_cny": 10.9,
+          "type": "infrastructure",
+          "status": "active",
+          "citation": "https://www.ithome.com/0/617/791.htm",
+          "note": "Total project investment 109B CNY; 300P FP16 Ascend AI cluster"
+        },
+        {
+          "year": 2024,
+          "source": "Chengdu Municipal Government",
+          "target": "Chengdu AI Industry Fund (成都人工智能产业基金)",
+          "amount_b_cny": 5.0,
+          "type": "guidance_fund",
+          "status": "planned",
+          "citation": "https://startup.aliyun.com/info/1088423.html",
+          "note": "50B CNY total target; first close 1B CNY. Broader 15B fund cluster planned."
+        },
+        {
+          "year": 2022,
+          "source": "Sichuan Provincial / Chengdu Government",
+          "target": "Tianfu Data Center Cluster (天府数据中心集群) — East-West Computing",
+          "amount_b_cny": 10.0,
+          "type": "infrastructure",
+          "status": "active",
+          "citation": "https://cds.sczwfw.gov.cn/art/2022/8/3/art_15395_186421.html",
+          "note": "Sichuan Energy Investment Tianfu Cloud Data Base alone is 10B CNY; 500 mu site, 50K cabinets"
+        }
+      ]
+    },
+    "sources": {
+      "ic_revenue": "CSIA 2024 Annual Report",
+      "gdp": "NBS 2023 Statistical Communique",
+      "rd_intensity": "NBS 2023 S&T Expenditure Report",
+      "computing_power": "ODCC 2024 Computing Power Index",
+      "power_price": "NDRC 36-city industrial price monitor 2024",
+      "population": "NBS 2023 population data"
+    }
   },
-  "210000": {
-    "name_en": "Liaoning",
-    "name_cn": "辽宁",
-    "region": "Northeast China",
+  "610000": {
+    "name_en": "Shaanxi",
+    "name_cn": "陕西",
+    "region": "Northwest China",
     "metrics": {
       "composite_score": {
-        "value": 19.9,
+        "value": 36.2,
         "unit": "index",
         "label": "Overall Score"
       },
-      "fab_capacity": {
-        "value": 100,
-        "unit": "kwpm",
-        "label": "Fab Capacity (KWPM)"
-      },
-      "ai_compute_power": {
-        "value": 30,
-        "unit": "MW",
-        "label": "AI Compute Power (MW)"
-      },
-      "gov_subsidies": {
-        "value": 5.0,
+      "ic_revenue": {
+        "value": 60,
         "unit": "B_CNY",
-        "label": "Gov Subsidies (B CNY)"
+        "label": "IC Revenue (B CNY)"
       },
-      "stem_graduates": {
-        "value": 120000,
-        "unit": "annual",
-        "label": "STEM Graduates"
+      "computing_power": {
+        "value": 42,
+        "unit": "index",
+        "label": "Computing Power Index"
       },
-      "tech_gdp_share": {
-        "value": 3.5,
+      "gov_investment": {
+        "value": 10,
+        "unit": "B_CNY",
+        "label": "Gov IC/AI Investment (B CNY)"
+      },
+      "rd_intensity": {
+        "value": 2.28,
         "unit": "pct",
-        "label": "Tech GDP %"
+        "label": "R&D Intensity (% GDP)"
+      },
+      "power_price": {
+        "value": 0.57,
+        "unit": "CNY/kWh",
+        "label": "Industrial Power Price"
       }
+    },
+    "economic": {
+      "gdp_b_cny": 3390,
+      "gdp_per_capita_cny": 85770,
+      "population_m": 39.53,
+      "electricity_twh": 220
+    },
+    "ai_compute": {
+      "ai_companies": 50,
+      "smart_computing_centers": 4,
+      "dc_capacity_mw": 150,
+      "computing_hub": null
     },
     "companies": [
       {
-        "name": "SK Hynix Dalian (Solidigm)",
+        "name": "Samsung Xi'an",
         "sector": "NAND Flash"
       },
       {
-        "name": "Dalian University of Technology",
+        "name": "Micron Xi'an",
+        "sector": "DRAM Backend/Packaging"
+      },
+      {
+        "name": "UniIC (Tsinghua Unigroup)",
+        "sector": "Memory/ASIC Design"
+      },
+      {
+        "name": "Tianshui Huatian Technology",
+        "sector": "OSAT/Packaging"
+      },
+      {
+        "name": "Xi'an Jiaotong University",
         "sector": "Research"
       },
       {
-        "name": "Shenyang Institute of Computing (CAS)",
+        "name": "Northwestern Polytechnical University",
         "sector": "Research"
       }
     ],
     "fabs": [
       {
-        "name": "SK Hynix Dalian (ex-Intel)",
-        "node": "192-layer 3D NAND",
-        "capacity_kwpm": 100,
+        "name": "Samsung Xi'an NAND Phase 1",
+        "node": "V-NAND (V8/V9)",
+        "capacity_kwpm": 120,
+        "status": "Operating"
+      },
+      {
+        "name": "Samsung Xi'an NAND Phase 2",
+        "node": "V-NAND (V8/V9)",
+        "capacity_kwpm": 130,
         "status": "Operating"
       }
     ],
-    "notes": "SK Hynix completed $9B acquisition of Intel's Dalian NAND fab in April 2025. Facility produces ~100K wafers/month of 192-layer NAND, accounting for ~20% of SK Hynix total NAND output. SK Hynix has denied sale rumors: 'Not considering selling at all.' Faces US export control risks with Validated End-User status under annual review. Dalian was Intel's first fab in China (2010). Strong university research base but commercial ecosystem is thin beyond the fab."
+    "notes": "Samsung's Xi'an complex is one of the world's largest NAND facilities (~15% of global NAND output), but foreign-owned capacity doesn't translate to provincial tournament leverage. Provincial 'Strong Chip Project' is modest at ~10B CNY. The tension: Xi'an hosts massive fab capacity it doesn't control, while trying to build domestic design capability with 120+ IC design companies.",
+    "investments": {
+      "semiconductor": [
+        {
+          "year": 2012,
+          "source": "Samsung Electronics",
+          "target": "Samsung Xi'an NAND Fab — Plant 1 (Phase 1 + Phase 2)",
+          "amount_b_cny": 72.0,
+          "type": "capex",
+          "status": "active",
+          "citation": "https://news.samsung.com/global/groundbreaking-for-memory-manufacturing-complex-in-china",
+          "note": "~$10B USD total for first plant. Groundbreaking Sep 2012, production May 2014."
+        },
+        {
+          "year": 2017,
+          "source": "Samsung Electronics",
+          "target": "Samsung Xi'an NAND Fab — Plant 2 Phase 1",
+          "amount_b_cny": 50.4,
+          "type": "capex",
+          "status": "active",
+          "citation": "https://www.globaltimes.cn/page/202103/1218073.shtml",
+          "note": "$7B USD. Agreement signed Aug 2017 with Shaanxi provincial government."
+        },
+        {
+          "year": 2019,
+          "source": "Samsung Electronics",
+          "target": "Samsung Xi'an NAND Fab — Plant 2 Phase 2",
+          "amount_b_cny": 57.6,
+          "type": "capex",
+          "status": "planned",
+          "citation": "https://www.samwinsemi.com/news/samsung-will-invest-8-billion-dollars-to-xian-wafer-foundry-to-bet-on-chinas-5g.html",
+          "note": "$8B USD. Announced Dec 2019, completed mid-2021."
+        },
+        {
+          "year": null,
+          "source": "Samsung Electronics",
+          "target": "Samsung Xi'an NAND — CUMULATIVE TOTAL",
+          "amount_b_cny": 186.3,
+          "type": "capex",
+          "status": "active",
+          "citation": "https://www.businesskorea.co.kr/news/articleView.html?idxno=90095",
+          "note": "Total $25.87B USD (31.536T KRW) cumulative investment across all phases. One of largest single foreign investments in China."
+        },
+        {
+          "year": 2016,
+          "source": "Shaanxi Provincial Government / Xi'an Municipal / Big Fund",
+          "target": "Shaanxi IC Industry Investment Fund (陕西省集成电路产业投资基金)",
+          "amount_b_cny": 6.0,
+          "type": "guidance_fund",
+          "status": "active",
+          "citation": "https://www.esmchina.com/news/201609131547.html",
+          "note": "Initial 6B CNY; target 30B CNY. First close 3.33B from provincial/city/district."
+        }
+      ],
+      "ai_compute": [
+        {
+          "year": 2022,
+          "source": "Xi'an Yanta District Government / Huawei",
+          "target": "Xi'an Future AI Computing Center (西安未来人工智能计算中心) — Ascend 300P→500P",
+          "amount_b_cny": 1.9,
+          "type": "infrastructure",
+          "status": "planned",
+          "citation": "https://www.thepaper.cn/newsDetail_forward_22746390",
+          "note": "~1.9B CNY Phase 1 (19B total project including R&D center). 300P initial, expanded to 500P, planned 1000P."
+        }
+      ]
+    },
+    "sources": {
+      "ic_revenue": "CSIA 2024 Annual Report",
+      "gdp": "NBS 2023 Statistical Communique",
+      "rd_intensity": "NBS 2023 S&T Expenditure Report",
+      "computing_power": "ODCC 2024 Computing Power Index",
+      "power_price": "NDRC 36-city industrial price monitor 2024",
+      "population": "NBS 2023 population data"
+    }
   },
   "350000": {
     "name_en": "Fujian",
@@ -1096,35 +1998,47 @@
     "region": "East China",
     "metrics": {
       "composite_score": {
-        "value": 19.9,
+        "value": 29.4,
         "unit": "index",
         "label": "Overall Score"
       },
-      "fab_capacity": {
-        "value": 39,
-        "unit": "kwpm",
-        "label": "Fab Capacity (KWPM)"
-      },
-      "ai_compute_power": {
-        "value": 35,
-        "unit": "MW",
-        "label": "AI Compute Power (MW)"
-      },
-      "gov_subsidies": {
-        "value": 10.0,
+      "ic_revenue": {
+        "value": 50,
         "unit": "B_CNY",
-        "label": "Gov Subsidies (B CNY)"
+        "label": "IC Revenue (B CNY)"
       },
-      "stem_graduates": {
-        "value": 95000,
-        "unit": "annual",
-        "label": "STEM Graduates"
+      "computing_power": {
+        "value": 35,
+        "unit": "index",
+        "label": "Computing Power Index"
       },
-      "tech_gdp_share": {
-        "value": 4.8,
+      "gov_investment": {
+        "value": 12,
+        "unit": "B_CNY",
+        "label": "Gov IC/AI Investment (B CNY)"
+      },
+      "rd_intensity": {
+        "value": 2.15,
         "unit": "pct",
-        "label": "Tech GDP %"
+        "label": "R&D Intensity (% GDP)"
+      },
+      "power_price": {
+        "value": 0.6,
+        "unit": "CNY/kWh",
+        "label": "Industrial Power Price"
       }
+    },
+    "economic": {
+      "gdp_b_cny": 5440,
+      "gdp_per_capita_cny": 130050,
+      "population_m": 41.83,
+      "electricity_twh": 320
+    },
+    "ai_compute": {
+      "ai_companies": 40,
+      "smart_computing_centers": 3,
+      "dc_capacity_mw": 200,
+      "computing_hub": null
     },
     "companies": [
       {
@@ -1188,7 +2102,226 @@
         "status": "Operating"
       }
     ],
-    "notes": "Sanan Optoelectronics is China's leading compound semiconductor player. Sanan IC ramping GaN/SiC foundry in Xiamen; also building $2B SiC Megafab in Changsha targeting 30K wpm. JHICC remains effectively dead after 2018 US sanctions and Micron IP theft case (settled Dec 2023, but DoJ case pending). Silan investing CNY17B for two 12-inch lines in Xiamen Haicang. United Semi operates specialty foundry."
+    "notes": "Fujian's tournament bid collapsed with JHICC's 2018 US sanctions (Micron IP theft), a cautionary tale for provincial tech ambitions funded by government equity. Sanan Optoelectronics now leads China's compound semiconductor charge from Xiamen. United Semi (28nm) operates under UMC license. Provincial investment focus has shifted from memory to compound semi and specialty foundry.",
+    "investments": {
+      "semiconductor": [
+        {
+          "year": 2015,
+          "source": "National IC Industry Investment Fund Phase I (Big Fund I)",
+          "target": "San'an Optoelectronics (三安光电) — equity investment",
+          "amount_b_cny": 4.7,
+          "type": "equity",
+          "status": "active",
+          "citation": "https://en.wikipedia.org/wiki/Sanan_Optoelectronics",
+          "note": "4.7B CNY from Big Fund I. San'an is China's leading compound semiconductor IDM (LED, SiC, GaN). HQ in Xiamen, Fujian."
+        },
+        {
+          "year": 2020,
+          "source": "San'an Optoelectronics + Changsha Pilot Investment Holdings + Big Fund",
+          "target": "Hunan Sanan Semiconductor — vertically integrated SiC fab (Changsha)",
+          "amount_b_cny": 16.0,
+          "type": "capex",
+          "status": "planned",
+          "citation": "https://compoundsemiconductor.net/article/113517/Sanan_sets_its_sights_on_SiC",
+          "note": "16B CNY (~$2.5B). First vertically integrated SiC line in China. Opened June 2021. 15K wafers/month Phase 1, 30K planned Phase 2. Note: physically in Hunan but San'an is a Fujian company."
+        },
+        {
+          "year": 2021,
+          "source": "Silan Microelectronics + Xiamen Semiconductor Investment Group",
+          "target": "Silan + Xiamen SIG — 4/6-inch compound semiconductor device line (Xiamen Haicang)",
+          "amount_b_cny": 5.0,
+          "type": "capex",
+          "status": "active",
+          "citation": "https://www.yicaiglobal.com/news/silan-local-chinese-government-will-jointly-invest-usd26-billion-in-se-china-integrated-circuit-project",
+          "note": "5B CNY ($756M) joint investment. Advanced compound semiconductor production in Haicang district, Xiamen."
+        },
+        {
+          "year": 2016,
+          "source": "Fujian Provincial Government + Chinese National Government",
+          "target": "Fujian Jinhua Integrated Circuit (JHICC 晋华集成电路) — DRAM fab",
+          "amount_b_cny": 40.3,
+          "type": "capex",
+          "status": "failed",
+          "citation": "https://en.wikipedia.org/wiki/Fujian_Jinhua_Integrated_Circuit",
+          "note": "$5.6B total investment. UMC technology partnership. US Entity List Oct 2018 killed the project — operations suspended by Mar 2019. Micron settlement Dec 2023."
+        },
+        {
+          "year": 2014,
+          "source": "UMC + Xiamen Finance Department + Fujian Electronics & Information Group",
+          "target": "United Semiconductor (Xiamen) (联芯集成电路 USCXM) — 12-inch foundry JV",
+          "amount_b_cny": 9.72,
+          "type": "capex",
+          "status": "active",
+          "citation": "http://www.umc.com/English/news/2014/20141009.asp",
+          "note": "UMC invested $1.35B initially. Total project $6.2B when fully equipped (50K wafers/month). UMC acquired full ownership in 2023 for CNY 4.858B ($677.76M)."
+        },
+        {
+          "year": 2016,
+          "source": "Xiamen Municipal Government",
+          "target": "Xiamen Semiconductor Investment Group (厦门半导体投资集团) — establishment",
+          "amount_b_cny": null,
+          "type": "guidance_fund",
+          "status": "active",
+          "citation": "http://www.xmsig.com/en/about",
+          "note": "Established Dec 2016. Investment, M&A, and capital operations in semiconductor industry. Part of broader Fujian IC investment ecosystem (Xiamen + Jinjiang funds reportedly exceeding 150B CNY combined)."
+        },
+        {
+          "year": 2025,
+          "source": "National IC Industry Investment Fund Phase II (Big Fund II)",
+          "target": "Big Fund II — new subsidiary established in Xiamen",
+          "amount_b_cny": null,
+          "type": "equity",
+          "status": "active",
+          "citation": "https://www.trendforce.com/news/2025/06/02/news-chinas-big-fund-phase-ii-established-a-new-company-in-xiamen/",
+          "note": "Big Fund II established a new company in Xiamen in June 2025, signaling continued investment focus on Fujian's semiconductor sector."
+        }
+      ],
+      "ai_compute": []
+    },
+    "sources": {
+      "ic_revenue": "CSIA 2024 Annual Report",
+      "gdp": "NBS 2023 Statistical Communique",
+      "rd_intensity": "NBS 2023 S&T Expenditure Report",
+      "computing_power": "ODCC 2024 Computing Power Index",
+      "power_price": "NDRC 36-city industrial price monitor 2024",
+      "population": "NBS 2023 population data"
+    }
+  },
+  "210000": {
+    "name_en": "Liaoning",
+    "name_cn": "辽宁",
+    "region": "Northeast China",
+    "metrics": {
+      "composite_score": {
+        "value": 24.5,
+        "unit": "index",
+        "label": "Overall Score"
+      },
+      "ic_revenue": {
+        "value": 20,
+        "unit": "B_CNY",
+        "label": "IC Revenue (B CNY)"
+      },
+      "computing_power": {
+        "value": 30,
+        "unit": "index",
+        "label": "Computing Power Index"
+      },
+      "gov_investment": {
+        "value": 5,
+        "unit": "B_CNY",
+        "label": "Gov IC/AI Investment (B CNY)"
+      },
+      "rd_intensity": {
+        "value": 2.14,
+        "unit": "pct",
+        "label": "R&D Intensity (% GDP)"
+      },
+      "power_price": {
+        "value": 0.61,
+        "unit": "CNY/kWh",
+        "label": "Industrial Power Price"
+      }
+    },
+    "economic": {
+      "gdp_b_cny": 3000,
+      "gdp_per_capita_cny": 71770,
+      "population_m": 41.82,
+      "electricity_twh": 250
+    },
+    "ai_compute": {
+      "ai_companies": 30,
+      "smart_computing_centers": 3,
+      "dc_capacity_mw": 200,
+      "computing_hub": null
+    },
+    "companies": [
+      {
+        "name": "SK Hynix Dalian (ex-Intel)",
+        "sector": "NAND Flash"
+      },
+      {
+        "name": "Dalian University of Technology",
+        "sector": "Research"
+      },
+      {
+        "name": "Shenyang Institute of Computing (CAS)",
+        "sector": "Research"
+      }
+    ],
+    "fabs": [
+      {
+        "name": "SK Hynix Dalian (ex-Intel)",
+        "node": "192-layer 3D NAND",
+        "capacity_kwpm": 100,
+        "status": "Operating"
+      }
+    ],
+    "notes": "SK Hynix completed $9B acquisition of Intel's Dalian NAND fab in April 2025, producing ~100K wpm of 192-layer NAND (~20% of SK Hynix total NAND output). Like Shaanxi, Liaoning has massive foreign-owned fab capacity it doesn't control. The commercial ecosystem beyond the fab is thin, and the province has invested minimally in tournament competition for IC industry.",
+    "investments": {
+      "semiconductor": [
+        {
+          "year": 2007,
+          "source": "Intel",
+          "target": "Intel Fab 68 Dalian — 300mm wafer fab (original construction)",
+          "amount_b_cny": 18.0,
+          "type": "capex",
+          "status": "active",
+          "citation": "https://www.intel.com/pressroom/archive/releases/2007/20070326corp.htm",
+          "note": "$2.5B USD. Intel's first fab in Asia. Broke ground Sep 2007, production Oct 2010. Initially chipset logic."
+        },
+        {
+          "year": 2015,
+          "source": "Intel",
+          "target": "Intel Fab 68 Dalian — conversion to 3D NAND",
+          "amount_b_cny": 39.6,
+          "type": "capex",
+          "status": "active",
+          "citation": "https://www.eetimes.com/intel-to-manufacture-3d-nand-in-china/",
+          "note": "Up to $5.5B USD for 3D NAND upgrade. Production began H2 2016."
+        },
+        {
+          "year": 2020,
+          "source": "SK Hynix (acquiring from Intel)",
+          "target": "Intel Dalian NAND fab + SSD business sale to SK Hynix",
+          "amount_b_cny": 64.8,
+          "type": "equity",
+          "status": "active",
+          "citation": "https://www.intc.com/news-events/press-releases/detail/1513/intel-sells-ssd-business-and-dalian-facility-to-sk-hynix",
+          "note": "$9B USD total deal. Phase 1 closed Dec 2021 ($7B); Phase 2 Mar 2025 ($2B). Fab now SK Hynix."
+        },
+        {
+          "year": 2025,
+          "source": "Heraeus Group (Germany)",
+          "target": "Heraeus quartz manufacturing plant (Shenyang) — semiconductor materials",
+          "amount_b_cny": 0.6,
+          "type": "capex",
+          "status": "active",
+          "citation": "https://global.chinadaily.com.cn/a/202503/26/WS67e36bf1a3101d4e4dc2af36.html",
+          "note": "600M CNY ($83.6M). Heraeus' largest semiconductor project in China. High-purity quartz for semicon."
+        }
+      ],
+      "ai_compute": [
+        {
+          "year": 2022,
+          "source": "Shenyang Municipal Government / Hunnan District / Huawei",
+          "target": "Shenyang AI Computing Center (沈阳人工智能计算中心) — Ascend",
+          "amount_b_cny": 1.06,
+          "type": "infrastructure",
+          "status": "active",
+          "citation": "https://www.sygft.com.cn/zdxm/show-13.html",
+          "note": "1.06B CNY joint investment. Phase 1 100P (Aug 2022), Phase 2 200P (Jun 2023), now 450P total."
+        }
+      ]
+    },
+    "sources": {
+      "ic_revenue": "CSIA 2024 Annual Report",
+      "gdp": "NBS 2023 Statistical Communique",
+      "rd_intensity": "NBS 2023 S&T Expenditure Report",
+      "computing_power": "ODCC 2024 Computing Power Index",
+      "power_price": "NDRC 36-city industrial price monitor 2024",
+      "population": "NBS 2023 population data"
+    }
   },
   "430000": {
     "name_en": "Hunan",
@@ -1196,35 +2329,47 @@
     "region": "Central China",
     "metrics": {
       "composite_score": {
-        "value": 18.7,
+        "value": 25.6,
         "unit": "index",
         "label": "Overall Score"
       },
-      "fab_capacity": {
-        "value": 36,
-        "unit": "kwpm",
-        "label": "Fab Capacity (KWPM)"
-      },
-      "ai_compute_power": {
-        "value": 30,
-        "unit": "MW",
-        "label": "AI Compute Power (MW)"
-      },
-      "gov_subsidies": {
-        "value": 5.0,
+      "ic_revenue": {
+        "value": 25,
         "unit": "B_CNY",
-        "label": "Gov Subsidies (B CNY)"
+        "label": "IC Revenue (B CNY)"
       },
-      "stem_graduates": {
-        "value": 180000,
-        "unit": "annual",
-        "label": "STEM Graduates"
+      "computing_power": {
+        "value": 30,
+        "unit": "index",
+        "label": "Computing Power Index"
       },
-      "tech_gdp_share": {
-        "value": 3.5,
+      "gov_investment": {
+        "value": 8,
+        "unit": "B_CNY",
+        "label": "Gov IC/AI Investment (B CNY)"
+      },
+      "rd_intensity": {
+        "value": 2.42,
         "unit": "pct",
-        "label": "Tech GDP %"
+        "label": "R&D Intensity (% GDP)"
+      },
+      "power_price": {
+        "value": 0.62,
+        "unit": "CNY/kWh",
+        "label": "Industrial Power Price"
       }
+    },
+    "economic": {
+      "gdp_b_cny": 4990,
+      "gdp_per_capita_cny": 75990,
+      "population_m": 65.68,
+      "electricity_twh": 310
+    },
+    "ai_compute": {
+      "ai_companies": 45,
+      "smart_computing_centers": 5,
+      "dc_capacity_mw": 120,
+      "computing_hub": null
     },
     "companies": [
       {
@@ -1266,7 +2411,145 @@
         "status": "Under Construction"
       }
     ],
-    "notes": "Emerging as China's power semiconductor and compound semi hub. CRRC Times Semiconductor (Zhuzhou) built China's first 8-inch IGBT production line (2014), capacity ~120K wafers/year. Has 6-inch bipolar, 8-inch IGBT, and 6-inch SiC lines. Acquired UK's Dynex Semiconductor in 2008 for IGBT IP. Full IGBT product range broke foreign monopoly in rail transit and UHV transmission. Hunan Sanan's $2.5B Changsha Mega Fab is China's first vertically integrated SiC line (crystal to packaging). Phase I producing 300K 6-inch SiC wafers/year (~25K wpm). Secured $524M SiC chip order from major NEV brand. Phase II doubling capacity. Sanan-ST Chongqing JV is separate. Provincial government actively bolstering 3rd-gen semiconductor industry."
+    "notes": "Hunan is carving a niche in power/compound semiconductor rather than competing head-on in logic or memory. Changsha AI pilot zone and Sanan's $2.5B SiC Mega Fab represent targeted provincial bets. CRRC Times broke foreign IGBT monopoly in rail transit via 2008 Dynex acquisition -- a rare successful technology acquisition that informs current semiconductor policy thinking.",
+    "investments": {
+      "semiconductor": [
+        {
+          "year": 2020,
+          "source": "San'an Optoelectronics + Changsha Pilot Investment Holdings + Big Fund",
+          "target": "Hunan Sanan Semiconductor — vertically integrated SiC fab (Changsha)",
+          "amount_b_cny": 16.0,
+          "type": "capex",
+          "status": "active",
+          "citation": "https://compoundsemiconductor.net/article/113517/Sanan_sets_its_sights_on_SiC"
+        },
+        {
+          "year": 2023,
+          "source": "STMicroelectronics + San'an Optoelectronics",
+          "target": "STMicro-San'an JV SiC fab (Chongqing-linked, San'an HQ Changsha)",
+          "amount_b_cny": 22.8,
+          "type": "capex",
+          "status": "active",
+          "note": "Physical fab in Chongqing but San'an is Hunan-based company"
+        },
+        {
+          "year": 2022,
+          "source": "CRRC Times Electric",
+          "target": "CRRC Times Semiconductor expansion (Zhuzhou)",
+          "amount_b_cny": 4.3,
+          "type": "capex",
+          "status": "active"
+        }
+      ],
+      "ai_compute": [
+        {
+          "year": 2023,
+          "source": "Changsha Municipal Government",
+          "target": "Changsha AI Computing Center",
+          "amount_b_cny": 0.75,
+          "type": "infrastructure",
+          "status": "active"
+        }
+      ]
+    },
+    "sources": {
+      "ic_revenue": "CSIA 2024 Annual Report",
+      "gdp": "NBS 2023 Statistical Communique",
+      "rd_intensity": "NBS 2023 S&T Expenditure Report",
+      "computing_power": "ODCC 2024 Computing Power Index",
+      "power_price": "NDRC 36-city industrial price monitor 2024",
+      "population": "NBS 2023 population data"
+    }
+  },
+  "410000": {
+    "name_en": "Henan",
+    "name_cn": "河南",
+    "region": "Central China",
+    "metrics": {
+      "composite_score": {
+        "value": 20.1,
+        "unit": "index",
+        "label": "Overall Score"
+      },
+      "ic_revenue": {
+        "value": 5,
+        "unit": "B_CNY",
+        "label": "IC Revenue (B CNY)"
+      },
+      "computing_power": {
+        "value": 28,
+        "unit": "index",
+        "label": "Computing Power Index"
+      },
+      "gov_investment": {
+        "value": 10,
+        "unit": "B_CNY",
+        "label": "Gov IC/AI Investment (B CNY)"
+      },
+      "rd_intensity": {
+        "value": 2.05,
+        "unit": "pct",
+        "label": "R&D Intensity (% GDP)"
+      },
+      "power_price": {
+        "value": 0.63,
+        "unit": "CNY/kWh",
+        "label": "Industrial Power Price"
+      }
+    },
+    "economic": {
+      "gdp_b_cny": 5910,
+      "gdp_per_capita_cny": 60224,
+      "population_m": 98.15,
+      "electricity_twh": 420
+    },
+    "ai_compute": {
+      "ai_companies": 60,
+      "smart_computing_centers": 5,
+      "dc_capacity_mw": 200,
+      "computing_hub": null
+    },
+    "companies": [
+      {
+        "name": "Foxconn Zhengzhou",
+        "sector": "Assembly/Manufacturing"
+      },
+      {
+        "name": "ZTE Zhengzhou R&D",
+        "sector": "Telecom"
+      }
+    ],
+    "fabs": [],
+    "notes": "Zhengzhou AI pilot zone and a 10B CNY smart computing project signal Henan's tournament entry via compute infrastructure rather than IC manufacturing. Foxconn Zhengzhou is world's largest iPhone assembly site (300B+ CNY cumulative investment) but this is assembly, not semiconductor value-add. No wafer fabs despite being China's 5th largest economy by GDP.",
+    "investments": {
+      "semiconductor": [],
+      "ai_compute": [
+        {
+          "year": 2023,
+          "source": "Zhengzhou Municipal Government",
+          "target": "Zhengzhou AI Computing Center",
+          "amount_b_cny": 1.0,
+          "type": "infrastructure",
+          "status": "active"
+        },
+        {
+          "year": 2024,
+          "source": "Zhengzhou Airport Economy Zone / Government",
+          "target": "Airport Smart Computing Center (Zhengzhou)",
+          "amount_b_cny": 16.4,
+          "type": "infrastructure",
+          "status": "planned"
+        }
+      ]
+    },
+    "sources": {
+      "ic_revenue": "CSIA 2024 Annual Report",
+      "gdp": "NBS 2023 Statistical Communique",
+      "rd_intensity": "NBS 2023 S&T Expenditure Report",
+      "computing_power": "ODCC 2024 Computing Power Index",
+      "power_price": "NDRC 36-city industrial price monitor 2024",
+      "population": "NBS 2023 population data"
+    }
   },
   "500000": {
     "name_en": "Chongqing",
@@ -1274,35 +2557,47 @@
     "region": "Southwest China",
     "metrics": {
       "composite_score": {
-        "value": 18.0,
+        "value": 30.9,
         "unit": "index",
         "label": "Overall Score"
       },
-      "fab_capacity": {
+      "ic_revenue": {
         "value": 25,
-        "unit": "kwpm",
-        "label": "Fab Capacity (KWPM)"
-      },
-      "ai_compute_power": {
-        "value": 40,
-        "unit": "MW",
-        "label": "AI Compute Power (MW)"
-      },
-      "gov_subsidies": {
-        "value": 8.0,
         "unit": "B_CNY",
-        "label": "Gov Subsidies (B CNY)"
+        "label": "IC Revenue (B CNY)"
       },
-      "stem_graduates": {
-        "value": 110000,
-        "unit": "annual",
-        "label": "STEM Graduates"
+      "computing_power": {
+        "value": 40,
+        "unit": "index",
+        "label": "Computing Power Index"
       },
-      "tech_gdp_share": {
-        "value": 4.5,
+      "gov_investment": {
+        "value": 12,
+        "unit": "B_CNY",
+        "label": "Gov IC/AI Investment (B CNY)"
+      },
+      "rd_intensity": {
+        "value": 2.25,
         "unit": "pct",
-        "label": "Tech GDP %"
+        "label": "R&D Intensity (% GDP)"
+      },
+      "power_price": {
+        "value": 0.62,
+        "unit": "CNY/kWh",
+        "label": "Industrial Power Price"
       }
+    },
+    "economic": {
+      "gdp_b_cny": 3010,
+      "gdp_per_capita_cny": 94329,
+      "population_m": 31.91,
+      "electricity_twh": 160
+    },
+    "ai_compute": {
+      "ai_companies": 50,
+      "smart_computing_centers": 12,
+      "dc_capacity_mw": 150,
+      "computing_hub": "Chengdu-Chongqing"
     },
     "companies": [
       {
@@ -1320,6 +2615,10 @@
       {
         "name": "Huarun Micro Chongqing",
         "sector": "Foundry"
+      },
+      {
+        "name": "CR Micro",
+        "sector": "Power Semi"
       },
       {
         "name": "CETC",
@@ -1352,7 +2651,61 @@
         "status": "Ramping"
       }
     ],
-    "notes": "Growing semiconductor hub with both foreign and domestic investment. SK Hynix has operated a DRAM back-end packaging facility since 2009. CQAOS (Alpha & Omega Semiconductor JV) has a 12-inch power semi fab in Liangjiang New Area -- SIMIC Holdings acquired a strategic stake for $1.39B in 2025, signaling the fab's value for China's power chip self-sufficiency. Major development: Sanan-STMicroelectronics $3.2B SiC JV (51% Sanan, 49% ST) inaugurated Feb 2025, production starting Q4 2025, targeting 480K 8-inch SiC automotive wafers/year (~40K wpm at full buildout by 2028). First large-scale 8-inch SiC automotive line in China. Sanan separately building 200mm SiC substrate facility nearby. Sanan Chongqing SiC substrate project entered trial production Sep 2024. Emerging as China's SiC capital alongside Changsha."
+    "notes": "Chongqing is competing with Changsha to become China's SiC capital. The $3.2B Sanan-STMicroelectronics JV (51/49 split) inaugurated Feb 2025 targets 480K 8-inch SiC automotive wafers/year -- the first large-scale 8-inch SiC automotive line in China. CQAOS attracted a $1.39B strategic stake from SIMIC Holdings in 2025, signaling the fab's value for power chip self-sufficiency.",
+    "investments": {
+      "semiconductor": [
+        {
+          "year": 2018,
+          "source": "China Resources Microelectronics (华润微电子)",
+          "target": "12-inch power semiconductor wafer fab (润西微电子)",
+          "amount_b_cny": 7.55,
+          "type": "capex",
+          "status": "active",
+          "citation": "https://www.dramx.com/News/made-sealing/20230419-33859.html",
+          "note": "75.5B CNY total investment for 12-inch line"
+        },
+        {
+          "year": 2023,
+          "source": "China Resources Microelectronics",
+          "target": "Power semiconductor packaging & test facility (华润润安科技)",
+          "amount_b_cny": 4.2,
+          "type": "capex",
+          "status": "planned",
+          "citation": "https://siscmag.com/news/show-1617.html",
+          "note": "42B CNY planned investment"
+        },
+        {
+          "year": null,
+          "source": "SK Hynix",
+          "target": "SK Hynix Chongqing — backend packaging facility",
+          "amount_b_cny": null,
+          "type": "capex",
+          "status": "active",
+          "citation": "https://en.wikipedia.org/wiki/SK_Hynix",
+          "note": "Operational packaging facility; specific investment amount not publicly disclosed. One of three SK Hynix China sites (Wuxi DRAM, Dalian NAND, Chongqing packaging)."
+        }
+      ],
+      "ai_compute": [
+        {
+          "year": 2022,
+          "source": "Chongqing Municipal Government / Dawning (曙光)",
+          "target": "Western (Chongqing) Science City Advanced Data Center — East-West Computing hub",
+          "amount_b_cny": 20.0,
+          "type": "infrastructure",
+          "status": "active",
+          "citation": "https://cq.gov.cn/zt/cydqscjjq/chscjjhjjq/202204/t20220428_10666604.html",
+          "note": "Exceeds 20B CNY; Bishan District, part of Chengdu-Chongqing national hub node"
+        }
+      ]
+    },
+    "sources": {
+      "ic_revenue": "CSIA 2024 Annual Report",
+      "gdp": "NBS 2023 Statistical Communique",
+      "rd_intensity": "NBS 2023 S&T Expenditure Report",
+      "computing_power": "ODCC 2024 Computing Power Index",
+      "power_price": "NDRC 36-city industrial price monitor 2024",
+      "population": "NBS 2023 population data"
+    }
   },
   "120000": {
     "name_en": "Tianjin",
@@ -1360,35 +2713,47 @@
     "region": "North China",
     "metrics": {
       "composite_score": {
-        "value": 14.0,
+        "value": 28.3,
         "unit": "index",
         "label": "Overall Score"
       },
-      "fab_capacity": {
-        "value": 10,
-        "unit": "kwpm",
-        "label": "Fab Capacity (KWPM)"
-      },
-      "ai_compute_power": {
-        "value": 45,
-        "unit": "MW",
-        "label": "AI Compute Power (MW)"
-      },
-      "gov_subsidies": {
-        "value": 8.0,
+      "ic_revenue": {
+        "value": 15,
         "unit": "B_CNY",
-        "label": "Gov Subsidies (B CNY)"
+        "label": "IC Revenue (B CNY)"
       },
-      "stem_graduates": {
-        "value": 85000,
-        "unit": "annual",
-        "label": "STEM Graduates"
+      "computing_power": {
+        "value": 35,
+        "unit": "index",
+        "label": "Computing Power Index"
       },
-      "tech_gdp_share": {
-        "value": 5.5,
+      "gov_investment": {
+        "value": 10,
+        "unit": "B_CNY",
+        "label": "Gov IC/AI Investment (B CNY)"
+      },
+      "rd_intensity": {
+        "value": 3.58,
         "unit": "pct",
-        "label": "Tech GDP %"
+        "label": "R&D Intensity (% GDP)"
+      },
+      "power_price": {
+        "value": 0.68,
+        "unit": "CNY/kWh",
+        "label": "Industrial Power Price"
       }
+    },
+    "economic": {
+      "gdp_b_cny": 1670,
+      "gdp_per_capita_cny": 122434,
+      "population_m": 13.64,
+      "electricity_twh": 100
+    },
+    "ai_compute": {
+      "ai_companies": 40,
+      "smart_computing_centers": 5,
+      "dc_capacity_mw": 200,
+      "computing_hub": "JJJ"
     },
     "companies": [
       {
@@ -1418,56 +2783,716 @@
         "status": "Ramping"
       }
     ],
-    "notes": "SMIC investing $7.5B in new 12-inch fab. Legacy NXP/Motorola operations. Growing A/T presence."
+    "notes": "Tianjin benefits from Beijing-Tianjin-Hebei integration as a JJJ computing hub. SMIC investing $7.5B in new 12-inch fab. High R&D intensity at 3.58% (4th nationally) reflects Tianjin's university and research base. The municipality is positioning as a cost-competitive alternative to Beijing for IC operations while riding the JJJ cluster spillover.",
+    "investments": {
+      "semiconductor": [
+        {
+          "year": 2023,
+          "source": "SMIC + Tianjin Municipal Government",
+          "target": "SMIC Tianjin 12-inch wafer fab",
+          "amount_b_cny": 54.0,
+          "type": "capex",
+          "status": "active",
+          "note": "$7.5B total investment"
+        }
+      ],
+      "ai_compute": []
+    },
+    "sources": {
+      "ic_revenue": "CSIA 2024 Annual Report",
+      "gdp": "NBS 2023 Statistical Communique",
+      "rd_intensity": "NBS 2023 S&T Expenditure Report",
+      "computing_power": "ODCC 2024 Computing Power Index",
+      "power_price": "NDRC 36-city industrial price monitor 2024",
+      "population": "NBS 2023 population data"
+    }
   },
-  "410000": {
-    "name_en": "Henan",
-    "name_cn": "河南",
-    "region": "Central China",
+  "130000": {
+    "name_en": "Hebei",
+    "name_cn": "河北",
+    "region": "North China",
     "metrics": {
       "composite_score": {
-        "value": 12.5,
+        "value": 38.4,
         "unit": "index",
         "label": "Overall Score"
       },
-      "fab_capacity": {
-        "value": 2,
-        "unit": "kwpm",
-        "label": "Fab Capacity (KWPM)"
-      },
-      "ai_compute_power": {
-        "value": 20,
-        "unit": "MW",
-        "label": "AI Compute Power (MW)"
-      },
-      "gov_subsidies": {
-        "value": 3.0,
+      "ic_revenue": {
+        "value": 3,
         "unit": "B_CNY",
-        "label": "Gov Subsidies (B CNY)"
+        "label": "IC Revenue (B CNY)"
       },
-      "stem_graduates": {
-        "value": 200000,
-        "unit": "annual",
-        "label": "STEM Graduates"
+      "computing_power": {
+        "value": 98,
+        "unit": "index",
+        "label": "Computing Power Index"
       },
-      "tech_gdp_share": {
-        "value": 2.2,
+      "gov_investment": {
+        "value": 5,
+        "unit": "B_CNY",
+        "label": "Gov IC/AI Investment (B CNY)"
+      },
+      "rd_intensity": {
+        "value": 2.08,
         "unit": "pct",
-        "label": "Tech GDP %"
+        "label": "R&D Intensity (% GDP)"
+      },
+      "power_price": {
+        "value": 0.62,
+        "unit": "CNY/kWh",
+        "label": "Industrial Power Price"
       }
+    },
+    "economic": {
+      "gdp_b_cny": 4390,
+      "gdp_per_capita_cny": 59395,
+      "population_m": 73.93,
+      "electricity_twh": 440
+    },
+    "ai_compute": {
+      "ai_companies": 40,
+      "smart_computing_centers": 11,
+      "dc_capacity_mw": 600,
+      "computing_hub": "JJJ"
     },
     "companies": [
       {
-        "name": "Foxconn Zhengzhou",
-        "sector": "Assembly/Manufacturing"
-      },
-      {
-        "name": "ZTE Zhengzhou R&D",
-        "sector": "Telecom"
+        "name": "13th Research Institute (CETC)",
+        "sector": "Compound Semi R&D"
       }
     ],
     "fabs": [],
-    "notes": "Foxconn Zhengzhou is world's largest iPhone assembly site (2.8M sqm, 200+ supply chain companies, 300B+ CNY cumulative investment). Foxconn doubling down with new HQ (1B CNY), EV battery plant (600M CNY), and '3+3' strategy covering EVs, AI, and semiconductors. No wafer fabs but massive electronics assembly ecosystem. Large STEM pipeline from provincial universities but brain drain to coastal cities."
+    "notes": "Hebei leads China's computing power index (#1 nationally) driven by Zhangjiakou's 440K+ rack data center cluster serving Beijing's overflow. This is pure infrastructure arbitrage -- cheaper land and power adjacent to Beijing's demand center. CETC 13th Research Institute in Shijiazhuang works on GaAs/GaN for defense, but the province has essentially zero IC manufacturing capability.",
+    "investments": {
+      "semiconductor": [],
+      "ai_compute": [
+        {
+          "year": 2020,
+          "source": "Multiple operators (Alibaba, Tencent, etc.)",
+          "target": "Zhangjiakou Data Center cluster",
+          "amount_b_cny": 137.7,
+          "type": "infrastructure",
+          "status": "active"
+        },
+        {
+          "year": 2022,
+          "source": "Multiple operators",
+          "target": "Langfang Data Center cluster",
+          "amount_b_cny": 95.7,
+          "type": "infrastructure",
+          "status": "active"
+        }
+      ]
+    },
+    "sources": {
+      "ic_revenue": "CSIA 2024 Annual Report",
+      "gdp": "NBS 2023 Statistical Communique",
+      "rd_intensity": "NBS 2023 S&T Expenditure Report",
+      "computing_power": "ODCC 2024 Computing Power Index",
+      "power_price": "NDRC 36-city industrial price monitor 2024",
+      "population": "NBS 2023 population data"
+    }
+  },
+  "150000": {
+    "name_en": "Inner Mongolia",
+    "name_cn": "内蒙古",
+    "region": "North China",
+    "metrics": {
+      "composite_score": {
+        "value": 26.0,
+        "unit": "index",
+        "label": "Overall Score"
+      },
+      "ic_revenue": {
+        "value": 0,
+        "unit": "B_CNY",
+        "label": "IC Revenue (B CNY)"
+      },
+      "computing_power": {
+        "value": 65,
+        "unit": "index",
+        "label": "Computing Power Index"
+      },
+      "gov_investment": {
+        "value": 3,
+        "unit": "B_CNY",
+        "label": "Gov IC/AI Investment (B CNY)"
+      },
+      "rd_intensity": {
+        "value": 1.05,
+        "unit": "pct",
+        "label": "R&D Intensity (% GDP)"
+      },
+      "power_price": {
+        "value": 0.4,
+        "unit": "CNY/kWh",
+        "label": "Industrial Power Price"
+      }
+    },
+    "economic": {
+      "gdp_b_cny": 2470,
+      "gdp_per_capita_cny": 102874,
+      "population_m": 24.01,
+      "electricity_twh": 380
+    },
+    "ai_compute": {
+      "ai_companies": 10,
+      "smart_computing_centers": 8,
+      "dc_capacity_mw": 500,
+      "computing_hub": "Hohhot"
+    },
+    "companies": [
+      {
+        "name": "China Telecom Inner Mongolia Info Park",
+        "sector": "Datacenter"
+      },
+      {
+        "name": "China Mobile Hohhot AI Center",
+        "sector": "AI Computing"
+      }
+    ],
+    "fabs": [],
+    "notes": "Inner Mongolia competes on the cheapest industrial power in eastern China at 0.40 CNY/kWh. Hohhot and Ulanqab host massive DC clusters with 220K racks. China Mobile operates the world's largest single-unit telecom intelligent computing center here. Over 80% of DC energy from renewables. The province's tournament strategy is pure power-cost arbitrage -- no IC capability but increasingly critical infrastructure for AI training workloads.",
+    "investments": {
+      "semiconductor": [],
+      "ai_compute": [
+        {
+          "year": 2011,
+          "source": "China Telecom",
+          "target": "China Telecom Cloud Computing Inner Mongolia Information Park",
+          "amount_b_cny": 17.3,
+          "type": "infrastructure",
+          "status": "active",
+          "citation": "https://m.c114.com.cn/w16-1236619.html",
+          "note": "173B CNY total budget. 100.6万sqm, 42 data halls, 100K+ racks."
+        },
+        {
+          "year": 2012,
+          "source": "China Mobile",
+          "target": "China Mobile Hohhot Data Center Park",
+          "amount_b_cny": 15.0,
+          "type": "infrastructure",
+          "status": "active",
+          "citation": "https://m.c114.com.cn/w16-1236619.html",
+          "note": "Infrastructure investment exceeds 15B CNY. 18 data halls, 1.2M server capacity."
+        },
+        {
+          "year": 2024,
+          "source": "China Mobile",
+          "target": "China Mobile Hohhot Smart Computing Center (智算中心)",
+          "amount_b_cny": 4.66,
+          "type": "infrastructure",
+          "status": "active",
+          "citation": "http://www.news.cn/20241127/9e83c5a55de1491190b6bd32cab8dcab/c.html",
+          "note": "46.6B CNY. Largest single-cluster smart computing center by a global carrier."
+        },
+        {
+          "year": null,
+          "source": "Multiple operators and enterprises",
+          "target": "Helinggeer New District — total DC cluster",
+          "amount_b_cny": 100.0,
+          "type": "infrastructure",
+          "status": "planned",
+          "citation": "http://www.xinchengqu.gov.cn/slbzd/zwdt_64218/xcyw/202408/t20240805_1758655.html",
+          "note": "18+ large DC projects completed/under construction, total investment exceeding 100B CNY."
+        }
+      ]
+    },
+    "sources": {
+      "ic_revenue": "CSIA 2024 Annual Report",
+      "gdp": "NBS 2023 Statistical Communique",
+      "rd_intensity": "NBS 2023 S&T Expenditure Report",
+      "computing_power": "ODCC 2024 Computing Power Index",
+      "power_price": "NDRC 36-city industrial price monitor 2024",
+      "population": "NBS 2023 population data"
+    }
+  },
+  "520000": {
+    "name_en": "Guizhou",
+    "name_cn": "贵州",
+    "region": "Southwest China",
+    "metrics": {
+      "composite_score": {
+        "value": 24.1,
+        "unit": "index",
+        "label": "Overall Score"
+      },
+      "ic_revenue": {
+        "value": 0,
+        "unit": "B_CNY",
+        "label": "IC Revenue (B CNY)"
+      },
+      "computing_power": {
+        "value": 60,
+        "unit": "index",
+        "label": "Computing Power Index"
+      },
+      "gov_investment": {
+        "value": 5,
+        "unit": "B_CNY",
+        "label": "Gov IC/AI Investment (B CNY)"
+      },
+      "rd_intensity": {
+        "value": 1.02,
+        "unit": "pct",
+        "label": "R&D Intensity (% GDP)"
+      },
+      "power_price": {
+        "value": 0.54,
+        "unit": "CNY/kWh",
+        "label": "Industrial Power Price"
+      }
+    },
+    "economic": {
+      "gdp_b_cny": 2090,
+      "gdp_per_capita_cny": 54059,
+      "population_m": 38.65,
+      "electricity_twh": 250
+    },
+    "ai_compute": {
+      "ai_companies": 20,
+      "smart_computing_centers": 10,
+      "dc_capacity_mw": 300,
+      "computing_hub": "Gui'an"
+    },
+    "companies": [
+      {
+        "name": "Guizhou-Cloud Big Data (Apple iCloud China)",
+        "sector": "Cloud/Datacenter"
+      },
+      {
+        "name": "Huawei Cloud Guian",
+        "sector": "Cloud/Datacenter"
+      },
+      {
+        "name": "Tencent Qixing DC",
+        "sector": "Cloud/Datacenter"
+      },
+      {
+        "name": "China Telecom Guizhou",
+        "sector": "Cloud/Datacenter"
+      },
+      {
+        "name": "Alibaba Cloud",
+        "sector": "Datacenter"
+      }
+    ],
+    "fabs": [],
+    "notes": "China's 'data valley' providing ~23% of national computing power. 150 EFLOPS target for 2025. Huawei deploying 1M servers in Gui'an. Central to 'East Data West Computing' national strategy. Guizhou won the early tournament round for hyperscaler DC investment by offering cheap power and land subsidies -- digital economy now equals 42% of GDP despite being one of China's poorest provinces.",
+    "investments": {
+      "semiconductor": [
+        {
+          "year": 2016,
+          "source": "Qualcomm / Guizhou Provincial Government",
+          "target": "Huaxintong Semiconductor (华芯通) — ARM server chip JV (FAILED)",
+          "amount_b_cny": 4.1,
+          "type": "equity",
+          "status": "failed",
+          "citation": "https://technode.com/2019/04/25/joint-venture-shuts-down-as-qualcomms-china-server-chip-effort-fails/",
+          "note": "$570M combined investment by 2018. 55% Guizhou / 45% Qualcomm. Initial capital 1.85B CNY. Shut down May 2019."
+        }
+      ],
+      "ai_compute": [
+        {
+          "year": 2017,
+          "source": "Apple",
+          "target": "Apple iCloud (Guian) Data Center",
+          "amount_b_cny": 7.2,
+          "type": "infrastructure",
+          "status": "active",
+          "citation": "https://www.chinadaily.com.cn/business/tech/2017-07/13/content_30095577.htm",
+          "note": "$1B USD. Operated by Guizhou-Cloud Big Data (GCBD). Opened May 2021."
+        },
+        {
+          "year": 2018,
+          "source": "Huawei",
+          "target": "Huawei Cloud Seven Star Lake Data Center (Guian)",
+          "amount_b_cny": 8.0,
+          "type": "infrastructure",
+          "status": "active",
+          "citation": "http://www.xinhuanet.com/english/2020-11/13/c_139514311.htm",
+          "note": "8B CNY. 480K sqm, 51 buildings, capacity 1M servers. Huawei's largest global cloud DC."
+        },
+        {
+          "year": 2018,
+          "source": "Tencent",
+          "target": "Tencent Guian Seven Star Data Center (underground/tunnel)",
+          "amount_b_cny": null,
+          "type": "infrastructure",
+          "status": "active",
+          "citation": "https://www.datacenterdynamics.com/en/news/tencent-plans-huge-bomb-shelter-data-center-in-guizhou/",
+          "note": "Undisclosed exact figure. 30K sqm tunnel + 700+ mu land. 50K+ server capacity. T-block 4th gen technology."
+        },
+        {
+          "year": 2017,
+          "source": "China Mobile",
+          "target": "China Mobile (Guizhou) Data Center — Phase 1-3",
+          "amount_b_cny": 2.4,
+          "type": "infrastructure",
+          "status": "active",
+          "citation": "https://news.qq.com/rain/a/20230109A01PXK00",
+          "note": "Phase 1-2 ~1.5B CNY; Phase 3 ~0.9B CNY. 20K+ racks total."
+        },
+        {
+          "year": 2020,
+          "source": "Multiple (Huawei, Apple, Tencent, China Mobile, China Telecom, China Unicom)",
+          "target": "Guian New Area — 7 super-large DC projects cumulative",
+          "amount_b_cny": 9.74,
+          "type": "infrastructure",
+          "status": "active",
+          "citation": "https://www.eguizhou.gov.cn/2022-09/26/c_842323.htm",
+          "note": "9.74B CNY cumulative by Nov 2020 across 7 major DCs."
+        },
+        {
+          "year": 2022,
+          "source": "Guizhou Provincial Government",
+          "target": "East-West Computing (东数西算) Guian cluster — total planned",
+          "amount_b_cny": 138.5,
+          "type": "infrastructure",
+          "status": "planned",
+          "citation": "https://www.gz.news.cn/20240306/8f4a374426484a2cbe33b5f187161dbe/c.html",
+          "note": "138.5B CNY total planned across start-up, development, and expansion phases."
+        }
+      ]
+    },
+    "sources": {
+      "ic_revenue": "CSIA 2024 Annual Report",
+      "gdp": "NBS 2023 Statistical Communique",
+      "rd_intensity": "NBS 2023 S&T Expenditure Report",
+      "computing_power": "ODCC 2024 Computing Power Index",
+      "power_price": "NDRC 36-city industrial price monitor 2024",
+      "population": "NBS 2023 population data"
+    }
+  },
+  "640000": {
+    "name_en": "Ningxia",
+    "name_cn": "宁夏",
+    "region": "Northwest China",
+    "metrics": {
+      "composite_score": {
+        "value": 21.7,
+        "unit": "index",
+        "label": "Overall Score"
+      },
+      "ic_revenue": {
+        "value": 0,
+        "unit": "B_CNY",
+        "label": "IC Revenue (B CNY)"
+      },
+      "computing_power": {
+        "value": 55,
+        "unit": "index",
+        "label": "Computing Power Index"
+      },
+      "gov_investment": {
+        "value": 2,
+        "unit": "B_CNY",
+        "label": "Gov IC/AI Investment (B CNY)"
+      },
+      "rd_intensity": {
+        "value": 1.35,
+        "unit": "pct",
+        "label": "R&D Intensity (% GDP)"
+      },
+      "power_price": {
+        "value": 0.4,
+        "unit": "CNY/kWh",
+        "label": "Industrial Power Price"
+      }
+    },
+    "economic": {
+      "gdp_b_cny": 550,
+      "gdp_per_capita_cny": 75446,
+      "population_m": 7.29,
+      "electricity_twh": 110
+    },
+    "ai_compute": {
+      "ai_companies": 5,
+      "smart_computing_centers": 4,
+      "dc_capacity_mw": 200,
+      "computing_hub": "Zhongwei"
+    },
+    "companies": [
+      {
+        "name": "Ferrotec Ningxia",
+        "sector": "Materials"
+      },
+      {
+        "name": "Chindata",
+        "sector": "Datacenter"
+      }
+    ],
+    "fabs": [
+      {
+        "name": "Ferrotec Ningxia 8-inch Wafer Line",
+        "node": "Substrate",
+        "capacity_kwpm": 0,
+        "status": "Operating"
+      },
+      {
+        "name": "Ferrotec Ningxia 12-inch Wafer Line",
+        "node": "Substrate",
+        "capacity_kwpm": 0,
+        "status": "Operating"
+      }
+    ],
+    "notes": "Zhongwei Cloud Computing Base hosts 130K racks, 88K+ GPU cards, and 44K PFLOPS. Cheapest power nationally at 0.40 CNY/kWh (tied with Inner Mongolia). Chindata building a 1.2GW/$3.3B cluster. Ferrotec produces silicon wafer substrates. Ningxia's tournament play is identical to Inner Mongolia -- power-cost arbitrage for DC infrastructure, with some materials production upside.",
+    "investments": {
+      "semiconductor": [],
+      "ai_compute": [
+        {
+          "year": 2015,
+          "source": "Amazon AWS (via NWCD / Western Cloud Data)",
+          "target": "AWS Zhongwei Data Center — Phase 1",
+          "amount_b_cny": 1.5,
+          "type": "infrastructure",
+          "status": "planned",
+          "citation": "https://www.zhihu.com/question/27743948",
+          "note": "First phase 1.5B CNY. 900 racks, 35K servers. Total project planned $1.5-2.5B USD over time."
+        },
+        {
+          "year": 2020,
+          "source": "China Mobile",
+          "target": "China Mobile (Ningxia) Data Center Phase 2",
+          "amount_b_cny": 13.045,
+          "type": "infrastructure",
+          "status": "active",
+          "citation": "https://finance.sina.com.cn/roll/2025-03-25/doc-ineqveny6196759.shtml",
+          "note": "130.45B CNY total. 20K racks, 400K server capacity."
+        },
+        {
+          "year": null,
+          "source": "Multiple (Zhongwei cluster cumulative)",
+          "target": "Zhongwei Western Cloud Base — cumulative total",
+          "amount_b_cny": 41.7,
+          "type": "infrastructure",
+          "status": "active",
+          "citation": "https://finance.sina.com.cn/roll/2025-03-25/doc-ineqveny6196759.shtml",
+          "note": "452 enterprises registered, cumulative investment 41.7B CNY (153B into statistics). 10 super-large DCs, 650K+ server capacity."
+        },
+        {
+          "year": 2022,
+          "source": "Ningxia / National",
+          "target": "Ningxia hub — total planned fixed-asset investment",
+          "amount_b_cny": 300.0,
+          "type": "infrastructure",
+          "status": "planned",
+          "citation": "https://www.nx.gov.cn/zt/nxxtgjqyjjgzlfzxgjzctx/zcfb/202305/t20230523_4118499.html",
+          "note": "Start-up zone 5000 mu. 300B+ CNY planned fixed-asset investment. Projected 390B annual revenue at completion."
+        }
+      ]
+    },
+    "sources": {
+      "ic_revenue": "CSIA 2024 Annual Report",
+      "gdp": "NBS 2023 Statistical Communique",
+      "rd_intensity": "NBS 2023 S&T Expenditure Report",
+      "computing_power": "ODCC 2024 Computing Power Index",
+      "power_price": "NDRC 36-city industrial price monitor 2024",
+      "population": "NBS 2023 population data"
+    }
+  },
+  "140000": {
+    "name_en": "Shanxi",
+    "name_cn": "山西",
+    "region": "North China",
+    "metrics": {
+      "composite_score": {
+        "value": 17.2,
+        "unit": "index",
+        "label": "Overall Score"
+      },
+      "ic_revenue": {
+        "value": 0,
+        "unit": "B_CNY",
+        "label": "IC Revenue (B CNY)"
+      },
+      "computing_power": {
+        "value": 50,
+        "unit": "index",
+        "label": "Computing Power Index"
+      },
+      "gov_investment": {
+        "value": 2,
+        "unit": "B_CNY",
+        "label": "Gov IC/AI Investment (B CNY)"
+      },
+      "rd_intensity": {
+        "value": 1.16,
+        "unit": "pct",
+        "label": "R&D Intensity (% GDP)"
+      },
+      "power_price": {
+        "value": 0.57,
+        "unit": "CNY/kWh",
+        "label": "Industrial Power Price"
+      }
+    },
+    "economic": {
+      "gdp_b_cny": 2570,
+      "gdp_per_capita_cny": 74133,
+      "population_m": 34.66,
+      "electricity_twh": 320
+    },
+    "ai_compute": {
+      "ai_companies": 10,
+      "smart_computing_centers": 4,
+      "dc_capacity_mw": 150,
+      "computing_hub": null
+    },
+    "companies": [],
+    "fabs": [],
+    "notes": "Coal-dominated economy slowly transitioning. Datong emerging as a data cluster leveraging cheap coal-fired power. Provincial plans mention semiconductors and digital industries but no material investment yet. The tournament calculus: Shanxi has cheap power and land but lacks talent, infrastructure, and proximity to IC demand centers -- DC infrastructure is the only realistic play.",
+    "investments": {
+      "semiconductor": [],
+      "ai_compute": [
+        {
+          "year": 2020,
+          "source": "China Unicom (Zhonglian Green DC)",
+          "target": "Zhonglian Green Big Data Industrial Base (Datong)",
+          "amount_b_cny": 30.0,
+          "type": "infrastructure",
+          "status": "active",
+          "citation": "https://www.cnr.cn/sx/dslb/20250412/t20250412_527133058.shtml",
+          "note": "30B CNY total investment."
+        },
+        {
+          "year": 2024,
+          "source": "ByteDance (Volcengine / Huoshan Cloud)",
+          "target": "Taihang Computing Center (Datong) — Phase 1 + Phase 2",
+          "amount_b_cny": 7.3,
+          "type": "infrastructure",
+          "status": "active",
+          "citation": "https://finance.sina.com.cn/roll/2025-03-23/doc-ineqrawq0962275.shtml",
+          "note": "Phase 1 ~2.8B CNY, Phase 2 ~4.5B CNY. ByteDance/Volcengine."
+        },
+        {
+          "year": 2024,
+          "source": "JD.com",
+          "target": "JD North China (Datong Lingqiu) Smart Computing Data Center Base",
+          "amount_b_cny": 2.5,
+          "type": "infrastructure",
+          "status": "active",
+          "citation": "https://www.cnr.cn/sx/dslb/20250412/t20250412_527133058.shtml",
+          "note": "2.5B CNY total investment."
+        },
+        {
+          "year": null,
+          "source": "Multiple",
+          "target": "Datong Computing City — total planned investment",
+          "amount_b_cny": 44.2,
+          "type": "infrastructure",
+          "status": "planned",
+          "citation": "https://news.qq.com/rain/a/20241122A079PF00",
+          "note": "442B CNY total planned. 282B cumulative completed. 73.6万 servers operational, ~25K P computing power."
+        }
+      ]
+    },
+    "sources": {
+      "ic_revenue": "CSIA 2024 Annual Report",
+      "gdp": "NBS 2023 Statistical Communique",
+      "rd_intensity": "NBS 2023 S&T Expenditure Report",
+      "computing_power": "ODCC 2024 Computing Power Index",
+      "power_price": "NDRC 36-city industrial price monitor 2024",
+      "population": "NBS 2023 population data"
+    }
+  },
+  "650000": {
+    "name_en": "Xinjiang",
+    "name_cn": "新疆",
+    "region": "Northwest China",
+    "metrics": {
+      "composite_score": {
+        "value": 11.5,
+        "unit": "index",
+        "label": "Overall Score"
+      },
+      "ic_revenue": {
+        "value": 0,
+        "unit": "B_CNY",
+        "label": "IC Revenue (B CNY)"
+      },
+      "computing_power": {
+        "value": 25,
+        "unit": "index",
+        "label": "Computing Power Index"
+      },
+      "gov_investment": {
+        "value": 1,
+        "unit": "B_CNY",
+        "label": "Gov IC/AI Investment (B CNY)"
+      },
+      "rd_intensity": {
+        "value": 0.56,
+        "unit": "pct",
+        "label": "R&D Intensity (% GDP)"
+      },
+      "power_price": {
+        "value": 0.37,
+        "unit": "CNY/kWh",
+        "label": "Industrial Power Price"
+      }
+    },
+    "economic": {
+      "gdp_b_cny": 1910,
+      "gdp_per_capita_cny": 73518,
+      "population_m": 25.98,
+      "electricity_twh": 280
+    },
+    "ai_compute": {
+      "ai_companies": 5,
+      "smart_computing_centers": 2,
+      "dc_capacity_mw": 100,
+      "computing_hub": null
+    },
+    "companies": [
+      {
+        "name": "Xinjiang East Hope New Energy",
+        "sector": "Polysilicon"
+      },
+      {
+        "name": "Xinte Energy (TBEA subsidiary)",
+        "sector": "Polysilicon"
+      },
+      {
+        "name": "Daqo New Energy",
+        "sector": "Polysilicon"
+      }
+    ],
+    "fabs": [],
+    "notes": "China's (and the world's) polysilicon production heartland -- ultra-cheap coal power drives solar-grade polysilicon. China produced 93.5% of global polysilicon in 2024 with Xinjiang as the largest producing region. The cheapest power in China at 0.37 CNY/kWh makes it a candidate for 'East Data West Computing' expansion, but remoteness and political sensitivity limit data center growth.",
+    "investments": {
+      "semiconductor": [],
+      "ai_compute": [
+        {
+          "year": 2024,
+          "source": "Multiple (Liantai Cluster, Yunda Energy, JD Cloud, etc.)",
+          "target": "Hami Computing Power Projects — 6 projects signed",
+          "amount_b_cny": 21.0,
+          "type": "infrastructure",
+          "status": "active",
+          "citation": "https://www.xinjiang.gov.cn/xinjiang/dzdt/202404/af4f8ae510334eb89811b9c3aef91d02.shtml",
+          "note": "210B CNY total across 6 computing projects. Includes 2x 2000P and 2x 1000P smart computing centers."
+        },
+        {
+          "year": 2020,
+          "source": "Multiple",
+          "target": "Karamay Cloud Computing Industrial Park",
+          "amount_b_cny": null,
+          "type": "infrastructure",
+          "status": "active",
+          "citation": "https://finance.sina.com.cn/jjxw/2024-10-22/doc-inctkert5122405.shtml",
+          "note": "68K+ racks built. 70% of national rendering capacity. 3000+ film projects. Includes Huawei Cloud, PetroChina DC. Specific investment not consolidated."
+        }
+      ]
+    },
+    "sources": {
+      "ic_revenue": "CSIA 2024 Annual Report",
+      "gdp": "NBS 2023 Statistical Communique",
+      "rd_intensity": "NBS 2023 S&T Expenditure Report",
+      "computing_power": "ODCC 2024 Computing Power Index",
+      "power_price": "NDRC 36-city industrial price monitor 2024",
+      "population": "NBS 2023 population data"
+    }
   },
   "360000": {
     "name_en": "Jiangxi",
@@ -1475,35 +3500,47 @@
     "region": "East China",
     "metrics": {
       "composite_score": {
-        "value": 10.1,
+        "value": 13.5,
         "unit": "index",
         "label": "Overall Score"
       },
-      "fab_capacity": {
+      "ic_revenue": {
         "value": 5,
-        "unit": "kwpm",
-        "label": "Fab Capacity (KWPM)"
-      },
-      "ai_compute_power": {
-        "value": 15,
-        "unit": "MW",
-        "label": "AI Compute Power (MW)"
-      },
-      "gov_subsidies": {
-        "value": 3.5,
         "unit": "B_CNY",
-        "label": "Gov Subsidies (B CNY)"
+        "label": "IC Revenue (B CNY)"
       },
-      "stem_graduates": {
-        "value": 100000,
-        "unit": "annual",
-        "label": "STEM Graduates"
+      "computing_power": {
+        "value": 18,
+        "unit": "index",
+        "label": "Computing Power Index"
       },
-      "tech_gdp_share": {
-        "value": 2.5,
+      "gov_investment": {
+        "value": 3,
+        "unit": "B_CNY",
+        "label": "Gov IC/AI Investment (B CNY)"
+      },
+      "rd_intensity": {
+        "value": 1.76,
         "unit": "pct",
-        "label": "Tech GDP %"
+        "label": "R&D Intensity (% GDP)"
+      },
+      "power_price": {
+        "value": 0.6,
+        "unit": "CNY/kWh",
+        "label": "Industrial Power Price"
       }
+    },
+    "economic": {
+      "gdp_b_cny": 3220,
+      "gdp_per_capita_cny": 71845,
+      "population_m": 44.82,
+      "electricity_twh": 190
+    },
+    "ai_compute": {
+      "ai_companies": 15,
+      "smart_computing_centers": 2,
+      "dc_capacity_mw": 80,
+      "computing_hub": null
     },
     "companies": [
       {
@@ -1531,218 +3568,41 @@
         "status": "Operating"
       }
     ],
-    "notes": "Nanchang is one of China's four largest LED industrial areas, pioneering silicon substrate GaN LED technology. LED industry targeting CNY50B scale by 2026. Jinko Solar anchors the solar supply chain. No mainstream logic/memory fab presence. Primarily a materials and LED packaging hub."
-  },
-  "130000": {
-    "name_en": "Hebei",
-    "name_cn": "河北",
-    "region": "North China",
-    "metrics": {
-      "composite_score": {
-        "value": 9.5,
-        "unit": "index",
-        "label": "Overall Score"
-      },
-      "fab_capacity": {
-        "value": 2,
-        "unit": "kwpm",
-        "label": "Fab Capacity (KWPM)"
-      },
-      "ai_compute_power": {
-        "value": 20,
-        "unit": "MW",
-        "label": "AI Compute Power (MW)"
-      },
-      "gov_subsidies": {
-        "value": 2.0,
-        "unit": "B_CNY",
-        "label": "Gov Subsidies (B CNY)"
-      },
-      "stem_graduates": {
-        "value": 150000,
-        "unit": "annual",
-        "label": "STEM Graduates"
-      },
-      "tech_gdp_share": {
-        "value": 2.0,
-        "unit": "pct",
-        "label": "Tech GDP %"
-      }
+    "notes": "Nanchang is one of China's four largest LED industrial areas, pioneering silicon substrate GaN LED technology. LED industry targeting 50B CNY by 2026. No mainstream logic/memory fab presence. Jiangxi has not made significant tournament bets in semiconductors, focusing instead on materials and LED packaging as a lower-cost complement to neighboring YRD provinces.",
+    "investments": {
+      "semiconductor": [
+        {
+          "year": 2017,
+          "source": "Cambricon (subsidiary)",
+          "target": "Cambricon Semiconductor Equipment Nanchang — MOCVD production",
+          "amount_b_cny": 0.1,
+          "type": "capex",
+          "status": "active",
+          "citation": "https://m.thepaper.cn/newsDetail_forward_31723046",
+          "note": "Phase 2 ~1B CNY. MOCVD equipment production/R&D. Nanchang High-tech Zone."
+        }
+      ],
+      "ai_compute": [
+        {
+          "year": 2025,
+          "source": "Longi / Qualcomm",
+          "target": "Longi Nanchang AI PC Factory",
+          "amount_b_cny": 0.15,
+          "type": "capex",
+          "status": "active",
+          "citation": "https://m.thepaper.cn/newsDetail_forward_31723046",
+          "note": "~1.5B CNY. AI PC manufacturing with Qualcomm chip platform. Partnerships with Lenovo, Honor."
+        }
+      ]
     },
-    "companies": [
-      {
-        "name": "13th Research Institute (CETC)",
-        "sector": "Compound Semi R&D"
-      }
-    ],
-    "fabs": [],
-    "notes": "Limited semiconductor presence. Proximity to Beijing creates some spillover in Langfang and Baoding. CETC 13th Research Institute in Shijiazhuang works on GaAs/GaN compound semiconductors for defense. Large STEM graduate base from provincial universities but most talent flows to Beijing."
-  },
-  "150000": {
-    "name_en": "Inner Mongolia",
-    "name_cn": "内蒙古",
-    "region": "North China",
-    "metrics": {
-      "composite_score": {
-        "value": 9.3,
-        "unit": "index",
-        "label": "Overall Score"
-      },
-      "fab_capacity": {
-        "value": 0,
-        "unit": "kwpm",
-        "label": "Fab Capacity (KWPM)"
-      },
-      "ai_compute_power": {
-        "value": 150,
-        "unit": "MW",
-        "label": "AI Compute Power (MW)"
-      },
-      "gov_subsidies": {
-        "value": 0.5,
-        "unit": "B_CNY",
-        "label": "Gov Subsidies (B CNY)"
-      },
-      "stem_graduates": {
-        "value": 45000,
-        "unit": "annual",
-        "label": "STEM Graduates"
-      },
-      "tech_gdp_share": {
-        "value": 1.5,
-        "unit": "pct",
-        "label": "Tech GDP %"
-      }
-    },
-    "companies": [
-      {
-        "name": "China Telecom Inner Mongolia Info Park",
-        "sector": "Datacenter"
-      },
-      {
-        "name": "China Mobile Hohhot AI Center",
-        "sector": "AI Computing"
-      }
-    ],
-    "fabs": [],
-    "notes": "Major datacenter hub driven by cheap power and cold climate. Hohhot computing capacity targeting 100K petaflops by end 2025. Ulanqab has 56 data centers with 68K petaflops as of early 2025 (targeting 120K). China Mobile operates the world's largest single-unit telecom intelligent computing center in Hohhot (6,700 petaflops peak). Over 80% of DC energy from renewables. Green computing capacity reached 94K petaflops in 2024. No fab presence."
-  },
-  "640000": {
-    "name_en": "Ningxia",
-    "name_cn": "宁夏",
-    "region": "Northwest China",
-    "metrics": {
-      "composite_score": {
-        "value": 9.1,
-        "unit": "index",
-        "label": "Overall Score"
-      },
-      "fab_capacity": {
-        "value": 0,
-        "unit": "kwpm",
-        "label": "Fab Capacity (KWPM)"
-      },
-      "ai_compute_power": {
-        "value": 120,
-        "unit": "MW",
-        "label": "AI Compute Power (MW)"
-      },
-      "gov_subsidies": {
-        "value": 0.5,
-        "unit": "B_CNY",
-        "label": "Gov Subsidies (B CNY)"
-      },
-      "stem_graduates": {
-        "value": 20000,
-        "unit": "annual",
-        "label": "STEM Graduates"
-      },
-      "tech_gdp_share": {
-        "value": 2.5,
-        "unit": "pct",
-        "label": "Tech GDP %"
-      }
-    },
-    "companies": [
-      {
-        "name": "Ferrotec Ningxia",
-        "sector": "Materials"
-      },
-      {
-        "name": "Chindata",
-        "sector": "Datacenter"
-      }
-    ],
-    "fabs": [
-      {
-        "name": "Ferrotec Ningxia 8-inch Wafer Line",
-        "node": "Substrate",
-        "capacity_kwpm": 0,
-        "status": "Operating",
-        "sector": "Materials"
-      },
-      {
-        "name": "Ferrotec Ningxia 12-inch Wafer Line",
-        "node": "Substrate",
-        "capacity_kwpm": 0,
-        "status": "Operating",
-        "sector": "Materials"
-      }
-    ],
-    "notes": "Zhongwei Cloud Computing Base: 121K racks, 88K+ GPU cards, 44K PFLOPS. Ferrotec silicon wafer substrate production. Chindata 1.2GW/$3.3B cluster. AWS presence."
-  },
-  "220000": {
-    "name_en": "Jilin",
-    "name_cn": "吉林",
-    "region": "Northeast China",
-    "metrics": {
-      "composite_score": {
-        "value": 6.9,
-        "unit": "index",
-        "label": "Overall Score"
-      },
-      "fab_capacity": {
-        "value": 2,
-        "unit": "kwpm",
-        "label": "Fab Capacity (KWPM)"
-      },
-      "ai_compute_power": {
-        "value": 12,
-        "unit": "MW",
-        "label": "AI Compute Power (MW)"
-      },
-      "gov_subsidies": {
-        "value": 1.5,
-        "unit": "B_CNY",
-        "label": "Gov Subsidies (B CNY)"
-      },
-      "stem_graduates": {
-        "value": 75000,
-        "unit": "annual",
-        "label": "STEM Graduates"
-      },
-      "tech_gdp_share": {
-        "value": 2.5,
-        "unit": "pct",
-        "label": "Tech GDP %"
-      }
-    },
-    "companies": [
-      {
-        "name": "Changchun New Industries Optoelectronics",
-        "sector": "Lasers/Optoelectronics"
-      },
-      {
-        "name": "Chang Guang Satellite",
-        "sector": "Remote Sensing"
-      },
-      {
-        "name": "Jilin OLED Material Tech",
-        "sector": "Display Materials"
-      }
-    ],
-    "fabs": [],
-    "notes": "Strong optoelectronics cluster in Changchun. Total optoelectronic information industry output exceeded 90B CNY in 2024 (7.1% growth), targeting 100B CNY in 2025. Changchun International Optoelectronic Expo drew 670+ exhibitors across 70K sqm. Chang Guang Satellite operates China's largest commercial remote sensing constellation (Jilin-1) with 100% component localization. MINI-LED, OLED materials, and lithography photoresist development underway. Legacy automotive electronics from FAW Group."
+    "sources": {
+      "ic_revenue": "CSIA 2024 Annual Report",
+      "gdp": "NBS 2023 Statistical Communique",
+      "rd_intensity": "NBS 2023 S&T Expenditure Report",
+      "computing_power": "ODCC 2024 Computing Power Index",
+      "power_price": "NDRC 36-city industrial price monitor 2024",
+      "population": "NBS 2023 population data"
+    }
   },
   "450000": {
     "name_en": "Guangxi",
@@ -1750,35 +3610,47 @@
     "region": "South China",
     "metrics": {
       "composite_score": {
-        "value": 5.1,
+        "value": 9.8,
         "unit": "index",
         "label": "Overall Score"
       },
-      "fab_capacity": {
+      "ic_revenue": {
         "value": 1,
-        "unit": "kwpm",
-        "label": "Fab Capacity (KWPM)"
-      },
-      "ai_compute_power": {
-        "value": 5,
-        "unit": "MW",
-        "label": "AI Compute Power (MW)"
-      },
-      "gov_subsidies": {
-        "value": 0.8,
         "unit": "B_CNY",
-        "label": "Gov Subsidies (B CNY)"
+        "label": "IC Revenue (B CNY)"
       },
-      "stem_graduates": {
-        "value": 65000,
-        "unit": "annual",
-        "label": "STEM Graduates"
+      "computing_power": {
+        "value": 15,
+        "unit": "index",
+        "label": "Computing Power Index"
       },
-      "tech_gdp_share": {
-        "value": 1.2,
+      "gov_investment": {
+        "value": 11,
+        "unit": "B_CNY",
+        "label": "Gov IC/AI Investment (B CNY)"
+      },
+      "rd_intensity": {
+        "value": 0.9,
         "unit": "pct",
-        "label": "Tech GDP %"
+        "label": "R&D Intensity (% GDP)"
+      },
+      "power_price": {
+        "value": 0.57,
+        "unit": "CNY/kWh",
+        "label": "Industrial Power Price"
       }
+    },
+    "economic": {
+      "gdp_b_cny": 2720,
+      "gdp_per_capita_cny": 54124,
+      "population_m": 50.27,
+      "electricity_twh": 210
+    },
+    "ai_compute": {
+      "ai_companies": 10,
+      "smart_computing_centers": 2,
+      "dc_capacity_mw": 80,
+      "computing_hub": null
     },
     "companies": [
       {
@@ -1794,47 +3666,40 @@
         "status": "Operating"
       }
     ],
-    "notes": "Nascent semiconductor presence. Hot Chip Semiconductor project filled Guangxi FTZ's gap in semiconductor manufacturing. Electronic information manufacturing industry output exceeds 20B CNY in the Nanning FTZ area. Focus on ASEAN trade gateway role rather than high-tech manufacturing. Nanning FTZ added 13,000 new enterprises in 2023."
-  },
-  "140000": {
-    "name_en": "Shanxi",
-    "name_cn": "山西",
-    "region": "North China",
-    "metrics": {
-      "composite_score": {
-        "value": 5.0,
-        "unit": "index",
-        "label": "Overall Score"
-      },
-      "fab_capacity": {
-        "value": 0,
-        "unit": "kwpm",
-        "label": "Fab Capacity (KWPM)"
-      },
-      "ai_compute_power": {
-        "value": 12,
-        "unit": "MW",
-        "label": "AI Compute Power (MW)"
-      },
-      "gov_subsidies": {
-        "value": 1.0,
-        "unit": "B_CNY",
-        "label": "Gov Subsidies (B CNY)"
-      },
-      "stem_graduates": {
-        "value": 80000,
-        "unit": "annual",
-        "label": "STEM Graduates"
-      },
-      "tech_gdp_share": {
-        "value": 1.5,
-        "unit": "pct",
-        "label": "Tech GDP %"
-      }
+    "notes": "Guangxi's 11B CNY Guilin smart computing project is a notable tournament bid from an otherwise peripheral province. ASEAN trade gateway role gives some downstream electronics demand. Hot Chip Semiconductor filled a basic gap in semiconductor manufacturing. The province is largely a bystander in the IC tournament but making targeted compute infrastructure investments.",
+    "investments": {
+      "semiconductor": [],
+      "ai_compute": [
+        {
+          "year": 2024,
+          "source": "Guilin Economic Development Zone",
+          "target": "Guilin 10000P Green Smart Computing Center (桂林万P绿色智算中心)",
+          "amount_b_cny": 11.0,
+          "type": "infrastructure",
+          "status": "active",
+          "citation": "https://www.sohu.com/a/826448133_121754516",
+          "note": "Phase 1 ~1B CNY (1000P, target Jan 2025). Phase 2 ~10B CNY (10000P total). Leverages Huawei cloud DC."
+        },
+        {
+          "year": 2023,
+          "source": "Nanning / Huawei",
+          "target": "China-ASEAN AI Computing Center (中国-东盟人工智能计算中心)",
+          "amount_b_cny": null,
+          "type": "infrastructure",
+          "status": "active",
+          "citation": "http://gx.chinadaily.com.cn/a/202310/07/WS6521201ba310936092f24e6b.html",
+          "note": "Located in Nanning. Specific investment undisclosed. Serving Guangxi AI + ASEAN cooperation."
+        }
+      ]
     },
-    "companies": [],
-    "fabs": [],
-    "notes": "Coal-dominated economy transitioning to renewables. Provincial plans mention boosting semiconductors and digital industries, with breakthroughs in carbon-based semiconductor materials. Advanced coal production at 83% of capacity. Photovoltaic industry chain targeting 100B CNY output by 2025. No commercial fab activity."
+    "sources": {
+      "ic_revenue": "CSIA 2024 Annual Report",
+      "gdp": "NBS 2023 Statistical Communique",
+      "rd_intensity": "NBS 2023 S&T Expenditure Report",
+      "computing_power": "ODCC 2024 Computing Power Index",
+      "power_price": "NDRC 36-city industrial price monitor 2024",
+      "population": "NBS 2023 population data"
+    }
   },
   "230000": {
     "name_en": "Heilongjiang",
@@ -1842,35 +3707,47 @@
     "region": "Northeast China",
     "metrics": {
       "composite_score": {
-        "value": 4.9,
+        "value": 11.5,
         "unit": "index",
         "label": "Overall Score"
       },
-      "fab_capacity": {
+      "ic_revenue": {
         "value": 0,
-        "unit": "kwpm",
-        "label": "Fab Capacity (KWPM)"
-      },
-      "ai_compute_power": {
-        "value": 10,
-        "unit": "MW",
-        "label": "AI Compute Power (MW)"
-      },
-      "gov_subsidies": {
-        "value": 1.0,
         "unit": "B_CNY",
-        "label": "Gov Subsidies (B CNY)"
+        "label": "IC Revenue (B CNY)"
       },
-      "stem_graduates": {
-        "value": 70000,
-        "unit": "annual",
-        "label": "STEM Graduates"
+      "computing_power": {
+        "value": 20,
+        "unit": "index",
+        "label": "Computing Power Index"
       },
-      "tech_gdp_share": {
-        "value": 1.5,
+      "gov_investment": {
+        "value": 2,
+        "unit": "B_CNY",
+        "label": "Gov IC/AI Investment (B CNY)"
+      },
+      "rd_intensity": {
+        "value": 1.48,
         "unit": "pct",
-        "label": "Tech GDP %"
+        "label": "R&D Intensity (% GDP)"
+      },
+      "power_price": {
+        "value": 0.57,
+        "unit": "CNY/kWh",
+        "label": "Industrial Power Price"
       }
+    },
+    "economic": {
+      "gdp_b_cny": 1590,
+      "gdp_per_capita_cny": 51489,
+      "population_m": 30.88,
+      "electricity_twh": 120
+    },
+    "ai_compute": {
+      "ai_companies": 15,
+      "smart_computing_centers": 2,
+      "dc_capacity_mw": 100,
+      "computing_hub": null
     },
     "companies": [
       {
@@ -1879,7 +3756,60 @@
       }
     ],
     "fabs": [],
-    "notes": "Harbin Institute of Technology (ranked 3rd globally in Engineering, 2024) is the anchor institution. HIT announced successful development of a 13.5nm EUV lithography light source in early 2025, a breakthrough for China's lithography ambitions. Professor Zhao Yongpeng's team won first prize in provincial innovation competition for the discharge plasma EUV light source. No commercial fab or IC design industry. Heavy industry and agriculture dominate the economy."
+    "notes": "HIT's 13.5nm EUV lithography light source breakthrough in early 2025 is the province's main semiconductor contribution. Harbin 200MW DC facility represents a modest compute infrastructure play. No commercial IC industry. HIT produces top talent but most graduates migrate to coastal provinces -- the brain drain undermines any tournament potential.",
+    "investments": {
+      "semiconductor": [],
+      "ai_compute": [
+        {
+          "year": 2024,
+          "source": "China Mobile",
+          "target": "China Mobile AI Computing Center (Harbin) — world's largest carrier single-cluster smart computing center",
+          "amount_b_cny": null,
+          "type": "infrastructure",
+          "status": "active",
+          "citation": "https://www.hlj.gov.cn/hlj/c107856/202408/c00_31764518.shtml",
+          "note": "6.9 EFLOPS smart computing. 100% domestic AI chips. Largest carrier single-cluster globally. Specific CAPEX not disclosed separately."
+        },
+        {
+          "year": 2024,
+          "source": "Harbin Hatou Digital Technology",
+          "target": "Harbin smart computing center project",
+          "amount_b_cny": 2.5,
+          "type": "infrastructure",
+          "status": "active",
+          "citation": "https://www.dtdata.cn/news/show/2873.html",
+          "note": "2.5B CNY. 4000P FP8 peak computing."
+        },
+        {
+          "year": 2024,
+          "source": "Harbin Haiyun Data Technology",
+          "target": "Distributed computing center project",
+          "amount_b_cny": 1.5,
+          "type": "infrastructure",
+          "status": "active",
+          "citation": "https://www.dtdata.cn/news/show/2873.html",
+          "note": "1.5B CNY investment."
+        },
+        {
+          "year": 2024,
+          "source": "Daxinganling region",
+          "target": "Daxinganling smart computing center",
+          "amount_b_cny": 5.0,
+          "type": "infrastructure",
+          "status": "active",
+          "citation": "https://www.dtdata.cn/news/show/2873.html",
+          "note": "5B CNY investment."
+        }
+      ]
+    },
+    "sources": {
+      "ic_revenue": "CSIA 2024 Annual Report",
+      "gdp": "NBS 2023 Statistical Communique",
+      "rd_intensity": "NBS 2023 S&T Expenditure Report",
+      "computing_power": "ODCC 2024 Computing Power Index",
+      "power_price": "NDRC 36-city industrial price monitor 2024",
+      "population": "NBS 2023 population data"
+    }
   },
   "530000": {
     "name_en": "Yunnan",
@@ -1887,35 +3817,47 @@
     "region": "Southwest China",
     "metrics": {
       "composite_score": {
-        "value": 4.4,
+        "value": 10.4,
         "unit": "index",
         "label": "Overall Score"
       },
-      "fab_capacity": {
+      "ic_revenue": {
         "value": 0,
-        "unit": "kwpm",
-        "label": "Fab Capacity (KWPM)"
-      },
-      "ai_compute_power": {
-        "value": 5,
-        "unit": "MW",
-        "label": "AI Compute Power (MW)"
-      },
-      "gov_subsidies": {
-        "value": 0.8,
         "unit": "B_CNY",
-        "label": "Gov Subsidies (B CNY)"
+        "label": "IC Revenue (B CNY)"
       },
-      "stem_graduates": {
-        "value": 50000,
-        "unit": "annual",
-        "label": "STEM Graduates"
+      "computing_power": {
+        "value": 15,
+        "unit": "index",
+        "label": "Computing Power Index"
       },
-      "tech_gdp_share": {
+      "gov_investment": {
+        "value": 1,
+        "unit": "B_CNY",
+        "label": "Gov IC/AI Investment (B CNY)"
+      },
+      "rd_intensity": {
         "value": 1.0,
         "unit": "pct",
-        "label": "Tech GDP %"
+        "label": "R&D Intensity (% GDP)"
+      },
+      "power_price": {
+        "value": 0.41,
+        "unit": "CNY/kWh",
+        "label": "Industrial Power Price"
       }
+    },
+    "economic": {
+      "gdp_b_cny": 3010,
+      "gdp_per_capita_cny": 64275,
+      "population_m": 46.83,
+      "electricity_twh": 280
+    },
+    "ai_compute": {
+      "ai_companies": 10,
+      "smart_computing_centers": 1,
+      "dc_capacity_mw": 80,
+      "computing_hub": null
     },
     "companies": [
       {
@@ -1932,7 +3874,41 @@
       }
     ],
     "fabs": [],
-    "notes": "No semiconductor fabs but critical strategic role in semiconductor materials supply chain. Yunnan is a major source of germanium -- China controls 83% of global germanium production and Yunnan is one of the top producing provinces alongside Inner Mongolia and Jiangxi. Yunnan Germanium Industry produced 34 metric tons of material-grade germanium in 2024, plus infrared-grade, PV-grade (491K pieces), and fiber-optic-grade germanium products. Plans to produce 200K gallium arsenide wafers and 83K indium phosphide wafers in 2025 (compound semiconductor substrates). China restricted export of germanium, gallium, and antimony to the US in Dec 2024, elevating Yunnan's strategic importance. Sichuan-Yunnan-Guizhou region also has germanium/gallium-rich zinc deposits."
+    "notes": "Yunnan's strategic role is upstream materials: germanium production for compound semiconductors. China controls 83% of global germanium and restricted exports to the US in Dec 2024, elevating Yunnan's strategic importance. Plans to produce 200K gallium arsenide wafers and 83K indium phosphide wafers in 2025. Cheap hydro power at 0.41 CNY/kWh could support DC buildout but remoteness limits growth.",
+    "investments": {
+      "semiconductor": [
+        {
+          "year": null,
+          "source": "Yunnan City Investment Group (云南城投)",
+          "target": "Yunnan Silicon Smart Technology Town (云硅智能科技小镇) — wafer + packaging",
+          "amount_b_cny": null,
+          "type": "capex",
+          "status": "planned",
+          "citation": "https://yn.yunnan.cn/system/2019/03/22/030233689.shtml",
+          "note": "9000 mu site planned: 500B/yr smart terminal factory, 600万-wafer silicon fab, discrete device fab, and packaging/test. Status unclear."
+        }
+      ],
+      "ai_compute": [
+        {
+          "year": 2022,
+          "source": "Yunnan Provincial Government / Huawei",
+          "target": "Kunming AI Computing Center (昆明人工智能计算中心)",
+          "amount_b_cny": null,
+          "type": "infrastructure",
+          "status": "planned",
+          "citation": "https://zhuanlan.zhihu.com/p/669011183",
+          "note": "400P planned scale, Phase 1 42P operational. Serving 40+ institutions. Specific investment amount not disclosed."
+        }
+      ]
+    },
+    "sources": {
+      "ic_revenue": "CSIA 2024 Annual Report",
+      "gdp": "NBS 2023 Statistical Communique",
+      "rd_intensity": "NBS 2023 S&T Expenditure Report",
+      "computing_power": "ODCC 2024 Computing Power Index",
+      "power_price": "NDRC 36-city industrial price monitor 2024",
+      "population": "NBS 2023 population data"
+    }
   },
   "620000": {
     "name_en": "Gansu",
@@ -1940,101 +3916,218 @@
     "region": "Northwest China",
     "metrics": {
       "composite_score": {
-        "value": 3.8,
+        "value": 12.4,
         "unit": "index",
         "label": "Overall Score"
       },
-      "fab_capacity": {
-        "value": 0,
-        "unit": "kwpm",
-        "label": "Fab Capacity (KWPM)"
-      },
-      "ai_compute_power": {
-        "value": 8,
-        "unit": "MW",
-        "label": "AI Compute Power (MW)"
-      },
-      "gov_subsidies": {
-        "value": 1.0,
+      "ic_revenue": {
+        "value": 5,
         "unit": "B_CNY",
-        "label": "Gov Subsidies (B CNY)"
+        "label": "IC Revenue (B CNY)"
       },
-      "stem_graduates": {
-        "value": 40000,
-        "unit": "annual",
-        "label": "STEM Graduates"
+      "computing_power": {
+        "value": 30,
+        "unit": "index",
+        "label": "Computing Power Index"
       },
-      "tech_gdp_share": {
-        "value": 1.2,
+      "gov_investment": {
+        "value": 2,
+        "unit": "B_CNY",
+        "label": "Gov IC/AI Investment (B CNY)"
+      },
+      "rd_intensity": {
+        "value": 1.44,
         "unit": "pct",
-        "label": "Tech GDP %"
+        "label": "R&D Intensity (% GDP)"
+      },
+      "power_price": {
+        "value": 0.47,
+        "unit": "CNY/kWh",
+        "label": "Industrial Power Price"
       }
+    },
+    "economic": {
+      "gdp_b_cny": 1180,
+      "gdp_per_capita_cny": 47871,
+      "population_m": 24.65,
+      "electricity_twh": 150
+    },
+    "ai_compute": {
+      "ai_companies": 5,
+      "smart_computing_centers": 3,
+      "dc_capacity_mw": 80,
+      "computing_hub": "Qingyang"
     },
     "companies": [
       {
         "name": "Tianshui Huatian Technology (HT-Tech)",
         "sector": "OSAT/Packaging"
-      },
-      {
-        "name": "Huatian Technology",
-        "sector": "OSAT"
       }
     ],
     "fabs": [],
-    "notes": "Huatian Technology (Tianshui) — one of China's largest OSAT companies (SiP, TSV, Fan-Out). Rare earth processing."
+    "notes": "Huatian Technology (Tianshui) is one of China's largest OSAT companies specializing in SiP, TSV, and Fan-Out packaging -- a rare high-value semiconductor operation in western China. Qingyang designated as a computing hub under 'East Data West Computing'. Gansu's tournament position is niche: backend packaging via Huatian plus cheap-power DC infrastructure.",
+    "investments": {
+      "semiconductor": [
+        {
+          "year": null,
+          "source": "Huatian Technology (华天科技)",
+          "target": "Tianshui Huatian Technology — OSAT headquarters & packaging/test base",
+          "amount_b_cny": null,
+          "type": "capex",
+          "status": "active",
+          "citation": "http://m.chinaaet.com/article/3000064765",
+          "note": "Tianshui is HQ and founding base. Traditional packaging operations. Company overall invested 15B in expansion (mainly Nanjing), but Tianshui-specific capex not separately disclosed."
+        }
+      ],
+      "ai_compute": [
+        {
+          "year": 2022,
+          "source": "China Telecom",
+          "target": "China Telecom East-West Computing Qingyang Computing Center",
+          "amount_b_cny": 0.447,
+          "type": "infrastructure",
+          "status": "active",
+          "citation": "https://www.gsei.com.cn/html/1628/2023-10-31/content-462629.html",
+          "note": "4.47B CNY. Fully operational as of Oct 2023."
+        },
+        {
+          "year": 2023,
+          "source": "China Mobile",
+          "target": "China Mobile (Gansu/Qingyang) Data Center",
+          "amount_b_cny": 27.0,
+          "type": "infrastructure",
+          "status": "planned",
+          "citation": "https://finance.sina.com.cn/jjxw/2024-11-29/doc-incxtvcn8605623.shtml",
+          "note": "~27B CNY total planned. 292 mu site."
+        },
+        {
+          "year": 2023,
+          "source": "Multiple (Qingyang cluster total)",
+          "target": "Qingyang East-West Computing national data center cluster — 2023 projects",
+          "amount_b_cny": 19.81,
+          "type": "infrastructure",
+          "status": "active",
+          "citation": "http://fzzx.jl.gov.cn/tszs/202309/t20230901_8791187.html",
+          "note": "16 major projects in 2023 totaling 198.1B CNY (19.81B)."
+        },
+        {
+          "year": 2024,
+          "source": "Multiple (Qingyang cluster total)",
+          "target": "Qingyang cluster — 2024 digital economy projects total",
+          "amount_b_cny": 96.848,
+          "type": "infrastructure",
+          "status": "planned",
+          "citation": "https://finance.sina.com.cn/jjxw/2024-12-02/doc-incyafyn5422865.shtml",
+          "note": "51 projects totaling 968.48B CNY announced for 2024."
+        }
+      ]
+    },
+    "sources": {
+      "ic_revenue": "CSIA 2024 Annual Report",
+      "gdp": "NBS 2023 Statistical Communique",
+      "rd_intensity": "NBS 2023 S&T Expenditure Report",
+      "computing_power": "ODCC 2024 Computing Power Index",
+      "power_price": "NDRC 36-city industrial price monitor 2024",
+      "population": "NBS 2023 population data"
+    }
   },
-  "650000": {
-    "name_en": "Xinjiang",
-    "name_cn": "新疆",
-    "region": "Northwest China",
+  "220000": {
+    "name_en": "Jilin",
+    "name_cn": "吉林",
+    "region": "Northeast China",
     "metrics": {
       "composite_score": {
-        "value": 3.4,
+        "value": 8.3,
         "unit": "index",
         "label": "Overall Score"
       },
-      "fab_capacity": {
-        "value": 0,
-        "unit": "kwpm",
-        "label": "Fab Capacity (KWPM)"
-      },
-      "ai_compute_power": {
-        "value": 8,
-        "unit": "MW",
-        "label": "AI Compute Power (MW)"
-      },
-      "gov_subsidies": {
-        "value": 0.5,
+      "ic_revenue": {
+        "value": 2,
         "unit": "B_CNY",
-        "label": "Gov Subsidies (B CNY)"
+        "label": "IC Revenue (B CNY)"
       },
-      "stem_graduates": {
-        "value": 30000,
-        "unit": "annual",
-        "label": "STEM Graduates"
+      "computing_power": {
+        "value": 12,
+        "unit": "index",
+        "label": "Computing Power Index"
       },
-      "tech_gdp_share": {
-        "value": 0.6,
+      "gov_investment": {
+        "value": 2,
+        "unit": "B_CNY",
+        "label": "Gov IC/AI Investment (B CNY)"
+      },
+      "rd_intensity": {
+        "value": 1.48,
         "unit": "pct",
-        "label": "Tech GDP %"
+        "label": "R&D Intensity (% GDP)"
+      },
+      "power_price": {
+        "value": 0.57,
+        "unit": "CNY/kWh",
+        "label": "Industrial Power Price"
       }
+    },
+    "economic": {
+      "gdp_b_cny": 1330,
+      "gdp_per_capita_cny": 56888,
+      "population_m": 23.39,
+      "electricity_twh": 90
+    },
+    "ai_compute": {
+      "ai_companies": 8,
+      "smart_computing_centers": 1,
+      "dc_capacity_mw": 40,
+      "computing_hub": null
     },
     "companies": [
       {
-        "name": "Xinjiang East Hope New Energy",
-        "sector": "Polysilicon"
+        "name": "Changchun New Industries Optoelectronics",
+        "sector": "Lasers/Optoelectronics"
       },
       {
-        "name": "Xinte Energy (TBEA subsidiary)",
-        "sector": "Polysilicon"
+        "name": "Chang Guang Satellite",
+        "sector": "Remote Sensing"
       },
       {
-        "name": "Daqo New Energy",
-        "sector": "Polysilicon"
+        "name": "Jilin OLED Material Tech",
+        "sector": "Display Materials"
       }
     ],
     "fabs": [],
-    "notes": "No semiconductor fabs. Xinjiang is China's (and the world's) polysilicon production heartland -- China produced 93.5% of global polysilicon in 2024 and Xinjiang is the largest producing region due to ultra-cheap coal power and industrial electricity rates. East Hope, Xinte Energy, and Daqo are major global polysilicon producers based here. However, this is solar-grade polysilicon, not the electronic-grade (EG) polysilicon used for semiconductor wafers. Some overlap: as China pushes to domesticate EG polysilicon for semiconductor wafers (to supply Ferrotec/Ningxia Zhongxin, etc.), Xinjiang's production infrastructure could play a role. Cheap power also makes it a candidate for 'East Data, West Computing' datacenter expansion."
+    "notes": "Changchun's optoelectronic cluster (90B+ CNY output in 2024) is the province's semiconductor-adjacent asset. Chang Guang Satellite operates China's largest commercial remote sensing constellation (Jilin-1). Not a participant in the IC tournament -- focus remains on optoelectronics and automotive electronics (FAW Group).",
+    "investments": {
+      "semiconductor": [],
+      "ai_compute": [
+        {
+          "year": 2024,
+          "source": "Changchun New District Government",
+          "target": "Changchun New District Smart Computing Center (长春新区智算中心)",
+          "amount_b_cny": 0.8,
+          "type": "infrastructure",
+          "status": "planned",
+          "citation": "http://www.jl.chinanews.com.cn/jlqx/2024-06-03/240292.html",
+          "note": "800M CNY (8B). 200P smart computing, 30K sqm. Under construction for 2024 completion."
+        },
+        {
+          "year": 2023,
+          "source": "Changfa Group / Changchun Jingyue District",
+          "target": "Changchun Computing Center (长春算力中心)",
+          "amount_b_cny": null,
+          "type": "infrastructure",
+          "status": "planned",
+          "citation": "http://jl.people.com.cn/n2/2023/0614/c349771-40456277.html",
+          "note": "Smart computing 100P (planned 300P), supercomputing 5P (planned 10P). Fully domestic tech stack. Specific investment undisclosed."
+        }
+      ]
+    },
+    "sources": {
+      "ic_revenue": "CSIA 2024 Annual Report",
+      "gdp": "NBS 2023 Statistical Communique",
+      "rd_intensity": "NBS 2023 S&T Expenditure Report",
+      "computing_power": "ODCC 2024 Computing Power Index",
+      "power_price": "NDRC 36-city industrial price monitor 2024",
+      "population": "NBS 2023 population data"
+    }
   },
   "460000": {
     "name_en": "Hainan",
@@ -2042,39 +4135,74 @@
     "region": "South China",
     "metrics": {
       "composite_score": {
-        "value": 1.7,
+        "value": 5.8,
         "unit": "index",
         "label": "Overall Score"
       },
-      "fab_capacity": {
+      "ic_revenue": {
         "value": 0,
-        "unit": "kwpm",
-        "label": "Fab Capacity (KWPM)"
-      },
-      "ai_compute_power": {
-        "value": 5,
-        "unit": "MW",
-        "label": "AI Compute Power (MW)"
-      },
-      "gov_subsidies": {
-        "value": 0.5,
         "unit": "B_CNY",
-        "label": "Gov Subsidies (B CNY)"
+        "label": "IC Revenue (B CNY)"
       },
-      "stem_graduates": {
-        "value": 20000,
-        "unit": "annual",
-        "label": "STEM Graduates"
+      "computing_power": {
+        "value": 8,
+        "unit": "index",
+        "label": "Computing Power Index"
       },
-      "tech_gdp_share": {
-        "value": 1.0,
+      "gov_investment": {
+        "value": 1,
+        "unit": "B_CNY",
+        "label": "Gov IC/AI Investment (B CNY)"
+      },
+      "rd_intensity": {
+        "value": 0.65,
         "unit": "pct",
-        "label": "Tech GDP %"
+        "label": "R&D Intensity (% GDP)"
+      },
+      "power_price": {
+        "value": 0.62,
+        "unit": "CNY/kWh",
+        "label": "Industrial Power Price"
       }
+    },
+    "economic": {
+      "gdp_b_cny": 730,
+      "gdp_per_capita_cny": 69990,
+      "population_m": 10.43,
+      "electricity_twh": 50
+    },
+    "ai_compute": {
+      "ai_companies": 8,
+      "smart_computing_centers": 1,
+      "dc_capacity_mw": 50,
+      "computing_hub": null
     },
     "companies": [],
     "fabs": [],
-    "notes": "Free Trade Port focus. Island-wide independent customs launched December 2025 with 6,600+ zero-tariff items. 15% corporate tax for encouraged industries. Potential for IC design companies attracted by tax incentives, but no significant semiconductor operations yet. Development emphasis on high-end manufacturing, digital economy, and healthcare rather than semiconductors."
+    "notes": "Hainan Free Trade Port launched Dec 2025 with 15% corporate tax and zero-tariff on 6,600+ items. Potential to attract IC design companies via tax arbitrage, but no semiconductor operations yet. The island's tournament play is purely regulatory -- tax incentives rather than industrial investment or infrastructure.",
+    "investments": {
+      "semiconductor": [
+        {
+          "year": 2025,
+          "source": "Multiple (Hangchip, Xinyao)",
+          "target": "Hainan semiconductor packaging projects — Hangchip Hi-Tech Park + Xinyao PI chip packaging substrate",
+          "amount_b_cny": null,
+          "type": "capex",
+          "status": "active",
+          "citation": "https://www.esmchina.com/marketnews/52622.html",
+          "note": "Part of 554 major projects totaling 85.4B CNY in 2025. Individual amounts not disclosed. Free trade port zero-tariff advantage for equipment imports."
+        }
+      ],
+      "ai_compute": []
+    },
+    "sources": {
+      "ic_revenue": "CSIA 2024 Annual Report",
+      "gdp": "NBS 2023 Statistical Communique",
+      "rd_intensity": "NBS 2023 S&T Expenditure Report",
+      "computing_power": "ODCC 2024 Computing Power Index",
+      "power_price": "NDRC 36-city industrial price monitor 2024",
+      "population": "NBS 2023 population data"
+    }
   },
   "630000": {
     "name_en": "Qinghai",
@@ -2082,35 +4210,47 @@
     "region": "Northwest China",
     "metrics": {
       "composite_score": {
-        "value": 1.5,
+        "value": 5.4,
         "unit": "index",
         "label": "Overall Score"
       },
-      "fab_capacity": {
+      "ic_revenue": {
         "value": 0,
-        "unit": "kwpm",
-        "label": "Fab Capacity (KWPM)"
-      },
-      "ai_compute_power": {
-        "value": 3,
-        "unit": "MW",
-        "label": "AI Compute Power (MW)"
-      },
-      "gov_subsidies": {
-        "value": 0.3,
         "unit": "B_CNY",
-        "label": "Gov Subsidies (B CNY)"
+        "label": "IC Revenue (B CNY)"
       },
-      "stem_graduates": {
-        "value": 15000,
-        "unit": "annual",
-        "label": "STEM Graduates"
+      "computing_power": {
+        "value": 10,
+        "unit": "index",
+        "label": "Computing Power Index"
       },
-      "tech_gdp_share": {
+      "gov_investment": {
         "value": 0.5,
+        "unit": "B_CNY",
+        "label": "Gov IC/AI Investment (B CNY)"
+      },
+      "rd_intensity": {
+        "value": 0.91,
         "unit": "pct",
-        "label": "Tech GDP %"
+        "label": "R&D Intensity (% GDP)"
+      },
+      "power_price": {
+        "value": 0.37,
+        "unit": "CNY/kWh",
+        "label": "Industrial Power Price"
       }
+    },
+    "economic": {
+      "gdp_b_cny": 380,
+      "gdp_per_capita_cny": 63973,
+      "population_m": 5.94,
+      "electricity_twh": 100
+    },
+    "ai_compute": {
+      "ai_companies": 2,
+      "smart_computing_centers": 1,
+      "dc_capacity_mw": 40,
+      "computing_hub": null
     },
     "companies": [
       {
@@ -2119,7 +4259,30 @@
       }
     ],
     "fabs": [],
-    "notes": "No semiconductor fabs. Strategic importance for upstream materials: Qinghai has ~10 million tons of brine lithium reserves (critical for battery production). Qinghai Lihao Qingneng is a top-7 global polysilicon producer (solar-grade, not semi-grade). Some potential for 'East Data, West Computing' datacenter buildout leveraging abundant solar/hydro power. Recent massive lithium ore discoveries across Sichuan-Qinghai corridor."
+    "notes": "Cheapest power in China (tied with Xinjiang at 0.37 CNY/kWh). Strategic lithium reserves (~10M tons brine lithium) for battery production. Qinghai Lihao Qingneng is a top-7 global polysilicon producer. Some potential for 'East Data West Computing' DC buildout on solar/hydro power, but remoteness severely limits tournament competitiveness.",
+    "investments": {
+      "semiconductor": [],
+      "ai_compute": [
+        {
+          "year": 2025,
+          "source": "China Unicom / Alibaba Cloud",
+          "target": "China Unicom-Alibaba Cloud 10K-card Green Computing Project",
+          "amount_b_cny": 2.0,
+          "type": "infrastructure",
+          "status": "active",
+          "citation": "https://jkq.xining.gov.cn/index.php?c=show&id=64613",
+          "note": "Exceeds 2B CNY. Super-large computing center leveraging Qinghai's green energy advantage."
+        }
+      ]
+    },
+    "sources": {
+      "ic_revenue": "CSIA 2024 Annual Report",
+      "gdp": "NBS 2023 Statistical Communique",
+      "rd_intensity": "NBS 2023 S&T Expenditure Report",
+      "computing_power": "ODCC 2024 Computing Power Index",
+      "power_price": "NDRC 36-city industrial price monitor 2024",
+      "population": "NBS 2023 population data"
+    }
   },
   "540000": {
     "name_en": "Tibet",
@@ -2127,38 +4290,72 @@
     "region": "Southwest China",
     "metrics": {
       "composite_score": {
-        "value": 0.3,
+        "value": 1.5,
         "unit": "index",
         "label": "Overall Score"
       },
-      "fab_capacity": {
-        "value": 0,
-        "unit": "kwpm",
-        "label": "Fab Capacity (KWPM)"
-      },
-      "ai_compute_power": {
-        "value": 0,
-        "unit": "MW",
-        "label": "AI Compute Power (MW)"
-      },
-      "gov_subsidies": {
+      "ic_revenue": {
         "value": 0,
         "unit": "B_CNY",
-        "label": "Gov Subsidies (B CNY)"
+        "label": "IC Revenue (B CNY)"
       },
-      "stem_graduates": {
-        "value": 5000,
-        "unit": "annual",
-        "label": "STEM Graduates"
+      "computing_power": {
+        "value": 2,
+        "unit": "index",
+        "label": "Computing Power Index"
       },
-      "tech_gdp_share": {
+      "gov_investment": {
         "value": 0.1,
+        "unit": "B_CNY",
+        "label": "Gov IC/AI Investment (B CNY)"
+      },
+      "rd_intensity": {
+        "value": 0.3,
         "unit": "pct",
-        "label": "Tech GDP %"
+        "label": "R&D Intensity (% GDP)"
+      },
+      "power_price": {
+        "value": 0.52,
+        "unit": "CNY/kWh",
+        "label": "Industrial Power Price"
       }
+    },
+    "economic": {
+      "gdp_b_cny": 240,
+      "gdp_per_capita_cny": 65753,
+      "population_m": 3.65,
+      "electricity_twh": 15
+    },
+    "ai_compute": {
+      "ai_companies": 0,
+      "smart_computing_centers": 0,
+      "dc_capacity_mw": 5,
+      "computing_hub": null
     },
     "companies": [],
     "fabs": [],
-    "notes": "No semiconductor activity. Remote geography, limited infrastructure, and sparse population make it unsuitable for semiconductor manufacturing. Some lithium and rare earth mineral potential in the Tibetan plateau but no extraction for semiconductor use at scale."
+    "notes": "First large AI datacenter commissioned in 2025 but Tibet remains a non-participant in the semiconductor tournament. Remote geography, sparse population, limited infrastructure, and altitude make IC manufacturing impractical. Some lithium and rare earth mineral potential but no extraction at semiconductor-relevant scale.",
+    "investments": {
+      "semiconductor": [],
+      "ai_compute": [
+        {
+          "year": null,
+          "source": null,
+          "target": "No significant semiconductor or AI/compute investments identified",
+          "amount_b_cny": null,
+          "type": null,
+          "status": "active",
+          "note": "Tibet has minimal datacenter/computing infrastructure. No major investments found."
+        }
+      ]
+    },
+    "sources": {
+      "ic_revenue": "CSIA 2024 Annual Report",
+      "gdp": "NBS 2023 Statistical Communique",
+      "rd_intensity": "NBS 2023 S&T Expenditure Report",
+      "computing_power": "ODCC 2024 Computing Power Index",
+      "power_price": "NDRC 36-city industrial price monitor 2024",
+      "population": "NBS 2023 population data"
+    }
   }
 }
