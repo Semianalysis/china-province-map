@@ -508,6 +508,7 @@
     let selectedAdcode = null;
     let paths, labelGroup, clusterGroup;
     let colorScale;
+    let colorScaleMode = 'linear';
     let sortedProvinces = []; // for keyboard nav
     let fabEntities = [];
     let topStories = [];
@@ -605,7 +606,7 @@
     }
 
     const knownMetricOrderSets = [
-        ['ic_revenue', 'ai_compute_pflops', 'gov_investment', 'rd_intensity', 'power_price'],
+        ['ic_revenue', 'ai_compute_pflops', 'rd_intensity', 'power_price'],
     ];
 
     const shortLabelMap = {
@@ -620,25 +621,44 @@
     };
 
     const fundingMetricConfig = {
+        funding_total_investment_b_cny: {
+            source: 'metrics',
+            field: 'gov_investment',
+            label: 'Total Tracked Investment (B CNY)',
+            short: 'Investment',
+            unit: 'B_CNY',
+        },
         funding_semi_b_cny: {
+            source: 'funding_summary',
             field: 'semiconductor_total_b_cny',
             label: 'Semi Funding (B CNY)',
             short: 'Semi Funding',
             unit: 'B_CNY',
         },
         funding_ai_b_cny: {
+            source: 'funding_summary',
             field: 'ai_compute_total_b_cny',
             label: 'AI Funding (B CNY)',
             short: 'AI Funding',
             unit: 'B_CNY',
         },
         funding_total_b_cny: {
+            source: 'funding_summary',
             field: 'grand_total_b_cny',
             label: 'Total Funding (B CNY)',
             short: 'Total Funding',
             unit: 'B_CNY',
         },
     };
+
+    function fundingMetricValue(province, metric) {
+        const cfg = fundingMetricConfig[metric];
+        if (!cfg) return 0;
+        if (cfg.source === 'metrics') {
+            return Number(province?.metrics?.[cfg.field]?.value) || 0;
+        }
+        return Number(province?.funding_summary?.[cfg.field]) || 0;
+    }
 
     function defaultLabelFromKey(key) {
         return key.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
@@ -689,7 +709,7 @@
         }
 
         fundingMetricKeys = Object.keys(fundingMetricConfig).filter(metric =>
-            provinces.some(p => Number.isFinite(Number(p?.funding_summary?.[fundingMetricConfig[metric].field])))
+            provinces.some(p => Number.isFinite(fundingMetricValue(p, metric)))
         );
         fundingMetricMeta = {};
         fundingMetricKeys.forEach(metric => {
@@ -786,8 +806,7 @@
 
     function metricValue(province, metric) {
         if (fundingMetricConfig[metric]) {
-            const field = fundingMetricConfig[metric].field;
-            return Number(province?.funding_summary?.[field]) || 0;
+            return fundingMetricValue(province, metric);
         }
         return Number(province?.metrics?.[metric]?.value) || 0;
     }
@@ -795,7 +814,25 @@
     function makeColorScale(metric) {
         const values = Object.values(provinceData).map(p => metricValue(p, metric));
         const max = Math.max(...values) || 1;
-        return v => saColorInterpolator(v / max);
+        const nonZero = values.filter(v => v > 0);
+        const sortedNonZero = nonZero.slice().sort((a, b) => a - b);
+        const median = sortedNonZero.length ? d3.quantileSorted(sortedNonZero, 0.5) || 0 : 0;
+        const skewRatio = median > 0 ? max / median : Infinity;
+        const sparseOrSkewed = nonZero.length <= 10 || skewRatio >= 8;
+
+        if (!sparseOrSkewed) {
+            colorScaleMode = 'linear';
+            return v => saColorInterpolator(v / max);
+        }
+
+        const sorted = values.slice().sort((a, b) => a - b);
+        const n = Math.max(sorted.length - 1, 1);
+        colorScaleMode = 'rank';
+        return v => {
+            const idx = d3.bisectLeft(sorted, Number(v) || 0);
+            const t = idx / n;
+            return saColorInterpolator(0.08 + 0.92 * t);
+        };
     }
 
     function fmtValue(adcode, metric) {
@@ -1265,7 +1302,7 @@
             stops.push(saColorInterpolator(t) + ' ' + (t * 100) + '%');
         }
         bar.style.background = 'linear-gradient(to right, ' + stops.join(', ') + ')';
-        document.getElementById('legend-label').textContent = '0';
+        document.getElementById('legend-label').textContent = colorScaleMode === 'rank' ? 'low' : '0';
         document.getElementById('legend-max-label').textContent = metricMeta[activeMetric].format(max);
     }
 
